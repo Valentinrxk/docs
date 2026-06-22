@@ -1,217 +1,258 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
+    "title": "OCLÜ API Pública",
+    "description": "API para integrar OCLÜ con sistemas externos (n8n, Make, Zapier, CRMs). Autenticación por API key. Las fechas y horas son hora local de la clínica. La API nunca expone datos clínicos.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://{tenant}.oclucrm.com/api/v1",
+      "description": "Reemplazá {tenant} por el subdominio de tu clínica",
+      "variables": {
+        "tenant": { "default": "tu-clinica" }
+      }
     }
   ],
   "security": [
-    {
-      "bearerAuth": []
-    }
+    { "apiKey": [] }
   ],
   "paths": {
-    "/plants": {
+    "/me": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
+        "summary": "Verificar conexión",
+        "description": "Devuelve el tenant, las sedes accesibles por la key y sus permisos.",
+        "tags": ["General"],
         "responses": {
           "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
+            "description": "OK",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Me" } } }
           },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
+          "401": { "$ref": "#/components/responses/Unauthorized" }
         }
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
+    "/organizations": {
+      "get": {
+        "summary": "Listar sedes",
+        "tags": ["Catálogos"],
         "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Organization" } } } } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
         }
       }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
-        },
+    },
+    "/doctors": {
+      "get": {
+        "summary": "Listar profesionales",
+        "tags": ["Catálogos"],
+        "parameters": [ { "$ref": "#/components/parameters/PerPage" }, { "$ref": "#/components/parameters/Page" } ],
         "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
-          }
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PaginatedDoctors" } } } },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
         }
+      }
+    },
+    "/doctors/{id}/schedules": {
+      "get": {
+        "summary": "Horarios de un profesional",
+        "tags": ["Catálogos"],
+        "parameters": [ { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/DoctorSchedule" } } } } } } }
+        }
+      }
+    },
+    "/doctors/{id}/available-slots": {
+      "get": {
+        "summary": "Horarios disponibles",
+        "description": "Slots libres para un profesional en una fecha, descontando agenda, almuerzo y turnos existentes.",
+        "tags": ["Disponibilidad"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } },
+          { "name": "date", "in": "query", "required": true, "description": "Fecha DD-MM-YYYY", "schema": { "type": "string", "example": "23-06-2026" } },
+          { "name": "duration", "in": "query", "required": false, "description": "Minutos por turno", "schema": { "type": "integer", "example": 30 } }
+        ],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AvailableSlots" } } } }
+        }
+      }
+    },
+    "/services": {
+      "get": {
+        "summary": "Listar prestaciones",
+        "description": "Catálogo de tratamientos con precio.",
+        "tags": ["Catálogos"],
+        "parameters": [ { "$ref": "#/components/parameters/PerPage" }, { "$ref": "#/components/parameters/Page" } ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Service" } } } } } } } }
+      }
+    },
+    "/appointment-statuses": {
+      "get": { "summary": "Estados de cita", "tags": ["Catálogos"], "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/AppointmentStatus" } } } } } } } } }
+    },
+    "/genders": {
+      "get": { "summary": "Géneros", "tags": ["Catálogos"], "responses": { "200": { "description": "OK" } } }
+    },
+    "/countries": {
+      "get": { "summary": "Países", "tags": ["Catálogos"], "responses": { "200": { "description": "OK" } } }
+    },
+    "/phone-prefixes": {
+      "get": { "summary": "Prefijos telefónicos", "tags": ["Catálogos"], "responses": { "200": { "description": "OK" } } }
+    },
+    "/boxes": {
+      "get": {
+        "summary": "Listar consultorios",
+        "tags": ["Catálogos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" } ],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Box" } } } } } } },
+          "400": { "$ref": "#/components/responses/OrgRequired" },
+          "403": { "$ref": "#/components/responses/Forbidden" }
+        }
+      }
+    },
+    "/appointments": {
+      "get": {
+        "summary": "Listar turnos",
+        "tags": ["Turnos"],
+        "parameters": [
+          { "$ref": "#/components/parameters/CurrentOrgId" },
+          { "name": "from", "in": "query", "schema": { "type": "string" }, "description": "Fecha desde (DD-MM-YYYY o YYYY-MM-DD)" },
+          { "name": "to", "in": "query", "schema": { "type": "string" } },
+          { "name": "doctor_id", "in": "query", "schema": { "type": "integer" } },
+          { "name": "status", "in": "query", "schema": { "type": "integer" } },
+          { "name": "patient_id", "in": "query", "schema": { "type": "integer" } },
+          { "$ref": "#/components/parameters/PerPage" },
+          { "$ref": "#/components/parameters/Page" }
+        ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PaginatedAppointments" } } } } }
+      },
+      "post": {
+        "summary": "Crear turno",
+        "description": "Requiere permiso write.",
+        "tags": ["Turnos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" } ],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AppointmentInput" } } } },
+        "responses": {
+          "201": { "description": "Creado", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Appointment" } } } } } },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "403": { "$ref": "#/components/responses/Forbidden" },
+          "422": { "$ref": "#/components/responses/BusinessRule" }
+        }
+      }
+    },
+    "/appointments/{id}": {
+      "get": {
+        "summary": "Ver un turno",
+        "tags": ["Turnos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Appointment" } } } } } }, "404": { "$ref": "#/components/responses/NotFound" } }
+      },
+      "put": {
+        "summary": "Editar / reprogramar turno",
+        "description": "Requiere permiso write. Todos los campos son opcionales; cambiar fecha/hora reprograma.",
+        "tags": ["Turnos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
+        "requestBody": { "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AppointmentUpdate" } } } },
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Appointment" } } } } } }, "404": { "$ref": "#/components/responses/NotFound" }, "422": { "$ref": "#/components/responses/BusinessRule" } }
+      },
+      "delete": {
+        "summary": "Cancelar turno",
+        "description": "Requiere permiso write.",
+        "tags": ["Turnos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
+        "responses": { "200": { "description": "Cancelado" }, "404": { "$ref": "#/components/responses/NotFound" } }
+      }
+    },
+    "/appointments/{id}/history": {
+      "get": {
+        "summary": "Historial del turno",
+        "tags": ["Turnos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
+        "responses": { "200": { "description": "OK" }, "404": { "$ref": "#/components/responses/NotFound" } }
+      }
+    },
+    "/patients/search": {
+      "get": {
+        "summary": "Buscar pacientes por nombre",
+        "tags": ["Pacientes"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "q", "in": "query", "required": true, "description": "Mínimo 3 caracteres", "schema": { "type": "string" } } ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Patient" } } } } } } }, "400": { "$ref": "#/components/responses/ValidationError" } }
+      }
+    },
+    "/patients/find-by-phone": {
+      "get": {
+        "summary": "Buscar paciente por teléfono",
+        "tags": ["Pacientes"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "phone", "in": "query", "required": true, "description": "Mínimo 6 dígitos; matchea por los últimos 8", "schema": { "type": "string" } } ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Patient" } } } } } }, "404": { "$ref": "#/components/responses/NotFound" } }
+      }
+    },
+    "/patients": {
+      "get": {
+        "summary": "Listar pacientes",
+        "tags": ["Pacientes"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "$ref": "#/components/parameters/PerPage" }, { "$ref": "#/components/parameters/Page" } ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PaginatedPatients" } } } } }
+      },
+      "post": {
+        "summary": "Crear paciente",
+        "description": "Requiere permiso write. Solo datos de contacto/identificación (nunca clínicos).",
+        "tags": ["Pacientes"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" } ],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PatientInput" } } } },
+        "responses": {
+          "201": { "description": "Creado", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Patient" } } } } } },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "403": { "$ref": "#/components/responses/Forbidden" }
+        }
+      }
+    },
+    "/patients/{id}": {
+      "get": {
+        "summary": "Ver un paciente",
+        "tags": ["Pacientes"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Patient" } } } } } }, "404": { "$ref": "#/components/responses/NotFound" } }
       }
     }
   },
   "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
+      "apiKey": { "type": "http", "scheme": "bearer", "description": "API key de la clínica. Header: Authorization: Bearer oclu_live_..." }
+    },
+    "parameters": {
+      "CurrentOrgId": { "name": "Current-Org-Id", "in": "header", "required": true, "description": "ID de la sede (ver GET /me)", "schema": { "type": "integer", "example": 1 } },
+      "PerPage": { "name": "per_page", "in": "query", "description": "Resultados por página (máx. 100)", "schema": { "type": "integer", "default": 50 } },
+      "Page": { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } }
+    },
+    "responses": {
+      "Unauthorized": { "description": "API key faltante, inválida o revocada", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+      "Forbidden": { "description": "Sin permiso (scope), sin acceso a la sede, o add-on no habilitado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+      "NotFound": { "description": "No encontrado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+      "OrgRequired": { "description": "Falta el header Current-Org-Id", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+      "ValidationError": { "description": "Datos inválidos", "content": { "application/json": { "schema": { "type": "object", "properties": { "error": { "type": "object" } } } } } },
+      "BusinessRule": { "description": "Regla de negocio (horario fuera de agenda, solapamiento, etc.)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+    },
+    "schemas": {
+      "Error": { "type": "object", "properties": { "error": { "type": "string" }, "code": { "type": "string" } } },
+      "Me": { "type": "object", "properties": { "tenant": { "type": "string" }, "key": { "type": "object", "properties": { "name": { "type": "string" }, "abilities": { "type": "array", "items": { "type": "string" } }, "prefix": { "type": "string" } } }, "organizations": { "type": "array", "items": { "$ref": "#/components/schemas/Organization" } } } },
+      "Organization": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" }, "address": { "type": "string" }, "phone": { "type": "string" }, "email": { "type": "string" }, "start_time": { "type": "string" }, "end_time": { "type": "string" }, "interval": { "type": "string" }, "available_days": { "type": "array", "items": { "type": "integer" } } } },
+      "Doctor": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" }, "specialty": { "type": "string" }, "license_number": { "type": "string" }, "has_google_calendar": { "type": "boolean" } } },
+      "DoctorSchedule": { "type": "object", "properties": { "day_of_week": { "type": "integer" }, "start": { "type": "string" }, "end": { "type": "string" }, "lunch_start": { "type": "string" }, "lunch_end": { "type": "string" }, "slot_duration": { "type": "string" }, "is_working_day": { "type": "boolean" } } },
+      "Service": { "type": "object", "properties": { "id": { "type": "integer" }, "code": { "type": "string" }, "name": { "type": "string" }, "price": { "type": "string" }, "currency_id": { "type": "integer" }, "category_id": { "type": "integer" }, "allow_discount": { "type": "boolean" }, "enabled": { "type": "boolean" } } },
+      "Box": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" }, "color": { "type": "string" }, "is_active": { "type": "boolean" } } },
+      "AppointmentStatus": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" }, "color": { "type": "string" }, "order": { "type": "integer" } } },
+      "AvailableSlots": { "type": "object", "properties": { "status": { "type": "boolean" }, "data": { "type": "object", "properties": { "date": { "type": "string" }, "doctor_id": { "type": "integer" }, "duration_minutes": { "type": "integer" }, "schedule": { "type": "object" }, "available_slots": { "type": "array", "items": { "type": "string" } } } } } },
+      "Appointment": { "type": "object", "properties": { "id": { "type": "integer" }, "start": { "type": "string", "example": "2026-06-23 09:00:00" }, "end": { "type": "string" }, "duration_minutes": { "type": "integer" }, "modality": { "type": "string", "enum": ["presencial", "virtual"] }, "description": { "type": "string" }, "status": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" } } }, "patient": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" } } }, "doctor": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" } } }, "box_id": { "type": "integer" }, "google_meet_link": { "type": "string" } } },
+      "AppointmentInput": { "type": "object", "required": ["doctor_id", "patient_id", "date", "start", "end"], "properties": { "doctor_id": { "type": "integer" }, "patient_id": { "type": "integer" }, "date": { "type": "string", "example": "23-06-2026" }, "start": { "type": "string", "example": "09:00" }, "end": { "type": "string", "example": "09:30" }, "modality": { "type": "string", "enum": ["presencial", "virtual"], "default": "presencial" }, "box_id": { "type": "integer", "nullable": true }, "appointment_status_id": { "type": "integer" }, "description": { "type": "string" }, "notificate": { "type": "boolean", "default": false } } },
+      "AppointmentUpdate": { "type": "object", "properties": { "doctor_id": { "type": "integer" }, "patient_id": { "type": "integer" }, "date": { "type": "string" }, "start": { "type": "string" }, "end": { "type": "string" }, "modality": { "type": "string", "enum": ["presencial", "virtual"] }, "box_id": { "type": "integer" }, "appointment_status_id": { "type": "integer" }, "description": { "type": "string" } } },
+      "Patient": { "type": "object", "properties": { "id": { "type": "integer" }, "external_id": { "type": "integer", "nullable": true }, "name": { "type": "string" }, "lastname": { "type": "string" }, "full_name": { "type": "string" }, "document": { "type": "string" }, "document_type": { "type": "string" }, "email": { "type": "string" }, "phone": { "type": "string" }, "birth_date": { "type": "string" }, "gender_id": { "type": "integer" }, "country_id": { "type": "integer" } } },
+      "PatientInput": { "type": "object", "required": ["name", "lastname", "country_id", "gender_id"], "properties": { "name": { "type": "string" }, "lastname": { "type": "string" }, "document": { "type": "string" }, "document_type": { "type": "string", "enum": ["DNI", "NIE", "PASSPORT", "CIF", "CUIT", "OTHER"] }, "email": { "type": "string" }, "phone": { "type": "string" }, "phone_prefix_id": { "type": "integer" }, "birth_date": { "type": "string", "example": "1990-05-20" }, "country_id": { "type": "integer" }, "gender_id": { "type": "integer" }, "external_id": { "type": "integer" } } },
+      "PaginatedDoctors": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Doctor" } }, "meta": { "$ref": "#/components/schemas/PageMeta" } } },
+      "PaginatedAppointments": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Appointment" } }, "meta": { "$ref": "#/components/schemas/PageMeta" } } },
+      "PaginatedPatients": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Patient" } }, "meta": { "$ref": "#/components/schemas/PageMeta" } } },
+      "PageMeta": { "type": "object", "properties": { "current_page": { "type": "integer" }, "per_page": { "type": "integer" }, "total": { "type": "integer" }, "last_page": { "type": "integer" } } }
     }
   }
 }

@@ -1,33 +1,36 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'Introducción a la API'
+description: 'Integrá OCLÜ con n8n, Make, Zapier o tu propio sistema.'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+La **API pública de OCLÜ** te permite conectar tu clínica con sistemas externos: automatizá turnos, sincronizá pacientes y leé tu agenda desde n8n, Make, Zapier o tu propio software.
 
-## Welcome
+## Autenticación
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+Generá tu **API key** desde tu panel (**Configuración → API Keys**). Se muestra una sola vez. Enviala en cada request:
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
 ```
+Authorization: Bearer oclu_live_xxxxxxxxxxxxxxxxxxxx
+```
+
+Cada key tiene un permiso: **solo lectura** o **lectura y escritura**.
+
+## Sede (Current-Org-Id)
+
+Los endpoints de turnos y pacientes requieren el header `Current-Org-Id` con el ID de la sede. Consultá tus sedes en [`GET /me`](/api-reference/endpoint/get).
+
+```
+Current-Org-Id: 1
+```
+
+## A tener en cuenta
+
+- **Hora local de la clínica:** las fechas/horas no son UTC. En turnos, fecha `DD-MM-YYYY` y hora `HH:MM`.
+- **Sin datos clínicos:** la API expone agenda, turnos y datos de contacto. Nunca historia clínica.
+- **Sin pagos:** la facturación no está disponible en esta versión.
+- **Rate limit:** 90 solicitudes por minuto por API key.
+- **Auditoría:** toda actividad queda registrada.
+
+## Verificá tu conexión
+
+Probá `GET /me` con tu API key: te devuelve tu tenant, las sedes disponibles y los permisos de la key.

@@ -87,6 +87,21 @@
           },
           "untitled-page"
         ]
+      },
+      {
+        "tab": "API",
+        "pages": [
+          {
+            "group": "Referencia",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": "api-reference/openapi.json"
+          }
+        ]
       }
     ]
   },
