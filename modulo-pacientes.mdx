@@ -469,7 +469,21 @@ Cuando ambas firmas están completas, el sistema genera automáticamente el PDF 
 
 #### 3. Presupuestos
 
-Desde esta solapa se gestionan todos los presupuestos del paciente. Los presupuestos en OCLÜ funcionan como contratos de tratamiento y siguen un flujo de estados con reglas claras:
+Desde esta solapa se gestionan todos los presupuestos del paciente. Cada presupuesto es una tarjeta que muestra su número, el nombre, el profesional a cargo, el estado, el total a pagar en cada moneda, cuánto falta cobrar y el avance del tratamiento. Los que se cargaron con la ventana rápida llevan además la etiqueta **Exprés**.
+
+<Frame>
+  ![Image](/images/image-277.png)
+</Frame>
+
+**Buscar y filtrar** El buscador de arriba deja la lista solo con los presupuestos que coinciden, y busca por nombre, por número o por profesional. Al lado está el filtro de estados, que además de los seis estados suma la opción **Vencidos**.
+
+<Frame>
+  ![Image](/images/image-278.png)
+</Frame>
+
+Un presupuesto queda **Vencido** cuando se le envió al paciente, sigue en Pendiente y ya pasó su fecha de expiración. Cuando hay alguno, arriba a la izquierda aparece un aviso con la cantidad: tocalo y la lista queda solo con esos.
+
+**Estados del presupuesto** Los presupuestos en OCLÜ funcionan como contratos de tratamiento y siguen un flujo de estados con reglas claras:
 
 - **Borrador** — único estado editable. El presupuesto puede modificarse libremente.
 - **Pendiente** — el presupuesto deja de ser editable y funciona como un contrato entre la clínica y el paciente.
@@ -482,9 +496,72 @@ Los estados son unidireccionales: una vez que un presupuesto avanza de Borrador 
 
 Los presupuestos se pueden manejar en moneda local o en dólares, y se pueden enviar al paciente para su aprobación. Una vez aprobado el presupuesto, se pueden comenzar a registrar pagos aunque las prestaciones todavía no estén progresadas — funcionando como anticipos. A medida que se van progresando las prestaciones, se va generando deuda en el balance del paciente.
 
+**Dos formas de crear un presupuesto** El botón **Agregar presupuesto** abre dos opciones:
+
 <Frame>
-  ![Image](/images/image-169.png)
+  ![Image](/images/image-279.png)
 </Frame>
+
+- **Presupuesto completo** — abre una pantalla aparte, con odontograma, pago en cuotas, plantillas de comentario y multimedia.
+- **Presupuesto exprés** — abre una ventana chica para cargar las prestaciones buscándolas y guardar en un clic.
+
+Las dos generan el mismo presupuesto: cambia la forma de cargarlo, no el resultado.
+
+**Presupuesto exprés** Buscás la prestación, la agregás, ajustás el precio si hace falta y guardás. Es para el día a día: una consulta, una urgencia, un tratamiento suelto.
+
+<Frame>
+  ![Image](/images/image-280.png)
+</Frame>
+
+Los campos de arriba son:
+
+- **Título** (opcional) — si lo dejás vacío, el presupuesto se guarda como "Presupuesto".
+- **Profesional** (obligatorio) — el doctor a cargo del tratamiento.
+- **Fecha de expiración** (opcional) — además de vencer el presupuesto, marca hasta cuándo el paciente puede aprobarlo o rechazarlo desde el mensaje que le llega por email o WhatsApp. Si la dejás vacía, no vence nunca.
+
+Cada prestación que agregues queda con su precio editable. Si la lista de precios corresponde al seguro médico del paciente, en lugar de un importe aparecen dos: lo que paga el paciente y lo que cubre el seguro. Con los botones de la derecha podés editar el detalle de la prestación —pieza, caras y símbolo—, duplicarla o quitarla, y el botón **Descuentos** aplica descuentos sobre lo cargado.
+
+Para guardar hay dos botones. **Guardar borrador** deja el presupuesto en Borrador, para seguir editándolo más tarde. **Guardar y aprobar** lo deja directamente en Aprobado, listo para recibir pagos.
+
+**La búsqueda de prestaciones** Escribí por lo menos dos letras del nombre o del código y aparecen las coincidencias, agrupadas por lista de precios. De cada una ves la categoría, el código y el precio con su moneda. El botón redondo de la derecha la suma al presupuesto y queda tildada, así no la cargás dos veces.
+
+<Frame>
+  ![Image](/images/image-281.png)
+</Frame>
+
+**Presupuesto completo: qué es obligatorio** En la pantalla del presupuesto completo lo único obligatorio es el **profesional** y que haya al menos una prestación cargada. El nombre y la fecha de expiración son opcionales.
+
+<Frame>
+  ![Image](/images/image-282.png)
+</Frame>
+
+> Si la clínica tiene configurado un vencimiento por defecto, la fecha viene completada sola con esos días y la podés cambiar o borrar.
+
+**Agregar prestaciones al presupuesto completo** La ventana **Agregar prestación** arranca con la misma búsqueda del exprés. Más abajo sigue estando el selector de siempre —lista, categoría y acción— para cuando preferís recorrer el catálogo en vez de buscar.
+
+<Frame>
+  ![Image](/images/image-283.png)
+</Frame>
+
+**Enviar el presupuesto al paciente** Tildando el casillero de cada tarjeta podés elegir uno o varios presupuestos y mandarlos juntos por email. Antes de enviarlos, el sistema pregunta cuánto detalle querés que vea el paciente:
+
+<Frame>
+  ![Image](/images/image-284.png)
+</Frame>
+
+- **Detalle completo** — precios por tratamiento y, si corresponde, el desglose con el seguro médico.
+- **Solo total del paciente** — un PDF resumido con el paciente, los tratamientos y el total a su cargo, sin el desglose del seguro médico.
+- **Solo total del paciente + adjuntos** — el mismo PDF resumido, sumando los comentarios y las imágenes adjuntas del presupuesto.
+
+> Los presupuestos que estén en Borrador pasan a Pendiente de aprobación cuando se envían.
+
+**Acciones rápidas sobre un presupuesto** Con el clic derecho sobre cualquier tarjeta se abre un menú con todo lo que se puede hacer sin entrar al presupuesto:
+
+<Frame>
+  ![Image](/images/image-285.png)
+</Frame>
+
+Desde ahí podés verlo, abrirlo en una pestaña nueva, enviarlo por mail o por WhatsApp, exportarlo en PDF, ver su historial, editarlo, duplicarlo o cambiarle el estado. Los botones de editar, duplicar y cambiar estado están también a la derecha de cada tarjeta, y el de editar solo se habilita mientras el presupuesto está en Borrador.
 
 ---
 
