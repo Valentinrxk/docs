@@ -10,7 +10,7 @@
 
     var readStored = function () {
         try {
-            var stored = window.localStorage.getItem(STORAGE_KEY);
+            var stored = window.sessionStorage.getItem(STORAGE_KEY);
             return stored && UUID_RE.test(stored) ? stored : null;
         } catch (e) {
             return null;
@@ -19,7 +19,22 @@
 
     var persist = function (visitId) {
         try {
-            window.localStorage.setItem(STORAGE_KEY, visitId);
+            window.sessionStorage.setItem(STORAGE_KEY, visitId);
+        } catch (e) {}
+    };
+
+    var stripParam = function () {
+        try {
+            var url = new URL(window.location.href);
+
+            if (!url.searchParams.has(PARAM)) return;
+
+            url.searchParams.delete(PARAM);
+            window.history.replaceState(
+                window.history.state,
+                "",
+                url.pathname + url.search + url.hash
+            );
         } catch (e) {}
     };
 
@@ -32,6 +47,7 @@
 
         if (fromUrl && UUID_RE.test(fromUrl)) {
             persist(fromUrl);
+            stripParam();
             return fromUrl;
         }
 
