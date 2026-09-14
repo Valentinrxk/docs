@@ -5,7 +5,7 @@ title: "Calendario"
 El módulo **Calendario** es el centro de gestión de turnos de la clínica. Desde acá se administra la agenda diaria, se crean y modifican citas, se gestionan los bloqueos de agenda y se hace el seguimiento del estado de cada turno en tiempo real.
 
 <Frame>
-  ![Image](/images/image-208.png)
+  ![Image](/images/image-298.png)
 </Frame>
 
 ---
@@ -17,33 +17,31 @@ Al ingresar al módulo Calendario, lo primero que ves es el calendario completo 
 ### Isla de fecha y modo de vista
 
 <Frame>
-  ![Image](/images/image-209.png)
+  ![Image](/images/image-299.png)
 </Frame>
 
 Concentra todos los controles de navegación y visualización del calendario. Desde acá podés:
 
-- Seleccionar la fecha usando el selector desplegable, que funciona en tres niveles. Por defecto muestra los días del mes y año actual. Si hacés clic en el mes, pasa a mostrar todos los meses del año para que puedas saltar directamente a uno. Si hacés clic en el año, pasa a mostrar los años disponibles. En cada nivel hay flechas para avanzar o retroceder. Una vez que seleccionás el año pasa a los meses, y una vez que seleccionás el mes pasa a los días.
+- Seleccionar la fecha usando el selector desplegable.
 - Seleccionar el **tipo de vista**: diaria o semanal. Podés cambiarla en cualquier momento mientras usás el calendario.
 
 <Frame>
-  ![Image](/images/image-210.png)
+  ![Image](/images/image-300.png)
 </Frame>
 
 - Elegir el **modo de agrupación**: por doctores o por boxes. Podés cambiarlo en cualquier momento mientras usás el calendario.
 
 <Frame>
-  ![Image](/images/image-211.png)
+  ![Image](/images/image-301.png)
 </Frame>
 
-Desde la configuración de esta isla podés definir cuál de las dos vistas y cuál de los dos modos de agrupación querés que aparezca por defecto cada vez que ingreses al módulo. Una vez configurada la preferencia, siempre que abras el Calendario va a abrirse con esa vista y agrupación predeterminada, independientemente de cómo lo hayas dejado la última vez.
-
-<Frame>
-  ![Image](/images/image-212.png)
-</Frame>
+Desde el ícono de configuración de esta isla accedés a la pantalla de **Preferencias**, donde podés definir cuál de las dos vistas y cuál de los dos modos de agrupación querés que aparezca por defecto cada vez que ingreses al módulo.
 
 <Frame>
-  ![Image](/images/image-213.png)
+  ![Image](/images/image-302.png)
 </Frame>
+
+Una vez configurada la preferencia y guardada con el botón **Guardar cambios**, siempre que abras el Calendario va a abrirse con esa vista y agrupación predeterminada, independientemente de cómo lo hayas dejado la última vez.
 
 ### Isla de filtro por profesional o por box
 
@@ -52,7 +50,7 @@ Dependiendo del modo de agrupación seleccionado, esta isla se llama **Profesion
 Si el filtro está en modo **Box**, esta isla tiene arriba a la derecha un acceso directo a la **configuración de boxes**, equivalente a la que se encuentra en Administrador → Clínica → Boxes.
 
 <Frame>
-  ![Image](/images/image-214.png)
+  ![Image](/images/image-303.png)
 </Frame>
 
 Desde ahí podés:
@@ -67,25 +65,70 @@ Por defecto el sistema crea un box llamado **Box 1**, que podés editar o elimin
 ### Isla de estados de calendario
 
 <Frame>
-  ![Image](/images/image-215.png)
+  ![Image](/images/image-286.png)
 </Frame>
 
-Muestra los estados disponibles para las citas. Los estados predeterminados son **Pendiente**, **Confirmado** y **Cancelado**. Desde el ícono de configuración de esta isla accedés a la gestión completa de estados, donde podés:
+Muestra los estados disponibles para las citas. Desde el ícono de configuración de esta isla accedés a la pantalla completa de administración de estados.
 
 <Frame>
-  ![Image](/images/image-216.png)
+  ![Image](/images/image-287.png)
 </Frame>
+
+Ahí tenés dos solapas: **Estados de calendario** y **Categorías de bloqueos**.
+
+#### Estados de calendario
+
+Es donde vas a pasar la mayor parte del tiempo. Muestra un listado con estas columnas:
 
 <Frame>
-  ![Image](/images/image-217.png)
+  ![Image](/images/image-288.png)
 </Frame>
 
-- Ver el listado de estados con su nombre, color y visibilidad
-- **Mostrar u ocultar** citas con un estado determinado mediante un switch; por ejemplo, podés ocultar las citas canceladas para que no ocupen espacio visual en la agenda, sin que eso elimine el registro de esa cita en el historial del paciente
-- **Editar** el nombre y el color de cualquier estado
-- **Eliminar** un estado, siempre que no tenga citas cargadas
-- **Configurar el orden** en que se visualizan los estados en el listado
-- **Agregar nuevos estados** indicando nombre y color — podés crear tantos como necesites
+- **Visible** — Mostrar u ocultar citas con este estado en el calendario. Por ejemplo, podés ocultar las citas canceladas para que no ocupen espacio visual en la agenda, sin que eso elimine el registro de esa cita en el historial del paciente.
+- **Cita sucedida** — Marca qué estados se toman como una cita que efectivamente ocurrió, para el reporte de evoluciones pendientes. No es lo mismo que el paciente haya confirmado el turno a que haya venido realmente: activá esta opción solo en los estados que representen una atención concretada.
+
+> La imagen de arriba muestra la configuración de una clínica en particular, donde solo **Confirmado** tiene "Cita sucedida" activado. Es un ejemplo, no la única forma correcta de configurarlo — cada clínica define qué estados considera como atención concretada.
+
+Desde esta pantalla también podés:
+
+- **Buscar** un estado por nombre con el buscador de arriba a la derecha.
+- **Editar** o **eliminar** cualquier estado con los íconos de la columna Acciones. Si el estado tiene citas cargadas, el sistema te avisa y no te deja eliminarlo hasta que reasignes esas citas a otro estado:
+
+<Frame>
+  ![Image](/images/image-312.png)
+</Frame>
+
+- **Configurar el orden** en que se visualizan los estados, arrastrándolos dentro de la ventana que se abre con el botón **Configurar orden**:
+
+<Frame>
+  ![Image](/images/image-313.png)
+</Frame>
+
+- **Agregar un estado nuevo** con el botón **Agregar estado**, arriba a la izquierda.
+
+##### Crear o editar un estado
+
+<Frame>
+  ![Image](/images/image-289.png)
+</Frame>
+
+El formulario pide dos datos: el **nombre del estado** y su **color**. El botón de abajo dice **Crear** cuando estás dando de alta un estado nuevo, y **Guardar** cuando estás editando uno que ya existe.
+
+Al hacer clic en el color se abre el selector completo:
+
+<Frame>
+  ![Image](/images/image-290.png)
+</Frame>
+
+Ahí podés elegir el tono desplazándote por el recuadro grande, ajustar la tonalidad con la barra vertical de la derecha y la transparencia con la barra de abajo, o escribir el código de color directamente. **Confirmar** aplica el color elegido, y **Despejar** lo descarta y vuelve para atrás.
+
+#### Categorías de bloqueos
+
+<Frame>
+  ![Image](/images/image-291.png)
+</Frame>
+
+Funciona igual que la solapa de estados, pero define el color con el que se ven los **bloqueos de agenda** en el calendario, en vez de las citas. Podés agregar, editar y eliminar categorías de la misma forma.
 
 ---
 
@@ -93,33 +136,42 @@ Muestra los estados disponibles para las citas. Los estados predeterminados son 
 
 Hay dos formas de crear una cita nueva:
 
-**Desde el botón \+** Ubicado arriba a la izquierda del calendario. Al hacer clic se abre un formulario completo donde todos los campos de horario y doctor deben completarse manualmente.
+**Desde el botón \+** Ubicado arriba a la derecha del calendario. Al hacer clic se abre un formulario completo donde todos los campos de horario y doctor deben completarse manualmente.
 
 <Frame>
-  ![Image](/images/image-218.png)
+  ![Image](/images/image-304.png)
 </Frame>
 
-**Desde un espacio vacío en el calendario** Al hacer clic en cualquier espacio libre dentro del calendario, se abre una pequeña ventana con dos opciones: **Nueva cita** o **Bloqueo de agenda**. Al seleccionar Nueva cita, se abre el mismo formulario pero con el rango horario y el doctor correspondiente a la columna y franja seleccionada ya precargados. Esta es la forma más práctica de crear citas en el uso diario.
+**Desde un espacio vacío en el calendario** Haciendo clic sostenido y arrastrando sobre el rango horario que querés reservar, se abre una ventana con dos opciones: **Nueva cita** o **Bloqueo de agenda**.
 
 <Frame>
-  ![Image](/images/image-174.png)
+  ![Image](/images/image-305.png)
 </Frame>
+
+Al seleccionar Nueva cita, se abre el mismo formulario pero con el rango horario y el doctor correspondiente a la columna y franja seleccionada ya precargados. Esta es la forma más práctica de crear citas en el uso diario.
 
 ### Formulario de nueva cita
 
 El formulario contiene los siguientes campos:
 
-- **Paciente** — Buscador del listado de pacientes registrados. Si el paciente no está en el sistema, desde acá mismo podés agregarlo de forma rápida (ver sección Carga rápida de paciente más abajo).
+- **Paciente** — Buscador del listado de pacientes registrados. Al hacer clic sin escribir nada, ya te muestra una lista de los pacientes más recientes para elegir rápido:
+
+<Frame>
+  ![Image](/images/image-314.png)
+</Frame>
+
+  Si el paciente no está en el sistema, desde acá mismo podés agregarlo de forma rápida (ver sección Carga rápida de paciente más abajo).
 - **Presupuesto** — Si el paciente tiene presupuestos creados, podés seleccionar uno para asociarlo a la cita.
 - **Doctor asignado** — Si creaste la cita haciendo clic en la columna de un doctor, este campo viene precargado con ese profesional. Si usaste el botón \+, viene vacío y debés seleccionarlo manualmente. Solo pueden ser asignados usuarios con rol Doctor o Administrador con labores de doctor habilitadas.
 - **Box** — El espacio de trabajo donde se va a atender al paciente. _(campo opcional de completar)_
-- **Rango horario** — Horario de inicio y de fin del turno.
 - **Estado** — El estado inicial de la cita, seleccionable entre los estados configurados.
+- **Modalidad** — **Presencial** o **Virtual**. La opción Virtual solo se habilita si el doctor asignado tiene Google Calendar conectado desde su perfil; si no, aparece deshabilitada con la explicación al pasar el mouse.
+- **Rango horario** — Horario de inicio y de fin del turno.
 - **Descripción** — Texto libre para dejar una nota sobre el turno. Si se completa, aparece un ícono de nota junto al nombre del paciente en la vista del calendario, indicando que hay información adicional cargada.
-- **Notificar de inmediato vía email** — Casilla opcional. Si el paciente tiene email cargado, al guardar la cita se le envía automáticamente un correo con los detalles del turno.
+- **Notificar de inmediato vía email** y **Notificar de inmediato vía WhatsApp** — Casillas opcionales, una para cada canal. Si el paciente tiene el dato de contacto cargado, al guardar la cita se le envía automáticamente un aviso con los detalles del turno.
 
 <Frame>
-  ![Image](/images/image-175.png)
+  ![Image](/images/image-306.png)
 </Frame>
 
 ---
@@ -129,35 +181,32 @@ El formulario contiene los siguientes campos:
 Dentro del formulario de nueva cita, al hacer clic en **Agregar nuevo paciente**, se abre una ventana con el formulario de carga rápida. Es la forma más veloz de registrar un paciente dentro de OCLÜ y está especialmente pensada para clínicas que atienden por demanda espontánea o para situaciones donde el paciente está presente y se necesita registrar el turno de inmediato.
 
 <Frame>
-  ![Image](/images/image-219.png)
+  ![Image](/images/image-307.png)
 </Frame>
 
-Los campos obligatorios son únicamente tres: **nombre**, **apellido** y **teléfono con prefijo**. También hay dos campos opcionales: **email** y **referido por**.
+Los campos obligatorios son **nombre**, **apellido**, **teléfono con prefijo** y **documento de identidad**. También hay dos campos opcionales: **email** y **referido por**.
 
-Una vez creado, el paciente queda registrado en el sistema con esos datos. Posteriormente, desde el módulo Pacientes, se le puede enviar un link de actualización de datos para que complete toda su información, incluyendo los campos obligatorios que quedaron pendientes. Esta dinámica permite no interrumpir el flujo de atención en el momento del turno y permite completar la ficha del paciente después.
-
-<Frame>
-  ![Image](/images/image-176.png)
-</Frame>
+Una vez creado, el paciente queda registrado en el sistema con esos datos. Posteriormente, desde el módulo Pacientes, se le puede enviar un link de actualización de datos para que complete el resto de su información. Esta dinámica permite no interrumpir el flujo de atención en el momento del turno y completar la ficha del paciente después.
 
 ---
 
 ### Bloqueos de agenda
 
-Al hacer clic en un espacio vacío del calendario y seleccionar **Bloqueo de agenda**, se abre un formulario con los siguientes campos:
+Al hacer clic sostenido y arrastrar sobre un espacio vacío del calendario y seleccionar **Bloqueo de agenda**, se abre un formulario con los siguientes campos:
 
 <Frame>
-  ![Image](/images/image-220.png)
+  ![Image](/images/image-308.png)
 </Frame>
 
-- **Rango de fechas** — Fecha de inicio y de fin del bloqueo. Puede ser un mismo día, varios días, una semana o más.
-- **Horario** — Desde qué hora hasta qué hora estará bloqueada la agenda.
-- **Motivo** — Campo opcional. El motivo no es visible en la vista del calendario, pero queda registrado y se puede consultar haciendo clic en el bloqueo.
+- **Alcance del bloqueo** — **Solo este doctor** bloquea únicamente la agenda del profesional seleccionado; **Toda la agenda** bloquea a todos los profesionales en ese rango horario.
+- **Cuándo** — Fecha y horario del bloqueo, editable con el botón **Editar**.
+- **Categoría** — La categoría de bloqueo con la que se va a colorear en el calendario (ver "Categorías de bloqueos" más arriba).
+- **Motivo del bloqueo** — Campo opcional. El motivo no es visible en la vista del calendario, pero queda registrado y se puede consultar haciendo clic en el bloqueo.
 
 Los bloqueos aparecen en el calendario como un espacio ocupado, indicando visualmente que esa franja no está disponible para nuevos turnos.
 
 <Frame>
-  ![Image](/images/image-221.png)
+  ![Image](/images/image-309.png)
 </Frame>
 
 ---
@@ -165,7 +214,7 @@ Los bloqueos aparecen en el calendario como un espacio ocupado, indicando visual
 ### Vista del calendario
 
 <Frame>
-  ![Image](/images/image-222.png)
+  ![Image](/images/image-310.png)
 </Frame>
 
 El calendario se organiza de la siguiente manera:
@@ -174,40 +223,97 @@ El calendario se organiza de la siguiente manera:
 - **Columnas** — Nombres de los profesionales o boxes según el filtro seleccionado.
 - **Eje vertical (izquierda)** — Horarios, divididos según el intervalo configurado en la clínica (15, 30, 45 minutos, 1 hora o 1.5 horas).
 
-Cada cita aparece en la franja horaria y columna correspondiente, mostrando el nombre del paciente. Si la cita tiene descripción cargada, aparece un ícono de nota junto al nombre.
+Cada cita aparece en la franja horaria y columna correspondiente, mostrando el nombre del paciente. Si la cita tiene descripción cargada, aparece un ícono de nota junto al nombre — al pasar el cursor por encima, aparece un cartelito con el texto de esa descripción.
+
+<Frame>
+  ![Image](/images/image-292.png)
+</Frame>
 
 Dentro del calendario encontrás dos flechas para avanzar o retroceder por día o por semana según la vista activa, y el botón **Hoy** para volver rápidamente al día actual si te moviste mucho en el calendario.
 
 <Frame>
-  ![Image](/images/image-223.png)
+  ![Image](/images/image-311.png)
 </Frame>
 
 Las citas también se pueden mover y redimensionar directamente desde el calendario sin necesidad de entrar al detalle:
 
-- **Mover una cita** — Haciendo clic sostenido sobre la cita y arrastrándola podés cambiarla de horario, de columna o de profesional, según la vista activa. Es la forma más rápida de reagendar sin abrir ningún formulario.
+- **Mover una cita** — Haciendo clic sostenido sobre la cita y arrastrándola podés cambiarla de horario, de columna o de profesional, según la vista activa. Antes de aplicar el cambio, el sistema te muestra una ventana de confirmación:
+
+<Frame>
+  ![Image](/images/image-293.png)
+</Frame>
+
+  Ahí podés tildar **Notificar al paciente del cambio de horario** para que se entere del nuevo turno. El aviso le llega por WhatsApp si la clínica tiene esa integración contratada, o por email si no. Confirmás con **Sí, mover**, o volvés atrás sin aplicar nada con **No, cancelar**.
 - **Cambiar la duración** — Posicionando el cursor en el borde inferior de la cita y arrastrando hacia abajo se alarga el turno, y arrastrando hacia arriba se acorta.
 
 ---
 
 ### Detalle de la cita
 
-Al hacer clic en cualquier cita, se despliega un panel hacia la derecha de la pantalla con tres islas:
+Al hacer clic en cualquier cita, se despliega un panel hacia la derecha de la pantalla con tres tarjetas:
 
-**Isla 1 — Información de la cita** Muestra los datos principales del turno: horario, paciente, doctor a cargo, box asignado y presupuesto vinculado. Desde acá también podés:
-
-- **Enviar recordatorio vía email** — Se envía automáticamente al correo del paciente con los detalles de la cita. El email incluye dos botones: uno para **confirmar** y uno para **cancelar** la cita. Al hacer clic en cualquiera de ellos, la cita cambia automáticamente al estado configurado para esa acción en las automatizaciones. Para que esto funcione, es necesario tener configuradas las automatizaciones de recordatorios en el módulo Administrador.
-- **Enviar recordatorio vía WhatsApp** — Al hacer clic se abre WhatsApp con un mensaje prediseñado dirigido al paciente, que podés editar antes de enviar. Las plantillas de estos mensajes se configuran desde el módulo Administrador. Si tenés las automatizaciones de recordatorios configuradas, el paciente también recibe automáticamente un link por WhatsApp desde el cual puede confirmar o cancelar la cita. Para reprogramar, en ambos casos el paciente debe comunicarse directamente con la clínica.
-- **Historial de estados** — Registro completo de todos los estados por los que pasó la cita, con el nombre del usuario que realizó cada cambio y la fecha y hora exacta en que ocurrió.
-- **Reagendar** — Permite seleccionar rápidamente una nueva fecha, mes, año y rango horario para mover la cita. Los únicos datos editables al reagendar son la fecha y el horario. No es posible cambiar el paciente, el doctor asignado ni el presupuesto vinculado desde esta opción. Si se necesita modificar alguno de esos datos, corresponde eliminar la cita y crear una nueva.
-
-**Isla 2 — Detalles de la cita** Permite editar el **estado** de la cita, el **box asignado** y la **descripción**. Los cambios realizados en esta isla deben guardarse con el botón **Guardar cambios** ubicado abajo a la izquierda del panel.
-
-**Isla 3 — Accesos directos** Accesos directos a cuatro secciones de la ficha del paciente vinculado a esa cita: **Datos personales**, **Multimedia**, **Evoluciones** y **Presupuestos**. Desde acá el equipo puede acceder rápidamente a la información que necesite sin tener que navegar al módulo Pacientes. Por ejemplo, la secretaria puede ir directamente a Presupuestos para registrar el pago del día, y el doctor puede ir a Evoluciones para revisar lo que se hizo en la consulta anterior.
+#### Información de la Cita
 
 <Frame>
-  ![Image](/images/image-178.png)
+  ![Image](/images/image-294.png)
 </Frame>
+
+Muestra los datos principales del turno: horario, paciente y doctor a cargo. Arriba a la derecha tenés dos botones:
+
+- **Historial** — Abre el registro completo de la cita: cambios de estado, reprogramaciones, modificaciones y avisos enviados al paciente, cada uno con quién o qué lo generó (un usuario, el sistema, o un envío automático), la fecha y hora exacta, y —para los avisos— si se pudo confirmar la entrega.
+
+<Frame>
+  ![Image](/images/image-295.png)
+</Frame>
+
+Cuando el aviso salió por WhatsApp manual, el sistema no puede confirmar si realmente se envió (a diferencia de los recordatorios automáticos, que sí informan si el mensaje se entregó, fue leído, o rebotó).
+
+- **Reagendar** — Permite seleccionar rápidamente una nueva fecha, mes, año y rango horario para mover la cita. Los únicos datos editables al reagendar son la fecha y el horario. No es posible cambiar el paciente, el doctor asignado ni el presupuesto vinculado desde esta opción. Si se necesita modificar alguno de esos datos, corresponde eliminar la cita y crear una nueva.
+
+Más abajo, dentro de la misma tarjeta, está **Avisar al paciente**, con dos canales:
+
+**Aviso por mail** abre una ventanita para elegir a quién enviarlo (al paciente, con su email precargado, u a otro email) antes de confirmar el envío:
+
+<Frame>
+  ![Image](/images/image-315.png)
+</Frame>
+
+> Este aviso manda solo los datos de la cita, sin pedir respuesta. El pedido de confirmación por mail lo manda la automatización el día antes, no este botón.
+
+**WhatsApp** despliega un menú con tres opciones:
+
+<Frame>
+  ![Image](/images/image-316.png)
+</Frame>
+
+- **Aviso de cita** — Solo los datos del turno, sin pedir respuesta.
+- **Pedir confirmación** — Suma el link para que el paciente confirme o cancele.
+- **Insistir por la confirmación** — Para cuando ya se le pidió confirmar y no respondió. A diferencia de las otras dos, esta la manda el sistema directamente por el número oficial de la clínica (las otras dos abren tu WhatsApp personal para que la mandes vos). Queda deshabilitada si todavía no correspondía insistir — por ejemplo, si nunca se le pidió confirmación.
+
+Si ya se le avisó al paciente, aparece una etiqueta debajo de estos botones indicando por qué medio y hace cuánto (por ejemplo, "Ya se le avisó por mail hace un día").
+
+#### Detalles de la Cita
+
+<Frame>
+  ![Image](/images/image-296.png)
+</Frame>
+
+Permite editar el **estado** de la cita, el **box asignado** y la **descripción**. Los cambios se guardan con el botón **Guardar cambios** ubicado abajo a la derecha del panel.
+
+#### Accesos Directos
+
+<Frame>
+  ![Image](/images/image-297.png)
+</Frame>
+
+Accesos directos a secciones de la ficha del paciente vinculado a esa cita: **Datos Personales**, **Multimedia**, **Evoluciones**, **Presupuestos**, **Antecedentes** y **Laboratorio**. Desde acá el equipo puede acceder rápidamente a la información que necesite sin tener que navegar al módulo Pacientes. Por ejemplo, la secretaria puede ir directamente a Presupuestos para registrar el pago del día, y el doctor puede ir a Evoluciones para revisar lo que se hizo en la consulta anterior. El ícono de configuración, arriba a la derecha de esta tarjeta, permite elegir cuáles de estos accesos se muestran.
 
 ---
 
 Al pie del panel de detalle de la cita, además del botón **Guardar cambios**, está la opción de **Eliminar cita**.
+
+---
+
+## Si algo de esto no lo ves
+
+Todo lo explicado en esta guía depende de los permisos de tu usuario. Si te falta una pantalla, un botón, o no podés editar algo de lo que se describe acá, antes que nada consultá con el administrador de tu clínica — seguramente sea cuestión de habilitarte el permiso correspondiente. Si después de eso seguís sin poder, escribinos a soporte de OCLÜ y te ayudamos.
