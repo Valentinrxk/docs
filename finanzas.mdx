@@ -2,34 +2,37 @@
 title: "Finanzas"
 ---
 
-El módulo Finanzas es el centro de gestión económica de la clínica. Permite administrar el flujo de dinero (ingresos y egresos), gestionar cajas y bancos en dos divisas, controlar deudas de pacientes y obras sociales, liquidar honorarios a profesionales, y generar reportes financieros y de gestión con indicadores clave. Se accede desde el menú lateral izquierdo (ícono de banco) y se organiza en un dashboard principal con islas de acceso rápido a las distintas secciones: Ingresos, Egresos, Balance, Deudores, Presupuestos, Personal, Cajas y Bancos, Ajustes de Cajas, Deudas de Seguros Médicos, Pago a Doctores y Reportes Avanzados.
+El módulo Finanzas es el centro de gestión económica de la clínica. Permite administrar el flujo de dinero (ingresos y egresos), gestionar cajas y bancos en dos divisas, controlar deudas de pacientes y seguros médicos, liquidar honorarios a profesionales, y generar reportes financieros y de gestión con indicadores clave. Se accede desde el menú lateral izquierdo (ícono de banco) y se organiza en un dashboard principal con islas de acceso rápido a las distintas secciones.
 
 ---
 
 ## **Dashboard principal**
 
-Al ingresar al módulo se muestra la vista "Básico", que es un resumen visual del estado financiero del mes seleccionado. En la parte superior hay una isla de Reportes avanzados que invita a acceder al dashboard analítico completo con gráficos de tendencia, rankings por doctor y por paciente, KPIs de gestión y Oclü IA.
-
-Debajo de la isla de Reportes avanzados hay tres columnas principales:
+Al ingresar al módulo se muestra un tablero con islas organizadas en tres columnas. Arriba de todo hay un cartel que invita a acceder a los reportes avanzados ("¿Buscás una visión más completa?"), y en la esquina superior derecha un botón **Ocultar montos** que enmascara todos los importes de la pantalla para proteger la información cuando hay terceros mirando.
 
 <Frame>
-  ![Image](/images/image-207.png)
+  ![Image](/images/image-354.png)
 </Frame>
 
-La columna izquierda contiene la isla de Filtros globales (Mes, Año y Divisa), la isla del Facturador Electrónico y la isla de Deudas de Seguros Médicos. Los filtros permiten seleccionar el período y la moneda (divisa principal o divisa secundaria) que aplican a toda la información visible en el dashboard. La isla del Facturador Electrónico muestra si está habilitado o no; en caso de no estarlo, indica que se debe contactar a soporte para activarlo.
+**Columna izquierda:**
+- **Filtros** — Mes y Año. Definen el período que se muestra en el resto de las islas del dashboard.
+- **Facturador Electrónico** (o **Facturación**, en clínicas de España) — un botón **Acceder al Facturador**. Si el complemento no está contratado, el botón abre una ventana con un video explicando qué hace y un botón para hablar con ventas, en vez de mandarte directo a la pantalla.
+- **Deudas de Seguros Médicos** — total adeudado por las obras sociales y prepagas con las que trabaja la clínica.
 
-La columna central muestra la isla del Gráfico de Ventas del mes (un gráfico de dona que representa los ingresos) y la isla de Accesos directos, que son botones rápidos organizados en dos grupos:
+**Columna central:**
+- **Balance** — el resultado del mes en cada divisa que uses, con un anillo que muestra qué porcentaje de lo esperado ya ingresó y el detalle de Ingresos y Egresos.
+- **Accesos directos** — tres botones: Ingresos, Egresos y Balance.
+- **Reportes** — accesos a Deudores, Saldos a favor, Evoluciones pendientes, Presupuestos y Personal.
 
-- Ingresos — acceso al reporte de ingresos
-- Egresos — acceso a la gestión de egresos
-- Balance — acceso al reporte de balance
-- Deudores — acceso al reporte de deudas de pacientes
-- Presupuestos — acceso al reporte de presupuestos
-- Personal — acceso al reporte de honorarios por doctor
+**Columna derecha:**
+- **Cajas y bancos** — el saldo de cada caja o banco, agrupado por divisa, con el total de cada una.
+- **Pago a doctores** — lo liquidado a cada profesional en el período.
 
-La columna derecha muestra la isla de Cajas y bancos del mes (listado de cada caja con su saldo y el total consolidado), la isla de Ajustes de cajas del mes (con acceso rápido para agregar un ajuste, ver info y acceder al reporte) y la isla de Pago a doctores (listado resumido de los profesionales de la clínica).
+Debajo de las tres columnas hay una isla ancha, **Movimientos de Caja**, con los ingresos y egresos más recientes de cada divisa y un link **Ver todos los movimientos del mes** para ver el listado completo.
 
-En la esquina superior derecha hay un botón "Ocultar montos" que permite ocultar los importes de toda la pantalla para proteger la información sensible cuando hay terceros mirando.
+<Frame>
+  ![Image](/images/image-355.png)
+</Frame>
 
 ---
 
@@ -46,7 +49,7 @@ En la esquina superior derecha hay un botón de Pagos revocados que da acceso al
 Un cartel informativo indica que para generar un reporte primero se debe seleccionar una caja o banco, fecha de inicio y fecha de fin.
 
 <Frame>
-  ![Image](/images/image-108.png)
+  ![Image](/images/image-356.png)
 </Frame>
 
 ## **Egresos**
@@ -64,7 +67,7 @@ Herramientas disponibles:
 - Egresos revocados — historial de egresos anulados
 
 <Frame>
-  ![Image](/images/image-109.png)
+  ![Image](/images/image-357.png)
 </Frame>
 
 ---
@@ -74,6 +77,7 @@ Herramientas disponibles:
 Al hacer clic en Agregar egreso se abre un formulario con los siguientes campos:
 
 - Cuenta (obligatorio) — se selecciona la caja o banco de origen del dinero
+- Método de pago (opcional) — se habilita después de elegir la cuenta
 - Categoría (obligatorio) — se selecciona del listado de categorías de egreso creadas
 - Monto (obligatorio) — importe del gasto, con símbolo de moneda
 - Fecha (obligatorio) — fecha del egreso, con selector de calendario
@@ -82,7 +86,7 @@ Al hacer clic en Agregar egreso se abre un formulario con los siguientes campos:
 - Recibo (opcional) — permite adjuntar una imagen del comprobante. Solo se acepta un archivo JPG, PNG o PDF de máximo 5MB
 
 <Frame>
-  ![Image](/images/image-110.png)
+  ![Image](/images/image-358.png)
 </Frame>
 
 Una vez completados los campos, se hace clic en Agregar egreso a la lista. Se pueden seguir agregando más egresos a esa lista antes de confirmar. Una vez que están todos los egresos que se quieren cargar, se hace clic en Confirmar y todos se registran de una vez.
@@ -93,14 +97,20 @@ Una vez completados los campos, se hace clic en Agregar egreso a la lista. Se pu
 
 Presenta una vista unificada de todos los movimientos financieros (ingresos y egresos combinados) para un período y caja determinados, permitiendo analizar el flujo neto de dinero.
 
-El panel izquierdo tiene los filtros: fecha de inicio, fecha de fin y selector de caja o banco. Debajo está el botón Generar y los botones de exportación a PDF y Excel.
+El panel izquierdo tiene los filtros: fecha de inicio, fecha de fin, selector de caja o banco y selector de método de pago. Debajo está el botón Generar y los botones de exportación a PDF y Excel.
 
-El listado muestra las siguientes columnas: fecha (ordenable), categoría, monto (ordenable), comentario, usuario y acciones. En la esquina superior derecha hay un botón de Pagos revocados.
+El listado muestra las siguientes columnas: fecha (ordenable), categoría, método, monto (ordenable), balance en cada divisa, comentario, usuario y acciones. En la esquina superior derecha hay un botón de Pagos revocados.
 
 Un cartel informativo indica que para generar un reporte primero se debe seleccionar una caja o banco, fecha de inicio y fecha de fin.
 
 <Frame>
-  ![Image](/images/image-111.png)
+  ![Image](/images/image-359.png)
+</Frame>
+
+Desde las acciones de cada fila se puede abrir el **detalle del movimiento**: fecha, débito, crédito, balance parcial, cuenta de origen, categoría, comentario (si tiene) y usuario que lo registró.
+
+<Frame>
+  ![Image](/images/image-360.png)
 </Frame>
 
 ---
@@ -116,7 +126,35 @@ El listado muestra las siguientes columnas: paciente (enlace a la ficha), email,
 Desde la columna de acciones se puede contactar al paciente directamente por WhatsApp para gestionar la cobranza, lo cual agiliza el proceso sin necesidad de salir del sistema.
 
 <Frame>
-  ![Image](/images/image-112.png)
+  ![Image](/images/image-361.png)
+</Frame>
+
+---
+
+## **Saldos a favor**
+
+Reporte que muestra qué pacientes tienen dinero a favor sin asignar a ningún presupuesto en la sede. Se accede desde la isla Reportes del dashboard.
+
+Tiene un selector de divisa (ARS/USD — cada moneda se lleva por separado, los importes no se convierten ni se suman entre sí), filtros por fecha y por monto mínimo/máximo, y botones para descargar en Excel o PDF.
+
+Muestra tres indicadores: total a favor, cantidad de pacientes con saldo, y cuántos de esos pacientes además tienen una deuda pendiente (un caso a resolver, porque tienen plata a favor sin asignar y al mismo tiempo deben otra cosa). Debajo, el listado de pacientes con su saldo a favor, la fecha del último movimiento y su deuda pendiente si la tiene.
+
+<Frame>
+  ![Image](/images/image-362.png)
+</Frame>
+
+---
+
+## **Evoluciones pendientes**
+
+Reporte de control de calidad clínica: muestra las citas que ya sucedieron, tienen un presupuesto asociado, y todavía no tienen una evolución cargada. Se accede desde la isla Reportes del dashboard.
+
+Los filtros son: rango de fechas, estado de progreso del presupuesto y profesional, más un buscador por paciente o presupuesto.
+
+Muestra tres indicadores: citas sin evolución, citas ya evolucionadas (sobre el total evaluable), y citas sin presupuesto asociado (el reporte no puede evaluarlas porque, para que entren en el control, hay que elegir el presupuesto al crear la cita). Debajo, el listado de las citas sin evolución con fecha, paciente, presupuesto, profesional y el progreso del presupuesto.
+
+<Frame>
+  ![Image](/images/image-363.png)
 </Frame>
 
 ---
@@ -134,7 +172,7 @@ El listado muestra las siguientes columnas: doctor, paciente, presupuesto, estad
 Un cartel informativo indica que para generar un reporte primero se debe seleccionar los estados, fecha de inicio y fecha de fin.
 
 <Frame>
-  ![Image](/images/image-113.png)
+  ![Image](/images/image-364.png)
 </Frame>
 
 ---
@@ -143,18 +181,18 @@ Un cartel informativo indica que para generar un reporte primero se debe selecci
 
 Reporte centrado en la producción y liquidación de un profesional específico, vinculando presupuestos con contratos de honorarios.
 
-El panel izquierdo tiene los filtros: selector de doctor (lista desplegable con los profesionales de la clínica), fecha de inicio y fecha de fin. Debajo está el botón Generar.
+El panel izquierdo tiene los filtros: selector de doctor (lista desplegable con los profesionales de la clínica), fecha de inicio, fecha de fin y un selector **Filtrar por** que define a qué fecha del presupuesto se aplica el rango elegido — por fecha de creación, de aprobación, de avance del tratamiento o de cobro. Debajo está el botón Generar.
 
 En la barra superior del listado hay un buscador por nombre de presupuesto, un botón Filtrar por estado y un botón Exportar el reporte a PDF.
 
-El listado muestra las siguientes columnas: presupuesto, paciente, estado (Aprobado, Borrador), total, monto por contrato (calculado según el contrato del profesional), estado pago (indica si los honorarios fueron liquidados) y acciones (botón para exportar detalle individual a PDF).
+El listado muestra las siguientes columnas: presupuesto, paciente, estado (Aprobado, Borrador), total, monto por contrato (calculado según el contrato del profesional), estado pago (indica si los honorarios fueron liquidados), un ícono de **Historial** que al pasar el mouse muestra las fechas de creación, aprobación, progreso y cobro del presupuesto, y acciones (botón para exportar detalle individual a PDF).
 
 Al final de la tabla se muestran dos indicadores de resumen: Balance presupuestos (total acumulado de presupuestos del doctor en el período) y Balance contrato (total que le corresponde cobrar según su contrato).
 
 Un cartel informativo indica que primero se debe seleccionar un doctor con contrato asociado y las fechas del reporte.
 
 <Frame>
-  ![Image](/images/image-114.png)
+  ![Image](/images/image-365.png)
 </Frame>
 
 ---
@@ -165,9 +203,23 @@ Sección de configuración y administración de las cuentas donde se registran l
 
 Al ingresar aparecen dos carteles informativos: uno de información que dice que las cajas y bancos serán las destinatarias de los movimientos y/o transferencias, y uno de advertencia que dice que no se podrá modificar la divisa de una caja o banco una vez creada.
 
-El listado muestra las siguientes columnas: nombre, divisa, métodos de pago y acciones (editar y eliminar).
+El listado principal muestra las siguientes columnas: nombre, divisa, métodos de pago y acciones (editar y eliminar).
 
-Debajo de las cajas principales hay una sección separada de Cajas de Ajuste, que son cuentas especiales para registrar correcciones contables. Muestra: nombre, divisa y acciones.
+<Frame>
+  ![Image](/images/image-366.png)
+</Frame>
+
+Debajo de las cajas principales hay una sección separada de **Cajas de Ajuste**, que son cuentas especiales para registrar correcciones contables. Muestra: nombre, divisa y acciones.
+
+Si la clínica usa descuentos que se aplican al cobrar (por ejemplo, un descuento por pronto pago), también aparece una sección de **Cajas de Descuento**. Son cuentas que el sistema genera y usa automáticamente, no se cargan ni se editan a mano. Tiene un botón para ir directo al **Reporte de descuentos**, que muestra fecha, paciente, presupuestos, subtotal, cobrado, descuento otorgado y usuario para cada pago con descuento del período.
+
+<Frame>
+  ![Image](/images/image-367.png)
+</Frame>
+
+<Frame>
+  ![Image](/images/image-368.png)
+</Frame>
 
 Herramientas disponibles:
 
@@ -175,11 +227,6 @@ Herramientas disponibles:
 - Agregar caja o banco — abre el formulario para crear una nueva cuenta
 - Transferir entre cajas — abre el formulario para mover dinero entre cuentas
 - Agregar caja de ajuste — crea una cuenta de tipo ajuste
-- Reporte por caja — genera un reporte detallado de movimientos por cuenta específica
-
-<Frame>
-  ![Image](/images/image-115.png)
-</Frame>
 
 ---
 
@@ -196,7 +243,7 @@ Al hacer clic en Agregar caja o banco se abre un formulario con los siguientes c
 Una vez completados los campos, se hace clic en Agregar.
 
 <Frame>
-  ![Image](/images/image-116.png)
+  ![Image](/images/image-369.png)
 </Frame>
 
 ---
@@ -215,7 +262,7 @@ Al hacer clic en Transferir entre cajas se abre un formulario con los siguientes
 Una vez completados los campos, se hace clic en Transferir.
 
 <Frame>
-  ![Image](/images/image-117.png)
+  ![Image](/images/image-370.png)
 </Frame>
 
 ---
@@ -228,29 +275,26 @@ El panel izquierdo tiene los filtros: fecha de inicio, fecha de fin y selector d
 
 El listado muestra las siguientes columnas: fecha (ordenable), caja, tipo, monto (ordenable), comentario y usuario.
 
-En la esquina superior derecha hay un botón Agregar Ajuste (dorado) para registrar un nuevo ajuste.
+En la esquina superior derecha hay un botón Agregar Ajuste para registrar un nuevo ajuste.
 
 <Frame>
-  ![Image](/images/image-119.png)
-</Frame>
-
-<Frame>
+  ![Image](/images/image-371.png)
 </Frame>
 
 ---
 
 ## **Deudas de Seguros Médicos**
 
-Módulo para gestionar las deudas que las obras sociales y prepagas mantienen con la clínica por prestaciones realizadas a sus afiliados. Es decir, lo que las obras sociales le deben a la clínica.
+Módulo para gestionar las deudas que las obras sociales y prepagas mantienen con la clínica por prestaciones realizadas a sus afiliados. Es decir, lo que los seguros médicos le deben a la clínica.
 
 La pantalla se organiza en dos pestañas: Deudas Pendientes (activa por defecto) e Historial de Cobros.
 
-El panel izquierdo tiene los filtros: selector de obra social (lista desplegable), estado (Pendiente por defecto), fecha de inicio, fecha de fin. Debajo está el botón Generar para ejecutar la consulta y un botón Registrar Cobro para registrar un pago recibido de la obra social.
+El panel izquierdo tiene los filtros: selector de seguro médico (lista desplegable), estado (Pendiente por defecto), fecha de inicio, fecha de fin. Debajo está el botón Generar para ejecutar la consulta y un botón Registrar Cobro para registrar un pago recibido del seguro médico.
 
-Cuando no se seleccionó ninguna obra social, se muestra un mensaje indicando que se debe seleccionar una para ver las deudas pendientes.
+Cuando no se seleccionó ningún seguro médico, se muestra un mensaje indicando que se debe seleccionar uno para ver las deudas pendientes.
 
 <Frame>
-  ![Image](/images/image-120.png)
+  ![Image](/images/image-372.png)
 </Frame>
 
 ---
@@ -259,40 +303,45 @@ Cuando no se seleccionó ninguna obra social, se muestra un mensaje indicando qu
 
 Registro centralizado de todas las liquidaciones de honorarios realizadas a los profesionales de la clínica.
 
-En la barra superior hay filtros: selector de doctor ("Todos los doctores" por defecto), fecha desde, fecha hasta, y botones Limpiar y Actualizar.
+En la barra superior hay filtros: selector de doctor ("Todos los doctores" por defecto), fecha desde, fecha hasta.
 
-El listado muestra las siguientes columnas: fecha (ordenable), N° comprobante (enlace al detalle, formato #000001), doctor, monto total, servicios ( valor numérico con la cantidad de prestaciones incluidas), método (Transferencia bancaria, Efectivo, etc.), N° voucher, estado ("Pagado"), usuario y acciones (ver detalle).
+El listado muestra las siguientes columnas: fecha (ordenable), N° comprobante (enlace al detalle, formato #000001), doctor, cómo se pagó (Transferencia bancaria, Efectivo, etc.), cantidad de prestaciones incluidas, monto, estado ("Pagado"), quién lo registró y acciones (ver detalle).
 
 <Frame>
-  ![Image](/images/image-121.png)
+  ![Image](/images/image-373.png)
 </Frame>
 
-En la esquina superior derecha hay un botón Nuevo Pago que abre un asistente guiado de tres pasos:
+En la esquina superior izquierda hay un botón **Nuevo pago** que abre un asistente guiado de tres pasos:
 
-1. Seleccionar Doctor — se elige el profesional y el período de prestaciones. Los campos son: doctor (obligatorio, con buscador), fecha de finalización desde y fecha de finalización hasta. Un texto informativo aclara que las fechas filtran por cuándo se completaron las prestaciones (100%), no por cuándo se crearon los tratamientos. Si no se especifican fechas, se muestran todas las prestaciones pendientes
-2. Elegir Prestaciones — se seleccionan los servicios a pagar de un listado de prestaciones completadas del doctor
-3. Confirmar Pago — se configura el método de pago y se procesa la liquidación
+1. **Doctor y período** — se elige el profesional y desde cuándo mirar. Los campos son: doctor (obligatorio, con buscador), completadas desde y completadas hasta. Un texto informativo aclara que las fechas filtran por cuándo se completó la prestación al 100%, no por cuándo se creó el tratamiento. Sin fechas, se muestran todas las pendientes
+
+<Frame>
+  ![Image](/images/image-374.png)
+</Frame>
+
+2. **Prestaciones** — se seleccionan los servicios a pagar de un listado de prestaciones pendientes de ese doctor, separado en dos pestañas: Pendientes de pago y Ya pagadas
+3. **Confirmar pago** — acá se elige la **divisa en la que se le paga** al doctor. Si es distinta de la divisa en la que están cargadas sus prestaciones, aparece además un campo de **cotización** y un desglose que muestra la conversión (por ejemplo, de US\$150 a \$150.000 ARS, según la cotización cargada). Después se configura la cuenta de origen y el método de pago, y se procesa la liquidación
 
 El listado tiene paginación y se navega con botones de página o con el campo "Ir a".
 
 ---
 
-## **Mis Honorarios**
+## **Mis Ingresos**
 
-Vista personal para cada profesional donde puede consultar sus propias ganancias, estado de cobro y detalle de prestaciones realizadas. Se accede desde el menú de usuario (esquina superior derecha, haciendo clic en el nombre) bajo la opción "Mis Honorarios". No aparece como sección dentro del módulo de Finanzas sino como acceso personal.
+Vista personal para cada profesional donde puede consultar sus propias ganancias, estado de cobro y detalle de prestaciones realizadas. Se accede desde el menú de usuario (esquina superior derecha, haciendo clic en el nombre). No aparece como sección dentro del módulo de Finanzas sino como acceso personal.
 
-En la parte superior se muestran tres islas de resumen:
+Tiene un selector de divisa (ARS/USD) y filtros de fecha. Un cartel avisa que si cobrás en más de una moneda, cada una se lleva por separado y los importes no se convierten ni se suman entre sí.
 
-- Total Ganado — suma total de los honorarios devengados en el período
-- Cobrado por Paciente — monto ya cobrado directamente de los pacientes
-- Pendiente de Cobro — monto que aún no fue liquidado al profesional
+Se muestran tres islas de resumen:
 
-Debajo hay filtros: fecha de inicio, fecha de fin, estado de pago (selector desplegable), y botones Limpiar y Actualizar.
+- Ganado — suma total de los honorarios devengados en el período
+- Cobrado al paciente — monto ya cobrado directamente de los pacientes
+- Pendiente de cobro — monto que aún no fue liquidado al profesional
 
-La tabla "Mis Prestaciones" muestra las siguientes columnas: fecha (ordenable), paciente, prestación, mi ganancia (lo que le corresponde al profesional), paciente (lo que pagó el paciente), liquidado (si el honorario fue pagado al profesional) y extras.
+La tabla "Prestaciones" muestra las siguientes columnas: fecha, paciente, prestación, cobro (si el paciente ya pagó o está pendiente), liquidación (si ya te lo liquidaron o está por liquidar) y tu honorario.
 
 <Frame>
-  ![Image](/images/image-122.png)
+  ![Image](/images/image-375.png)
 </Frame>
 
 ---
@@ -301,11 +350,11 @@ La tabla "Mis Prestaciones" muestra las siguientes columnas: fecha (ordenable), 
 
 El módulo de Reportes Avanzados ofrece un análisis financiero y de gestión completo con gráficos interactivos, KPIs y asistencia de inteligencia artificial. Se accede desde el banner de la pantalla principal de Finanzas o desde Administrador \> Reportes. Esta sección es exclusiva para usuarios con rol de Administrador; los demás roles no tienen acceso a ella.
 
-En la barra superior hay: dos pestañas (Finanzas y Gestión), selector de rango de fechas (fecha inicio — fecha fin), selector de divisa (divisa principal / divisa secundaria), botón Ocultar para enmascarar todos los montos de la pantalla, botón Exportar PDF para generar un documento imprimible, y el botón Oclü IA.
+En la barra superior hay: tres pestañas (Finanzas, Gestión y Auditoría), selector de rango de fechas (fecha inicio — fecha fin), selector de divisa (divisa principal / divisa secundaria), botón Ocultar importes para enmascarar todos los montos de la pantalla, un botón Exportar y el botón Oclü IA.
 
 ---
 
-**Pestaña Finanzas**  — indicadores económicos del período seleccionado:
+**Pestaña Finanzas** — indicadores económicos del período seleccionado:
 
 Resumen del Período (con links directos a ver detalle de Ingresos, Egresos y Balance):
 
@@ -315,31 +364,35 @@ Resumen del Período (con links directos a ver detalle de Ingresos, Egresos y Ba
 
 Gráficos y tablas debajo de los KPIs:
 
-- Tendencia Financiera — gráfico de barras comparando Ingresos vs Egresos mes a mes, con toggles para mostrar/ocultar cada serie y visualización de picos y valles
+- Tendencia Financiera — gráfico de líneas comparando Ingresos, Egresos y Resultado mes a mes
 - Distribución de Egresos — gráfico circular (dona) que desglosa Gastos operativos vs Pagos a doctores
-- Estado de Resultado — tabla mensual detallada con filas de Presupuestos cobrados (ingresos) y Gastos operativos (egresos) por mes, con columna de totales acumulados
+- Evolución de Egresos — gráfico de la evolución mensual de los gastos
 
 <Frame>
-  ![Image](/images/image-123.png)
+  ![Image](/images/image-376.png)
 </Frame>
 
 ---
 
 **Pestaña Gestión** — indicadores no financieros de eficiencia de la clínica:
 
-Indicadores de Gestión:
+Indicadores de Gestión, agrupados por bloque:
 
 - Pacientes — Atendidos, Nuevos y Recurrentes
 - Presupuestos — Tasa de Conversión (porcentaje de aprobados sobre presentados), Aprobados y Rechazados
 - Agenda — Citas Totales, Canceladas y Tasa de Asistencia
 
+<Frame>
+  ![Image](/images/image-377.png)
+</Frame>
+
 Gráficos debajo de los indicadores:
 
 - Tendencia de Gestión — gráficos de Evolución de Pacientes y Presupuestos a lo largo del tiempo
 
-<Frame>
-  ![Image](/images/image-124.png)
-</Frame>
+---
+
+**Pestaña Auditoría** — un registro de la actividad del calendario: quién creó, editó o eliminó cada cita, cuándo, y qué cambió. Las citas eliminadas se pueden restaurar desde ahí mismo. Tiene filtros por usuario, acción y profesional, y un buscador por paciente o profesional.
 
 ---
 
@@ -347,26 +400,30 @@ Gráficos debajo de los indicadores:
 
 ---
 
-**Exportar PDF** — genera un reporte en PDF de dos páginas que incluye: encabezado con logo y datos de la clínica, resumen del período con todos los KPIs, gráfico de tendencia de ingresos vs egresos, gráfico de composición de egresos, gráfico de evolución de gastos, tabla mensual completa del estado de resultado, y sección de datos financieros en tiempo real con saldos de cajas y deudas pendientes.
+**Exportar** — genera un reporte en PDF de dos páginas que incluye: encabezado con logo y datos de la clínica, resumen del período con todos los KPIs, gráfico de tendencia de ingresos vs egresos, gráfico de composición de egresos, gráfico de evolución de gastos, tabla mensual completa del estado de resultado, y sección de datos financieros en tiempo real con saldos de cajas y deudas pendientes.
 
 ---
 
-**Ocultar montos** — permite enmascarar todos los valores monetarios de la pantalla, mostrándolos como puntos. Es útil para proteger la información sensible cuando hay terceros mirando la pantalla. Se reactiva haciendo clic en el mismo botón (que pasa a decir "Mostrar").
-
----
-
-## **Facturador Electrónico**
-
-El módulo incluye integración con facturación electrónica (AFIP). En el estado actual de la clínica, el facturador se encuentra deshabilitado y requiere activación por parte del equipo de soporte de Oclü. Una vez habilitado, permite emitir comprobantes fiscales directamente desde el sistema.
+**Ocultar importes** — permite enmascarar todos los valores monetarios de la pantalla, mostrándolos como puntos. Es útil para proteger la información sensible cuando hay terceros mirando la pantalla. Se reactiva haciendo clic en el mismo botón.
 
 ---
 
 ## **Soporte bi-divisa**
 
-El módulo soporta operaciones en dos divisas: una divisa principal de la clínica y una divisa secundaria. La selección de divisa en el dashboard filtra toda la información visible. En los reportes de deudores, los montos se muestran desglosados por divisa cuando el paciente tiene deudas en ambas monedas. Cada caja y banco se configura con una divisa fija que no puede ser modificada posteriormente. Al registrar egresos o transferencias entre cajas de distinta divisa, el sistema solicita la cotización del momento.
+El módulo soporta operaciones en dos divisas: una divisa principal de la clínica y una divisa secundaria. En el dashboard, el Balance y las Cajas y bancos se muestran siempre desglosados por cada divisa que tenga movimientos, sin necesidad de elegir cuál mirar. En los reportes de deudores y saldos a favor, los montos se muestran desglosados por divisa cuando el paciente tiene actividad en ambas monedas. Cada caja y banco se configura con una divisa fija que no puede ser modificada posteriormente. Al registrar egresos, transferencias entre cajas de distinta divisa, o un pago a un doctor en una divisa distinta a la de sus prestaciones, el sistema solicita la cotización del momento.
 
 ---
 
 ## **Exportaciones**
 
 La mayoría de las secciones permiten exportar la información en dos formatos: PDF (documento imprimible) y Excel (archivo .xlsx para análisis externo). Los botones de exportación se encuentran en el panel izquierdo de filtros, debajo del botón Generar. El módulo de Reportes Avanzados además permite exportar el dashboard completo a PDF.
+
+---
+
+## Si algo de esto no lo ves
+
+Todo lo explicado en esta guía depende de los permisos de tu usuario. Si te falta una
+pantalla, un botón, o no podés editar algo de lo que se describe acá, antes que nada
+consultá con el administrador de tu clínica — seguramente sea cuestión de habilitarte el
+permiso correspondiente. Si después de eso seguís sin poder, escribinos a soporte de OCLÜ
+y te ayudamos.
