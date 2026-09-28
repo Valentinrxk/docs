@@ -8,49 +8,59 @@ El módulo Laboratorio permite gestionar los laboratorios con los que trabaja la
 
 ## Solicitudes
 
-Es la solapa principal del módulo. Muestra el listado completo de todas las solicitudes de laboratorio generadas en la clínica. Si el listado es extenso, se divide en páginas con un filtro para navegar entre ellas.
+Es la solapa principal del módulo. Muestra el listado completo de todas las solicitudes de laboratorio generadas en la clínica, con buscador por paciente y filtros por fecha, laboratorio y estado. Si el listado es extenso, se divide en páginas.
+
+> Las solicitudes no tocan el presupuesto: vincularlas a una prestación es opcional y sirve solo para tener el contexto a mano, no cambia importes ni estados del presupuesto.
 
 <Frame>
-  ![Image](/images/image-132.png)
+  ![Image](/images/image-340.png)
 </Frame>
+
+Desde el menú de acciones de cada fila podés:
+
+- **Ver la solicitud en PDF**
+- **Enviar la solicitud al laboratorio por mail** — pide confirmación antes de mandarla. Si el laboratorio no tiene un mail cargado, el sistema te avisa y te lleva directo a cargarlo
+- **Editar** la solicitud
+- **Eliminar** la solicitud
+
+Si algún paciente con solicitudes tiene además un turno próximo, arriba del listado aparece un aviso con la cantidad ("X con cita cerca"); al tocarlo, el listado se filtra para mostrar solo esas solicitudes. Y si entrás a este listado desde el calendario o la ficha de un paciente, lo vas a ver ya filtrado por ese paciente, con un cartel para sacar el filtro.
 
 ## **Crear una solicitud**
 
-El proceso se divide en dos pasos:
+El proceso se divide en dos pasos.
 
 #### **Paso 1 — Datos de la solicitud**
 
-Los campos a completar son:
-
-- **Paciente** (obligatorio) — se selecciona del listado de pacientes registrados
-- **Título** (obligatorio) — nombre o descripción de la solicitud
-- **Laboratorio** (obligatorio) — se selecciona del listado de laboratorios habilitados
-- **Presupuesto** (opcional) — permite vincular la solicitud a un presupuesto del paciente. Esta vinculación es la que permite que el sistema calcule automáticamente el descuento por orden de laboratorio en los honorarios del profesional, según lo configurado en su contrato
-- **Fecha de envío** (obligatorio) — cuándo se envía el trabajo al laboratorio
-- **Fecha de entrega** (obligatorio) — cuándo se espera recibirlo
-- **Estado** — estado inicial de la solicitud
-- **Imágenes adjuntas** (opcional) — se pueden adjuntar archivos en formato JPG, PNG, PDF y DOCX. No se aceptan videos, audios ni archivos .MOV
-- **Descripción** (opcional) — espacio para detallar las especificaciones del trabajo solicitado. Por ejemplo, si es un implante, se puede indicar el tipo, el material, el color y cualquier otra indicación técnica relevante para el laboratorio. Cuanto más detallada sea la descripción, menos posibilidades hay de errores o malentendidos en la elaboración del trabajo.
-
 <Frame>
-  ![Image](/images/image-133.png)
+  ![Image](/images/image-341.png)
 </Frame>
+
+Los campos están agrupados en tres partes:
+
+**Vinculación**
+- **Paciente** (obligatorio) — se selecciona del listado de pacientes registrados
+- **Presupuesto** (opcional) — para tener a mano de qué presupuesto viene el trabajo
+- **Prestación del presupuesto** (opcional) — vincularla no cambia el presupuesto, es solo de referencia
+
+**Asignación**
+- **Laboratorio** (obligatorio) — se selecciona del listado de laboratorios habilitados
+- **Estado** — estado inicial de la solicitud
+- **Fecha de envío** y **Fecha de entrega** (obligatorias)
+
+**Descripción del trabajo**
+- **Título** (obligatorio) — nombre o descripción de la solicitud
+- **Descripción** (opcional) — espacio para detallar las especificaciones del trabajo. Por ejemplo, si es un implante, se puede indicar el tipo, el material, el color y cualquier otra indicación técnica relevante para el laboratorio. Cuanto más detallada sea la descripción, menos posibilidades hay de errores o malentendidos en la elaboración del trabajo
+- **Adjuntos** (opcional) — hay dos formas de sumar archivos: subirlos desde la computadora, o elegirlos directamente de la multimedia que ya tiene cargada el paciente. Esta segunda opción se habilita recién después de elegir un paciente
 
 #### **Paso 2 — Ítems de laboratorio**
 
-Este paso es opcional pero recomendado si se quiere llevar el control del costo de la orden. Desde el botón **Agregar ítem** se selecciona un **ítem** de la lista de precios del laboratorio (elegido en el paso anterior), se indica la cantidad y el precio se trae automáticamente aunque se puede modificar. Se pueden agregar múltiples ítems y el sistema va calculando el total en tiempo real en la parte inferior.
-
-Si la solicitud está vinculada a un presupuesto y el profesional tiene configurado un porcentaje de descuento por orden de laboratorio en su contrato, el sistema descuenta automáticamente ese porcentaje del total de la orden al calcular los honorarios. Por ejemplo, si la orden es de \$100 y el contrato del doctor tiene configurado un 50% de descuento por laboratorio, se le descontarán \$50 de sus honorarios. Este descuento siempre se calcula por porcentaje.
-
-Una vez completados ambos pasos, se hace clic en **Agregar solicitud** y la solicitud queda registrada en el listado.
-
 <Frame>
-  ![Image](/images/image-134.png)
+  ![Image](/images/image-342.png)
 </Frame>
 
-#### **Editar y eliminar solicitudes**
+Este paso es opcional. Desde el botón **Agregar ítem** se selecciona una **acción** de la lista de precios del laboratorio (elegido en el paso anterior), se indica la cantidad y el precio se trae automáticamente aunque se puede modificar. Se pueden agregar múltiples ítems y el sistema va calculando el total en tiempo real en la parte inferior. Si cargás ítems, ese total viaja con la solicitud — no impacta en el presupuesto ni en ninguna otra parte del sistema.
 
-Las solicitudes ya creadas se pueden editar y eliminar desde el menú de acciones del listado.
+Una vez completado, se hace clic en **Agregar solicitud** y queda registrada en el listado.
 
 ---
 
@@ -58,37 +68,42 @@ Las solicitudes ya creadas se pueden editar y eliminar desde el menú de accione
 
 Muestra el listado de todos los laboratorios registrados en el sistema. Tiene un buscador por nombre y un contador del total de laboratorios.
 
-El listado muestra las columnas: nombre, detalle, email, fecha de lista de precios y menú de acciones.
+El listado muestra las columnas: nombre, detalle, email, fecha de lista de precios y estado (habilitado/deshabilitado).
+
+<Frame>
+  ![Image](/images/image-343.png)
+</Frame>
 
 Desde el menú de acciones de cada laboratorio podés:
 
-- **Editar laboratorio** — modificar cualquier dato del laboratorio
+- **Contactar por WhatsApp** — abre una conversación directa al teléfono cargado del laboratorio, si tiene uno
 - **Ver lista de precios** — acceder al listado de ítems y precios del laboratorio
 - **Ver detalles** — abre una ventana con toda la información del laboratorio: nombre, detalle, email, dirección, teléfono, fecha de lista de precios y si está habilitado o deshabilitado
-- **Habilitar / Deshabilitar** — permite activar o desactivar el laboratorio mediante un switch. Un laboratorio deshabilitado no puede ser seleccionado al crear nuevas solicitudes. Esta opción está pensada para los casos en que ya no se trabaja con un laboratorio pero no se lo puede eliminar porque tiene solicitudes asociadas con información cargada.
-
-<Frame>
-  ![Image](/images/image-135.png)
-</Frame>
+- **Editar laboratorio** — modificar cualquier dato del laboratorio
+- **Habilitar / Deshabilitar** — permite activar o desactivar el laboratorio mediante un switch. Un laboratorio deshabilitado no puede ser seleccionado al crear nuevas solicitudes. Esta opción está pensada para los casos en que ya no se trabaja con un laboratorio pero no se lo puede eliminar porque tiene solicitudes asociadas con información cargada
 
 #### **Crear un laboratorio**
 
 Al hacer clic en **Agregar laboratorio** se abre un formulario con los siguientes campos:
 
-- **Nombre** (obligatorio)
-- **Dirección** (opcional)
+- **Nombre del laboratorio** (obligatorio)
 - **Email** (opcional)
-- **Teléfono** (opcional)
+- **Teléfono** (opcional) — cargando el teléfono con código de país es lo que habilita el botón de WhatsApp en el listado
+- **Dirección** (opcional)
+- **Fecha lista de precios** (opcional) — indica desde cuándo está vigente la lista de precios actual. Se puede actualizar cada vez que el laboratorio entrega una nueva lista
 - **Detalle** (opcional) — información adicional sobre el laboratorio, como las especialidades que realiza
-- **Fecha de lista de precios** (opcional) — indica desde cuándo está vigente la lista de precios actual. Se puede actualizar cada vez que el laboratorio entrega una nueva lista
 
 <Frame>
-  ![Image](/images/image-136.png)
+  ![Image](/images/image-344.png)
 </Frame>
 
 #### **Lista de precios**
 
-Al hacer clic en **Ver lista de precios**, el sistema abre una visualización con el listado de ítems del laboratorio. Las columnas son: nombre de la acción, precio y acciones.
+Al hacer clic en **Ver lista de precios**, el sistema abre el listado de prestaciones del laboratorio, con su precio (indicando si es en pesos o en dólares), estado y acciones.
+
+<Frame>
+  ![Image](/images/image-345.png)
+</Frame>
 
 Desde el menú de acciones de cada ítem podés:
 
@@ -96,11 +111,15 @@ Desde el menú de acciones de cada ítem podés:
 - **Deshabilitar** — si el ítem está vinculado a alguna solicitud no se puede eliminar, pero sí deshabilitar
 - **Eliminar** — solo si el ítem no tiene solicitudes asociadas
 
-Para **agregar un nuevo ítem** se hace clic en **Agregar acción** e ingresás nombre, precio y divisa. Una vez creado, la divisa no se puede modificar — queda fija en la moneda seleccionada al momento de la creación.
+Para **agregar un nuevo ítem** se hace clic en **Agregar prestación** e ingresás nombre, precio y divisa. Una vez creado, la divisa no se puede modificar — queda fija en la moneda seleccionada al momento de la creación.
+
+Si tenés que cargar muchos ítems de una vez, el botón **Importar** permite subir una planilla Excel o CSV en lugar de cargarlos uno por uno:
 
 <Frame>
-  ![Image](/images/image-137.png)
+  ![Image](/images/image-346.png)
 </Frame>
+
+Hay que bajar primero la plantilla desde **Descargar plantilla** y completarla con las columnas **Nombre**, **Precio** y **Divisa** (las divisas válidas son ARS y USD). Si en la planilla ponés el nombre de una prestación que ya existe en ese laboratorio, el sistema reemplaza su precio — no crea una duplicada.
 
 _Desde esta visualización hay un botón para volver al listado de laboratorios._
 
@@ -108,7 +127,7 @@ _Desde esta visualización hay un botón para volver al listado de laboratorios.
 
 ## Estados
 
-Permite gestionar los estados por los que puede pasar una solicitud de laboratorio. Los estados predeterminados son **Pendiente**, **Enviado** y **Entregado**. Se pueden editar, agregar nuevos y configurar el orden en que se visualizan.
+Permite gestionar los estados por los que puede pasar una solicitud de laboratorio. Se pueden editar, agregar nuevos y configurar el orden en que se visualizan.
 
 El listado muestra: nombre del estado, color, switch de mostrar/ocultar y menú de acciones.
 
@@ -116,10 +135,20 @@ El listado muestra: nombre del estado, color, switch de mostrar/ocultar y menú 
 - **Editar** — permite modificar el nombre y el color del estado
 - **Eliminar** — solo si el estado no tiene solicitudes asociadas
 
-Hay un **buscador** por nombre para encontrar estados rápidamente cuando el listado es extenso, y un botón de **Configurar orden** para definir en qué posición aparece cada estado en el listado.
+Hay un **buscador** por nombre para encontrar estados rápidamente cuando el listado es extenso, y un botón **Ordenar** para definir en qué posición aparece cada estado en el listado.
 
 <Frame>
-  ![Image](/images/image-138.png)
+  ![Image](/images/image-347.png)
 </Frame>
 
 **Agregar un estado** Al hacer clic en **Agregar estado** se abre una ventana donde se completan obligatoriamente el nombre y el color del nuevo estado. Se pueden crear tantos estados como sean necesarios.
+
+---
+
+## Si algo de esto no lo ves
+
+Todo lo explicado en esta guía depende de los permisos de tu usuario. Si te falta una
+pantalla, un botón, o no podés editar algo de lo que se describe acá, antes que nada
+consultá con el administrador de tu clínica — seguramente sea cuestión de habilitarte el
+permiso correspondiente. Si después de eso seguís sin poder, escribinos a soporte de OCLÜ
+y te ayudamos.
