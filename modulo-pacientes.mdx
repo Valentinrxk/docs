@@ -65,7 +65,7 @@ Al hacer clic en esta opción se abre una ventana con un listado de todos los pa
 
 Al ingresar a la ficha de un paciente, el encabezado muestra la información más relevante de un vistazo:
 
-- **Foto** del paciente
+- **Foto** del paciente — al tocarla se abre un menú para ampliarla o cambiarla
 - **Nombre completo**
 - **Edad**
 - **Acceso directo a WhatsApp**
@@ -145,9 +145,13 @@ La ficha del paciente se organiza en cuatro solapas principales:
 
 #### 1. Datos personales
 
-Contiene toda la información personal, de contacto y administrativa del paciente, organizada en islas:
+Contiene toda la información personal, de contacto y administrativa del paciente, organizada en islas. Con el botón **Actualizar datos** se genera un link individual para este paciente: se lo compartís y desde su celular puede revisar y completar tanto sus datos personales como sus antecedentes de historia clínica. Lo que cargue se guarda directo en su ficha.
 
-**Isla de información personal** Nombre, apellido, documento, fecha de nacimiento y género. Todos obligatorios.
+<Frame>
+  ![Image](/images/image-333.png)
+</Frame>
+
+**Isla de información personal** Nombre, apellido, documento, fecha de nacimiento y género. Todos obligatorios. El **documento** identifica al paciente de forma única: no puede haber dos pacientes con el mismo documento en la clínica. Si se intenta cargar uno repetido, el sistema no permite guardarlo — así se evitan pacientes duplicados.
 
 **Isla de contacto** Prefijo y teléfono (obligatorios), email.
 
@@ -165,14 +169,36 @@ Contiene toda la información personal, de contacto y administrativa del pacient
 - Quitar al paciente actual del grupo
 - Eliminar el grupo completo
 
-**Citas** Historial de todas las citas del paciente con sus estados.
+**Citas** Historial de todas las citas del paciente con sus estados. Por cada cita hay accesos directos para dejar un comentario interno, avisarle al paciente por mail o por WhatsApp, o eliminarla.
+
+Al avisarle por WhatsApp se puede elegir entre un **aviso de cita** — solo los datos, sin pedir respuesta — o **pedir confirmación** — que suma un link para que el paciente confirme o cancele. En los dos casos se abre WhatsApp en una pestaña nueva con el mensaje ya escrito, para revisarlo antes de enviarlo.
+
+<Frame>
+  ![Image](/images/image-317.png)
+</Frame>
+
+Tocando el estado de una cita se puede cambiar, y ver el historial completo de la cita: cuándo se creó, y cada cambio posterior. Los estados disponibles (en esta guía aparece **Reagendado** a modo de ejemplo) no son fijos: cada clínica define y edita los suyos desde **Administrador → Estados de calendario**.
+
+<Frame>
+  ![Image](/images/image-318.png)
+</Frame>
 
 **Comentarios** Notas administrativas internas sobre el paciente, visibles para el equipo de la clínica.
 
-**Historial** Registro de cambios realizados en la ficha del paciente.
+**Etiquetas** Permiten ponerle un mote al paciente para poder encontrarlo después en casos puntuales. Se eligen del catálogo de la clínica (arrastrando o tocando las que están **Disponibles**) y se pueden asignar varias a la vez. El catálogo de etiquetas se administra con el botón **Gestionar catálogo**.
 
 <Frame>
-  ![Image](/images/image-152.png)
+  ![Image](/images/image-334.png)
+</Frame>
+
+**Historial** Registro de auditoría con todos los eventos de la ficha del paciente, agrupados por día: cambios de estado de presupuestos, evoluciones registradas, pagos recibidos, documentos subidos, actividad del calendario y restauración de citas eliminadas, entre otros. Cada evento muestra la hora, un rótulo con el tipo de evento y quién lo hizo.
+
+<Frame>
+  ![Image](/images/image-319.png)
+</Frame>
+
+<Frame>
+  ![Image](/images/image-335.png)
 </Frame>
 
 ---
@@ -220,6 +246,18 @@ Las cuatro islas son:
   ![Image](/images/image-153.png)
 </Frame>
 
+**Alerta y comentarios** Además de las cuatro islas de antecedentes, esta tarjeta permite dejar una **alerta** — un aviso corto como una alergia o una condición médica a tener en cuenta — y **comentarios** generales sobre el paciente.
+
+<Frame>
+  ![Image](/images/image-336.png)
+</Frame>
+
+Mientras la alerta esté cargada, cada vez que alguien del equipo abre la ficha del paciente aparece un aviso con ese texto, para que no se pase por alto.
+
+<Frame>
+  ![Image](/images/image-337.png)
+</Frame>
+
 ---
 
 ## OCLÜ IA
@@ -260,6 +298,14 @@ En ambos casos, el título de la planificación es obligatorio. Las planificacio
   ![Image](/images/image-154.png)
 </Frame>
 
+**Enviarle la planificación al paciente** Cada planificación se puede enviar por mail al paciente, al titular de su grupo familiar o a otro email, para que pueda corroborar cómo va a ser su tratamiento antes de avanzar. El paciente recibe un PDF con los tratamientos propuestos, sin precios.
+
+<Frame>
+  ![Image](/images/image-338.png)
+</Frame>
+
+> El botón **Dictar** para cargar diagnósticos por voz es un add-on: un servicio adicional, no incluido por defecto en el plan.
+
 ---
 
 ### Periodontograma
@@ -279,6 +325,12 @@ En cada vista y por cada pieza dental se pueden registrar: profundidad del surco
   ![Image](/images/image-155.png)
 </Frame>
 
+**Índices periodontales** Con las mediciones cargadas, el sistema calcula automáticamente un resumen: cuántos sitios tienen bolsas de 5 mm o más, cuál es el mayor nivel de inserción clínica (NIC) registrado, y qué porcentaje de sitios sangra al sondaje.
+
+<Frame>
+  ![Image](/images/image-339.png)
+</Frame>
+
 ---
 
 ### Evoluciones
@@ -286,13 +338,19 @@ En cada vista y por cada pieza dental se pueden registrar: profundidad del surco
 Las evoluciones registran lo realizado en cada consulta. Se pueden cargar de tres formas:
 
 - **Manual** — texto libre
-- **Dictado** — usando el micrófono del dispositivo. No requiere configuración previa; la primera vez que se usa, el dispositivo solicita permiso para acceder al micrófono. Una vez concedido, el dictado funciona directamente.
+- **Dictado** — usando el micrófono del dispositivo. No requiere configuración previa; la primera vez que se usa, el dispositivo solicita permiso para acceder al micrófono. Una vez concedido, el dictado funciona directamente. _Es un add-on: un servicio adicional, no incluido por defecto en el plan._
 - **Mejora con OCLÜ IA** — el texto de la evolución puede ser mejorado y enriquecido con asistencia de inteligencia artificial
 
 Las evoluciones se pueden exportar en formato PDF.
 
 <Frame>
   ![Image](/images/image-156.png)
+</Frame>
+
+Al agregar una evolución se abre un formulario con fecha de la consulta, presupuesto asociado, la nota de la consulta con su editor de texto, adjuntar archivos — donde ahora se puede elegir la categoría al subirlos —, firma del profesional y del paciente, y la opción de programar un recordatorio de seguimiento para volver a citar al paciente.
+
+<Frame>
+  ![Image](/images/image-320.png)
 </Frame>
 
 ---
@@ -306,9 +364,37 @@ Permite cargar y organizar archivos del paciente en los siguientes formatos:
 - Documentos: PDF, DOCX, XLSX
 - Modelos 3D: STL, PLY — **con visualizador 3D propio integrado al sistema**
 
+El espacio de almacenamiento de Multimedia es **ilimitado** para todos los usuarios.
+
 <Frame>
   ![Image](/images/image-157.png)
 </Frame>
+
+Subir archivos y subir un estudio DICOM son dos acciones separadas, cada una con su propia caja: una para las imágenes, videos, PDFs y modelos 3D de siempre, y otra pensada específicamente para el .zip o la carpeta que exporta el tomógrafo.
+
+<Frame>
+  ![Image](/images/image-321.png)
+</Frame>
+
+> El **visualizador de archivos DICOM** es un add-on: un servicio adicional, no incluido por defecto en el plan. Al ser un formato distinto, su almacenamiento se maneja aparte del espacio ilimitado de Multimedia.
+
+Los archivos se pueden ordenar por fecha (de subida o de la toma) o alfabéticamente, y ambos criterios se pueden combinar. Al editar una imagen, un editor de fotos propio permite recortarla y ajustarla sin salir del sistema, y el anotador — usado tanto para marcar fotos como estudios — cuenta con una paleta de símbolos del odontograma para señalar hallazgos directamente sobre la imagen, con zoom y texto que se pueden reposicionar libremente.
+
+### Presentaciones
+
+Además de los archivos sueltos, Multimedia tiene una solapa para armar **presentaciones**: casos visuales con las fotos del paciente para mostrarle su plan de tratamiento en la consulta.
+
+<Frame>
+  ![Image](/images/image-322.png)
+</Frame>
+
+Cada presentación se arma diapositiva por diapositiva. Por cada una se elige un layout (una imagen, dos en columna, o combinaciones de foto y texto) y un color de fondo, y se van agregando bloques de **foto** — elegidas de la galería del paciente, con posibilidad de anotarlas — o de **texto** libre.
+
+<Frame>
+  ![Image](/images/image-323.png)
+</Frame>
+
+Una vez armada, la presentación se puede mostrar en modo presentación a pantalla completa o compartir con un link público, para que se pueda ver desde afuera del sistema.
 
 ---
 
@@ -465,6 +551,48 @@ Cuando ambas firmas están completas, el sistema genera automáticamente el PDF 
 - No es posible revocar ni anular un consentimiento ya firmado.
 - El historial completo de consentimientos del paciente queda registrado en el listado con fecha y nombre de cada documento.
 
+### Armonización Facial
+
+Permite cargar un diagnóstico estético facial y compararlo con fotos del paciente en distintos ángulos. El diagnóstico muestra un perfil en forma de radar con cinco ejes — piel, forma, animación, simetría y proporción — cada uno con su nivel de severidad, además de un campo de notas libres.
+
+<Frame>
+  ![Image](/images/image-324.png)
+</Frame>
+
+También permite comparar fotos del paciente tomadas en distintas fechas, en los ángulos perfil izquierdo, 45° izquierdo, frente, 45° derecho y perfil derecho, para seguir la evolución del tratamiento.
+
+### Análisis estético
+
+Protocolo de diagnóstico estético facial y dentario. Desde acá también se accede a **Smile Design**, la herramienta para crear casos de diseño de sonrisa con las fotos del paciente, alinearlas con IA y superponer sonrisa y reposo para planificar el tratamiento estético _(en beta)_.
+
+<Frame>
+  ![Image](/images/image-325.png)
+</Frame>
+
+### Análisis biomecánico
+
+Evaluación de la articulación temporomandibular (ATM). Permite registrar planillas para dejar asentado el estado de la articulación y comparar su evolución en las próximas consultas.
+
+<Frame>
+  ![Image](/images/image-326.png)
+</Frame>
+
+### Análisis microbiológico
+
+Control de biofilm del paciente. Permite registrar análisis para dejar asentado el control de biofilm y comparar la evolución en las próximas consultas.
+
+<Frame>
+  ![Image](/images/image-327.png)
+</Frame>
+
+### Análisis fisicoquímico
+
+Registro del riesgo biológico del paciente, para comparar su evolución en las próximas consultas.
+
+<Frame>
+  ![Image](/images/image-328.png)
+</Frame>
+
 ---
 
 #### 3. Presupuestos
@@ -510,7 +638,13 @@ Las dos generan el mismo presupuesto: cambia la forma de cargarlo, no el resulta
 **Presupuesto exprés** Buscás la prestación, la agregás, ajustás el precio si hace falta y guardás. Es para el día a día: una consulta, una urgencia, un tratamiento suelto.
 
 <Frame>
-  ![Image](/images/image-280.png)
+  ![Image](/images/image-329.png)
+</Frame>
+
+Junto a la búsqueda rápida está **Cargar por voz**: tocás el micrófono y dictás las prestaciones — por ejemplo, "composite en el 24 cara oclusal, corona en el 26, endodoncia pieza 36" —, revisás la transcripción y la procesás para que se agreguen solas al presupuesto.
+
+<Frame>
+  ![Image](/images/image-330.png)
 </Frame>
 
 Los campos de arriba son:
@@ -543,17 +677,26 @@ Para guardar hay dos botones. **Guardar borrador** deja el presupuesto en Borrad
   ![Image](/images/image-283.png)
 </Frame>
 
-**Enviar el presupuesto al paciente** Tildando el casillero de cada tarjeta podés elegir uno o varios presupuestos y mandarlos juntos por email. Antes de enviarlos, el sistema pregunta cuánto detalle querés que vea el paciente:
+**Enviar el presupuesto al paciente** Al enviarlo por mail o por WhatsApp, primero se define qué se le pide al paciente:
+
+- **Que lo apruebe o lo rechace** — recibe botones para responder, y su respuesta actualiza sola el estado del presupuesto.
+- **Solo que lo vea** — recibe el presupuesto para consultarlo. No se le pide respuesta y el estado no cambia.
+
+La opción de aprobación se oculta cuando el presupuesto ya está aprobado, rechazado o cerrado.
+
+Después se define cuánto detalle ve:
 
 <Frame>
-  ![Image](/images/image-284.png)
+  ![Image](/images/image-331.png)
 </Frame>
 
 - **Detalle completo** — precios por tratamiento y, si corresponde, el desglose con el seguro médico.
 - **Solo total del paciente** — un PDF resumido con el paciente, los tratamientos y el total a su cargo, sin el desglose del seguro médico.
 - **Solo total del paciente + adjuntos** — el mismo PDF resumido, sumando los comentarios y las imágenes adjuntas del presupuesto.
 
-> Los presupuestos que estén en Borrador pasan a Pendiente de aprobación cuando se envían.
+Por último se elige a quién se le manda: al paciente, al titular del grupo familiar si tiene uno, o a otro email.
+
+> Los presupuestos que estén en Borrador pasan a Pendiente de aprobación cuando se envían pidiendo aprobación.
 
 **Acciones rápidas sobre un presupuesto** Con el clic derecho sobre cualquier tarjeta se abre un menú con todo lo que se puede hacer sin entrar al presupuesto:
 
@@ -562,6 +705,8 @@ Para guardar hay dos botones. **Guardar borrador** deja el presupuesto en Borrad
 </Frame>
 
 Desde ahí podés verlo, abrirlo en una pestaña nueva, enviarlo por mail o por WhatsApp, exportarlo en PDF, ver su historial, editarlo, duplicarlo o cambiarle el estado. Los botones de editar, duplicar y cambiar estado están también a la derecha de cada tarjeta, y el de editar solo se habilita mientras el presupuesto está en Borrador.
+
+**Duplicar presupuesto** Crea una copia exacta del presupuesto en estado **Borrador**, que se puede volver a editar. Es útil cuando un presupuesto ya aprobado necesita un cambio: en vez de editarlo directamente (algo que ya no se puede hacer una vez que salió de Borrador), se duplica para obtener una copia editable y se trabaja sobre esa copia.
 
 ---
 
@@ -573,6 +718,12 @@ Muestra el estado financiero completo del paciente: deuda actual, pagos realizad
 
 <Frame>
   ![Image](/images/image-170.png)
+</Frame>
+
+Si el paciente tiene saldo a favor en más de una moneda, al momento de cobrar aparecen pastillas para elegir con cuál de los dos saldos se quiere cubrir el pago. Viene marcada por defecto la moneda que coincide con la del pago.
+
+<Frame>
+  ![Image](/images/image-332.png)
 </Frame>
 
 **Revocación de pagos** OCLÜ permite revocar pagos registrados, con las siguientes condiciones y características:
@@ -619,3 +770,13 @@ Para que el documento tenga validez legal, debe ser impreso y firmado de forma m
 <Frame>
   ![Image](/images/image-172.png)
 </Frame>
+
+---
+
+## Si algo de esto no lo ves
+
+Todo lo explicado en esta guía depende de los permisos de tu usuario. Si te falta una
+pantalla, un botón, o no podés editar algo de lo que se describe acá, antes que nada
+consultá con el administrador de tu clínica — seguramente sea cuestión de habilitarte el
+permiso correspondiente. Si después de eso seguís sin poder, escribinos a soporte de OCLÜ
+y te ayudamos.
