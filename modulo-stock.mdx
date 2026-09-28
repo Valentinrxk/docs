@@ -6,91 +6,115 @@ El módulo Stock permite gestionar el inventario de materiales e insumos de la c
 
 ---
 
-## Alerta de stock mínimo
-
-Al ingresar al módulo, si hay productos que alcanzaron su stock de seguridad configurado, lo primero que aparece es una **ventana de advertencia** que indica cuántos productos están en stock mínimo y necesitan reposición. Esta alerta está pensada para que la clínica no se quede sin insumos sin darse cuenta. Se puede cerrar haciendo clic en "Entendido" o en la cruz, y una vez cerrada se accede al módulo normalmente.
-
-<Frame>
-  ![Image](/images/image-125.png)
-</Frame>
-
----
-
 ## Inventario
 
-Es la solapa principal del módulo. Al ingresar, pueden aparecer dos carteles informativos que se pueden cerrar una vez leídos.
+Es la solapa principal del módulo. El listado de productos muestra las columnas: nombre, categoría, stock, mínimo, vencimiento y estado (habilitado/deshabilitado).
 
-El listado de productos muestra las siguientes columnas: nombre, stock de seguridad, cantidad actual en stock, vencimiento, categoría y acciones.
+Al entrar podés ver dos carteles informativos: uno que aclara que los productos agregados no afectan los balances de caja, y otro que avisa que al crear un producto se registra automáticamente el movimiento de ingreso correspondiente en la solapa Movimientos.
+
+Si hay productos que llegaron a su stock mínimo o están por vencerse en los próximos 30 días, aparece un aviso arriba del listado ("Hay productos que necesitan atención") con un botón por cada tipo — tocando cualquiera de los dos, el listado se filtra para mostrarte justo esos productos.
+
+<Frame>
+  ![Image](/images/image-348.png)
+</Frame>
 
 #### **Herramientas disponibles**
 
 - **Buscador** — filtra productos por nombre en tiempo real
-- **Filtro de categorías** — permite filtrar el listado por categoría de producto
-- **Agregar producto** — abre el formulario para cargar un nuevo producto
+- **Filtrar** — combina en un solo lugar el filtro por categoría, "Solo bajo stock" y "Solo por vencer"
+- **Agregar producto** — desplegable con dos modos: **Individual** (cargar un solo producto) o **En lista** (cargar varios de una)
 - **Más opciones** — despliega las siguientes acciones:
-  - **Importar productos** — abre una ventana con instrucciones para la importación masiva. Se descarga una plantilla de Excel, se completan los campos y se arrastra o busca el archivo para subirlo. El sistema lo procesa automáticamente.
+  - **Importar productos** — abre una ventana con instrucciones para la importación masiva. Se descarga una plantilla de Excel, se completan los campos y se arrastra o busca el archivo para subirlo. El sistema lo procesa automáticamente y muestra el progreso
   - **Agregar categoría** — permite crear una nueva categoría directamente sin entrar a la gestión de categorías
-  - **Gestionar categorías** — abre una ventana con el listado completo de categorías, buscador por nombre y contador. Desde ahí se pueden crear, editar y eliminar categorías. El único campo necesario para crear una categoría es el nombre. Las categorías solo se pueden eliminar si no tienen productos asociados.
-  - **Exportar PDF** — genera un PDF del listado que se está visualizando en ese momento
-  - **Exportar Excel** — genera un archivo Excel del listado que se está visualizando
+  - **Gestionar categorías** — abre una ventana con el listado completo de categorías, buscador por nombre y contador. Desde ahí se pueden crear, editar y eliminar categorías. El único campo necesario para crear una categoría es el nombre. Las categorías solo se pueden eliminar si no tienen productos asociados
+  - **Exportar a Excel** / **Exportar a PDF** — generan un archivo del listado que se está visualizando en ese momento
+
+#### **Escanear un código de barras**
+
+Si tenés una pistola lectora conectada, podés escanear en cualquier momento estando parado en Inventario, sin hacer clic en ningún campo primero:
+
+- Si el código ya pertenece a un producto cargado, el sistema lo busca y lo resalta en el listado.
+- Si el código no está registrado, se abre directo el formulario de **Agregar producto** con el código ya cargado, para que completes el resto de los datos.
 
 #### **Acciones disponibles por producto**
 
 Desde el menú de acciones de cada producto podés:
 
-- **Editar** — modificar los datos del producto
+- **Editar** — modificar los datos del producto (el vencimiento y el número de lote ya no se editan acá, ver "Lotes de un producto" más abajo)
 - **Habilitar / Deshabilitar** — switch para activar o desactivar el producto. Si un producto ya no se utiliza en la clínica, se puede deshabilitar sin necesidad de eliminarlo
 - **Eliminar** — elimina el producto del inventario
 
-<Frame>
-  ![Image](/images/image-126.png)
-</Frame>
-
 ### **Agregar un producto**
 
-Al hacer clic en **Agregar producto** se abre un formulario con los siguientes campos:
+Al elegir **Individual** se abre un formulario con los siguientes campos, agrupados en secciones:
 
-- **Nombre** (obligatorio)
-- **Cantidad** (obligatorio) — stock actual disponible que hay cuando se carga el producto
-- **Número de lote** (opcional)
+**Identificación**
+- **Nombre del producto** (obligatorio)
+- **Marca** (opcional) — texto libre
+- **Código de barras** (opcional) — se puede escanear con la pistola o escribir a mano
+
+**Categoría y proveedor**
 - **Categoría** (obligatorio) — se selecciona del listado de categorías creadas. Es necesario tener al menos una categoría creada antes de agregar un producto
+- **Proveedor** (opcional) — se selecciona del listado de proveedores habilitados
+
+**Precios**
 - **Precio de costo** (obligatorio) — cuánto le costó a la clínica adquirir el producto
 - **Precio de venta** (obligatorio) — a cuánto se cobra o se vende el producto en la clínica
 - **Divisa** (obligatorio) — se selecciona entre las divisas configuradas en el sistema. Una vez guardada, la divisa no se puede modificar
-- **Proveedor** (opcional) — se selecciona del listado de proveedores habilitados
-- **Stock de seguridad** (obligatorio) — cantidad mínima a partir de la cual el sistema genera la alerta de <u>stock bajo</u>. Es importante configurarlo correctamente según el flujo de consumo de la clínica, para tener tiempo de reposición antes de quedarse sin el producto
-- **Fecha de vencimiento** (opcional)
-- **Marca** (opcional) — texto libre
 
-Una vez completados los campos, se hace clic en **Agregar a la lista previa**. Se pueden seguir agregando más productos a esa lista antes de confirmar. Una vez que están todos los productos que se quieren cargar, se hace clic en **Agregar** y todos se incorporan al inventario de una vez.
+**Stock y vencimiento**
+- **Cantidad** (obligatorio) — stock actual disponible que hay cuando se carga el producto
+- **Stock de seguridad** (obligatorio) — cantidad mínima que querés tener disponible. Cuando el stock del producto queda igual o por debajo, aparece en el aviso "Necesitan atención" para que sepas que hay que reponer
+- **N° de lote** (opcional)
+- **Vencimiento** (opcional)
+
+Estos dos últimos campos son los de la primera entrada del producto — cada vez que vuelva a entrar mercadería de este insumo, el lote y el vencimiento se cargan aparte (ver la sección siguiente).
 
 <Frame>
-  ![Image](/images/image-128.png)
+  ![Image](/images/image-349.png)
 </Frame>
+
+Si en cambio elegís **En lista**, podés ir sumando varios productos a una lista previa y confirmarlos todos juntos al final con un solo clic.
+
+### **Lotes de un producto**
+
+En el listado de Inventario, cada producto tiene una flechita a la izquierda para desplegar su panel de lotes. Un mismo insumo puede tener varias entradas con vencimientos distintos — por ejemplo, si llegó una tanda en agosto y otra en septiembre con fechas de vencimiento diferentes. Cada una queda registrada como un lote independiente.
+
+<Frame>
+  ![Image](/images/image-350.png)
+</Frame>
+
+El panel muestra, por lote: número, vencimiento (con un chip "Por vencer" o "Vencido" cuando corresponde), cantidad restante, proveedor y fecha en que se cargó. Desde ahí podés editar la fecha y el número de un lote, o eliminarlo.
+
+La columna Vencimiento del listado principal muestra el vencimiento más próximo entre todos los lotes activos del producto, y un badge con la cantidad de lotes cuando tiene más de uno.
 
 ---
 
 ## Movimientos
 
-Registra todas las entradas y salidas de productos del inventario. Actualmente los movimientos se registran de forma manual.
+Registra todas las entradas y salidas de productos del inventario. Se pueden cargar a mano desde los botones **Entrada** y **Salida**, o generarse automáticamente al escanear un código de barras (si el producto ya está registrado, el escaneo abre directo la ventana para elegir si es una entrada o una salida de ese producto).
 
 El listado muestra las siguientes columnas:
 
-- **Operación** — representada con un ícono de flecha: verde hacia la derecha para ingresos y amarillo/anaranjado hacia la izquierda para egresos
+- **Operación** — Entrada o Salida
 - **Fecha** — cuándo se realizó el movimiento
-- **Proveedor** — si el movimiento está asociado a un proveedor
 - **Producto** — el producto afectado
-- **Cantidad** — unidades involucradas en el movimiento
+- **Cantidad** — unidades involucradas, con el signo correspondiente
 - **Precio unitario** — precio del producto al momento del movimiento
+- **Proveedor** — si el movimiento está asociado a un proveedor
 - **Usuario** — quién registró el movimiento
 
-Desde el menú de acciones de cada movimiento hay un botón de detalle que abre una ventana con la información completa: proveedor, producto, precio unitario y cantidad.
+<Frame>
+  ![Image](/images/image-351.png)
+</Frame>
+
+Al registrar una **entrada**, se piden los datos del lote que está ingresando: cantidad, precio, proveedor, número de lote y vencimiento.
+
+Al registrar una **salida**, si el producto tiene más de un lote activo aparece un selector **Lote**, con la opción **Automático (FIFO por vencimiento)** ya elegida por defecto — descuenta primero del lote que vence antes. Si preferís, podés elegir manualmente de qué lote puntual descontar.
+
+En ambos casos hay un campo de **Comentarios** opcional, y desde el menú de acciones de cada movimiento hay un botón de detalle que abre una ventana con la información completa.
 
 El listado tiene un buscador por nombre de producto para encontrar movimientos específicos rápidamente.
-
-<Frame>
-  ![Image](/images/image-129.png)
-</Frame>
 
 ---
 
@@ -98,30 +122,40 @@ El listado tiene un buscador por nombre de producto para encontrar movimientos e
 
 Muestra el listado de todos los proveedores registrados en el sistema. Tiene un buscador por nombre y un contador del total de proveedores.
 
-El listado muestra: nombre o razón social, observaciones, email, teléfono, sitio web y menú de acciones.
+El listado muestra: nombre o razón social, contacto (con acceso directo a WhatsApp), email, observaciones y estado.
+
+<Frame>
+  ![Image](/images/image-352.png)
+</Frame>
 
 Desde el menú de acciones de cada proveedor podés:
 
 - **Editar** — modificar cualquier dato del proveedor
 - **Habilitar / Deshabilitar** — switch para activar o desactivar el proveedor. Un proveedor deshabilitado no puede ser seleccionado al cargar nuevos productos. Si ya tiene productos asociados no se puede eliminar, pero sí deshabilitar para que no sea seleccionable para cargar nuevos productos
 
-<Frame>
-  ![Image](/images/image-130.png)
-</Frame>
-
 #### **Crear un proveedor**
 
 Al hacer clic en **Crear proveedor** se abre un formulario con los siguientes campos:
 
 - **Nombre o razón social** (obligatorio) — texto libre
-- **Dirección** (opcional)
-- **Prefijo y teléfono** (opcional) — con acceso directo a WhatsApp desde el listado
 - **Email** (opcional)
-- **Sitio web** (opcional)
-- **Observaciones** (opcional) — campo libre donde se suele detallar qué tipo de insumos o productos se adquieren con ese proveedor, para tener esa referencia a mano sin necesidad de entrar al detalle
+- **Web** (opcional)
+- **Prefijo y teléfono** (opcional) — con acceso directo a WhatsApp desde el listado
+- **Dirección** (opcional)
+- **Observaciones** (opcional) — campo libre donde se suele detallar condiciones de pago, plazos de entrega o el contacto directo, para tener esa referencia a mano sin necesidad de entrar al detalle
 
 Una vez completados los datos, se hace clic en **Crear** y el proveedor aparece en el listado.
 
 <Frame>
-  ![Image](/images/image-131.png)
+  ![Image](/images/image-353.png)
 </Frame>
+
+---
+
+## Si algo de esto no lo ves
+
+Todo lo explicado en esta guía depende de los permisos de tu usuario. Si te falta una
+pantalla, un botón, o no podés editar algo de lo que se describe acá, antes que nada
+consultá con el administrador de tu clínica — seguramente sea cuestión de habilitarte el
+permiso correspondiente. Si después de eso seguís sin poder, escribinos a soporte de OCLÜ
+y te ayudamos.
