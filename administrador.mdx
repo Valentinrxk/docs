@@ -2,7 +2,9 @@
 title: "Administrador"
 ---
 
-El módulo Administrador es el centro de configuración general de la clínica dentro de OCLÜ. Desde acá se gestionan las clínicas (sedes), el equipo de trabajo, las automatizaciones del sistema, las listas de prestaciones con sus precios, las plantillas de documentos y comunicaciones, las cajas y bancos, y los reportes avanzados de finanzas y gestión. Se accede desde el menú lateral izquierdo y se organiza en siete secciones: Clínicas, Staff, Automatizaciones, Prestaciones, Plantillas, Cajas y Bancos, y Reportes.
+El módulo Administrador es el centro de configuración general de la clínica dentro de OCLÜ. Desde acá se gestionan las clínicas (sedes), el equipo de trabajo, las automatizaciones del sistema y las listas de prestaciones con sus precios y seguros médicos. Se accede desde el menú lateral izquierdo.
+
+Esta guía cubre las secciones **Clínicas**, **Staff**, **Automatizaciones** y **Prestaciones**. Las secciones de Plantillas, Recordatorios, Gastos y Estados de calendario se van a documentar en una próxima actualización.
 
 ---
 
@@ -10,170 +12,81 @@ El módulo Administrador es el centro de configuración general de la clínica d
 
 Esta sección permite agregar nuevas sedes o sucursales de la clínica y gestionar las existentes. Cada clínica tiene su propio horario de atención, días de trabajo e intervalo de turnos.
 
-Al ingresar aparecen dos carteles informativos: uno que indica que desde esta sección se pueden agregar clínicas o gestionar las existentes, y otro que explica que al crear una clínica se podrá configurar su horario de atención, días de trabajo e intervalo de turnos.
+Al ingresar pueden aparecer carteles informativos, y si alguna clínica no tiene dirección cargada, un aviso te avisa que eso puede hacer fallar la emisión de recetas digitales.
 
-El listado muestra las siguientes columnas: logo, nombre, teléfono, email, dirección, días de atención (representados con etiquetas de colores: Lun, Mar, Mié, Jue, Vie, Sáb, Dom), intervalo de turnos, horarios de atención (desde - hasta) y acciones.
+El listado muestra las siguientes columnas: clínica (logo, nombre y email), teléfono, dirección, días de atención (con etiquetas de colores), atención (horario e intervalo de turnos) y acciones.
 
 <Frame>
-  ![Clínicas 1](/images/Clínicas-1.png)
+  ![Image](/images/image-378.png)
 </Frame>
 
 Herramientas disponibles:
 
-- Buscador — filtra clínicas por nombre en tiempo real
+- Buscador — filtra clínicas por nombre, email o dirección
 - Agregar clínica — abre el formulario para crear una nueva sede
 
-Acciones disponibles por clínica Cada fila del listado tiene cuatro botones de acción:
+Desde el menú de acciones de cada clínica podés:
 
-- Configurar doctores (azul) — abre una ventana donde se asignan los doctores que atienden en esa sede. Muestra el listado de doctores asignados con etiquetas y permite agregar o quitar profesionales. Una vez modificado, se hace clic en Guardar cambios
-
-<Frame>
-  ![Image](/images/image-179.png)
-</Frame>
+- **Configurar doctores** — elegís qué profesionales atienden en esa sede. Solo los que asignés acá van a aparecer en la agenda de esa clínica
 
 <Frame>
-  ![Image](/images/image-183.png)
+  ![Image](/images/image-379.png)
 </Frame>
 
-- Configurar boxes (gris) — navega a la página de boxes de la clínica, donde se gestionan los consultorios o sillones. El listado muestra nombre y acciones (editar y eliminar). Se pueden agregar nuevos boxes con un nombre identificatorio
-
-<Frame>
-  ![Image](/images/image-180.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-184.png)
-</Frame>
-
-- Editar clínica (naranja) — abre el formulario de edición con los datos precargados, incluyendo la posibilidad de cambiar el logo con el botón "Cambiar logo"
-
-<Frame>
-  ![Image](/images/image-181.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-185.png)
-</Frame>
-
-- Eliminar clínica (rojo) — elimina la clínica del sistema
-
-<Frame>
-  ![Image](/images/image-182.png)
-</Frame>
+- **Configurar boxes** — navega a la gestión de los consultorios o sillones de esa sede: nombre y acciones (editar y eliminar)
+- **Editar clínica** — abre el formulario de edición con los datos precargados, incluyendo la posibilidad de cambiar el logo
+- **Eliminar clínica** — elimina la clínica del sistema
 
 ---
 
 ### **Agregar una clínica**
 
-<Frame>
-  ![Image](/images/image-186.png)
-</Frame>
+Al hacer clic en Agregar clínica se abre un formulario con los siguientes campos:
 
-Al hacer clic en Agregar clínica se abre un formulario dividido en dos secciones:
+**Datos de la sede**
+- **Logo** (opcional) — aparece en el encabezado del sistema y en los PDF que le mandás al paciente
+- **Nombre** (obligatorio)
+- **Email** (opcional)
+- **Teléfono** (opcional)
+- **Dirección** (obligatorio) — se imprime en las recetas digitales; sin este dato pueden fallar
+- **Listas de precios** (opcional) — podés vincularlas ahora o más tarde desde Prestaciones
 
-Información de la clínica:
+**Atención**
+- **Días de atención** (obligatorio) — botones para cada día de la semana, con un acceso rápido "Lun a Vie"
+- **Hora de inicio** y **Hora de fin** (obligatorios)
+- **Intervalo de turnos** (obligatorio) — 15 min, 30 min, 45 min, 1 h o 1 h 30
 
-- Logo (opcional) — archivo de imagen. Botón "Click para subir"
-- Nombre (obligatorio) — nombre identificatorio de la sede
-- Email (opcional) — email de contacto de la sede
-- Teléfono (opcional) — teléfono de contacto de la sede
-- Dirección (opcional) — dirección física de la sede
-- Listas disponibles (opcional) — selector múltiple para asociar listas de prestaciones a la clínica
-
-Horarios de atención:
-
-- Días de atención (obligatorio) — selector múltiple de días de la semana (Lunes a Domingo)
-- Intervalo de turnos (obligatorio) — botones de radio con las opciones: 15 minutos, 30 minutos, 45 minutos, 1 hora, 1 hora y 30 minutos
-- Hora de inicio (obligatorio) — selector de hora para definir el comienzo de la atención
-- Hora de fin (obligatorio) — selector de hora para definir el cierre de la atención
+Si tu clínica es de España, además aparece una sección de **Datos fiscales** (titular, NIF, domicilio fiscal, código postal, provincia e IBAN) que se imprime en las facturas. Y en los países donde los feriados varían según la región, hay un campo para elegir la región y que el calendario los muestre automáticamente.
 
 Una vez completados los campos, se hace clic en Agregar.
+
+<Frame>
+  ![Image](/images/image-380.png)
+</Frame>
 
 ---
 
 ## **Staff**
 
-Sección para gestionar el equipo de trabajo de la clínica: administradores, doctores y secretarias. Permite crear miembros, configurar sus permisos, horarios, firmas, contraseñas y contratos de honorarios.
+Sección para gestionar el equipo de trabajo de la clínica. Permite crear miembros, configurar sus permisos, horarios, firmas, contraseñas y contratos de honorarios.
 
-Al ingresar pueden aparecer tres carteles informativos que explican cómo configurar horarios (ícono de calendario), permisos (ícono de escudo) y firmas (ícono de firma) desde los botones de acción de cada miembro.
-
-El listado muestra las siguientes columnas: número, foto, nombre completo, email, rol (Administrador, Doctor o Secretaria), firma ( "Ver firma" en verde o "Sin configurar" en rojo), habilitado (switch on/off) y acciones.
+El listado muestra las siguientes columnas: miembro (foto, nombre y email), rol, firma ("Ver firma" o "Sin configurar"), habilitado (switch) y acciones. Los miembros deshabilitados quedan visibles en el listado, marcados con una etiqueta "Deshabilitado", en vez de desaparecer.
 
 <Frame>
-  ![Staff 1](/images/Staff-1.png)
+  ![Image](/images/image-381.png)
 </Frame>
 
 Herramientas disponibles:
 
-- Buscador — filtra miembros por nombre en tiempo real
-- Filtrar por rol — menú desplegable con las opciones: Mostrar todos, Admin, Doctor, Secretaria
-- Agregar miembro — abre el formulario para crear un nuevo integrante del equipo
+- Buscador — filtra miembros por nombre
+- Filtrar por rol
+- Agregar miembro
 - Configurar contratos — navega a la sección de contratos de honorarios
 
-Acciones disponibles por miembro Cada fila del listado tiene seis botones de acción:
-
-- Configurar permisos (celeste, ícono de escudo) — abre la ventana de administración de permisos del miembro, donde se pueden habilitar o deshabilitar accesos específicos a las distintas funcionalidades del sistema
+Desde el menú de acciones de cada miembro podés configurar sus permisos, editarlo, configurar sus horarios (si atiende), ver o configurar su firma, cambiarle la contraseña o eliminarlo (los administradores no se pueden eliminar).
 
 <Frame>
-  ![Image](/images/image-187.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-188.png)
-</Frame>
-
-- Editar miembro (naranja, ícono de persona) — abre el formulario de edición con todos los datos del miembro, incluyendo campos adicionales que no están en el formulario de creación
-
-<Frame>
-  ![Image](/images/image-189.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-190.png)
-</Frame>
-
-- Configurar horarios (gris, ícono de calendario) — navega a la página de configuración de horarios del profesional, donde se definen los días de trabajo, horarios de inicio y fin de turno, y si atiende o no en cada franja
-
-<Frame>
-  ![Image](/images/image-191.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-193.png)
-</Frame>
-
-- Firma (gris, ícono de documento) — abre la ventana de gestión de firma del miembro. Permite dibujar la firma a mano alzada o subir una imagen. Tiene botones para Limpiar firma, Cerrar y Guardar firma
-
-<Frame>
-  ![Image](/images/image-194.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-195.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-196.png)
-</Frame>
-
-- Contraseña (gris, ícono de candado) — abre un menú con dos opciones: Enviar mail de recuperación (envía un email al miembro para que restablezca su contraseña) y Cambiar contraseña directamente (permite al administrador asignar una nueva contraseña sin intervención del miembro)
-
-<Frame>
-  ![Image](/images/image-197.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-198.png)
-</Frame>
-
-- Eliminar miembro (rojo, ícono de papelera) — elimina al miembro del sistema. Los administradores no pueden ser eliminados
-
-<Frame>
-  ![Image](/images/image-199.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-200.png)
+  ![Image](/images/image-382.png)
 </Frame>
 
 ---
@@ -182,470 +95,127 @@ Acciones disponibles por miembro Cada fila del listado tiene seis botones de acc
 
 Al hacer clic en Agregar miembro se abre un formulario con los siguientes campos:
 
-- Nombre (obligatorio) — nombre de pila del miembro
-- Apellido (obligatorio) — apellido del miembro
-- Teléfono (opcional) — teléfono de contacto
-- Email (obligatorio) — email que usará para iniciar sesión
-- Contraseña (obligatorio) — contraseña de acceso al sistema
-- Género (obligatorio) — selector con las opciones: Masculino, Femenino, Indefinido
+**Datos personales**
+- **Nombre** y **Apellido** (obligatorios)
+- **Teléfono** (opcional)
+- **Género** (obligatorio)
+- **Fecha de nacimiento** (opcional) — si la cargás, el sistema le manda un saludo de cumpleaños automático por mail
+
+**Acceso al sistema**
+- **Email** (obligatorio) — con este mail inicia sesión
+- **Rol** (obligatorio) — además de **Administrador**, **Doctor** y **Secretaria**, hay más roles disponibles para necesidades puntuales de dotación (Higienista, Recepcionista, Manager, CEO, Gerente) y uno nuevo: **Asistente**
+- **Contraseña** (obligatorio) — mínimo 9 caracteres y una mayúscula
 
 <Frame>
-  ![Agregar Nuevo Miembro De Staff](/images/Agregar-nuevo-miembro-de-Staff.png)
+  ![Image](/images/image-383.png)
 </Frame>
 
----
+Como antes, el rol es una etiqueta dentro del sistema y no define los permisos reales de la persona — esos se configuran individualmente desde "Configurar permisos". El **Administrador** tiene todos los permisos habilitados de forma permanente. El **Doctor** tiene agenda propia y puede ser responsable de presupuestos. La **Secretaria** no tiene agenda propia ni puede ser profesional responsable. Si un Administrador además atiende pacientes, se le pueden habilitar las labores de doctor desde su perfil.
 
-### **Rol**
-
-(obligatorio) — selector con las tres opciones disponibles en OCLÜ: **Administrador**, **Doctor** y **Secretaria**. Es importante entender que estos roles funcionan como etiquetas dentro del sistema y no necesariamente reflejan el cargo real de la persona en la clínica. El rol determina algunas características específicas del usuario, pero no define sus permisos reales, que se configuran individualmente desde el apartado de permisos.
-
-El **Administrador** tiene todos los permisos del sistema habilitados de forma permanente y no pueden ser revocados ni restringidos. Siempre va a tener acceso a todos los apartados del sistema. Si además va a ejercer funciones clínicas dentro de la clínica, se le pueden habilitar las labores de doctor desde su perfil una vez creado, lo que le otorga las mismas facultades dentro del sistema que un usuario con rol Doctor.
-
-<Frame>
-  ![Image](/images/image-201.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-203.png)
-</Frame>
-
-El **Doctor** es el rol clínico por defecto. Tiene agenda propia, puede ser asignado a presupuestos como profesional responsable y puede tener contratos de honorarios configurados.
-
-La **Secretaria** está pensada para el personal administrativo y de recepción. No cuenta con las facultades laborales clínicas que tienen el Doctor y el Administrador con labores de doctor habilitadas — no tiene agenda propia ni puede ser asignada a presupuestos como profesional responsable.
-
-Una vez completados los campos, se hace clic en Agregar.
-
----
-
-### **Editar un miembro**
-
-El formulario de edición incluye todos los campos del formulario de creación más los siguientes campos adicionales:
-
-- Documento (opcional) — número de documento de identidad
-- M. Nacional (opcional) — matrícula nacional del profesional
-- M. Provincial (opcional) — matrícula provincial, con selector de provincia
-- Profesión (opcional) — selector desplegable de profesiones
-- Especialidad (opcional) — campo de texto para la especialidad
-- Fecha de nacimiento (opcional) — selector de fecha
-
-Una vez modificados los datos, se hace clic en Guardar cambios.
+El formulario de edición incluye estos mismos campos más: Documento, M. Nacional, M. Provincial, Profesión y Especialidad.
 
 ---
 
 ### **Configurar contratos**
 
-Desde el botón Configurar contratos se navega a una sección donde se gestionan los contratos de honorarios que definen cómo se liquida a cada profesional.
-
-<Frame>
-  ![Image](/images/image-205.png)
-</Frame>
-
-Al ingresar aparecen dos carteles informativos: uno que explica cómo crear contratos y otro que advierte crear contratos nuevos en lugar de editar los existentes cuando cambian las condiciones.
-
-<Frame>
-  ![Image](/images/image-206.png)
-</Frame>
-
-El listado muestra las siguientes columnas: nombre, tipo de contrato, doctores vinculados, descripción y acciones.
-
-Herramientas disponibles:
-
-- Buscador — filtra contratos por nombre
-- Filtrar por tipo — menú desplegable con las opciones: Mostrar todos, Por presupuesto, Por prestación
-- Total de contratos — cantidad total de contratos registrados
-- Agregar contrato — abre el formulario para crear un nuevo contrato
-
-<Frame>
-  ![Contratos De Doctores](/images/Contratos-de-doctores.png)
-</Frame>
+Desde el botón Configurar contratos se navega a una sección donde se gestionan los contratos de honorarios que definen cómo se liquida a cada profesional: por presupuesto o por prestación. El listado muestra nombre, tipo de contrato, doctores vinculados, descripción y acciones, con buscador y filtro por tipo.
 
 ---
 
 ## **Automatizaciones**
 
-Sección para configurar procesos automáticos del sistema que se ejecutan sin intervención manual. Actualmente hay tres automatizaciones disponibles, de las cuales dos son configurables y una está pendiente de implementación.
-
-El listado muestra las siguientes columnas: automatización (nombre con ícono), descripción, estado (color según el estado) y configuración (ícono de engranaje).
+Sección para configurar procesos automáticos del sistema que se ejecutan sin intervención manual. Tiene un buscador y un selector de clínica (para configurar cada automatización por sede). Si la clínica tiene WhatsApp activo, un cartel aclara que los recordatorios salen por ahí, y que el mail queda como respaldo automático si el WhatsApp falla.
 
 <Frame>
-  ![Automatizaciones 1](/images/Automatizaciones-1.png)
+  ![Image](/images/image-384.png)
 </Frame>
 
-Herramientas disponibles:
+Las automatizaciones disponibles son:
 
-- Buscador — filtra automatizaciones por nombre
-- Selector de clínica — desplegable para seleccionar sobre qué sede aplicar la configuración
+**Autoagenda** — acceso directo a configurar la reserva online de turnos: tus pacientes reservan solos, a cualquier hora, y la cita entra a la agenda o espera tu aprobación. Es un complemento aparte, con su propia configuración.
 
-Las tres automatizaciones disponibles son:
+**Confirmación de cita por link** — manda un link al paciente para que confirme o cancele su cita en un click. Se envía automáticamente por mail antes del turno y también se agrega al WhatsApp manual desde el detalle de la cita. Al hacer clic en el engranaje se configura:
 
----
-
-**Recordatorio de Citas** — Envía email a pacientes para confirmar o cancelar su cita.
-
-Al hacer clic en el engranaje de configuración se abre un formulario con los siguientes campos:
-
-- Enviar recordatorio (obligatorio) — selector desplegable con las opciones: El mismo día, 1 día antes (valor por defecto), 2 días antes, 3 días antes
-- Enviar confirmación desde estos estados — grupo de checkboxes con las opciones: Pendiente (naranja), Confirmado (azul), Cancelado (rojo). Permite elegir desde qué estados de cita se envía el recordatorio
-- Cuando el paciente CONFIRMA, cambiar a (obligatorio) — selector con las opciones: Pendiente, Confirmado, Cancelado. Define a qué estado pasa la cita cuando el paciente confirma desde el email
-- Cuando el paciente CANCELA, cambiar a (obligatorio) — selector con las opciones: Pendiente, Confirmado, Cancelado. Define a qué estado pasa la cita cuando el paciente cancela desde el email
-- Cuando la cita se REPROGRAMA, cambiar a (obligatorio) — selector con las opciones: Pendiente, Confirmado, Cancelado. Define a qué estado pasa la cita cuando se reprograma
-
-Un cartel informativo advierte que la automatización solo funcionará si se configuran los tres campos de estado correctamente. Una vez completados los campos, se hace clic en Guardar.
+- **Enviar el recordatorio** — 1, 2 o 3 días antes
+- **Solo para citas en estos estados** — Pendiente, Reagendado, Ausente con aviso, Confirmado o Cancelado
+- **Cuando el paciente responde desde el mail** — a qué estado pasa la cita si confirma, y a qué estado pasa si cancela
+- **Horario de envío** — los momentos del día en que el sistema revisa si hay citas por avisar. Al paciente le llega un solo recordatorio por cita, así que marcar más horarios no le manda más mensajes, solo reduce la espera hasta que sale el aviso. Si no elegís ninguno, usa los sugeridos (07:00, 10:00, 15:00, 18:00, 21:00)
 
 <Frame>
-  ![Image](/images/image-61.png)
+  ![Image](/images/image-385.png)
 </Frame>
 
-<Frame>
-</Frame>
+**Reagendamiento de citas** — cambia el estado de la cita cuando alguien de la clínica le mueve la fecha o el horario, para volver a pedirle confirmación al paciente. No tiene configuración propia.
 
----
+**Vencimiento de Presupuestos** — cierra automáticamente los presupuestos que superan su fecha límite para mantener el listado prolijo. Se configura con un interruptor para habilitarla y la cantidad de días hasta el vencimiento (30 por defecto).
 
-**Vencimiento de Presupuestos** — Marca presupuestos como vencidos automáticamente después de cierta cantidad de días.
+**Trabajos de laboratorio con cita cerca** — resalta en el módulo de Laboratorio las solicitudes cuya cita del paciente ya está cerca, para priorizar el trabajo urgente. No tiene configuración propia.
 
-Al hacer clic en el engranaje de configuración se abre un formulario con los siguientes campos:
-
-- Habilitar vencimiento automático — toggle switch para activar o desactivar la automatización. Cuando está desactivado, el campo de días no aparece
-- Días hasta vencimiento (obligatorio cuando está habilitado) — campo numérico con botones de incremento y decremento. Valor por defecto: 30 días. Un mensaje dinámico indica cuántos días se configuraron
-
-Un texto informativo se actualiza en tiempo real: "Los presupuestos se marcarán como vencidos después de X días". Una vez configurado, se hace clic en Guardar.
-
-<Frame>
-  ![Image](/images/image-62.png)
-</Frame>
-
----
-
-**WhatsApp** — Recordatorios y confirmaciones por WhatsApp. Esta automatización se encuentra en estado "Próximamente" y no tiene opciones de configuración disponibles por el momento.
-
-Los estados posibles de las automatizaciones son:
-
-- Activo (verde) — la automatización está habilitada y funcionando
-- Próximamente (gris) — la funcionalidad aún no está disponible
+**Recordatorio de citas por WhatsApp** — manda un WhatsApp antes del turno con botones para que el paciente confirme o cancele desde el chat. Es un complemento pago: si no lo tenés contratado, el engranaje abre una ventana promocional en vez de la configuración. Si lo tenés activo, se configura igual que "Confirmación de cita por link" (mismos campos de estados, respuestas y horario de envío), solo que aplicado al WhatsApp.
 
 ---
 
 ## **Prestaciones**
 
-La sección de Prestaciones gestiona los listados de precios de los tratamientos y servicios odontológicos que ofrece la clínica. Se organiza en una estructura jerárquica de tres niveles: Listas \> Categorías \> Prestaciones.
+La sección de Prestaciones gestiona los listados de precios de los tratamientos y servicios que ofrece la clínica, y el catálogo de seguros médicos con los que trabajás. Se organiza en dos pestañas: **Listas** y **Seguros médicos**.
 
-El listado principal muestra las siguientes columnas: lista (nombre clickeable con flecha para navegar al detalle), obra social (si la lista está asociada a alguna) y acciones.
+### **Listas**
 
-Cada fila tiene dos controles de acción:
-
-- Editar (naranja) — abre el formulario para modificar el nombre y obra social de la lista
-- Habilitar / Deshabilitar — switch para activar o desactivar la lista. Una lista deshabilitada (switch rojo) no puede ser utilizada al crear presupuestos
+Estructura jerárquica de tres niveles: Listas \> Categorías \> Prestaciones. El listado principal muestra: lista, seguro médico asociado (si tiene) y acciones.
 
 <Frame>
-  ![Prestaciones 1](/images/Prestaciones-1.png)
+  ![Image](/images/image-386.png)
 </Frame>
 
 Herramientas disponibles:
 
-- Buscador — filtra listas por nombre
-- Total de listas — cantidad total de listas registradas
-- Agregar lista — abre el formulario para crear una nueva lista
-- Más opciones — desplegable con acciones adicionales:
-  - Duplicar lista — permite copiar una lista existente con todas sus categorías y prestaciones
-  - Importar prestaciones — permite importar prestaciones masivamente desde un archivo
+- Buscador y **Agregar lista**
+- Más opciones — Duplicar lista e Importar prestaciones
 
----
-
-**Agregar una lista** Al hacer clic en Agregar lista se abre un formulario con los siguientes campos:
-
-- Nombre de la lista (obligatorio) — nombre identificatorio del listado de precios
-- Obra Social (opcional) — selector desplegable con las obras sociales y prepagas registradas en el sistema (más de 40 opciones disponibles, incluyendo OSDE, Swiss Medical, Galeno, Medifé, entre muchas otras). Permite asociar la lista a una cobertura médica específica
-
-Una vez completados los campos, se hace clic en Agregar.
+Desde las acciones de cada lista podés **Editar**, **Habilitar/Deshabilitar**, y **Eliminar** (esta última solo si ninguna prestación de la lista se usó todavía en un presupuesto, una planificación o un contrato; y no está disponible para las listas del sistema, como "Estética Facial"). Si intentás borrar una que no se puede, el sistema te avisa que la deshabilites en su lugar.
 
 <Frame>
-  ![Image](/images/image-63.png)
+  ![Image](/images/image-387.png)
 </Frame>
 
----
-
-**Dentro de una lista — Categorías** Al hacer clic en el nombre de una lista se navega a la vista de categorías, que organiza las prestaciones por especialidad o tipo de tratamiento. El listado muestra el nombre de cada categoría como link clickeable con flecha para navegar al detalle de sus prestaciones.
-
-Cada categoría tiene botones de editar y eliminar. El sistema incluye hasta 15 categorías dentales predeterminadas (por ejemplo: Control PH, Endodoncia, Cirugía, Periodoncia, Prótesis, Ortodoncia, Estética, Radiología, entre otras).
-
-Se pueden agregar nuevas categorías con el botón correspondiente.
-
-**Dentro de una categoría — Prestaciones** Al hacer clic en el nombre de una categoría se navega al listado de prestaciones individuales. Cada prestación representa un servicio o tratamiento específico con su precio.
+**Agregar una lista** — Nombre de la lista (obligatorio) y Seguro médico (opcional, más de 40 opciones). Con un seguro médico asociado, después vas a poder cargar precios divididos entre lo que paga el paciente y lo que cubre la prepaga.
 
 <Frame>
-  ![Listado De Prestaciones](/images/Listado-de-prestaciones.png)
+  ![Image](/images/image-388.png)
 </Frame>
 
----
+Dentro de una lista se navega a sus Categorías, y dentro de una categoría al listado de Prestaciones individuales, cada una con nombre, código, precio total, precio del seguro médico, precio del paciente (calculado automáticamente) y divisa.
 
-### **Agregar una prestación**
+Si una lista tiene seguro médico asociado, el **Aumento de precios** (disponible desde categorías o desde prestaciones sueltas) tiene un interruptor "Único / Discriminado": en Único, el porcentaje que cargás se aplica por igual al precio del paciente y al del seguro médico. En Discriminado, cargás un porcentaje para cada uno por separado — útil porque la prepaga suele actualizar sus valores en momentos distintos a los del copago del paciente.
 
-Al hacer clic en Agregar prestación se abre un formulario con los siguientes campos:
+### **Seguros médicos**
 
-- Nombre de la prestación (obligatorio) — nombre del tratamiento o servicio
-- Código (opcional) — código identificatorio del tratamiento (puede ser un código de nomenclador)
-- Precio Total (obligatorio) — precio completo del tratamiento
-- Precio Obra Social (opcional) — monto que cubre la obra social. Solo aplica si la lista está asociada a una obra social
-- Precio Paciente (calculado automáticamente) — se obtiene de restar el Precio Obra Social al Precio Total. Representa lo que el paciente paga de su bolsillo
-- Divisa (obligatorio) — selector de moneda (ARS o USD)
-
-Una vez completados los campos, se hace clic en Agregar.
+Catálogo de las obras sociales y prepagas con las que trabaja la clínica, para asociar a las listas de precios. El listado muestra nombre, ID financiador y acciones (eliminar).
 
 <Frame>
-  ![Image](/images/image-64.png)
+  ![Image](/images/image-389.png)
 </Frame>
 
----
-
-## **Plantillas**
-
-La sección de Plantillas permite gestionar los modelos de documentos y mensajes que utiliza la clínica en su operación diaria. Se organiza en cuatro pestañas: Plantillas de consentimiento, Plantillas de presupuesto, Plantillas de correo y Plantillas de WhatsApp.
-
----
-
-### **Plantillas de consentimiento**
-
-Gestiona los consentimientos informados que los pacientes firman antes de los tratamientos. Es la pestaña activa por defecto al ingresar a la sección.
-
-El listado muestra las siguientes columnas: nombre y acciones (tres botones: vista previa en verde, editar en naranja, eliminar en rojo).
-
-Herramientas disponibles:
-
-- Buscador — filtra plantillas por nombre
-- Agregar consentimiento — abre el formulario para crear una nueva plantilla
-
-La clínica puede tener múltiples plantillas de consentimiento para diferentes procedimientos (periodoncia, toma de imágenes, biopsia, prótesis parcial removible, blanqueamiento dental, prótesis fija, ortodoncia, entre otros).
-
-<Frame>
-  ![Plantillas De Consentimientos](/images/Plantillas-de-consentimientos.png)
-</Frame>
-
----
-
-**Agregar/Editar un consentimiento**
-
-Al hacer clic en Agregar consentimiento o en el botón de editar se abre un formulario con los siguientes campos:
-
-- Nombre del consentimiento (obligatorio) — nombre identificatorio de la plantilla
-- Campo a agregar (opcional) — selector desplegable que permite insertar variables dinámicas en el contenido del consentimiento. Las variables disponibles son: Nombre del paciente, DNI del paciente, Fecha, Dirección del paciente, Nombre del profesional, Matrícula nacional y Matrícula provincial. Al seleccionar una variable, se inserta automáticamente en la posición del cursor dentro del editor
-- Contenido — editor de texto enriquecido con barra de herramientas que incluye: negrita, cursiva, subrayado, tachado, encabezado, cita, lista ordenada, lista desordenada, imagen, enlace, código y bloque de código
-
-Acciones disponibles por plantilla:
-
-- Vista previa (verde, ícono de ojo) — abre una ventana con la visualización del consentimiento tal como lo verá el paciente
-- Editar (naranja) — abre el formulario de edición con el contenido precargado
-- Eliminar (rojo) — elimina la plantilla del sistema
-
-Una vez completado el contenido, se hace clic en Guardar cambios.
-
----
-
-### **Plantillas de presupuesto**
-
-Gestiona las plantillas que se utilizan como base para generar los documentos de presupuesto que se entregan a los pacientes.
-
-El listado muestra las siguientes columnas: título y acciones (editar y eliminar).
-
-Herramientas disponibles:
-
-- Buscador — filtra plantillas por nombre
-- Agregar plantilla — abre el formulario para crear una nueva plantilla de presupuesto
-
-**Agregar/Editar una plantilla de presupuesto** Al hacer clic en Agregar plantilla o en editar se abre un formulario con los siguientes campos:
-
-- Título de la plantilla (obligatorio) — nombre identificatorio
-- Contenido de la plantilla — editor de texto enriquecido con las mismas herramientas de formato que el editor de consentimientos
-
-Una vez completado, se hace clic en Guardar o Guardar cambios.
-
-<Frame>
-  ![Plantillas De Presupuesto](/images/Plantillas-de-presupuesto.png)
-</Frame>
-
----
-
-### **Plantillas de correo**
-
-Gestiona las plantillas de los emails que el sistema envía automáticamente a los pacientes. A diferencia de las otras pestañas, las plantillas de correo vienen preconfiguradas por el sistema y no se pueden crear nuevas ni eliminar, solo editar su contenido.
-
-El listado muestra las siguientes columnas: título, estado (activa o no) y acciones (solo editar).
-
-El sistema incluye 11 plantillas preconfiguradas que cubren los distintos tipos de comunicación por email que el sistema puede enviar (recordatorios, confirmaciones, notificaciones, etc.).
-
-**Editar una plantilla de correo** Al hacer clic en editar se abre un formulario con los siguientes campos:
-
-- Título del email (obligatorio) — asunto del correo electrónico
-- Saludo (obligatorio) — texto de saludo que encabeza el email
-- Mensaje introductorio (obligatorio) — cuerpo principal del mensaje
-- Nota / Recordatorio (opcional) — texto adicional que aparece como nota al pie o recordatorio
-- Pie de email (opcional) — texto del footer del correo
-
-Cada campo tiene un comportamiento de texto libre. Los botones disponibles son: Restaurar valores (devuelve la plantilla a su contenido original de fábrica), Cerrar y Guardar cambios.
-
-<Frame>
-  ![Plantillas De Correo](/images/Plantillas-de-correo.png)
-</Frame>
-
----
-
-### **Plantillas de WhatsApp**
-
-Gestiona las plantillas de los mensajes que el sistema envía por WhatsApp. Al igual que las de correo, vienen preconfiguradas y no se pueden crear nuevas ni eliminar.
-
-El listado muestra las siguientes columnas: título, estado y acciones (solo editar).
-
-El sistema incluye dos plantillas preconfiguradas:
-
-- Recordatorio de cita — mensaje que se envía al paciente para recordarle su próxima cita
-- Comprobante de pago — mensaje que se envía al paciente tras registrar un pago
-
-**Editar una plantilla de WhatsApp** Al hacer clic en editar se abre un formulario con los siguientes campos:
-
-- Mensaje (obligatorio) — contenido del mensaje de WhatsApp con soporte para variables dinámicas
-
-El formulario incluye un panel de "Vista previa" en tiempo real que muestra cómo se verá el mensaje con las variables reemplazadas por datos de ejemplo. Los botones disponibles son: Restaurar valores, Cerrar y Guardar cambios.
-
-<Frame>
-  ![Plantillas De Wpp](/images/Plantillas-de-Wpp.png)
-</Frame>
+Tiene un buscador y un botón **Agregar seguro médico** para sumar uno que no esté en el catálogo.
 
 ---
 
 ## **Cajas y Bancos**
 
-Sección de configuración y administración de las cuentas donde se registran los movimientos de dinero. Cada caja o banco queda asociada a una divisa y a los métodos de pago que acepta. Esta sección es compartida con el módulo de Finanzas.
-
-Al ingresar aparecen dos carteles informativos: uno de información que dice que las cajas y bancos serán las destinatarias de los movimientos y/o transferencias, y uno de advertencia que dice que no se podrá modificar la divisa de una caja o banco una vez creada.
-
-El listado principal muestra las siguientes columnas: nombre, divisa, métodos de pago y acciones (editar en naranja y eliminar en rojo).
-
-Debajo de las cajas principales hay una sección separada de Cajas de Ajuste, que son cuentas especiales para registrar correcciones contables. Muestra: nombre, divisa y acciones.
-
-<Frame>
-  ![Cajas Y Bancos 1](/images/Cajas-y-bancos-1.png)
-</Frame>
-
-Herramientas disponibles:
-
-- Buscador — filtra cajas o bancos por nombre
-- Agregar caja o banco — abre el formulario para crear una nueva cuenta
-- Transferir entre cajas — abre el formulario para mover dinero entre cuentas
-- Agregar caja de ajuste — crea una cuenta de tipo ajuste para correcciones contables
-- Reporte por caja — genera un reporte detallado de movimientos por cuenta específica, con filtros de rango de fechas y selector de caja, tabla de movimientos y opciones de exportación a PDF y Excel
-
----
-
-**Agregar una caja o banco** Al hacer clic en Agregar caja o banco se abre un formulario con los siguientes campos:
-
-- Organización (opcional) — selector que indica a qué sede pertenece la cuenta. Por defecto aparece "Sin organización establecida"
-- Nombre (obligatorio) — nombre identificatorio de la caja o banco (ej: Banco ARS, Mercado Pago, Caja efectivo USD)
-- Divisa (obligatorio) — se selecciona entre las divisas configuradas en el sistema. Una vez guardada, la divisa no se puede modificar
-- Métodos de Pago (obligatorio) — checkboxes para seleccionar los métodos habilitados: Efectivo, Tarjeta de crédito, Tarjeta de débito y Transferencia bancaria
-- Agregar información adicional — link para desplegar campos opcionales extra:
-  - CBU / Número de cuenta (opcional) — datos bancarios de la cuenta
-  - Alias (opcional) — alias de transferencia
-  - CUIT / CUIL (opcional) — identificación fiscal del titular
-  - Nombre del titular (opcional) — nombre del titular de la cuenta
-
-Una vez completados los campos, se hace clic en Agregar.
-
-<Frame>
-  ![Image](/images/image-65.png)
-</Frame>
-
-**Editar una caja o banco** El formulario de edición contiene los mismos campos que el de creación, pero con los datos precargados. La divisa aparece deshabilitada (no se puede modificar) según la regla de negocio del sistema.
-
----
-
-### **Transferir entre cajas**
-
-Al hacer clic en Transferir entre cajas se abre un formulario con los siguientes campos:
-
-- Caja origen (obligatorio) — selector con las cajas disponibles
-- Caja destino (obligatorio) — selector con las cajas disponibles
-- Monto (obligatorio) — importe a transferir
-- Fecha (obligatorio) — fecha de la transferencia, prellenada con la fecha actual
-- Cotización (obligatorio) — cotización del dólar, prellenada con el valor actual. Aplica cuando se transfiere entre cuentas de distinta divisa
-- Comentario (opcional) — campo de texto libre
-
-Una vez completados los campos, se hace clic en Transferir.
-
-<Frame>
-  ![Image](/images/image-66.png)
-</Frame>
-
----
-
-**Agregar caja de ajuste** Al hacer clic en Agregar caja de ajuste se abre un formulario simplificado con los siguientes campos:
-
-- Organización (opcional) — selector de sede
-- Nombre (obligatorio) — nombre identificatorio de la caja de ajuste
-- Divisa (obligatorio) — selector de moneda
-
-Una vez completados los campos, se hace clic en Agregar.
-
-<Frame>
-  ![Image](/images/image-67.png)
-</Frame>
+Esta sección es la misma que usa el módulo Finanzas para administrar las cuentas donde se registran los movimientos de dinero, así que no la repetimos acá — la guía completa (listado, cajas de ajuste, cajas de descuento, agregar cuenta, transferir entre cajas) está en la página de [Finanzas](/finanzas#cajas-y-bancos).
 
 ---
 
 ## **Reportes Avanzados**
 
-El módulo de Reportes Avanzados ofrece un análisis financiero y de gestión completo con gráficos interactivos, KPIs y asistencia de inteligencia artificial. Se accede desde el banner de la pantalla principal de Finanzas o desde Administrador \> Reportes. Es compartido con el módulo de Finanzas.
-
-En la barra superior hay: dos pestañas (Finanzas y Gestión), selector de rango de fechas (fecha inicio — fecha fin), selector de divisa (ARS/USD), botón Ocultar para enmascarar todos los montos de la pantalla, botón Exportar PDF para generar un documento imprimible, y el botón Oclü IA.
-
-**Pestaña Finanzas** — indicadores económicos del período seleccionado:
-
-Resumen del Período (con links directos a ver detalle de Ingresos, Egresos y Balance):
-
-- Resultado — cuatro tarjetas: Ingresos (verde), Egresos (rojo), Resultado (diferencia neta) y Margen (porcentaje de rentabilidad)
-- Cobros — dos tarjetas: Ticket Promedio (monto promedio por transacción) y Transacciones (cantidad total de operaciones)
-- Gastos — dos tarjetas: Gastos Operativos y Pagos a Doctores
-
-Gráficos y tablas debajo de los KPIs:
-
-- Tendencia Financiera — gráfico de barras comparando Ingresos vs Egresos mes a mes, con toggles para mostrar/ocultar cada serie y visualización de picos y valles
-- Distribución de Egresos — gráfico circular (dona) que desglosa Gastos operativos vs Pagos a doctores
-- Estado de Resultado — tabla mensual detallada con filas de Presupuestos cobrados (ingresos) y Gastos operativos (egresos) por mes, con columna de totales acumulados
-
-<Frame>
-  ![Reporte De Finanzas 1](/images/Reporte-de-finanzas-1.png)
-</Frame>
-
-**Pestaña Gestión** — indicadores no financieros de eficiencia de la clínica:
-
-Indicadores de Gestión:
-
-- Pacientes — Atendidos, Nuevos y Recurrentes
-- Presupuestos — Tasa de Conversión (porcentaje de aprobados sobre presentados), Aprobados y Rechazados
-- Agenda — Citas Totales, Canceladas y Tasa de Asistencia
-
-Gráficos debajo de los indicadores:
-
-- Tendencia de Gestión — gráficos de Evolución de Pacientes y Presupuestos a lo largo del tiempo
-
-<Frame>
-  ![Reporte De Gestion 1](/images/Reporte-de-gestion-1.png)
-</Frame>
+También es una sección compartida con Finanzas: el análisis financiero y de gestión completo, con gráficos, KPIs y Oclü IA. La guía completa está en la página de [Finanzas](/finanzas#reportes-avanzados).
 
 ---
 
-**Oclü IA** — botón integrado que abre una ventana donde el asistente de inteligencia artificial de Oclü analiza los datos financieros del período seleccionado. Muestra indicadores de procesamiento ("Analizando datos financieros...", "Generando insights...") y luego presenta un análisis de tendencias financieras con identificación de patrones estacionales, fortalezas (como resultado neto positivo) y debilidades (como dependencia de pocos meses para generar ingresos significativos). Permite consultar interpretaciones y recomendaciones basadas en los datos financieros y de gestión de la clínica.
+## Si algo de esto no lo ves
 
-<Frame>
-  ![Image](/images/image-68.png)
-</Frame>
-
----
-
-**Exportar PDF** — genera un reporte en PDF de dos páginas que incluye: encabezado con logo y datos de la clínica, resumen del período con todos los KPIs, gráfico de tendencia de ingresos vs egresos, gráfico de composición de egresos, gráfico de evolución de gastos, tabla mensual completa del estado de resultado, y sección de datos financieros en tiempo real con saldos de cajas y deudas pendientes.
-
----
-
-**Ocultar montos** — permite enmascarar todos los valores monetarios de la pantalla, mostrándolos como puntos. Es útil para proteger la información sensible cuando hay terceros mirando la pantalla. Se reactiva haciendo clic en el mismo botón (que pasa a decir "Mostrar").
-
-<Frame>
-  ![Image](/images/image-69.png)
-</Frame>
+Todo lo explicado en esta guía depende de los permisos de tu usuario. Si te falta una
+pantalla, un botón, o no podés editar algo de lo que se describe acá, antes que nada
+consultá con el administrador de tu clínica — seguramente sea cuestión de habilitarte el
+permiso correspondiente. Si después de eso seguís sin poder, escribinos a soporte de OCLÜ
+y te ayudamos.
