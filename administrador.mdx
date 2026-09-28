@@ -4,7 +4,7 @@ title: "Administrador"
 
 El módulo Administrador es el centro de configuración general de la clínica dentro de OCLÜ. Desde acá se gestionan las clínicas (sedes), el equipo de trabajo, las automatizaciones del sistema y las listas de prestaciones con sus precios y seguros médicos. Se accede desde el menú lateral izquierdo.
 
-Esta guía cubre las secciones **Clínicas**, **Staff**, **Automatizaciones** y **Prestaciones**. Las secciones de Plantillas, Recordatorios, Gastos y Estados de calendario se van a documentar en una próxima actualización.
+Esta guía cubre las secciones **Clínicas**, **Staff**, **Automatizaciones**, **Prestaciones**, **Plantillas**, **Recordatorios** y **Estados de calendario**. La sección de Gastos se va a documentar en una próxima actualización.
 
 ---
 
@@ -197,6 +197,114 @@ Catálogo de las obras sociales y prepagas con las que trabaja la clínica, para
 </Frame>
 
 Tiene un buscador y un botón **Agregar seguro médico** para sumar uno que no esté en el catálogo.
+
+---
+
+## **Plantillas**
+
+Textos que la clínica reutiliza para no escribirlos de cero cada vez: consentimientos, presupuestos, antecedentes clínicos y las plantillas que se envían por correo o WhatsApp. Se organiza en cinco solapas.
+
+### **Consentimientos**
+
+Listado de los consentimientos informados que le hacés firmar al paciente antes de un tratamiento. Muestra nombre y acciones (ver, editar, eliminar).
+
+<Frame>
+  ![Image](/images/image-390.png)
+</Frame>
+
+Tiene un buscador y un botón **Agregar consentimiento**. Dentro de la misma pantalla hay una segunda solapa, **Partes quirúrgicos**, con el mismo tipo de listado pero para los partes de cirugía.
+
+<Frame>
+  ![Image](/images/image-391.png)
+</Frame>
+
+### **Antecedentes**
+
+Acá elegís qué preguntas se muestran en la historia clínica del paciente y cuáles son obligatorias. Aplica tanto a lo que completa el staff como a los links de antecedentes que se le mandan al paciente para que los complete él mismo.
+
+Las preguntas están agrupadas en cuatro bloques — Antecedentes médicos, Medicamentos, Antecedentes odontológicos y Hábitos — y cada una tiene dos casilleros: **Mostrar** y **Obligatoria**. Un casillero "Todas" en el encabezado de cada bloque te permite tildar o destildar todas las preguntas de ese grupo de una sola vez.
+
+<Frame>
+  ![Image](/images/image-392.png)
+</Frame>
+
+Si tu clínica tiene más de una sede, podés elegir a cuál organización le aplica la configuración desde un selector arriba a la derecha. Los botones **Descartar cambios** y **Guardar cambios** quedan siempre visibles.
+
+### **Presupuestos**
+
+Plantillas de texto reutilizables para el contenido de los presupuestos — por ejemplo, la descripción de un tratamiento frecuente que no querés redactar cada vez que armás un presupuesto. Cada una tiene un título y un contenido de texto enriquecido.
+
+<Frame>
+  ![Image](/images/image-393.png)
+</Frame>
+
+Tiene un buscador por nombre y un botón **Agregar plantilla**.
+
+### **Correo**
+
+Catálogo de todos los mails que el sistema puede enviar automáticamente: recordatorios y confirmaciones de citas, links para completar antecedentes o datos personales, presupuestos, comprobantes de pago, recetas digitales, saludos de cumpleaños y más. Desde acá podés editar el contenido de cada uno; el estado "Por defecto" indica que todavía usa el texto original de OCLÜ.
+
+<Frame>
+  ![Image](/images/image-394.png)
+</Frame>
+
+### **WhatsApp**
+
+Reúne las plantillas de WhatsApp. Arriba de todo podés personalizar una copia del recordatorio automático de citas (el original se conserva; la copia se manda a aprobación de Meta y aplica a todas las sedes de la clínica). Abajo se dividen en dos grupos: las que **envía la clínica** manualmente desde el detalle del paciente o la cita, y las que **envía el sistema** como respuesta automática cuando el paciente contesta un recordatorio (confirmar, cancelar, link inválido, cita ya procesada).
+
+<Frame>
+  ![Image](/images/image-395.png)
+</Frame>
+
+---
+
+## **Recordatorios**
+
+Tareas y avisos internos para el equipo de la clínica — no son mensajes que le llegan al paciente. El listado se divide en tres solapas: **Recordatorios pendientes**, **Recordatorios recurrentes** y **Recordatorios completados**. Cada fila muestra fecha, usuarios alcanzados, paciente (si aplica), descripción, categoría y acciones.
+
+<Frame>
+  ![Image](/images/image-396.png)
+</Frame>
+
+Herramientas disponibles:
+
+- Buscador por paciente o descripción, y **Filtrar por categoría**
+- **Nuevo recordatorio**
+- **Categorías** — administrar las categorías con las que se etiquetan los recordatorios (ver más abajo)
+
+**Nuevo recordatorio** — Fecha del recordatorio y Categoría (obligatorios), Descripción (obligatorio), Paciente (opcional, con buscador) y Usuarios a notificar (obligatorio). También podés activar la repetición del recordatorio para que se vuelva a crear automáticamente.
+
+<Frame>
+  ![Image](/images/image-397.png)
+</Frame>
+
+Desde **Categorías** administrás las etiquetas de color que agrupan los recordatorios (Turnos, Personal, Staff, Citas, etc.): podés agregar una nueva, habilitarla o deshabilitarla con el interruptor, o eliminarla.
+
+<Frame>
+  ![Image](/images/image-398.png)
+</Frame>
+
+---
+
+## **Estados de calendario**
+
+Define los estados que puede tener una cita (Pendiente, Confirmado, Cancelado, etc.) y con qué color se ve cada uno en el calendario. El listado muestra estado, color, si es visible en el calendario, y una columna nueva — **Cita sucedida** — para marcar qué estados cuentan como que el paciente efectivamente asistió.
+
+<Frame>
+  ![Image](/images/image-399.png)
+</Frame>
+
+Una segunda solapa, **Categorías de bloqueos**, administra por separado los colores de los bloqueos de agenda (por ejemplo, "Vacaciones").
+
+<Frame>
+  ![Image](/images/image-400.png)
+</Frame>
+
+Con **Agregar estado** cargás un nombre y un color nuevos.
+
+<Frame>
+  ![Image](/images/image-401.png)
+</Frame>
 
 ---
 
