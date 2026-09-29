@@ -116,9 +116,58 @@ El formulario de edición incluye estos mismos campos más: Documento, M. Nacion
 
 ---
 
+### **Permisos de cada usuario**
+
+Desde el ícono de escudo en las acciones de cada miembro entrás a su pantalla de permisos, donde se define exactamente qué puede ver y hacer dentro del sistema.
+
+**Combinaciones rápidas** — perfiles predefinidos para aplicar de una sola vez y después ajustar el detalle: Recepción, Recepción con caja, Odontólogo, Odontólogo sin precios, Asistente / Higienista y Administración. Cada uno resume a quién está pensado y qué le habilita.
+
+<Frame>
+  ![Image](/images/image-402.png)
+</Frame>
+
+Debajo del preset quedan dos árboles para afinar permiso por permiso: uno con los permisos generales (Calendario, Pacientes, Laboratorio, Stock, Finanzas, Comunicaciones) y otro con los permisos administrativos (Clínicas, Staff, Automatizaciones, Prestaciones, Autoagenda, Plantillas, Cajas y bancos, Reportes, Estados de calendario, Seguros Médicos, Comunicaciones). Cada rama se abre para tildar permisos puntuales — por ejemplo, dentro de Staff podés darle a alguien el permiso para agregar miembros sin darle el de eliminarlos.
+
+<Frame>
+  ![Image](/images/image-403.png)
+</Frame>
+
+Algunos permisos dependen de otro: si le sacás a alguien el permiso "padre" (por ejemplo, "Listar staff"), el sistema le saca automáticamente los permisos que dependen de él. Los cambios se confirman con **Guardar cambios**.
+
+---
+
 ### **Configurar contratos**
 
-Desde el botón Configurar contratos se navega a una sección donde se gestionan los contratos de honorarios que definen cómo se liquida a cada profesional: por presupuesto o por prestación. El listado muestra nombre, tipo de contrato, doctores vinculados, descripción y acciones, con buscador y filtro por tipo.
+Desde el botón Configurar contratos se navega a una sección donde se gestionan los esquemas con los que se le liquida a cada doctor o prestador. El listado muestra nombre, tipo de contrato, doctores vinculados (o un aviso si todavía no tiene ninguno) y descripción.
+
+<Frame>
+  ![Image](/images/image-404.png)
+</Frame>
+
+Tiene un buscador y un filtro por tipo. Desde las acciones de cada contrato podés ver el detalle, vincular doctores, editarlo o eliminarlo.
+
+**Agregar contrato** — primero elegís el tipo:
+
+- **Por presupuesto** — un porcentaje general que se aplica a todas las prestaciones
+- **Por prestación** — una condición distinta para cada prestación
+
+Además del nombre y una descripción opcional, definís la **base de cálculo** por separado para lo que paga el paciente y para lo que cubre el seguro médico (sobre el precio del presupuesto o sobre el precio de la lista), y el **porcentaje de descuento de laboratorio** que se le resta de su liquidación.
+
+<Frame>
+  ![Image](/images/image-405.png)
+</Frame>
+
+Si elegiste "Por prestación", pasás a un segundo paso donde cargás, prestación por prestación, un porcentaje o un monto fijo (nunca los dos juntos) para el lado del paciente y para el del seguro médico. Se puede filtrar por lista o categoría, buscar por nombre, y usar **Aplicar a todas** para pisar de una sola vez lo que hayas cargado.
+
+<Frame>
+  ![Image](/images/image-406.png)
+</Frame>
+
+**Vincular doctores** — desde el ícono de personas asignás qué doctores usan ese contrato. Un doctor solo puede tener un contrato por organización: si elegís a alguien que ya está vinculado a otro, el sistema te avisa y te deja optar por reemplazarlo.
+
+<Frame>
+  ![Image](/images/image-407.png)
+</Frame>
 
 ---
 
