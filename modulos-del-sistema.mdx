@@ -178,10 +178,18 @@ Al hacer clic en cualquier paciente del listado, accedés a su ficha completa. E
   ![Image](/images/image-39.png)
 </Frame>
 
-> **Acceso del paciente** — Podés habilitarle al paciente un acceso a su propia información dentro de OCLÜ. Desde ese acceso va a poder ver su multimedia, sus citas, su balance, sus presupuestos y sus recetas digitales.
+> **Acceso del paciente** — Podés habilitarle al paciente un acceso a su propia información dentro de OCLÜ. Desde ese acceso va a poder ver su multimedia, sus citas, su balance, sus presupuestos y sus recetas digitales. Cuántos accesos podés otorgar depende de tu plan; desde **Mi suscripción** en el encabezado ves cuántos ya usaste y cuántos te quedan.
 
 <Frame>
   ![Image](/images/image-40.png)
+</Frame>
+
+### Portal del paciente
+
+Es la visualización que ve el paciente al entrar con su propio usuario, con menú lateral propio: un **dashboard** con próximas citas y estado de cuenta; **Mis citas** con el historial completo; **Recetas digitales** para descargar en PDF; **Multimedia** con todo lo que la clínica le cargó; **Facturación**, el estado de cuenta con el historial de cargos y pagos, filtrable por moneda; y **Grupo familiar**, si tiene uno, con el balance consolidado de todos sus integrantes.
+
+<Frame>
+  ![Image](/images/image-146.png)
 </Frame>
 
 ---
@@ -240,10 +248,16 @@ Contiene toda la información personal y de contacto del paciente, organizada en
   ![Image](/images/image-49.png)
 </Frame>
 
-- **Historial** — Registro de cambios realizados en la ficha.
+- **Etiquetas** — Motes para encontrar al paciente después en casos puntuales, elegidos de un catálogo que administra la clínica.
 
 <Frame>
-  ![Image](/images/image-50.png)
+  ![Image](/images/image-334.png)
+</Frame>
+
+- **Historial** — Registro de auditoría con todos los eventos de la ficha, agrupados por día: cambios de estado de presupuestos, evoluciones, pagos, documentos subidos, actividad del calendario y restauración de citas eliminadas, cada uno con la hora y quién lo hizo.
+
+<Frame>
+  ![Image](/images/image-335.png)
 </Frame>
 
 ---
@@ -276,18 +290,26 @@ Representación visual e interactiva del estado dental del paciente. Desde acá 
 
 **Periodontograma**
 
-Herramienta para el registro y seguimiento del estado periodontal del paciente.
+Herramienta para el registro y seguimiento del estado periodontal del paciente, con cuatro vistas del maxilar. Con las mediciones cargadas, el sistema calcula automáticamente un resumen: sitios con bolsas de 5 mm o más, el mayor nivel de inserción clínica registrado, y el porcentaje de sitios que sangra al sondaje.
 
 <Frame>
   ![Image](/images/image-53.png)
 </Frame>
 
+<Frame>
+  ![Image](/images/image-339.png)
+</Frame>
+
 **Evoluciones**
 
-Registro clínico de cada consulta. Podés escribir la evolución manualmente, dictarla, o mejorar la redacción usando la inteligencia artificial integrada. Cada evolución puede exportarse como PDF.
+Registro clínico de cada consulta. Podés escribir la evolución manualmente, dictarla por voz o mejorar la redacción con la inteligencia artificial integrada. Al cargarla podés adjuntar archivos (eligiendo su categoría), sumar la firma del profesional y del paciente, y programar un recordatorio de seguimiento para volver a citarlo. Cada evolución puede exportarse como PDF.
 
 <Frame>
   ![Image](/images/image-54.png)
+</Frame>
+
+<Frame>
+  ![Image](/images/image-320.png)
 </Frame>
 
 **Multimedia**
@@ -296,7 +318,7 @@ Registro clínico de cada consulta. Podés escribir la evolución manualmente, d
   ![Diseño Sin Título (5)](/images/Diseño-sin-título-\(5\).png)
 </Frame>
 
-Almacenamiento de archivos del paciente. Formatos admitidos:
+Almacenamiento **ilimitado** de archivos del paciente. Formatos admitidos:
 
 - Imágenes: JPG, PNG, HEIC
 - Videos: MP4, MOV, AVI, WEBM, MKV
@@ -309,37 +331,75 @@ Almacenamiento de archivos del paciente. Formatos admitidos:
 >   ![Image](/images/image-55.png)
 > </Frame>
 
+Subir un estudio DICOM (el .zip o la carpeta que exporta el tomógrafo) es una acción aparte, con su propia caja para no mezclarlo con los archivos comunes — su **visualizador de DICOM** es un add-on, un servicio adicional no incluido por defecto en el plan.
+
+<Frame>
+  ![Image](/images/image-321.png)
+</Frame>
+
+Los archivos se pueden ordenar por fecha o alfabéticamente, tienen un editor de fotos propio para recortar y ajustar sin salir del sistema, y un anotador con la paleta de símbolos del odontograma para señalar hallazgos directamente sobre la imagen.
+
+Además de los archivos sueltos, Multimedia tiene una solapa de **Presentaciones**: casos visuales armados diapositiva por diapositiva con las fotos del paciente, para mostrarle su plan de tratamiento en la consulta. Se pueden proyectar a pantalla completa o compartir con un link público.
+
+<Frame>
+  ![Image](/images/image-322.png)
+</Frame>
+
 **Recetas digitales** _(disponible solo en Argentina)_
 
-Generación de recetas de medicamentos y de estudios con validez legal, firmadas digitalmente por el profesional.
+Generación de recetas de medicamentos y de solicitudes de estudios con validez legal, firmadas digitalmente por el profesional. Crear una lleva tres pasos: elegís el odontólogo (necesita su perfil profesional completo en Administrador), agregás los medicamentos o estudios con su posología, y confirmás los datos de cobertura del paciente. Al generarla, el sistema te ofrece enviarla por WhatsApp o email al mismo tiempo que abre el PDF. Cada receta se puede clonar para volver a emitirla sin cargarla de cero.
 
 <Frame>
   ![Image](/images/image-56.png)
 </Frame>
 
 <Frame>
-  ![Image](/images/image-58.png)
+  ![Image](/images/image-160.png)
 </Frame>
 
 **Consentimientos**
 
-Por cada tratamiento a realizar, podés generar un consentimiento informado para que el paciente lo firme digitalmente. Los consentimientos tienen validez legal y quedan almacenados en la ficha del paciente.
+Por cada tratamiento a realizar, podés generar un consentimiento informado para que el paciente lo firme digitalmente en el momento — la firma del doctor requiere que tenga su firma configurada en Administrador. Los consentimientos tienen validez legal, no vencen y no se pueden revocar una vez firmados. Desde las plantillas del consentimiento (en Administrador) podés generar una vista previa sin firmas para compartírsela al paciente con anticipación.
 
 <Frame>
   ![Image](/images/image-59.png)
 </Frame>
 
+<Frame>
+  ![Image](/images/image-166.png)
+</Frame>
+
+**Estética facial**
+
+Un conjunto de herramientas de diagnóstico estético, integradas dentro de la historia clínica:
+
+- **Armonización facial** — diagnóstico estético con un perfil en forma de radar (piel, forma, animación, simetría y proporción) y comparación de fotos del paciente en distintos ángulos y fechas.
+
+<Frame>
+  ![Image](/images/image-324.png)
+</Frame>
+
+- **Análisis estético** — protocolo de diagnóstico facial y dentario, desde donde también se accede a **Smile Design** _(en beta)_ para armar casos de diseño de sonrisa alineando fotos con IA.
+
+<Frame>
+  ![Image](/images/image-325.png)
+</Frame>
+
+- **Análisis biomecánico** — evaluación de la articulación temporomandibular (ATM), con planillas para comparar su evolución.
+- **Análisis microbiológico** — control de biofilm del paciente a lo largo del tiempo.
+- **Análisis fisicoquímico** — registro del riesgo biológico del paciente, también comparable entre consultas.
+
 ---
 
 #### C. Presupuestos
 
-Desde esta solapa podés crear y gestionar todos los presupuestos del paciente. OCLÜ trabaja en la moneda local que tengas configurada en tu clínica y en dólar, permitiendo gestionar presupuestos y recibir pagos en ambas divisas. También permite enviar presupuestos masivamente.
+Desde esta solapa podés crear y gestionar todos los presupuestos del paciente. OCLÜ trabaja en la moneda local que tengas configurada en tu clínica y en dólar, permitiendo gestionar presupuestos y recibir pagos en ambas divisas.
 
 <Frame>
-  ![Image](/images/image-60.png)
+  ![Image](/images/image-277.png)
 </Frame>
 
-Los presupuestos se manejan con los siguientes estados:
+Los presupuestos se manejan con los siguientes estados, y avanzan siempre para adelante — una vez que salen de Borrador no pueden volver atrás:
 
 | Estado | Descripción |
 | :-- | :-- |
@@ -352,6 +412,20 @@ Los presupuestos se manejan con los siguientes estados:
 
 > _Un presupuesto en estado **Pendiente** funciona como un contrato entre la clínica y el paciente, por eso no es editable una vez compartido._
 
+**Agregar presupuesto** te da a elegir entre dos formas de cargarlo, que terminan en el mismo resultado: el **Presupuesto exprés**, una ventana chica para buscar prestaciones y guardar en un clic — con la opción de dictarlas por voz —, pensado para el día a día; o el **Presupuesto completo**, una pantalla aparte con odontograma, pago en cuotas, plantillas de comentario y multimedia.
+
+<Frame>
+  ![Image](/images/image-329.png)
+</Frame>
+
+Al enviarlo por mail o WhatsApp elegís si le pedís al paciente que lo apruebe o lo rechace, o si solo se lo mandás para que lo vea, y cuánto detalle de precios incluye el PDF.
+
+<Frame>
+  ![Image](/images/image-331.png)
+</Frame>
+
+Con clic derecho sobre cualquier tarjeta accedés a todas las acciones rápidas (verlo, enviarlo, exportarlo, editarlo, duplicarlo, cambiarle el estado) sin entrar al presupuesto. **Duplicar** es la forma de "editar" uno que ya salió de Borrador: crea una copia editable para trabajar ahí.
+
 ---
 
 #### D. Balance
@@ -360,23 +434,23 @@ Los presupuestos se manejan con los siguientes estados:
   ![Image](/images/image-61.png)
 </Frame>
 
-Muestra el estado financiero completo del paciente: todo lo que se le fue generando como deuda y todo lo que fue abonando. Desde acá podés ver si tiene saldo a favor o deuda pendiente, y registrar nuevos pagos.
+Muestra el estado financiero completo del paciente: todo lo que se le fue generando como deuda y todo lo que fue abonando. Desde acá podés ver si tiene saldo a favor o deuda pendiente, y registrar nuevos pagos — si tiene saldo a favor en más de una moneda, podés elegir con cuál de los dos cubrir el cobro.
 
-También podés **revocar pagos ya registrados**. Esto es útil cuando, por ejemplo, un paciente abonó un anticipo sobre un presupuesto que luego necesita eliminarse o reemplazarse. Al revocar un pago, el sistema registra la revocación con el usuario que la realizó y el motivo obligatorio. Una vez revocado, el pago debe ser reasignado a un nuevo presupuesto.
+También podés **revocar pagos ya registrados**, siempre que no se le hayan liquidado honorarios al profesional por ese pago. Esto es útil cuando, por ejemplo, un paciente abonó un anticipo sobre un presupuesto que luego necesita eliminarse o reemplazarse. Al revocar un pago, el sistema pide un motivo obligatorio, revierte los montos del balance, y el pago revocado queda visible mostrando tachadura. El monto queda disponible para reasignar a otro presupuesto.
 
 <Frame>
-  ![Image](/images/image-63.png)
+  ![Image](/images/image-171.png)
 </Frame>
 
 ---
 
-### Módulo adicional: Estética facial _(próximamente disponible)_
+### Descarga de historia clínica
+
+Aunque la historia clínica vive digitalizada en el sistema, se puede exportar en PDF con toda la información del paciente — antecedentes, evoluciones, diagnósticos, medicación, estudios y las declaraciones legales correspondientes — desde el botón **Descargar HC**. Para que tenga validez legal, hay que imprimirlo y firmarlo a mano.
 
 <Frame>
-  ![Mockup Estetica Facial Final](/images/mockup_estetica_facial_final.png)
+  ![Image](/images/image-172.png)
 </Frame>
-
-El módulo de **Estética facial** es un complemento opcional disponible para todas las clínicas que lo contraten, independientemente de su ubicación. Se integra directamente dentro del módulo de Pacientes y agrega herramientas específicas para la gestión de tratamientos estéticos faciales. Para más información sobre este módulo, contactate con nuestro equipo.
 
 ---
 
