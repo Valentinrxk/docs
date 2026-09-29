@@ -1,0 +1,109 @@
+---
+title: "Add-ons"
+---
+
+Además del plan base, OCLÜ ofrece **add-ons**: servicios adicionales pagos que suman una funcionalidad puntual a la clínica. Un add-on no viene incluido por defecto — hay que contratarlo aparte — y mientras no esté contratado, la pantalla correspondiente muestra una ventana promocional con la explicación del servicio y un botón para contratarlo, en vez de la funcionalidad real.
+
+Esta página repasa qué hace cada add-on disponible hoy y qué se ve cuando ya está activo en la clínica.
+
+> Para contratar cualquiera de estos servicios, usá el botón **Comercial** (ícono de WhatsApp) del encabezado, que te conecta directo con el equipo comercial de OCLÜ.
+
+---
+
+## Integración por WhatsApp
+
+Cambia el canal de los recordatorios y confirmaciones de turno: en vez de (o además de) mandarlos por mail, salen por WhatsApp con botones para que el paciente confirme o cancele desde el mismo chat. El mail queda como respaldo automático — solo se manda si el WhatsApp falla (paciente sin teléfono, número inválido o plantilla todavía no aprobada por Meta).
+
+Con el add-on activo, en **Administrador → Automatizaciones** aparece la automatización "Recordatorio de citas por WhatsApp" como una más de la lista, configurable igual que las demás. Sin el add-on, el engranaje de esa automatización abre una ventana promocional en su lugar.
+
+<Frame>
+  ![Image](/images/image-415.png)
+</Frame>
+
+---
+
+## Integración con IA
+
+Suma un **asistente conversacional** (en `/ai-assistant`) al que le podés preguntar en lenguaje natural por los datos de la clínica: facturación, pacientes, agenda, productividad de doctores, deudas con obras sociales, presupuestos. El asistente busca en los datos reales de la clínica y responde en el momento, sin tener que armar un reporte a mano.
+
+<Frame>
+  ![Image](/images/image-416.png)
+</Frame>
+
+---
+
+## Visualizador de DICOM
+
+Permite subir y visualizar estudios DICOM (tomografías) directamente en la historia clínica del paciente, desde la solapa **Multimedia**. Se sube el .zip o la carpeta que exporta el tomógrafo, y el estudio se abre en un visor propio con reconstrucción panorámica y cortes paraxiales, sin depender de un programa externo.
+
+Es un servicio aparte de la Multimedia común (fotos, videos, documentos), que sí está incluida sin costo adicional en el plan base.
+
+<Frame>
+  ![Image](/images/image-417.png)
+</Frame>
+
+---
+
+## Autoagenda pública
+
+Le da a la clínica un link público (por WhatsApp, Instagram o donde quieras compartirlo) para que los pacientes reserven su propio turno, a cualquier hora, sin llamar. El paciente elige profesional, día y horario libre, y la cita entra directo a la agenda o queda a la espera de que la clínica la apruebe, según cómo se configure.
+
+Se administra desde **Administrador → Automatizaciones → Autoagenda**, donde se ven los links activos y sus estadísticas de reservas.
+
+<Frame>
+  ![Image](/images/image-418.png)
+</Frame>
+
+---
+
+## Facturador Electrónico (Argentina)
+
+Emite comprobantes fiscales integrados a AFIP directamente desde OCLÜ, sin salir del sistema. Se accede desde el dashboard de **Finanzas**, donde aparece la tarjeta "Facturador Electrónico" con un acceso directo.
+
+<Frame>
+  ![Image](/images/image-419.png)
+</Frame>
+
+---
+
+## API de Integración
+
+Genera llaves (API keys) para conectar OCLÜ con sistemas externos — n8n, Zapier, un CRM propio — y así automatizar flujos con datos de la clínica. Cada llave se puede limitar por permisos (lectura o escritura) y revocar en cualquier momento. Se administra desde **Configuración → API Keys**.
+
+<Frame>
+  ![Image](/images/image-420.png)
+</Frame>
+
+---
+
+## Armonización Facial
+
+Protocolo de diagnóstico estético dentro de la historia clínica del paciente: perfil del diagnóstico con gráfico de simetría, forma y proporción, comparación fotográfica y notas. Vive dentro de FMS, en la historia clínica del paciente.
+
+<Frame>
+  ![Image](/images/image-324.png)
+</Frame>
+
+---
+
+## Smile Design
+
+Estudio de diseño de sonrisa: se cargan casos con fotos del paciente, se alinean con IA y se superponen con la sonrisa de referencia para planificar el tratamiento estético antes de empezarlo. Actualmente en beta.
+
+<Frame>
+  ![Image](/images/image-325.png)
+</Frame>
+
+---
+
+## Facturación España
+
+Facturador propio para clínicas españolas, que emite facturas legalmente válidas bajo la normativa española (RD 1619/2012). Es un módulo totalmente aparte del Facturador Electrónico de Argentina: no comparte numeración, plantilla ni integración — cada país tiene su propio circuito fiscal.
+
+Solo está disponible para clínicas configuradas con país España, por lo que no se puede mostrar una captura desde una clínica argentina como la usada en esta guía.
+
+---
+
+### Si no ves alguno de estos add-ons
+
+Que un servicio no aparezca en tu OCLÜ no es un error: significa que todavía no está contratado. Usá el botón **Comercial** del encabezado (ícono de WhatsApp) para hablar con el equipo y sumarlo a tu plan.
