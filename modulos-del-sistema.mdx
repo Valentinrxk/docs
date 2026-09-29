@@ -15,128 +15,59 @@ OCLÜ está organizado en módulos, cada uno pensado para una función específi
 ## Calendario
 
 <Frame>
-  ![Image](/images/image-2.png)
+  ![Image](/images/image-298.png)
 </Frame>
 
 El módulo de **Calendario** es el centro de operaciones diarias de la clínica. Desde acá se organizan y gestionan todos los turnos, los horarios de atención de cada profesional y la disponibilidad general de la clínica.
 
-### Vistas disponibles
+### Vistas y agrupación
+
+Al ingresar podés elegir entre **vista diaria** o **semanal**, y agrupar las columnas por **profesional** o por **box**. Ambas se pueden cambiar en cualquier momento. Desde las **Preferencias** del módulo (ícono de configuración) definís cuál de las dos vistas y cuál agrupación querés que se abra por defecto cada vez que entrás, en lugar de la última que hayas usado.
 
 <Frame>
-  ![Image](/images/image-6.png)
+  ![Image](/images/image-310.png)
 </Frame>
 
-Al ingresar al módulo, podés elegir entre dos vistas:
+Si agrupás por box, la isla de filtro tiene un acceso directo a la configuración de boxes — el mismo listado que hay en Administrador → Clínicas —, donde se edita el nombre de cada uno y si permite solapamiento de citas (sobreturno).
 
-- **Vista diaria** — Muestra la agenda completa de un día específico, con detalle de cada turno y los horarios habilitados de cada profesional.
-- **Vista semanal** — Muestra los siete días de la semana de forma simultánea, ideal para planificación y coordinación general.
+También podés elegir qué columnas mostrar (todos los profesionales/boxes, o solo algunos) y navegar con las flechas de avance y retroceso o el botón **Hoy**.
 
-Ambas vistas son configurables: podés predefinir cuál querés ver al ingresar y cambiarla en cualquier momento según la necesidad.
+### Estados de citas y bloqueos
+
+Los estados de las citas (Pendiente, Confirmado, Cancelado, etc.) se configuran desde **Administrador → Estados de calendario**, en dos solapas: **Estados de calendario** y **Categorías de bloqueos**. Cada estado tiene, además de su color y si es visible en el calendario, la columna **Cita sucedida** — marca qué estados cuentan como que el paciente efectivamente vino, algo que usa el reporte de evoluciones pendientes de Finanzas.
 
 <Frame>
-  ![Image](/images/image-3.png)
+  ![Image](/images/image-288.png)
 </Frame>
 
-### Filtros de visualización
+Las **categorías de bloqueos** funcionan igual, pero definen el color con el que se ven los bloqueos de agenda en vez de las citas.
 
-Dentro del calendario podés filtrar la agenda de dos formas:
-
-- **Por doctores** — Muestra una columna por cada profesional que trabaja en la clínica.
-- **Por boxes** — Muestra una columna por cada espacio de atención disponible.
-
-<Frame>
-  ![Image](/images/image-4.png)
-</Frame>
-
-También podés navegar entre fechas usando las flechas de avance y retroceso, o ir directamente a una fecha específica usando el selector de fecha. El sistema siempre te indica el día, número y mes en el que estás.
-
-<Frame>
-  ![Image](/images/image-5.png)
-</Frame>
-
----
-
-### Estados de citas
-
-<Frame>
-  <img
-    src="/images/image-7.png"
-    alt="Image"
-    title="Image"
-    className="mx-auto"
-  />
-</Frame>
-
-Los estados permiten identificar visualmente el estado de cada turno en la agenda. Vienen predefinidos tres estados: **Pendiente**, **Confirmado** y **Cancelado**, pero son totalmente personalizables. Podés editarlos, cambiarles el color, cambiarles el nombre y agregar nuevos estados según la forma de trabajo de tu clínica. Los estados se configuran desde el módulo **Administrador**.
-
-### Configuración de sobreposición de turnos
-
-Podés configurar si permitís que los turnos se superpongan o no dentro del calendario. Esta configuración es independiente según el modo de visualización:
-
-- **Por profesional** — Útil para clínicas que manejan sobreturnos por doctor.
-
-<Frame>
-  ![Image](/images/image-8.png)
-</Frame>
-
-- **Por box** — Útil cuando el espacio físico de atención no puede estar ocupado por dos pacientes al mismo tiempo.
-
-<Frame>
-  ![Image](/images/image-9.png)
-</Frame>
-
-Podés combinar ambas configuraciones según la dinámica de tu clínica. Por ejemplo, permitir sobreposición por profesional pero no por box.
-
----
+Podés configurar si permitís que los turnos se superpongan, de forma independiente por profesional y por box — por ejemplo, permitir sobreturnos por doctor pero no por box.
 
 ### Gestión de turnos
 
-Dentro del calendario podés:
-
-- **Crear una nueva cita** — Haciendo clic en cualquier espacio vacío del calendario o usando el botón **\+**. Al crear una cita podés asignar paciente, doctor, fecha, hora, duración y motivo de consulta.
+Podés crear una cita con el botón **+** o arrastrando sobre un espacio vacío del calendario — ahí mismo también podés elegir crear un **bloqueo de agenda** en vez de una cita. El formulario pide paciente, presupuesto, doctor asignado, box, estado, modalidad (presencial o virtual, esta última solo si el doctor tiene Google Calendar conectado), rango horario, descripción, y dos checkboxes para notificarle al paciente por mail o WhatsApp apenas se guarda la cita.
 
 <Frame>
-  ![Image](/images/image-10.png)
+  ![Image](/images/image-306.png)
 </Frame>
 
+Si el paciente no está en el sistema, lo podés registrar ahí mismo con nombre, apellido, teléfono y documento — la misma carga rápida de siempre, para no interrumpir el flujo de atención.
+
+Las citas se pueden mover arrastrándolas a otro horario, columna o profesional, y redimensionar estirando el borde inferior. Al moverlas, el sistema te pregunta si querés avisarle al paciente del cambio antes de confirmar.
+
 <Frame>
-  ![Image](/images/image-11.png)
+  ![Image](/images/image-293.png)
 </Frame>
 
-- **Registrar un paciente nuevo de forma rápida** — Al crear una cita, podés dar de alta un paciente nuevo directamente desde el formulario ingresando solo nombre, apellido y teléfono. Es la forma más ágil de registrar un paciente en el sistema.
+### Detalle de la cita
+
+Al hacer clic en cualquier cita se abre un panel con tres tarjetas: **información** de la cita (con accesos a **Historial** — el registro completo de cambios de estado, reprogramaciones y avisos enviados, cada uno con quién o qué lo generó — y **Reagendar**, que solo permite cambiar fecha y horario), **edición** del estado, box y descripción, y **accesos directos** a secciones de la ficha del paciente vinculado (Datos personales, Multimedia, Evoluciones, Presupuestos, Antecedentes y Laboratorio).
+
+Desde **Avisar al paciente** podés mandarle un mail con los datos de la cita, o elegir entre tres opciones de WhatsApp: un aviso simple, pedir confirmación (suma el link para que el paciente responda), o insistir por la confirmación — esta última la manda el sistema directamente por el número oficial de la clínica, no por tu WhatsApp personal, y solo se habilita cuando ya correspondía insistir.
 
 <Frame>
-  ![Image](/images/image-12.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-13.png)
-</Frame>
-
-- **Crear un bloqueo de agenda** — Para marcar espacios no disponibles como almuerzos, reuniones o ausencias.
-
-<Frame>
-  ![Image](/images/image-14.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-15.png)
-</Frame>
-
-- **Reagendar una cita** — Arrastrando el turno a otro horario o columna directamente en la vista diaria o desde dentro del detalle de la cita.
-
-<Frame>
-  ![Image](/images/image-16.png)
-</Frame>
-
-<Frame>
-  ![Image](/images/image-17.png)
-</Frame>
-
-- **Ver el detalle de una cita** — Haciendo clic sobre el turno. Desde el detalle tenés acceso directo a la información del paciente, podés cambiar el estado del turno y enviar un recordatorio al paciente vía email o WhatsApp.
-
-<Frame>
-  ![Image](/images/image-18.png)
+  ![Image](/images/image-316.png)
 </Frame>
 
 ---
@@ -451,112 +382,79 @@ El módulo de **Estética facial** es un complemento opcional disponible para to
 
 ## Laboratorio
 
-El módulo de **Laboratorio** permite gestionar todos los trabajos protésicos que la clínica envía a laboratorios externos, con seguimiento completo del estado de cada solicitud.
-
-El módulo está organizado en tres solapas:
-
-### Laboratorios
-
-<Frame>
-  ![Image](/images/image-64.png)
-</Frame>
-
-Antes de crear solicitudes, configurás los laboratorios con los que trabaja la clínica. Por cada laboratorio podés cargar:
-
-- Nombre, dirección, email, teléfono y detalle de especialidad
-- **Lista de precios** — Los ítems que le podés solicitar a ese laboratorio con sus valores. Se registra también la fecha de la última lista recibida como referencia.
-
-### Estados
-
-<Frame>
-  ![Image](/images/image-65.png)
-</Frame>
-
-Podés configurar los estados del flujo de trabajo con el laboratorio: por ejemplo, pendiente de envío, enviado al laboratorio, entregado. Los estados son totalmente personalizables: podés editarlos, cambiarles el color y configurar el orden en que aparecen.
+El módulo de **Laboratorio** permite gestionar todos los trabajos protésicos que la clínica envía a laboratorios externos, con seguimiento completo del estado de cada solicitud. Está organizado en tres solapas.
 
 ### Solicitudes
 
 <Frame>
-  ![Diseño Sin Título (6)](/images/Diseño-sin-título-\(6\).png)
+  ![Image](/images/image-340.png)
 </Frame>
 
-Registro de todos los trabajos enviados a laboratorios. Cada solicitud incluye:
+Listado de todas las solicitudes, con buscador por paciente y filtros por fecha, laboratorio y estado. Vincular una solicitud a una prestación del presupuesto es opcional y no afecta importes ni estados del presupuesto — es solo para tener el contexto a mano. Si un paciente con solicitudes pendientes tiene un turno cerca, aparece un aviso arriba del listado para priorizar ese trabajo.
 
-- Paciente asignado
-- Título de la solicitud
-- Laboratorio vinculado
-- Fecha de envío y fecha estimada de entrega
-- Ítems solicitados con sus valores y total calculado automáticamente
-- Estado actual
-- Imágenes adjuntas
-
-Cada solicitud puede vincularse a un presupuesto del paciente. Esto permite que dentro del presupuesto quede asentada la orden de laboratorio asociada, y que el sistema la considere al calcular los honorarios del profesional según el contrato configurado.
+**Crear una solicitud** se completa en dos pasos: primero los datos (paciente, presupuesto y prestación de referencia, laboratorio, fechas de envío y entrega, título, descripción y adjuntos — que podés subir desde la computadora o elegir directo de la multimedia ya cargada del paciente) y después, opcionalmente, los ítems de laboratorio con sus precios.
 
 <Frame>
-  ![Image](/images/image-67.png)
+  ![Image](/images/image-341.png)
 </Frame>
+
+### Laboratorios
+
+<Frame>
+  ![Image](/images/image-343.png)
+</Frame>
+
+Configurás acá los laboratorios con los que trabaja la clínica: nombre, contacto, dirección y fecha de la última lista de precios recibida. Por cada laboratorio administrás su **lista de precios** — los ítems que le podés solicitar con sus valores —, que también se puede cargar de forma masiva importando un Excel o CSV.
+
+<Frame>
+  ![Image](/images/image-346.png)
+</Frame>
+
+### Estados
+
+<Frame>
+  ![Image](/images/image-347.png)
+</Frame>
+
+Los estados del flujo de trabajo con el laboratorio (por ejemplo, pendiente de envío, enviado, entregado) son totalmente personalizables: se pueden editar, colorear, ocultar y reordenar.
 
 ---
 
 ## Stock
 
-El módulo de **Stock** centraliza la gestión del inventario de materiales e insumos de la clínica. Está organizado en tres solapas:
-
-### Proveedores
-
-<Frame>
-  ![Image](/images/image-94.png)
-</Frame>
-
-Directorio de proveedores de insumos. Por cada proveedor podés cargar nombre, dirección, teléfono, email, sitio web y observaciones. El teléfono funciona como acceso directo a WhatsApp. Los proveedores se pueden editar o deshabilitar.
+El módulo de **Stock** centraliza la gestión del inventario de materiales e insumos de la clínica. Está organizado en tres solapas.
 
 ### Inventario
 
 <Frame>
-  ![Image](/images/image-95.png)
+  ![Image](/images/image-348.png)
 </Frame>
 
-Listado completo de todos los productos en stock. Al ingresar, si algún producto está por debajo del stock mínimo configurado, el sistema te avisa automáticamente con un indicador.
+Si tenés una pistola lectora de código de barras conectada, podés escanear en cualquier momento estando en esta pantalla: si el código ya pertenece a un producto cargado, el sistema lo busca y lo resalta en el listado; si no está registrado, abre directo el formulario de alta con el código ya cargado.
 
-Desde el inventario podés:
+El sistema avisa arriba del listado cuando hay productos por debajo de su stock mínimo o por vencerse en los próximos 30 días.
 
-- **Crear categorías** de productos para organizar el inventario
-
-<Frame>
-  ![Image](/images/image-71.png)
-</Frame>
-
-- **Agregar productos** cargando nombre, cantidad, número de lote, categoría, precio de costo, divisa, proveedor, stock de seguridad, fecha de vencimiento y marca
+Un mismo producto puede tener varios **lotes** con vencimientos distintos — por ejemplo, si llegaron dos partidas en meses diferentes. Cada lote queda registrado por separado, con su cantidad, proveedor y fecha de vencimiento propia.
 
 <Frame>
-  ![Image](/images/image-72.png)
-</Frame>
-
-- **Importar productos** masivamente desde un archivo Excel
-
-<Frame>
-  ![Image](/images/image-73.png)
-</Frame>
-
-- **Filtrar** por categoría o por productos bajo stock
-
-<Frame>
-  ![Image](/images/image-74.png)
-</Frame>
-
-- **Exportar** el listado filtrado en PDF o Excel
-
-<Frame>
-  ![Image](/images/image-75.png)
+  ![Image](/images/image-350.png)
 </Frame>
 
 ### Movimientos
 
 <Frame>
-  ![Image](/images/image-76.png)
+  ![Image](/images/image-351.png)
 </Frame>
 
-Registro de todas las entradas y salidas de productos. Cada vez que ingresa mercadería nueva o se consume un insumo, se registra el movimiento con fecha, producto, cantidad y precio, manteniendo el inventario siempre actualizado.
+Registra todas las entradas y salidas de productos. Al registrar una salida de un producto con varios lotes activos, podés dejar que el sistema descuente automáticamente del que vence antes (FIFO) o elegir vos de qué lote puntual.
+
+### Proveedores
+
+<Frame>
+  ![Image](/images/image-352.png)
+</Frame>
+
+Directorio de proveedores de insumos. Por cada proveedor podés cargar nombre, dirección, teléfono, email, sitio web y observaciones. El teléfono funciona como acceso directo a WhatsApp. Los proveedores se pueden editar o deshabilitar.
 
 ---
 
