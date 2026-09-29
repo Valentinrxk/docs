@@ -464,85 +464,75 @@ Directorio de proveedores de insumos. Por cada proveedor podés cargar nombre, d
   ![Diseño Sin Título (8)](/images/Diseño-sin-título-\(8\).png)
 </Frame>
 
-El módulo de **Finanzas** es el centro de control económico de la clínica. Desde acá se registran y supervisan todos los ingresos, egresos y movimientos financieros.
+El módulo de **Finanzas** es el centro de control económico de la clínica. Desde acá se registran y supervisan todos los ingresos, egresos, deudas, cajas, honorarios y reportes de la clínica, con soporte para dos divisas en simultáneo.
 
-> **Filtros globales** — Al ingresar al módulo, lo primero que vas a ver es el panel de filtros: mes, año y divisa. Estos tres campos son obligatorios y determinan toda la información que se muestra en el módulo. Asegurate de tener los filtros correctamente configurados antes de analizar cualquier dato.
->
-> <Frame>
->   ![Image](/images/image-77.png)
-> </Frame>
-
-### Resumen financiero
+### Dashboard
 
 <Frame>
-  ![Image](/images/image-78.png)
+  ![Image](/images/image-354.png)
 </Frame>
 
-El módulo muestra un gráfico general con los ingresos versus los egresos del período seleccionado, y accesos directos a:
+Al ingresar ves un tablero organizado en tres columnas: a la izquierda los filtros de mes y año, el acceso al Facturador Electrónico (o "Facturación", en clínicas de España) y las deudas de seguros médicos; al centro el balance del mes con accesos directos a Ingresos, Egresos y Balance, y los reportes; a la derecha el estado de cajas y bancos y lo pagado a doctores en el período. Un botón **Ocultar montos**, arriba a la derecha, enmascara todos los importes cuando hay alguien mirando la pantalla.
 
-- **Ingresos** — Todos los pagos recibidos de pacientes.
-- **Egresos** — Todos los gastos de la clínica: alquiler, insumos, pagos a laboratorio, sueldos, entre otros.
-- **Balance** — Resultado de ingresos menos egresos.
+### Ingresos, egresos y balance
 
-### Deudas de seguro médico
+Los reportes de **Ingresos**, **Egresos** y **Balance** listan los movimientos del período filtrando por caja o banco y fecha, con exportación a PDF y Excel. Desde Egresos también gestionás las categorías de gasto, y podés adjuntar el comprobante al cargar uno.
 
 <Frame>
-  ![Image](/images/image-79.png)
+  ![Image](/images/image-357.png)
 </Frame>
 
-Isla donde el sistema contabiliza automáticamente cuánto debe la obra social a la clínica por prestaciones realizadas a pacientes con cobertura.
+### Reportes de seguimiento
 
-### Reportes
+Además de Deudores y Presupuestos, hay dos reportes pensados para el control diario:
 
-- **Reporte de deudores** — Listado de pacientes con saldo pendiente, con detalle del presupuesto y las prestaciones adeudadas.
+- **Saldos a favor** — pacientes con dinero sin asignar a ningún presupuesto, separado por divisa, marcando además a quiénes les queda una deuda pendiente al mismo tiempo.
 
 <Frame>
-  ![Image](/images/image-80.png)
+  ![Image](/images/image-362.png)
 </Frame>
 
-<Frame>
-  ![Image](/images/image-82.png)
-</Frame>
-
-- **Reporte de presupuestos** — Estado de todos los presupuestos de la clínica, filtrable por estado: pendiente, aprobado, rechazado, eliminado, expirado.
+- **Evoluciones pendientes** — citas que ya sucedieron, tienen un presupuesto asociado, y todavía no tienen una evolución clínica cargada. Es un control de calidad, no un reporte financiero en sí.
 
 <Frame>
-  ![Image](/images/image-83.png)
-</Frame>
-
-- **Reporte de personal** — Detalle de qué realizó cada profesional, en qué estado están sus presupuestos, a qué pacientes atendió y los valores asociados.
-
-<Frame>
-  ![Image](/images/image-84.png)
+  ![Image](/images/image-363.png)
 </Frame>
 
 ### Cajas y bancos
 
 <Frame>
-  ![Image](/images/image-85.png)
+  ![Image](/images/image-366.png)
 </Frame>
 
-Vista del estado actual de todas las cajas y cuentas configuradas en el sistema. Permite ver de forma rápida cuánto hay en cada una.
-
-### Ajustes de caja
+Cada caja o banco queda asociada a una divisa fija y a los métodos de pago que acepta. Además de las cajas comunes hay **Cajas de Ajuste** — para correcciones contables, como un retiro de efectivo o un ingreso puntual de dinero propio — y, si tu clínica aplica descuentos al cobrar, **Cajas de Descuento**: cuentas que el sistema genera y usa solo, con su propio reporte de los descuentos otorgados.
 
 <Frame>
-  ![Image](/images/image-86.png)
+  ![Image](/images/image-367.png)
 </Frame>
 
-Registro de movimientos que no son ingresos ni egresos operativos: por ejemplo, un retiro de efectivo al finalizar la semana (ajuste de egreso) o un ingreso de dinero propio para cubrir un gasto puntual (ajuste de ingreso).
+### Pago a doctores
 
-### Pago de doctores
+En base a los contratos configurados en Administrador, acá liquidás los honorarios de cada profesional.
 
 <Frame>
-  ![Image](/images/image-87.png)
+  ![Image](/images/image-373.png)
 </Frame>
 
-En base a los contratos configurados en el módulo **Administrador**, el sistema calcula automáticamente los honorarios de cada profesional según las prestaciones realizadas. Desde acá podés:
+Un asistente de tres pasos te guía: elegís el doctor y el período (por la fecha en que se completó la prestación, no en la que se creó el tratamiento), seleccionás qué prestaciones pagar de las pendientes, y por último elegís en qué divisa se le paga — si es distinta a la de sus prestaciones, el sistema te pide la cotización y te muestra la conversión antes de confirmar.
 
-- Ver los honorarios calculados por profesional
-- Registrar el pago de honorarios
-- Realizar ajustes manuales sumando o restando ítems variables, con detalle en el recibo
+<Frame>
+  ![Image](/images/image-374.png)
+</Frame>
+
+Cada profesional puede consultar sus propios honorarios y el estado de cobro desde **Mis honorarios**, en el menú de su usuario.
+
+### Reportes Avanzados
+
+<Frame>
+  ![Image](/images/image-376.png)
+</Frame>
+
+Análisis financiero y de gestión completo, exclusivo para Administradores, con tres pestañas: **Finanzas** (KPIs económicos y gráficos de tendencia), **Gestión** (indicadores operativos: pacientes, conversión de presupuestos, asistencia) y **Auditoría** (quién creó, editó o eliminó cada cita del calendario, con opción de restaurar las eliminadas). Tiene un asistente con inteligencia artificial (**Oclü IA**) que interpreta los datos del período, exportación a PDF, y el mismo botón de **Ocultar importes** del dashboard.
 
 ### Módulo adicional: Facturador electrónico _(disponible solo en Argentina)_
 
@@ -585,25 +575,25 @@ Por cada clínica podés configurar:
   ![Image](/images/image-91.png)
 </Frame>
 
-### Staff y contratos
+### Staff
 
 <Frame>
   ![Image](/images/image-92.png)
 </Frame>
 
-Listado de todos los miembros del equipo. El sistema viene con tres roles predefinidos que no se pueden modificar:
+Listado de todos los miembros del equipo. Hay **tres roles con comportamiento especial** — Administrador, Doctor y Secretaria — y otros seis pensados para necesidades puntuales de dotación (Higienista, Recepcionista, Manager, CEO y Gerente, y Asistente), que se configuran enteramente por permisos:
 
 | Rol | Descripción |
 | :-- | :-- |
 | **Administrador** | Acceso completo a todo el sistema. No se le pueden restringir permisos. |
-| **Doctor** | Profesional con agenda habilitada dentro de la clínica. |
-| **Secretaria** | Personal administrativo. No tiene agenda propia. |
+| **Doctor** | Profesional con agenda habilitada, responsable de presupuestos y con contratos de honorarios. |
+| **Secretaria** | Personal administrativo. No tiene agenda propia ni puede ser responsable de presupuestos. |
 
 > Los roles son etiquetas del sistema. Los permisos reales de cada usuario se configuran de forma granular e independiente del rol asignado.
 
 Por cada miembro de staff podés gestionar:
 
-- **Datos personales** — Nombre, apellido, email, teléfono y género. Si el miembro de staff tiene rol de **Doctor** o es un **Administrador con funciones de doctor**, también podés cargar: documento, matrícula nacional, matrícula provincial, profesión, especialidad y fecha de nacimiento.
+- **Datos personales** — Nombre, apellido, email, teléfono y género. Si el miembro de staff tiene rol de **Doctor** o "también atiende pacientes" (ver más abajo), también podés cargar: documento, matrícula nacional, matrícula provincial, profesión y especialidad.
 - **Firma** — La firma se utiliza en consentimientos y recetas digitales.
 
 <Frame>
@@ -614,7 +604,7 @@ Por cada miembro de staff podés gestionar:
   ![Image](/images/image-98.png)
 </Frame>
 
-- **Acceso al sistema** — Podés habilitar o deshabilitar el acceso de cualquier usuario, excepto el administrador principal.
+- **Acceso al sistema** — Podés habilitar o deshabilitar el acceso de cualquier usuario. El sistema no te deja dejar la clínica sin ningún administrador habilitado: si queda uno solo, a ese no se lo puede deshabilitar.
 
 <Frame>
   ![Image](/images/image-96.png)
@@ -630,13 +620,14 @@ Por cada miembro de staff podés gestionar:
   ![Image](/images/image-100.png)
 </Frame>
 
-- **Permisos** — Control granular de qué puede ver y hacer cada usuario dentro del sistema. Los permisos están organizados por módulo y cada módulo tiene sub-permisos específicos. Por ejemplo, dentro de Pacientes podés permitir que un usuario liste pacientes pero no los pueda agregar, o que vea los datos personales pero no los edite.
+- **Permisos** — Control granular de qué puede ver y hacer cada usuario, con **combinaciones rápidas** por perfil (Recepción, Odontólogo, Administración, etc.) para aplicar de una vez y ajustar el detalle en dos árboles de permisos. Un usuario nuevo arranca con todos los permisos habilitados, salvo Higienista (le faltan los de recetas digitales) y Asistente (arranca sin ninguno, hay que configurárselos a mano).
 
 <Frame>
-  ![Image](/images/image-101.png)
+  ![Image](/images/image-402.png)
 </Frame>
 
-- **Cambio de contraseña** — Podés enviar un email al usuario para que la cambie, o cambiarla directamente desde acá.
+- **Habilitar labores de doctor** — Cualquier rol que no sea Doctor ni Secretaria puede pasar a tener agenda propia, ser responsable de presupuestos, firmar consentimientos y emitir recetas, igual que un Doctor. Para un Administrador se elige al crearlo; para el resto de los roles, se activa después con la opción "También atiende pacientes" al editar su ficha. En los dos casos, una vez activado no se puede desactivar.
+- **Cambio de contraseña** — Podés mandarle un mail para que la elija él mismo, o definirla vos directamente desde acá.
 
 <Frame>
   ![Image](/images/image-102.png)
@@ -647,15 +638,10 @@ Por cada miembro de staff podés gestionar:
 #### **Contratos**
 
 <Frame>
-  ![Image](/images/image-93.png)
+  ![Image](/images/image-404.png)
 </Frame>
 
-Los contratos definen cómo se calculan los honorarios de cada profesional. Hay dos tipos:
-
-- **Por presupuesto** — Se configura un porcentaje sobre lo abonado por el paciente, un porcentaje sobre lo abonado por la obra social y un descuento en base al valor de la orden de laboratorio vinculada al presupuesto.
-- **Por prestación** — Permite definir un porcentaje o monto fijo por cada prestación específica. Es el único tipo de contrato que tiene un segundo paso de configuración, donde se asignan los porcentajes o montos a cada prestación de la lista.
-
-En ambos casos podés configurar si el cálculo se hace sobre el precio del presupuesto o sobre el precio de la lista.
+Los contratos definen cómo se calculan los honorarios de cada profesional. Hay dos tipos: **Por presupuesto** — un porcentaje general que se aplica a todas las prestaciones — y **Por prestación** — una condición distinta para cada prestación, con un segundo paso donde se cargan los porcentajes o montos fijos de cada una. En ambos casos definís la base de cálculo por separado para lo que paga el paciente y lo que cubre el seguro médico (sobre el precio del presupuesto o de la lista), y desde el mismo listado vinculás qué doctores usan cada contrato.
 
 > Se recomienda siempre crear un nuevo contrato en lugar de editar uno existente, ya que los contratos pueden estar vinculados a múltiples profesionales y cualquier cambio afectaría a todos.
 
@@ -667,7 +653,7 @@ Desde acá configurás los procesos automáticos del sistema:
 
 - **Recordatorio de citas por email** — El sistema envía automáticamente un correo al paciente con un link para confirmar o cancelar su turno. Podés configurar con cuántos días de anticipación se envía (1, 2 o 3 días antes, o el mismo día), en qué estado de cita se activa, y a qué estado pasa la cita si el paciente confirma, cancela o reprograma.
 - **Vencimiento de presupuestos** — Podés definir una cantidad de días estándar de vencimiento para todos los presupuestos. Una vez vencido, el presupuesto muestra la etiqueta **Expirado**, pero únicamente si está en estado **Pendiente**. Esta etiqueta es visible en el reporte de presupuestos dentro de Finanzas, facilitando el seguimiento de pacientes que no respondieron. Si necesitás editarlo para un presupuesto en particular, podés hacerlo directamente desde el presupuesto.
-- **Recordatorio de citas por WhatsApp** — Próximamente disponible.
+- **Recordatorio de citas por WhatsApp** — Manda un WhatsApp antes del turno con botones para que el paciente confirme o cancele desde el chat. Es un complemento pago: si no lo tenés contratado, el botón de configurar abre una ventana promocional en vez de la pantalla real.
 
 ---
 
@@ -689,12 +675,28 @@ Dentro de prestaciones podés:
 
 ### Plantillas
 
-Desde acá configurás todos los textos y documentos predefinidos del sistema:
+Desde acá configurás todos los textos y documentos predefinidos del sistema, en cinco solapas:
 
-- **Consentimientos informados** — Documentos legales que el paciente firma antes de cada tratamiento. Vienen algunos precargados y podés agregar o editar los que necesites. Desde acá también podés generar el PDF para enviárselo al paciente antes de la firma.
-- **Plantillas de presupuesto** — Textos que se anexan al presupuesto y quedan asentados dentro del PDF que el paciente recibe. Están pensadas para que el paciente tenga por escrito la información que se le explicó durante la consulta, evitando que se pierda información importante. Podés usarlas para detallar en qué consiste el tratamiento o procedimiento a realizar, consideraciones previas que el paciente debe tener en cuenta, y recomendaciones o cuidados posteriores. Vienen algunas precargadas y son totalmente editables.
-- **Plantillas de correo** — Los mensajes predefinidos que el sistema envía automáticamente en cada acción (recordatorio de cita, confirmación, etc.). Podés editar el texto de cada uno con una previsualización en tiempo real. No se pueden eliminar.
-- **Plantillas de WhatsApp** — Mismo concepto que las de correo, para los mensajes que se envían por WhatsApp. Podés editar el texto predeterminado que aparece al abrir la conversación.
+- **Consentimientos** — Documentos legales que el paciente firma antes de cada tratamiento, más una segunda pestaña para los partes quirúrgicos. Vienen algunos precargados y podés agregar o editar los que necesites. Desde acá también podés generar el PDF sin firmas para enviárselo al paciente con anticipación.
+- **Antecedentes** — Elegís qué preguntas se muestran en la historia clínica del paciente y cuáles son obligatorias, agrupadas en cuatro bloques (antecedentes médicos, medicamentos, antecedentes odontológicos y hábitos). Aplica tanto a lo que completa el staff como a los links que se le mandan al paciente.
+
+<Frame>
+  ![Image](/images/image-392.png)
+</Frame>
+
+- **Presupuestos** — Textos que se anexan al presupuesto y quedan asentados dentro del PDF que el paciente recibe. Están pensadas para que el paciente tenga por escrito la información que se le explicó durante la consulta, evitando que se pierda información importante. Vienen algunas precargadas y son totalmente editables.
+- **Correo** — Los mensajes predefinidos que el sistema envía automáticamente en cada acción (recordatorio de cita, confirmación, etc.). Podés editar el texto de cada uno con una previsualización en tiempo real. No se pueden eliminar.
+- **WhatsApp** — Mismo concepto que las de correo, para los mensajes que se envían por WhatsApp, más la opción de personalizar una copia del recordatorio automático de citas.
+
+---
+
+### Recordatorios
+
+Tareas y avisos internos para el equipo de la clínica — no son mensajes que le llegan al paciente. Podés crear recordatorios sueltos o recurrentes (por ejemplo, un control mensual para un paciente en tratamiento), asignárselos a vos o a otro miembro del staff, y organizarlos con categorías propias.
+
+<Frame>
+  ![Image](/images/image-396.png)
+</Frame>
 
 ---
 
@@ -712,6 +714,16 @@ Desde acá también podés:
 - **Registrar transferencias entre cajas** — Cuando movés dinero de una caja a otra, por ejemplo de la caja de efectivo al banco, lo registrás acá para que quede asentado en el sistema.
 - **Ver el historial de transferencias** — Accedés al registro completo de todos los movimientos entre cajas, con la opción de mostrar también las transferencias anuladas.
 - **Crear cajas de ajuste** — Son cajas especiales para registrar movimientos que no corresponden a operaciones regulares, como un retiro de efectivo al finalizar la semana (ajuste de egreso) o un ingreso de dinero propio para cubrir un gasto puntual (ajuste de ingreso). Los ajustes en sí se realizan desde el módulo de **Finanzas**.
+
+---
+
+### Estados de calendario
+
+Define los estados que puede tener una cita (Pendiente, Confirmado, Cancelado, etc.) y con qué color se ve cada uno en el calendario, incluyendo si ese estado cuenta como **Cita sucedida** para el reporte de evoluciones pendientes de Finanzas. Una segunda solapa, **Categorías de bloqueos**, define por separado los colores de los bloqueos de agenda.
+
+<Frame>
+  ![Image](/images/image-399.png)
+</Frame>
 
 ---
 
