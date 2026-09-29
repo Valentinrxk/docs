@@ -8,7 +8,7 @@ En **OCLÜ**, el acceso al sistema se gestiona a través de un sistema de **role
 
 ## Roles
 
-OCLÜ cuenta con tres roles predefinidos: **Administrador**, **Doctor** y **Secretaria**. Es importante entender que estos roles son etiquetas dentro del sistema (no necesariamente reflejan el cargo real de cada persona en la clínica). Por ejemplo, el dueño de la clínica, el CEO o el director médico pueden estar configurados como Administrador dentro del sistema aunque en la vida real también sean doctores o cumplan múltiples funciones. Las etiquetas están pensadas para organizar el acceso al sistema, no para describir la jerarquía real de la clínica.
+OCLÜ tiene **tres roles con comportamiento especial** — Administrador, Doctor y Secretaria — y otros seis roles pensados para necesidades puntuales de dotación: Higienista, Recepcionista, Manager, CEO, Gerente y Asistente. Es importante entender que los roles son etiquetas dentro del sistema (no necesariamente reflejan el cargo real de cada persona en la clínica). Por ejemplo, el dueño de la clínica, el CEO o el director médico pueden estar configurados como Administrador dentro del sistema aunque en la vida real también sean doctores o cumplan múltiples funciones.
 
 > _Los roles no son editables una vez asignados. Si al crear un usuario se asignó un rol incorrecto, es necesario contactar al equipo de soporte para corregirlo._
 
@@ -20,17 +20,9 @@ El rol de Administrador está pensado para quien gestiona y configura la clínic
 
 A todos los usuarios con rol Administrador, los permisos vienen habilitados al 100% de forma permanente y no es posible editarlos ni restringirlos. Pueden acceder a todo el sistema sin excepciones.
 
-El administrador principal (el primero registrado al crear la clínica a través del formulario de registro) tiene una única diferencia respecto al resto de los administradores: **su acceso no puede ser deshabilitado**. El acceso de cualquier otro usuario con rol Administrador sí puede deshabilitarse si el administrador principal así lo decide.
+El sistema no te deja dejar la clínica sin ningún administrador habilitado: mientras haya dos o más administradores habilitados, cualquiera de ellos puede deshabilitar a otro (incluso al que se registró primero). El bloqueo solo aparece cuando queda un único administrador habilitado — a ese no se lo puede deshabilitar hasta que otro pase a cumplir ese rol.
 
-Por defecto, el rol de Administrador no incluye funciones clínicas. Está pensado para gestionar el sistema: configurar la clínica, crear y administrar usuarios, definir prestaciones, gestionar cajas y bancos, configurar automatizaciones y acceder a los reportes del negocio.
-
-Sin embargo, si la persona que cumple el rol de Administrador dentro del sistema también ejerce como profesional de la salud (por ejemplo, si es el propio doctor dueño de la clínica) puede activarse la opción **"Habilitar labores de doctor"** al momento de crear el usuario. Esta opción es un checklist dentro del formulario de alta del usuario y, una vez activada, **no puede modificarse**. Al habilitarla, el sistema solicita los datos profesionales del usuario: matrícula nacional, matrícula provincial, DNI, profesión, especialidad y fecha de nacimiento. Con estas labores habilitadas, el Administrador puede:
-
-- Tener agenda propia dentro del módulo Calendario
-- Ser asignado a presupuestos como profesional responsable
-- Firmar consentimientos informados digitales
-- Emitir recetas digitales con validez legal
-- Tener contratos configurados para el cálculo de honorarios
+Por defecto, el rol de Administrador no incluye funciones clínicas. Está pensado para gestionar el sistema: configurar la clínica, crear y administrar usuarios, definir prestaciones, gestionar cajas y bancos, configurar automatizaciones y acceder a los reportes del negocio. Si además ejerce como profesional de la salud, podés habilitarle labores de doctor — ver más abajo.
 
 ---
 
@@ -38,12 +30,12 @@ Sin embargo, si la persona que cumple el rol de Administrador dentro del sistema
 
 El rol de Doctor está pensado para los profesionales de la salud que ejercen dentro de la clínica. Es el rol clínico por excelencia del sistema.
 
-A diferencia del Administrador, cuando creás un usuario con rol Doctor el sistema solicita automáticamente los datos profesionales: matrícula nacional, matrícula provincial, DNI, profesión, especialidad y fecha de nacimiento. Estos datos son necesarios para que el profesional pueda operar correctamente dentro del sistema.
+A diferencia del Administrador, cuando creás un usuario con rol Doctor el sistema solicita automáticamente los datos profesionales: matrícula nacional, matrícula provincial, DNI, profesión y especialidad. Estos datos son necesarios para que el profesional pueda operar correctamente dentro del sistema.
 
 Los usuarios con rol Doctor pueden:
 
 - Tener agenda propia dentro del módulo Calendario
-- Ser asignados a presupuestos como profesionales responsables — en la creación de un presupuesto, el sistema solicita qué doctor lo está realizando, y solo pueden ser seleccionados usuarios con rol Doctor o Administrador con labores de doctor habilitadas
+- Ser asignados a presupuestos como profesionales responsables — en la creación de un presupuesto, el sistema solicita qué doctor lo está realizando
 - Firmar consentimientos informados digitales
 - Emitir recetas digitales con validez legal
 - Tener contratos configurados para el cálculo de honorarios
@@ -65,12 +57,34 @@ Algunas de las tareas más importantes que puede gestionar una Secretaria dentro
 - **Administración de la agenda** — Crear, modificar y cancelar citas, gestionar el calendario diario de la clínica, enviar recordatorios de turnos por email o WhatsApp.
 - **Recepción de pagos** — Registrar cobros, asignar pagos a presupuestos, emitir recibos y hacer seguimiento del balance de cada paciente.
 - **Comunicación con pacientes** — Enviar mensajes, coordinar confirmaciones de turnos y gestionar la comunicación del día a día.
-- **Recordatorios internos** — Crear y gestionar recordatorios para el equipo, incluyendo recordatorios recurrentes para pacientes con controles periódicos. Esta herramienta está especialmente pensada para el perfil administrativo, ya que permite liberar la carga mental de tener que recordar tareas repetitivas manualmente.
-- **Mensajería interna** — Comunicarse con el resto del equipo a través del sistema de mensajería institucional de OCLÜ, coordinando agendas y derivaciones sin salir de la plataforma.
+- **Recordatorios internos** — Crear y gestionar recordatorios para el equipo, incluyendo recordatorios recurrentes para pacientes con controles periódicos.
+- **Mensajería interna** — Comunicarse con el resto del equipo a través del sistema de mensajería institucional de OCLÜ.
 - **Solicitudes de laboratorio** — Registrar y hacer seguimiento de solicitudes de trabajos protésicos.
 - **Gestión de stock** — Controlar el inventario de materiales e insumos de la clínica.
 
-El rol de Secretaria está diseñado para que el personal administrativo pueda trabajar de forma autónoma, ordenada y eficiente, con todas las herramientas necesarias para acompañar la operación diaria de la clínica sin necesidad de depender del doctor o el administrador para cada acción.
+---
+
+#### Los otros seis roles
+
+**Higienista, Recepcionista, Manager, CEO y Gerente** son roles pensados para necesidades puntuales de dotación: no tienen ningún comportamiento especial fijo (como sí lo tienen Administrador, Doctor y Secretaria) y todo lo que pueden ver y hacer se define con permisos, igual que con una Secretaria. **Asistente** funciona igual, pero con una diferencia importante: mientras que el resto de los roles nuevos arranca con todos los permisos habilitados, **un usuario con rol Asistente se crea sin ningún permiso** — hay que configurárselos manualmente antes de entregarle el acceso.
+
+Cualquiera de estos seis roles (y también un Administrador) puede convertirse en un doctor a todos los efectos si "también atiende pacientes" — ver la sección siguiente.
+
+---
+
+## Habilitar labores de doctor
+
+Hay dos formas de darle a alguien las capacidades de un Doctor sin que su rol sea Doctor:
+
+**Al crear el usuario** — si el rol elegido es Administrador, el formulario de alta tiene un checklist **"Habilitar labores de doctor"**. Una vez guardado el usuario, esta opción **no se puede revertir**. Al activarla, el sistema pide los mismos datos profesionales que a un Doctor (matrícula nacional, matrícula provincial, DNI, profesión, especialidad).
+
+**Al editar el usuario** — para cualquier rol que no sea Doctor ni Secretaria (Administrador, Higienista, Recepcionista, Manager, CEO, Gerente o Asistente), el formulario de edición tiene una opción **"También atiende pacientes"**. Al activarla, el sistema pide los mismos datos profesionales y, al igual que en el alta, **no se puede desactivar después**.
+
+<Frame>
+  ![Image](/images/image-410.png)
+</Frame>
+
+En ambos casos, la persona pasa a tener agenda propia, puede ser responsable de presupuestos, firmar consentimientos, emitir recetas digitales y tener un contrato de honorarios configurado — exactamente igual que un usuario con rol Doctor.
 
 ---
 
@@ -78,30 +92,37 @@ El rol de Secretaria está diseñado para que el personal administrativo pueda t
 
 Los permisos son la herramienta real de control de acceso en OCLÜ. Independientemente del rol asignado, cada usuario puede tener habilitados o deshabilitados permisos específicos según lo que el administrador configure. Esto significa que una Secretaria podría tener acceso a más funcionalidades que un Doctor, o incluso tener todos los permisos habilitados, si así lo decide quien gestiona el sistema.
 
-Los permisos se configuran desde el módulo **Administrador**, dentro del apartado de **Staff**, en la ficha individual de cada usuario.
+Los permisos se configuran desde el módulo **Administrador**, dentro del apartado de **Staff**, en la ficha individual de cada usuario — con combinaciones rápidas por perfil y dos árboles de permisos para afinar el detalle. La explicación completa de esa pantalla está en la página de [Administrador](/administrador#permisos-de-cada-usuario).
 
-### Permisos por defecto 
+### Permisos por defecto
 
-Cuando creás un usuario nuevo, el sistema lo da de alta con **todos los permisos habilitados**, incluyendo acceso completo al módulo Administrador. Por eso es fundamental configurar los permisos antes de entregarle las credenciales al nuevo miembro del equipo. \
-El flujo recomendado es: crear el usuario → configurar sus permisos → entregar el acceso.
+Cuando creás un usuario nuevo, el permiso inicial depende del rol:
 
-### **¿Qué controla cada permiso?** 
+| Rol | Permisos al crearlo |
+| :-- | :-- |
+| Administrador, Doctor, Secretaria, Recepcionista, Manager, CEO, Gerente | Todos habilitados, incluyendo acceso completo al módulo Administrador |
+| Higienista | Casi todos habilitados, excepto los de recetas digitales |
+| Asistente | Ninguno habilitado |
+
+Por eso es fundamental revisar los permisos antes de entregarle las credenciales al nuevo miembro del equipo, sea cual sea su rol. El flujo recomendado es: crear el usuario → configurar sus permisos → entregar el acceso.
+
+### ¿Qué controla cada permiso?
 
 Los permisos son muy granulares y actúan de forma específica sobre cada módulo y funcionalidad del sistema. Según qué permisos tenga habilitados un usuario, el sistema se adapta visualmente:
 
 - **Módulos completos** — Si un usuario no tiene acceso a un módulo, ese módulo no aparece en el menú lateral. El usuario no lo ve y no puede acceder a él.
-- **Funcionalidades dentro de un módulo** — Dentro de un módulo al que sí tiene acceso, pueden desaparecer acciones específicas. Por ejemplo, si no tiene permiso para editar la información de un paciente, no le aparece el botón de guardar cambios. Si no tiene permiso para cargar evoluciones, ese botón no existe para ese usuario.
-- **Acciones puntuales** — El nivel de detalle puede ser muy específico. Por ejemplo, un usuario puede tener permiso para crear citas en el Calendario pero no para crear bloqueos de agenda. En ese caso le aparece el botón de nueva cita pero no el de bloqueo.
+- **Funcionalidades dentro de un módulo** — Dentro de un módulo al que sí tiene acceso, pueden desaparecer acciones específicas. Por ejemplo, si no tiene permiso para editar la información de un paciente, no le aparece el botón de guardar cambios.
+- **Acciones puntuales** — El nivel de detalle puede ser muy específico. Por ejemplo, un usuario puede tener permiso para crear citas en el Calendario pero no para crear bloqueos de agenda.
 - **Islas del home** — Si se le retira el acceso a un módulo, las islas correspondientes a ese módulo desaparecen también del home. Por ejemplo, si no tiene acceso a Laboratorio, la isla de laboratorio no aparece en su pantalla de inicio.
 
-**Permisos disponibles** Los permisos se organizan módulo por módulo. Dentro de cada módulo se pueden habilitar o deshabilitar acciones específicas como listar, visualizar, crear, editar, eliminar, registrar ingresos, cargar gastos, aprobar o rechazar presupuestos, entre otras. Esta granularidad permite una configuración muy precisa adaptada a las necesidades reales de cada persona dentro de la clínica.
+**Permisos disponibles** — Se organizan módulo por módulo. Dentro de cada módulo se pueden habilitar o deshabilitar acciones específicas como listar, visualizar, crear, editar, eliminar, registrar ingresos, cargar gastos, aprobar o rechazar presupuestos, entre otras.
 
 ---
 
 ### Buenas prácticas para la gestión de permisos
 
 - **Configurar los permisos antes de entregar el acceso** — No compartir las credenciales hasta haber revisado y ajustado los permisos del usuario.
-- **Prestar especial atención al módulo Administrador** — Por defecto viene habilitado para todos los usuarios nuevos. Deshabilitarlo para quienes no deben tener acceso a la configuración del sistema.
+- **Prestar especial atención al módulo Administrador** — Viene habilitado por defecto para la mayoría de los roles nuevos. Deshabilitarlo para quienes no deben tener acceso a la configuración del sistema.
 - **Definir un criterio claro por perfil** — Antes de crear usuarios, tener definido qué puede ver y hacer cada tipo de persona en la clínica.
 - **Revisar periódicamente** — Si cambian las responsabilidades de un miembro del equipo, actualizar sus permisos desde el módulo Administrador.
 
