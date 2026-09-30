@@ -30,6 +30,7 @@ A veces un pago se registró por error: en la caja equivocada, con el método in
 
 - El pago tiene que estar registrado en el sistema. Si el paciente pagó pero no lo cargaste todavía, no hay nada para revocar.
 - Para revocar, necesitás un motivo de **al menos 10 caracteres** que justifique la acción. El sistema lo exige y queda registrado.
+- El pago **no se puede revocar** si ya se liquidaron honorarios al doctor sobre él (mirá la sección **Cuando no se puede revocar** más abajo).
 
 ## Cómo llegar a esta sección
 
@@ -44,37 +45,40 @@ A veces un pago se registró por error: en la caja equivocada, con el método in
 
 ### 1. Identificá el pago a revocar
 
-En la solapa Balance vas a ver una tabla con todos los movimientos del paciente: cobros en negativo, por ejemplo "Tratamiento de Conducto -\$400.000 ARS") y pagos recibidos (en positivo y verde, por ejemplo "Pago recibido \+\$400.000 ARS")\
-Cada fila tiene fecha, detalle, monto, cotización si aplica, usuario y dos columnas de balance (ARS y USD).
+En la solapa Balance vas a ver una tabla con todos los movimientos del paciente: cobros en negativo (por ejemplo "Tratamiento de Conducto -\$400.000 ARS") y pagos recibidos (en positivo y verde, por ejemplo "Pago recibido \+\$400.000 ARS"). Cada fila tiene fecha, detalle, monto, cotización si aplica, usuario y dos columnas de balance (ARS y USD).
 
 Buscá el pago que querés revocar. Tené en cuenta:
 
 - Solo se revocan los **pagos recibidos** (las filas verdes con etiqueta "Pago recibido"), no las prestaciones cobradas.
 - Si el pago ya fue revocado antes, aparece tachado y con etiqueta "Pago revocado". Esos no se pueden revocar de nuevo.
 
-### 2. Hacé clic en el botón de Revocar
+### 2. Hacé clic en el ícono de Revocar
 
-En la columna **Acciones** del lado derecho de cada fila de pago hay dos íconos:
+En la columna **Acciones** del lado derecho de cada fila de pago hay dos íconos, los dos en gris neutro (no tienen colores distintos):
 
-- Un ícono **azul con un papel** (Ver comprobante): muestra el comprobante del pago.
-- Un ícono **rojo con una X** (Revocar pago): inicia el flujo de revocación.
+- Un ícono de **documento** (Ver comprobante): muestra el comprobante del pago.
+- Un ícono de **círculo con una X** (Revocar): inicia el flujo de revocación.
 
-Hacé clic en el ícono rojo del pago que querés revocar.
+Hacé clic en el ícono de revocar del pago que querés anular.
 
 <Frame>
-  ![Image](/images/image-248.png)
+  ![Image](/images/image-446.png)
 </Frame>
 
-### 3. Completá el modal Revocar Pago
+### 3. Completá el modal Revocar el cobro
 
-Se abre el modal **Revocar Pago** con esta información:
+Se abre el modal **Revocar el cobro** con esta información:
 
-- Aviso amarillo (si aplica): por ejemplo, "Algunos tratamientos fueron completados hace más de 7 días". Es una advertencia para que verifiques antes de revocar pagos antiguos.
-- Pregunta: "¿Está seguro que desea revocar este pago?"
-- Aclaración: "Esta acción no se puede deshacer. El pago será marcado como revocado y los montos serán revertidos en los tratamientos afectados."
-- Campo **Motivo de revocación** (obligatorio, mínimo 10 caracteres, máximo 500). Tenés un contador "X / 500" que te muestra cuántos caracteres llevás.
+- Subtítulo con la fecha y el monto del cobro que estás por revocar.
+- Aviso amarillo (si aplica): por ejemplo, "Este pago involucra conversión de moneda. Se usará la cotización original del momento del pago", o un aviso si los tratamientos asociados se completaron hace más de 7 días. Es una advertencia para que verifiques antes de confirmar.
+- Recuadro rojo con la explicación: "El cobro queda marcado como revocado y deja de contar en la caja. Las prestaciones que había cancelado vuelven a quedar impagas y la deuda del paciente se recalcula. No se puede deshacer."
+- Campo **Motivo** (obligatorio, mínimo 10 caracteres, máximo 500), con placeholder "Por qué se revoca este cobro" y un contador "X / 500".
 
-Escribí en el campo **Motivo de revocación** una descripción clara de por qué estás revocando el pago. Ejemplos válidos:
+<Frame>
+  ![Image](/images/image-447.png)
+</Frame>
+
+Escribí en el campo **Motivo** una descripción clara de por qué estás revocando el cobro. Ejemplos válidos:
 
 - "Se ingresó en caja equivocada, debía ir a Banco ARS"
 - "Pago duplicado, se cargó dos veces el mismo recibo"
@@ -82,17 +86,17 @@ Escribí en el campo **Motivo de revocación** una descripción clara de por qu�
 - "Se asignó a paciente equivocado"
 - "Devolución solicitada por el paciente"
 
-> **Importante:** este motivo queda registrado y es visible en el reporte de Pagos Revocados. Sé claro y profesional, otros miembros del equipo lo van a ver.
->
-> <Frame>
->   ![Image](/images/image-247.png)
-> </Frame>
+> **Importante:** este motivo queda registrado y es visible en el reporte de Pagos Revocados, junto con tu usuario y la fecha. Sé claro y profesional, otros miembros del equipo lo van a ver.
 
 ### 4. Confirmá la revocación
 
-Hacé clic en el botón rojo **Confirmar Revocación**.
+Hacé clic en el botón **Revocar el cobro**.
 
 OCLÜ aplica la revocación: el pago aparece tachado en la tabla con la etiqueta "Pago revocado", el saldo restante del presupuesto se actualiza, y el movimiento queda registrado en el reporte de Pagos Revocados.
+
+## Cuando no se puede revocar
+
+Si ya se liquidaron honorarios a un doctor sobre ese cobro, el sistema no te deja revocarlo directamente: en vez del campo de Motivo y el botón de confirmación, el modal te muestra un mensaje explicando que el cobro ya fue considerado en una liquidación y no se puede revocar desde acá. En ese caso contactá a soporte o a quien gestione las liquidaciones de honorarios en tu clínica.
 
 ## Resultado esperado
 
@@ -104,7 +108,7 @@ En el módulo **Finanzas → Ingresos → Pagos revocados**, el pago aparece en 
 
 La revocación NO devuelve plata. Si el paciente efectivamente abonó algo, tenés que decidir:
 
-- **Si el pago era válido pero estaba mal asignado:** registralo nuevamente en el lugar correcto (caja correcta, presupuesto correcto, monto correcto). Usá el flujo **Recibir pago** desde la solapa Presupuestos.
+- **Si el pago era válido pero estaba mal asignado:** registralo nuevamente en el lugar correcto (caja correcta, presupuesto correcto, monto correcto). Usá el flujo de cobro desde la solapa Presupuestos.
 - **Si el paciente pidió la devolución:** registrá un **egreso** desde Finanzas → Egresos por el monto devuelto, con categoría "Devolución" o similar. Esto sí mueve el saldo de la caja.
 - **Si el pago era duplicado:** dejá la revocación y no hagas nada más. El paciente solo pagó una vez en realidad; el duplicado fue un error de carga.
 
@@ -112,7 +116,9 @@ La revocación NO devuelve plata. Si el paciente efectivamente abonó algo, ten�
 
 **El motivo es muy corto:** el sistema te exige mínimo 10 caracteres. Si escribís "Error" no te deja confirmar. Ampliá la explicación.
 
-**El ícono rojo no aparece:** verificá tus permisos. Si no tenés permiso de revocar pagos, los íconos de acción no se muestran. Pediler al administrador que te habilite.
+**No aparece el ícono de revocar:** verificá tus permisos. Si no tenés permiso de revocar pagos, los íconos de acción no se muestran. Pediler al administrador que te habilite.
+
+**El botón de revocar está reemplazado por un mensaje:** significa que ese cobro ya fue liquidado a un doctor y no se puede revocar desde el Balance. Mirá la sección **Cuando no se puede revocar** más arriba.
 
 **Revoqué el pago equivocado:** no se puede deshacer. La acción es definitiva. Tenés que reingresar el pago original como nuevo y dejar la nota correspondiente. Por eso el sistema te advierte antes.
 
@@ -143,8 +149,8 @@ La revocación NO devuelve plata. Si el paciente efectivamente abonó algo, ten�
 
 **¿Se puede deshacer una revocación?** No. La acción es definitiva. Si te equivocaste, lo único que podés hacer es registrar un pago nuevo equivalente al revocado, con una nota explicativa.
 
-**¿Cómo afecta a los pagos a doctores?** Si el doctor ya cobró su comisión por ese pago, revocar el pago no le quita lo que cobró automáticamente. 
+**¿Cómo afecta a los pagos a doctores?** Si el doctor ya cobró su comisión por ese pago (ya se liquidó), el sistema directamente no te deja revocarlo desde el Balance — mirá **Cuando no se puede revocar**.
 
 ## Permisos
 
-Revocar pagos requiere un permiso específico desde Administrador → Staff → Permisos. Si no ves el ícono rojo de revocar en la columna Acciones del Balance, consultá con el administrador del sistema.
+Revocar pagos requiere un permiso específico desde Administrador → Staff → Permisos. Si no ves el ícono de revocar en la columna Acciones del Balance, consultá con el administrador del sistema.
