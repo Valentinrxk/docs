@@ -21,23 +21,19 @@ OCLÜ permite que una misma cuenta tenga varias clínicas configuradas (por ejem
 El selector de clínica está siempre disponible arriba a la izquierda de cualquier pantalla del sistema, al lado del logo de OCLÜ.
 
 1. Iniciá sesión en OCLÜ.
-2. En la parte superior izquierda, vas a ver el logo **OCLÜ** y a su lado una flecha hacia abajo (▼).
-3. Hacé clic en la flecha.
+2. En la parte superior izquierda, vas a ver el nombre de la clínica activa y a su lado una flecha hacia abajo.
+3. Hacé clic ahí. Se abre una lista con todas las clínicas a las que tu usuario tiene acceso, con un tilde al lado de la que está activa.
 
 <Frame>
-  ![Captura De Pantalla 2026 05 03 200252](/images/Captura-de-pantalla-2026-05-03-200252.png)
+  ![Image](/images/image-467.png)
 </Frame>
 
 ## Pasos para cambiar de clínica
 
-1. Hacé clic en la flecha ▼ al lado del logo OCLÜ. Se abre un modal titulado **Cambiar clínica**.
-2. En el modal, mirá el campo **Seleccionar clínica**. Es un dropdown con todas las clínicas a las que tu usuario tiene acceso.
-3. Hacé clic en el dropdown y elegí la clínica a la que querés cambiar.
-4. Hacé clic en el botón azul **Confirmar cambios**.
+1. Hacé clic en la flecha al lado del nombre de la clínica activa.
+2. En la lista que se abre, hacé clic directamente en la clínica a la que querés cambiar.
 
-<Frame>
-  ![Captura De Pantalla 2026 05 03 200318](/images/Captura-de-pantalla-2026-05-03-200318.png)
-</Frame>
+Eso es todo: no hay un paso de confirmación aparte. En cuanto hacés clic, OCLÜ recarga la sesión con la nueva clínica activa y el nombre arriba a la izquierda cambia al instante.
 
 ## Qué se comparte y qué es específico de cada clínica
 
@@ -66,32 +62,32 @@ Esta es la parte más importante para entender cómo funciona OCLÜ multi-clíni
 
 ## Resultado esperado
 
-Cuando confirmás el cambio, OCLÜ recarga la sesión con la nueva clínica activa. Vas a ver:
+Apenas hacés clic en la clínica de la lista, OCLÜ recarga la sesión con la nueva clínica activa. Vas a ver:
 
 - La misma lista de pacientes (con sus mismos datos, antecedentes y multimedia).
 - Distinto calendario, distintos presupuestos, distinto balance para cada paciente, distintas cajas y reportes financieros, distinto stock y distintas solicitudes de laboratorio.
 
 ## Errores comunes
 
-**No me aparece el dropdown con varias opciones:** tu usuario probablemente solo tiene acceso a una clínica. Si deberías tener acceso a otra, pedile al administrador que te asigne desde Administrador → Staff.
+**No me aparece la lista con varias opciones:** tu usuario probablemente solo tiene acceso a una clínica. Si deberías tener acceso a otra, pedile al administrador que te asigne desde Administrador → Staff.
 
 **Cambié de clínica pero veo los mismos pacientes:** es normal. El listado de pacientes se comparte entre todas las clínicas. Lo que cambia son los datos específicos de cada sede (presupuestos, balance, citas, etc.).
 
 **Veo un paciente cargado en otra clínica que no esperaba:** es normal por lo mismo. El listado de pacientes es global. Los datos clínicos compartidos (antecedentes, multimedia) también se ven, pero los presupuestos y balance solo aparecen si los creaste en esta clínica.
 
-**No encuentro una clínica que esperaba ver en el dropdown:** verificá que la clínica esté creada en Administrador → Clínicas y que tu usuario tenga permisos sobre ella.
+**No encuentro una clínica que esperaba ver en la lista:** verificá que la clínica esté creada en Administrador → Clínicas y que tu usuario tenga permisos sobre ella.
 
 ## Tips y variaciones
 
-- **Nombrá las clínicas con criterio:** ponéles nombres claros (por ejemplo "OCLÜ Buenos Aires", "OCLÜ Córdoba") para distinguirlas rápido en el dropdown.
-- **Antes de hacer cambios importantes:** verificá siempre qué clínica está activa. Es fácil cargar un presupuesto o registrar un pago en la clínica equivocada si no prestás atención al selector.
+- **Nombrá las clínicas con criterio:** ponéles nombres claros (por ejemplo "Oclü Palermo", "Oclü Recoleta") para distinguirlas rápido en la lista.
+- **Antes de hacer cambios importantes:** verificá siempre qué clínica está activa mirando el nombre arriba a la izquierda. Como el cambio es instantáneo y sin confirmación, es fácil cargar un presupuesto o registrar un pago en la clínica equivocada si no prestás atención.
 - **Pacientes que se atienden en varias sedes:** no necesitás duplicar la ficha. Mantené un solo registro del paciente, y atendelo en cada clínica con sus presupuestos y balance independientes en cada sede.
 - **Asignación de staff:** cuando incorporás un nuevo miembro al equipo, asignale solo las clínicas donde va a trabajar para evitar accesos innecesarios.
 
 ## Tiempo estimado
 
-5 segundos para alternar entre dos clínicas.
+2 segundos para alternar entre dos clínicas.
 
 ## Permisos
 
-El acceso a múltiples clínicas se configura desde Administrador → Staff. Los administradores suelen tener acceso a todas; el resto del staff solo a las clínicas donde fue asignado. Si necesitás trabajar con más clínicas pero no las ves en el dropdown, consultá con el administrador.
+El acceso a múltiples clínicas se configura desde Administrador → Staff. Los administradores suelen tener acceso a todas; el resto del staff solo a las clínicas donde fue asignado. Si necesitás trabajar con más clínicas pero no las ves en la lista, consultá con el administrador.
