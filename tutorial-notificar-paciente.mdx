@@ -3,7 +3,7 @@ title: "Cómo notificar y enviar recordatorios de citas"
 description: "Avisale al paciente que tiene una cita agendada o recordásela antes del día, por email o WhatsApp."
 ---
 
-OCLÜ te permite avisarle al paciente sobre su cita de tres formas: en automático al crear o editar la cita (vía email), como recordatorio manual por email desde el detalle de la cita, o como recordatorio manual por WhatsApp. Esta guía cubre las tres y te muestra cuándo conviene usar cada una.
+OCLÜ te permite avisarle al paciente sobre su cita de dos formas: en automático al crear o editar la cita (por mail y/o WhatsApp), o manualmente desde el panel de detalle de la cita, donde además de un aviso por mail tenés tres variantes distintas de aviso por WhatsApp. Esta guía cubre ambas y te muestra cuándo conviene usar cada una.
 
 <iframe src="https://www.youtube.com/embed/bXVfYcN6sUg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
@@ -40,74 +40,69 @@ Esta es la forma más rápida. Sirve para confirmar la cita al paciente apenas l
 ### Pasos
 
 1. Completá los datos de la cita normalmente: paciente, doctor, horario, descripción, etc.
-2. Antes de guardar, mirá al final del formulario. Vas a ver un checkbox que dice **Notificar de inmediato vía email**.
-3. Tildá el checkbox.
+2. Antes de guardar, mirá al final del formulario. Vas a ver dos checkboxes: **Notificar de inmediato vía email** y **Notificar de inmediato vía WhatsApp**.
+3. Tildá el o los que quieras usar.
+4. Hacé clic en el botón **Agregar** para guardar la cita.
+5. Apenas se guarde, OCLÜ le manda al paciente los datos de la cita (fecha, horario, profesional, modalidad, descripción) por los canales que tildaste.
 
-<Frame>
-  ![Captura De Pantalla 2026 05 03 162759](/images/Captura-de-pantalla-2026-05-03-162759.png)
-</Frame>
+> Los mismos checkboxes aparecen cuando editás una cita existente. Si ya la habías creado sin notificar y querés avisarle al paciente al guardar el cambio, tildalos antes de presionar **Guardar cambios**.
 
-4. Hacé clic en el botón azul **Agregar** para guardar la cita.
-5. Apenas se guarde, OCLÜ envía el email de notificación al paciente con los datos de la cita (fecha, horario, profesional, modalidad, descripción).
+## Forma 2: Avisar al paciente desde el detalle de la cita
 
-> El mismo checkbox aparece cuando editás una cita existente. Si ya la habías creado sin notificar y querés avisarle al paciente al guardar el cambio, tildalo antes de presionar **Guardar cambios**.
+Útil para mandar un aviso uno o dos días antes del turno, o cuando creaste la cita sin notificar y después decidiste avisar.
 
-## Forma 2: Recordatorio manual por email
-
-Útil para mandar un aviso uno o dos días antes de la cita, o cuando creaste la cita sin notificar y después decidiste avisar.
-
-### Cómo llegar?
+### Cómo llegar
 
 1. Entrá a la **Vista diaria** del calendario.
 2. Posicionate en el día de la cita.
-3. Hacé clic sobre el bloque de la cita en la grilla. Se abre un panel lateral derecho llamado **Detalles de la cita**.
+3. Hacé clic sobre el bloque de la cita en la grilla. Se abre un panel lateral derecho llamado **Detalles de la cita**, con el bloque **Avisar al paciente** debajo de la información básica.
 
 <Frame>
-  ![Image](/images/image-240.png)
+  ![Image](/images/image-423.png)
 </Frame>
 
-### Pasos
+### Aviso por mail
 
-1. En el panel **Detalles de la cita**, buscá el bloque **Enviar Recordatorio** (está debajo de la información básica de la cita).
-2. Hacé clic en el botón **Vía Email** (es el botón celeste con un ícono de sobre).
-3. OCLÜ envía el email de recordatorio al paciente en ese momento.
+Hacé clic en **Aviso por mail**. OCLÜ envía el mail al paciente en ese momento, con los datos de la cita.
 
-## Forma 3: Recordatorio manual por WhatsApp
+### Aviso por WhatsApp — tres variantes
 
-Generalmente tiene mayor tasa de apertura que el email y es la opción preferida para recordatorios del día anterior.
+El botón **WhatsApp** despliega un menú con tres opciones distintas:
 
-### Pasos
+- **Aviso de cita** _(manual)_ — solo los datos de la cita, sin pedir respuesta. Abre tu WhatsApp personal con el mensaje ya armado para que lo mandes vos.
+- **Pedir confirmación** _(manual)_ — igual que el anterior, pero suma un link para que el paciente confirme o cancele el turno con un clic. También abre tu WhatsApp personal.
+- **Insistir por la confirmación** _(automático)_ — sale directo del número oficial de WhatsApp de la clínica (no del tuyo), con botones para que el paciente responda. Se habilita solo cuando corresponde insistir: ya le pediste confirmación antes, el paciente todavía no respondió (ni confirmó ni canceló, ni por WhatsApp ni por mail), no le insististe ya una vez, la cita todavía no pasó, y tu clínica tiene el add-on de WhatsApp contratado con la plantilla aprobada por Meta. Si falta alguna de estas condiciones, la opción queda deshabilitada.
 
-1. Desde el mismo panel **Detalles de la cita** (clickeando la cita en la grilla), buscá el bloque **Enviar Recordatorio**.
-2. Hacé clic en el botón **Vía WhatsApp** (botón verde con ícono de WhatsApp).
-3. OCLÜ envía el mensaje al número cargado en la ficha del paciente.
+<Frame>
+  ![Image](/images/image-424.png)
+</Frame>
+
+> Los dos botones "manuales" abren tu WhatsApp personal — sos vos quien manda el mensaje. Solo **Insistir por la confirmación** sale automáticamente del número oficial de la clínica.
 
 > Asegurate de que el teléfono del paciente tenga el prefijo del país correcto (por ejemplo \+54 para Argentina). Sin prefijo válido, el envío puede fallar.
 
 ## Resultado esperado
 
-El paciente recibe el mensaje en el canal correspondiente:
-
-- **Email:** llega a la casilla cargada en su ficha. Incluye fecha, horario, profesional, modalidad y descripción.
-- **WhatsApp:** llega al número cargado. Incluye los mismos datos en formato más conciso.
-
-La acción queda registrada en el sistema. Podés repetir el envío las veces que necesites.
+El paciente recibe el mensaje en el canal correspondiente, con fecha, horario, profesional, modalidad y descripción de la cita. El panel de detalle muestra una marca de cuándo fue el último aviso (por ejemplo "Ya se le avisó por mail hace un día"). Podés repetir el envío las veces que necesites, salvo "Insistir por la confirmación", que se manda una sola vez por cita.
 
 ## Errores comunes
 
-**El botón de email aparece deshabilitado:** el paciente no tiene email cargado en su ficha. Cargalo en Pacientes → ficha → Datos Personales → Contacto y volvé a intentar.
+**El botón de mail aparece deshabilitado:** el paciente no tiene email cargado en su ficha. Cargalo en Pacientes → ficha → Datos Personales → Contacto y volvé a intentar.
 
-**El botón de WhatsApp aparece deshabilitado:** el paciente no tiene teléfono o le falta el prefijo del país. Editalo en la ficha y agregá el prefijo correcto (por ejemplo \+54).
+**Los botones de WhatsApp aparecen deshabilitados:** el paciente no tiene teléfono o le falta el prefijo del país. Editalo en la ficha y agregá el prefijo correcto (por ejemplo \+54).
 
-**El paciente dice que no recibió el email:** verificá que el email esté escrito sin errores de tipeo. Pediler que revise spam y promociones. Algunos proveedores (especialmente cuentas corporativas) bloquean correos automáticos.
+**"Insistir por la confirmación" aparece deshabilitado:** revisá las condiciones — necesitás haber pedido confirmación antes, que el paciente no haya respondido todavía, no haber insistido ya una vez, que la cita no haya pasado, y que la clínica tenga el add-on de WhatsApp contratado con la plantilla aprobada por Meta.
 
-**Mandé varios recordatorios y el paciente recibió varios mensajes:** cada clic en el botón dispara un envío nuevo. El sistema no tiene un anti-duplicado automático. Tené criterio: lo más habitual es uno al confirmar y otro 24 a 48 horas antes.
+**El paciente dice que no recibió el mail:** verificá que el email esté escrito sin errores de tipeo. Pediler que revise spam y promociones. Algunos proveedores (especialmente cuentas corporativas) bloquean correos automáticos.
+
+**Mandé varios avisos y el paciente recibió varios mensajes:** cada clic en un botón manual dispara un envío nuevo. El sistema no tiene un anti-duplicado en esos dos botones. Tené criterio: lo más habitual es uno al confirmar y otro 24 a 48 horas antes.
 
 ## Tips y variaciones
 
-- **Combinar canales:** lo más común es email para la confirmación inicial y WhatsApp para el recordatorio del día anterior. Aprovechás la formalidad del primero y la inmediatez del segundo.
+- **Combinar canales:** lo más común es mail para la confirmación inicial y WhatsApp para el recordatorio del día anterior. Aprovechás la formalidad del primero y la inmediatez del segundo.
 - **Plazo ideal del recordatorio:** entre 24 y 48 horas antes del turno. Más cerca puede que el paciente ya no lo lea a tiempo; más lejos, lo olvida.
-- **Turnos de pacientes nuevos:** si es la primera cita, conviene reforzar con una llamada el mismo día además del email/WhatsApp.
+- **Dejale la insistencia al sistema:** si ya le pediste confirmación y no respondió, esperá a que se habilite "Insistir por la confirmación" en vez de reenviar el mismo aviso manual — ese botón sale del número oficial de la clínica y suele tener mejor tasa de respuesta.
+- **Turnos de pacientes nuevos:** si es la primera cita, conviene reforzar con una llamada el mismo día además del mail/WhatsApp.
 
 ## Tiempo estimado
 
@@ -115,18 +110,18 @@ La acción queda registrada en el sistema. Podés repetir el envío las veces qu
 
 ## Preguntas frecuentes
 
-**¿Cuántas veces puedo mandar el recordatorio?** Las que quieras. Cada clic dispara un envío nuevo. Tené criterio para no saturar al paciente.
+**¿Cuántas veces puedo mandar un aviso manual?** Las que quieras. Cada clic en **Aviso por mail**, **Aviso de cita** o **Pedir confirmación** dispara un envío nuevo. Tené criterio para no saturar al paciente. **Insistir por la confirmación** es la excepción: se manda una sola vez.
 
-**¿OCLÜ manda recordatorios automáticos?** Por defecto no. Si tu clínica configuró Automatizaciones, puede haber envíos programados; consultalo con el administrador.
+**¿OCLÜ manda recordatorios automáticos?** Los dos checkboxes de notificación al crear/editar la cita son manuales (los tildás vos). "Insistir por la confirmación" sí es automático en el sentido de que sale del número oficial de la clínica, pero solo se habilita bajo las condiciones descriptas arriba. Si tu clínica configuró Automatizaciones aparte, puede haber otros envíos programados; consultalo con el administrador.
 
-**¿Puedo personalizar el texto del email o del WhatsApp?** La plantilla la define la clínica desde Administrador → Plantillas. Cada miembro del staff envía con la plantilla configurada, no se puede editar el cuerpo en el momento del envío.
+**¿Puedo personalizar el texto del mail o del WhatsApp?** La plantilla la define la clínica desde Administrador → Plantillas. Cada miembro del staff envía con la plantilla configurada, no se puede editar el cuerpo en el momento del envío.
 
-**¿Qué pasa si reagendo una cita ya notificada?** El recordatorio ya enviado no se borra. Reenvialo manualmente con el nuevo horario o tildá el checkbox de notificación al guardar el cambio.
+**¿Qué pasa si reagendo una cita ya notificada?** El aviso ya enviado no se borra. Reenvialo manualmente con el nuevo horario o tildá los checkboxes de notificación al guardar el cambio.
 
-**¿El paciente puede confirmar la asistencia desde el email?** Depende de la plantilla configurada. Algunas incluyen un link de confirmación que cambia el estado de la cita; otras son solo informativas.
+**¿El paciente puede confirmar la asistencia desde el mail o el WhatsApp?** Por mail depende de la plantilla configurada. Por WhatsApp, **Pedir confirmación** y **Insistir por la confirmación** sí incluyen la posibilidad de confirmar o cancelar (con link o con botones, según el caso); **Aviso de cita** es solo informativo.
 
-**Diferencia entre el email y el WhatsApp:** el email queda como registro escrito y es asincrónico. El WhatsApp es más inmediato y tiene mayor tasa de apertura. Lo más común es combinarlos según la urgencia.
+**Diferencia entre el mail y el WhatsApp:** el mail queda como registro escrito y es asincrónico. El WhatsApp es más inmediato y tiene mayor tasa de apertura. Lo más común es combinarlos según la urgencia.
 
 ## Permisos
 
-La visibilidad de los botones de notificación depende de los permisos asignados al miembro del staff desde Administrador → Staff → Permisos. Si no ves los botones **Vía Email** o **Vía WhatsApp**, verificá tu configuración.
+La visibilidad de los botones de aviso depende de los permisos asignados al miembro del staff desde Administrador → Staff → Permisos. Si no ves el bloque **Avisar al paciente** o alguna de sus opciones, verificá tu configuración.
