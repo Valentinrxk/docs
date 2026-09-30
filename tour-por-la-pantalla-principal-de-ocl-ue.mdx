@@ -26,22 +26,25 @@ Cuando iniciás sesión en OCLÜ, el sistema te lleva automáticamente al **Dash
 
 ### Zona 1: Barra lateral izquierda (los módulos del sistema)
 
-Es la franja angosta que ves del lado izquierdo, con seis íconos uno arriba del otro. Es el menú principal de navegación. Cada ícono te lleva a un módulo distinto:
+Es la franja angosta que ves del lado izquierdo, con siete íconos uno arriba del otro. Es el menú principal de navegación. Cada ícono te lleva a un módulo distinto:
 
 1. **Calendario** (ícono de calendario): la vista diaria de citas. Acá agendás turnos, ves la agenda del día y gestionás bloqueos.
 2. **Pacientes** (ícono de personas): el listado completo de pacientes. Desde acá entrás a la ficha de cualquiera y ves su historia clínica, presupuestos y balance.
 3. **Laboratorio** (ícono de portapapeles): el módulo para gestionar las solicitudes de laboratorio externo.
 4. **Stock** (ícono de caja): el inventario de productos, insumos y materiales.
 5. **Finanzas** (ícono de columna): el módulo financiero con cajas, ingresos, egresos, balance y reportes.
-6. **Administrador** (ícono de personas con flecha): la configuración del sistema. Acá cargás clínicas, staff, prestaciones, plantillas, automatizaciones y reportes avanzados.
+6. **Comunicaciones** (ícono de chat): la bandeja donde se leen y responden los mensajes de WhatsApp con los pacientes de la clínica.
+7. **Administrador** (ícono de personas con flecha): la configuración del sistema. Acá cargás clínicas, staff, prestaciones, plantillas, automatizaciones y reportes avanzados.
 
 > Si pasás el mouse sobre la barra lateral, se expande automáticamente y vas a ver los nombres completos de cada módulo. Te ayuda a identificar cada ícono cuando recién empezás.
 
 <Frame>
-  ![Captura De Pantalla 2026 04 21 145225](/images/Captura-de-pantalla-2026-04-21-145225.png)
+  ![Image](/images/image-411.png)
 </Frame>
 
 > El módulo **Administrador** tiene un submenú con varias opciones (Clínicas, Staff, Automatizaciones, Prestaciones, Plantillas, Cajas y bancos, Reportes). Hacé clic en Administrador para expandirlo.
+>
+> No confundas el módulo **Comunicaciones** de la barra lateral (donde conversás con los pacientes) con el ítem que también se llama "Comunicaciones" dentro de **Administrador**: ese otro es donde se configura el bot, no donde se chatea.
 
 ### Zona 2: Barra superior (top bar)
 
@@ -49,27 +52,34 @@ Es la franja oscura que ves arriba de la pantalla. De izquierda a derecha tiene 
 
 - **Logo OCLÜ \+ flecha ▼** (a la izquierda): el selector de clínica. Si tu organización tiene varias clínicas, hacé clic en la flecha para alternar entre ellas.
 - **Buscador (ícono de lupa):** búsqueda global del sistema.
-- **Campana (notificaciones):** alertas del sistema (stock crítico, recordatorios pendientes, etc.). El número en rojo muestra cuántas notificaciones nuevas hay.
-- **Sobre (mensajes):** acceso rápido al sistema de mensajes internos del staff. El número en rojo indica mensajes no leídos.
-- **Nombre de la clínica activa** (a la derecha): te confirma en qué clínica estás trabajando.
-- **Hamburguesa (tres rayas)** (esquina superior derecha): menú de configuración personal. Desde acá cambiás el modo claro/oscuro, el idioma, accedés a OclüLearn (la academia) y al contacto.
+- **Campana (notificaciones):** los recordatorios que tenés pendientes y las novedades del sistema (mejoras, nuevas funcionalidades). El número en rojo muestra cuántas hay nuevas.
+- **Sobre (mensajes):** acceso rápido a la mensajería interna del staff. El número en rojo indica mensajes no leídos.
+- **Nombre de usuario** (a la derecha): abre un menú con **Mi suscripción** (solo administradores: plan, límites y facturación), **Mis honorarios** (doctores con agenda y contrato configurado), **Mi configuración** (editar tu perfil) y **Cerrar sesión**.
 
 <Frame>
-  ![Captura De Pantalla 2026 04 21 145319](/images/Captura-de-pantalla-2026-04-21-145319-1.png)
+  ![Image](/images/image-412.png)
+</Frame>
+
+- **Menú de opciones (tres puntos)**, en el extremo derecho: acá están **Modo claro / Modo oscuro**, **Idioma**, **OclüLearn** (tutoriales en video), **Guía de uso** (esta misma guía escrita, sin salir del sistema) y **Contacto** (WhatsApp a soporte o comercial).
+
+<Frame>
+  ![Image](/images/image-413.png)
 </Frame>
 
 ### Zona 3: Dashboard / Área central (Home)
 
-Es lo que ves en el medio de la pantalla cuando entrás. El Dashboard te da un resumen rápido de la actividad del día:
+Es lo que ves en el medio de la pantalla cuando entrás. Toda la información está organizada en **islas** — bloques independientes, cada uno enfocado en un área de la clínica — que podés reordenar arrastrándolas a tu gusto:
 
-- **Saludo y sección Citas:** un resumen con las citas del día y un selector de profesional para filtrar.
-- **Cards superiores con accesos rápidos:**
-  - **Calendario:** muestra cuántas citas tenés hoy y links rápidos a la agenda.
-  - **Finanzas:** muestra el balance mensual (con el botón Mostrar/Ocultar montos).
-  - **Pacientes:** muestra los cumpleaños del día.
-  - **Laboratorio:** muestra cuántas solicitudes de laboratorio tenés.
-- **Isla Recordatorios:** lista de tareas pendientes del staff (no son recordatorios de cita, son tareas internas como "Llamar a paciente X", "Ofrecer control a paciente Y"). Cada uno tiene fecha, paciente asociado, descripción, categoría y acciones para marcarlo como completado.
-- **Isla Mensajes:** chats internos del staff, opcionalmente vinculados a un paciente. Muestra los últimos mensajes y participantes.
+- **Isla de citas:** el listado completo de las citas de hoy, con hora, paciente, presupuesto asociado, descripción y estado. Se puede filtrar por doctor.
+- **Isla de calendario:** cuántas citas hay agendadas hoy y cuál es la próxima.
+- **Isla de pacientes:** los cumpleaños del día.
+- **Isla de finanzas:** el balance mensual, con un ícono de ojo para ocultar los montos.
+- **Isla de laboratorio:** cuántas solicitudes de laboratorio vencen hoy.
+- **Isla de recordatorios:** tareas internas del staff — no son recordatorios de cita, son tareas como "Llamar a paciente X" u "Ofrecer control a paciente Y". Cada una tiene fecha, paciente asociado (opcional), descripción, categoría y acciones.
+- **Isla de mensajes:** la mensajería interna del staff, opcionalmente vinculada a un paciente.
+- **Isla de notas personales:** un tablero de notas propio y privado — nadie más las ve.
+
+Esta guía te da el panorama general; para el detalle completo de cada isla (qué muestra, cómo se usa, todos los campos de sus formularios) mirá la guía **Interfaz y Navegación**.
 
 ### Zona 4: Pie de pantalla (footer)
 
@@ -85,11 +95,11 @@ Es la franja oscura que ves al final de la pantalla, presente en todas las panta
 
 ## Recorrido sugerido para tu primer día
 
-1. **Empezá por el Dashboard:** dedicale 5 minutos a entender qué muestra cada widget.
-2. **Recorré la barra lateral:** entrá a cada módulo (Calendario, Pacientes, Laboratorio, Stock, Finanzas) sin cargar nada. Solo observá la pantalla principal de cada uno.
-3. **Mirá la barra superior:** clickeá la campana, el sobre y la hamburguesa para ver qué hay en cada uno.
-4. **Probá el cambio de modo:** clickeá la hamburguesa y alterná entre modo claro y oscuro para ver con cuál te sentís más cómodo.
-5. **Andá a OclüLearn:** desde la hamburguesa, accedé a la academia y mirá las primeras lecciones.
+1. **Empezá por el Dashboard:** dedicale 5 minutos a entender qué muestra cada isla.
+2. **Recorré la barra lateral:** entrá a cada módulo (Calendario, Pacientes, Laboratorio, Stock, Finanzas, Comunicaciones) sin cargar nada. Solo observá la pantalla principal de cada uno.
+3. **Mirá la barra superior:** clickeá la campana, el sobre, tu nombre y el menú de tres puntos para ver qué hay en cada uno.
+4. **Probá el cambio de modo:** desde el menú de tres puntos, alterná entre modo claro y oscuro para ver con cuál te sentís más cómodo.
+5. **Mirá OclüLearn y la Guía de uso:** ambos están en el menú de tres puntos — OclüLearn son video-tutoriales, la Guía de uso es esta misma documentación escrita.
 
 ## Errores comunes
 
