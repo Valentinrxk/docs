@@ -16,11 +16,13 @@ El calendario de OCLÜ tiene varios controles arriba para que adaptes la pantall
 1. Iniciá sesión en OCLÜ.
 2. En la barra lateral izquierda, hacé clic en el ícono del calendario.
 
-Vas a entrar a la pantalla del calendario, que arriba tiene tres cards de configuración: **Fecha y modo de vista**, **Profesional** y **Estados de Calendario**.
+Vas a entrar a la pantalla del calendario, que arriba tiene cuatro cards de configuración: **Fecha y modo de vista**, **Profesional**, **Estados de Calendario** y **Reservas online**.
 
 <Frame>
-  ![Image](/images/image-261.png)
+  ![Image](/images/image-427.png)
 </Frame>
+
+Esta guía cubre las primeras tres. La card **Reservas online** muestra los turnos que los pacientes piden por tu link de Autoagenda — un add-on aparte (ver página **Add-ons**).
 
 ## Card 1: Fecha y modo de vista
 
@@ -51,6 +53,8 @@ El tercer dropdown elige cómo se organizan las columnas de la grilla:
 - **Por Boxes:** cada columna es un box (consultorio). Útil cuando la clínica comparte boxes entre varios profesionales y querés ver qué box está libre o ocupado en cada momento.
 
 > Si tu clínica no usa boxes, dejá el modo en **Por Doctores**.
+
+Cuando estás en modo **Por Boxes**, la card de filtro (Card 2) suma un engranaje con acceso directo a **Configuración de boxes** — el mismo listado que hay en Administrador → Clínicas, donde se edita el nombre de cada box y si permite solapamiento de citas.
 
 <Frame>
   ![Image](/images/image-263.png)
@@ -89,9 +93,21 @@ Cada estado se ve como una etiqueta de color. Lo que hagas en esta card afecta c
 
 > El engranaje arriba a la derecha de esta card te lleva a la pantalla de configuración de estados (Administrador → Estados de calendario), donde podés crear nuevos estados, editarlos o cambiar su orden.
 
+## Preferencias: fijar tu vista por defecto
+
+El engranaje de la card **Fecha y modo de vista** no es un simple recuerdo de la última vista usada — te lleva a una pantalla aparte, **Preferencias**, donde definís de forma explícita:
+
+- **Vista predeterminada** — Vista Diaria o Vista Semanal, la que se abre cada vez que entrás a Calendario desde el menú.
+- **Modo de filtro** — Por Doctores o Por Boxes, por defecto.
+- **Dejar marcado "Notificar al paciente" al reagendar** — si el checkbox de las ventanas de confirmación (al arrastrar o estirar una cita) viene tildado o no por defecto. Lo podés cambiar en cada cita puntual igual.
+
+<Frame>
+  ![Image](/images/image-428.png)
+</Frame>
+
 ## Resultado esperado
 
-La grilla del calendario se reconfigura al instante con los cambios. El sistema recuerda tu última configuración cuando volvés a entrar al calendario, así que solo necesitás ajustarla cuando querés cambiar de modo.
+La grilla del calendario se reconfigura al instante con los cambios que hagas en las cards. Vista y modo de filtro por defecto son los que hayas guardado en Preferencias, no simplemente "la última que usaste".
 
 ## Errores comunes
 
@@ -108,14 +124,14 @@ La grilla del calendario se reconfigura al instante con los cambios. El sistema 
 - **Configuración inicial recomendada para empezar:** Vista Diaria \+ Por Doctores \+ Todos los doctores seleccionados. Te da el panorama completo del día.
 - **Para clínicas grandes con muchos doctores:** filtrá por especialidad o por turno (mañana / tarde) para que la grilla no se sature.
 - **Para clínicas con boxes compartidos:** alterná entre Por Doctores y Por Boxes según lo que necesites ver. Por Doctores cuando organizás la agenda de un profesional, Por Boxes cuando querés ver qué consultorio está libre.
-- **Si trabajás siempre con la misma vista:** mirá la guía de configuración de vista predeterminada (engranaje en la card Fecha y modo de vista) para que el sistema arranque siempre con tu configuración favorita.
+- **Si trabajás siempre con la misma vista:** fijala desde **Preferencias** (engranaje en la card Fecha y modo de vista) para que el sistema arranque siempre con tu configuración favorita, en vez de dejarlo librado a la última que usaste.
 
 ## Tiempo estimado
 
-5 a 10 segundos para cambiar cualquier filtro o vista.
+5 a 10 segundos para cambiar cualquier filtro o vista. Un minuto para configurar tus Preferencias la primera vez.
 
 ## Preguntas frecuentes
 
-**¿El sistema recuerda mi configuración de vista entre sesiones?** Suele recordar la última configuración usada. Si querés que sea siempre la misma desde el arranque, usá el engranaje de la isla Fecha y modo de vista para fijar una vista predeterminada.
+**¿El sistema recuerda mi configuración de vista entre sesiones?** La vista y el modo de filtro con los que arranca Calendario son los que tengas guardados en **Preferencias**, no la última configuración usada. Entrá ahí (engranaje de la card Fecha y modo de vista) para definirlos.
 
 **¿Puedo ver más de un mes a la vez?** No. Las vistas disponibles son Diaria y Semanal. Para una visión mensual, usá los reportes y filtros de los reportes financieros o el historial del paciente.
