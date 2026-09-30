@@ -22,7 +22,7 @@ Cada cita en el calendario tiene un panel de detalle que se abre con un solo cli
 Se abre un panel lateral derecho que se llama **Detalles de la cita**.
 
 <Frame>
-  ![Image](/images/image-249.png)
+  ![Image](/images/image-423.png)
 </Frame>
 
 ## Qué muestra el panel de detalle
@@ -39,17 +39,23 @@ Muestra los datos básicos de solo lectura:
 
 Arriba a la derecha de este bloque tenés dos botones:
 
-- **Historial:** muestra los cambios y movimientos previos de esta cita (cuándo se creó, si se reagendó, quién la modificó).
-- **Reagendar:** abre el flujo de reagendamiento para mover la cita a otra fecha u horario sin perder los datos. Útil cuando el paciente pide cambiar el día.
+- **Historial:** muestra la línea de tiempo completa de la cita — cambios de estado, reagendamientos, modificaciones de campos y avisos enviados (con su estado de entrega) — cada uno con quién lo hizo y cuándo.
+- **Reagendar:** abre un formulario para mover la cita a otra fecha u horario, y también permite cambiar el presupuesto vinculado y el doctor asignado, sin perder el resto de los datos. Útil cuando el paciente pide cambiar el día o pasar a otro profesional.
 
-### Bloque 2: Enviar Recordatorio
+### Bloque 2: Avisar al paciente
 
-Dos botones para mandarle al paciente un recordatorio en el momento:
+Un botón de mail y un botón de WhatsApp con tres variantes, para mandarle al paciente un aviso en el momento:
 
-- **Vía Email** (botón celeste con ícono de sobre): manda el recordatorio al email cargado en la ficha del paciente.
-- **Vía WhatsApp** (botón verde con ícono de WhatsApp): manda el recordatorio al teléfono cargado en la ficha (debe tener prefijo correcto, por ejemplo \+54).
+- **Aviso por mail** — manda el mail al email cargado en la ficha del paciente.
+- **WhatsApp → Aviso de cita** _(manual)_ — solo los datos de la cita, sin pedir respuesta. Abre tu WhatsApp personal.
+- **WhatsApp → Pedir confirmación** _(manual)_ — suma un link para que el paciente confirme o cancele. También abre tu WhatsApp personal.
+- **WhatsApp → Insistir por la confirmación** _(automático)_ — sale del número oficial de la clínica, con botones para responder. Solo se habilita cuando ya se pidió confirmación antes, el paciente no respondió, no se insistió todavía, la cita no pasó, y la clínica tiene el add-on de WhatsApp con la plantilla aprobada por Meta.
 
-> Estos botones disparan el envío inmediatamente. Si el paciente no tiene email o teléfono cargado, el botón correspondiente puede aparecer deshabilitado.
+<Frame>
+  ![Image](/images/image-424.png)
+</Frame>
+
+> Estos botones disparan el envío inmediatamente. Si el paciente no tiene email o teléfono cargado, el botón correspondiente puede aparecer deshabilitado. El panel también muestra una marca de cuándo fue el último aviso enviado (por ejemplo "Ya se le avisó por mail hace un día").
 
 ### Bloque 3: Detalles de la Cita
 
@@ -63,23 +69,20 @@ Acá tenés tres campos editables:
 
 ### Bloque 4: Accesos Directos
 
-Cuatro botones que te llevan rápidamente a otras pantallas del paciente sin tener que cerrar el calendario y buscarlo:
+Botones que te llevan rápidamente a otras pantallas del paciente sin tener que cerrar el calendario y buscarlo. A diferencia del resto del panel, este bloque es **personalizable**: vos elegís cuáles mostrar y en qué orden.
 
-- **Datos Personales:** abre la ficha del paciente en la solapa Datos Personales.
-- **Multimedia:** abre la sección de archivos multimedia del paciente (radiografías, fotos, documentos).
-- **Evoluciones:** abre la sección de evoluciones clínicas para registrar lo que pasó en la consulta.
-- **Presupuestos:** abre el listado de presupuestos del paciente.
+Por defecto trae **Datos Personales**, **Multimedia**, **Evoluciones** y **Presupuestos**, pero desde el ícono de engranaje (arriba a la derecha del bloque) podés elegir hasta **8** de un catálogo de 15: Datos Personales, Citas, Comentarios, Historial, Antecedentes, Odontograma, Periodontograma, Evoluciones, Multimedia, Recetas Digitales (Argentina) o Recetas SREP (España), Consentimientos, Presupuestos, Balance y Laboratorio. Arrastrá los seleccionados para reordenarlos.
 
 <Frame>
-  ![Image](/images/image-250.png)
+  ![Image](/images/image-425.png)
 </Frame>
 
 ### Botones inferiores
 
 Abajo del panel hay dos botones:
 
-- **Eliminar cita** (rojo, abajo a la izquierda): borra la cita del calendario. Pide confirmación antes de aplicar.
-- **Guardar cambios** (azul, abajo a la derecha): guarda cualquier cambio que hayas hecho en los campos editables (estado, box, descripción).
+- **Eliminar cita** (abajo a la izquierda): borra la cita del calendario. Pide confirmación antes de aplicar.
+- **Guardar cambios** (abajo a la derecha): guarda cualquier cambio que hayas hecho en los campos editables (estado, box, descripción).
 
 ## Pasos para editar un campo
 
@@ -103,7 +106,7 @@ Los cambios que hagas en el panel se aplican apenas guardás. Por ejemplo:
 
 **Modifiqué el estado pero no se aplicó:** olvidaste hacer clic en **Guardar cambios**. El sistema no autoguarda; tenés que confirmar el cambio.
 
-**El botón Vía Email aparece deshabilitado:** el paciente no tiene email cargado. Cargalo desde Datos Personales y volvé a intentar.
+**El botón Aviso por mail aparece deshabilitado:** el paciente no tiene email cargado. Cargalo desde Datos Personales y volvé a intentar.
 
 **No veo todos los estados que esperaba:** el sistema trae tres por defecto (Pendiente, Confirmado, Cancelado). El resto los crea cada clínica desde Administrador → Estados de calendario. Si falta alguno, agregalo desde ahí.
 
@@ -127,9 +130,9 @@ Los cambios que hagas en el panel se aplican apenas guardás. Por ejemplo:
 
 **¿Si elimino una cita se elimina también la evolución asociada?** Las evoluciones se guardan en la ficha del paciente y son independientes del calendario. Eliminar la cita no borra evoluciones ya cargadas.
 
-**¿Puedo cambiar el doctor a cargo desde el panel?** No directamente desde este panel. Para cambiar el doctor, usá el botón **Reagendar** y elegí otro profesional en el formulario, o eliminá la cita y creá una nueva en la columna del otro doctor.
+**¿Puedo cambiar el doctor a cargo desde el panel?** No desde los campos editables del Bloque 3, pero sí desde el botón **Reagendar** del Bloque 1: ahí podés elegir otro profesional además de fecha y horario.
 
-**¿El paciente recibe notificación cuando cambio el estado?** No automáticamente. Los cambios de estado son internos. Si querés avisar al paciente, usá los botones **Vía Email** o **Vía WhatsApp** del bloque Enviar Recordatorio.
+**¿El paciente recibe notificación cuando cambio el estado?** No automáticamente. Los cambios de estado son internos. Si querés avisar al paciente, usá los botones del bloque **Avisar al paciente**.
 
 **¿Por qué algunos campos están deshabilitados?** Depende de tus permisos de staff. Algunos miembros pueden ver el panel pero no modificar todos los campos. Configuralo desde Administrador → Staff → Permisos.
 
