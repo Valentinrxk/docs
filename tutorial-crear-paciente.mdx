@@ -1,37 +1,49 @@
 ---
 title: "Cómo crear un paciente"
-description: "Aprendé a cargar un paciente nuevo en OCLÜ con todos sus datos personales, de contacto, domicilio y seguro médico."
 ---
 
-Esta guía te muestra cómo registrar un paciente nuevo desde el módulo Pacientes. El sistema te lleva por un wizard de dos pasos que separa los datos básicos (obligatorios para identificar al paciente) de los datos adicionales (domicilio y seguro médico). Una vez creado, el paciente queda disponible para asignarle citas, presupuestos, evoluciones y todos los demás registros clínicos.
-
-<iframe src="https://www.youtube.com/embed/vVG_UGFw9ys" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+Antes de agendar un turno, registrar un presupuesto o cargar cualquier dato clínico, el paciente tiene que existir en OCLÜ. Esta guía te muestra las dos formas de darlo de alta: a mano, o dejando que el paciente complete sus propios datos desde un link.
 
 ## Cuándo usarlo
 
-- Cuando un paciente nuevo se acerca a la clínica para hacer su primera consulta.
-- Cuando un paciente que llamó para pedir un turno necesita estar registrado para poder agendárselo.
-- Cuando estás migrando una agenda en papel y querés ir cargando los pacientes a medida que pasan.
-- Como alternativa a este flujo manual, podés enviar al paciente el **Link para registro** y que se cargue solo (mirá la guía **Cómo gestionar pacientes con links de registro, actualización e historia clínica**).
-
-## Requisitos previos
-
-- Tener al paciente físicamente o sus datos disponibles (documento, fecha de nacimiento, teléfono, email si aplica).
-- Saber el domicilio completo del paciente (dirección, país, provincia, localidad).
+- Cuando un paciente nuevo llega a la clínica y necesitás registrarlo.
+- Cuando un paciente potencial contacta por WhatsApp o redes y querés que se registre solo, sin que tengas que tipear nada.
+- Cuando necesitás cargar los datos básicos rápido para agendarle un turno.
+- Cuando estás completando la ficha de un paciente con todos sus datos de contacto y domicilio.
+- Cuando querés que el paciente tenga acceso a su propio portal para ver presupuestos, evoluciones o multimedia.
+- Cuando querés saber el domicilio completo del paciente (dirección, país, provincia, localidad).
 
 ## Cómo llegar a esta sección
 
 1. Iniciá sesión en OCLÜ.
 2. En la barra lateral izquierda, hacé clic en el segundo ícono (un grupo de personas). Te lleva al listado de **Pacientes**.
-3. Arriba a la derecha, hacé clic en el botón negro **Agregar paciente**.
-
-> En el breadcrumb superior vas a leer **Home → Pacientes → Agregar**.
+3. Arriba a la derecha, hacé clic en el botón negro **Agregar paciente**. Se abre un dropdown con dos opciones.
 
 <Frame>
-  ![Image](/images/image-231.png)
+  ![Image](/images/image-470.png)
 </Frame>
 
-## Pasos para crear el paciente
+- **Manualmente** ("Cargar los datos vos mismo"): abre el formulario de dos pasos que ves más abajo en esta guía.
+- **Compartir link** ("Que el paciente complete sus datos"): genera un link (y un código QR) para que el paciente se registre solo desde su celular, sin que vos tipees nada.
+
+> En el breadcrumb superior, si elegís Manualmente, vas a leer **Home → Pacientes → Agregar**.
+
+## Opción rápida: que el paciente se registre solo
+
+Si elegís **Compartir link**, se abre el modal **Compartir link de registro**, con dos modos:
+
+- **Único:** un link de un solo uso para invitar a un paciente puntual. Deja de funcionar apenas el paciente lo completa, y vence a los 7 días de generado si no lo usa.
+- **Permanente:** un link reutilizable, pensado para dejarlo publicado (por ejemplo en tu bio de Instagram o en el WhatsApp de la clínica) para que cualquiera se registre.
+
+Copiá el link con el botón **Copiar**, o compartí directamente el código QR que se genera abajo.
+
+<Frame>
+  ![Image](/images/image-471.png)
+</Frame>
+
+El paciente completa sus datos desde su propio celular y queda registrado en el sistema, sin que tengas que cargar nada manualmente.
+
+## Pasos para cargar un paciente manualmente
 
 El formulario tiene dos pasos: **Datos básicos** y **Datos adicionales**. Un indicador arriba muestra en cuál estás.
 
@@ -53,21 +65,27 @@ Completá los campos. Los marcados con asterisco rojo (`*`) son obligatorios.
 
 **Teléfono** (obligatorio): número sin el prefijo (ya lo seleccionaste arriba). Por ejemplo, si el número completo es \+54 11 1234-5678, escribí 1112345678.
 
-**Documento de identidad** (obligatorio): número de DNI, LE, LC, pasaporte o el documento que corresponda. El campo acepta cualquier formato.
+**Tipo de documento** (opcional): DNI por defecto. Cambialo si el paciente se identifica con otro tipo de documento.
 
-**Número de historia clínica** (opcional): si tu clínica usa códigos internos de HC (por ejemplo HC-001, HC-2024-045), ingresá acá el número. Si no lo usás, dejalo vacío. El sistema le asigna un ID interno al paciente igual.
+**Documento de identidad** (obligatorio): el número correspondiente al tipo elegido. El campo acepta cualquier formato.
+
+**Número de historia clínica** (opcional): si tu clínica usa códigos internos de HC (por ejemplo HC-001, HC-2024-045), ingresá acá el número. El formulario te muestra el último número que usaste, como referencia. Si no lo usás, dejalo vacío — el sistema le asigna un ID interno al paciente igual.
 
 **Subir imagen** (opcional): a la izquierda hay un cuadro para cargar una foto del paciente. Es útil para identificarlo visualmente en la ficha.
 
 <Frame>
-  ![Image](/images/image-232.png)
+  ![Image](/images/image-472.png)
 </Frame>
 
 Una vez completados todos los obligatorios, hacé clic en el botón negro **Paso siguiente** abajo a la derecha. Si te falta algún campo obligatorio, OCLÜ te lo indica con un mensaje rojo bajo el campo y un toast en la esquina superior derecha; corregí y volvé a intentar.
 
 ### Paso 2: Datos adicionales
 
-Esta pantalla tiene dos secciones: **Domicilio** y **Seguro Médico**.
+Esta pantalla tiene tres secciones: **Domicilio**, **Seguro Médico** e **Información adicional**.
+
+<Frame>
+  ![Image](/images/image-473.png)
+</Frame>
 
 **Domicilio** (todos los campos obligatorios):
 
@@ -83,7 +101,11 @@ Esta pantalla tiene dos secciones: **Domicilio** y **Seguro Médico**.
 - **Número de Afiliado:** número de afiliado del paciente en la cobertura.
 - **Referido:** si alguien lo derivó (otro paciente, otro profesional, una campaña), anotalo acá. Útil para análisis posteriores de origen de pacientes.
 
-Cuando termines, hacé clic en el botón negro **Guardar** abajo a la derecha. (Si necesitás corregir algo del paso 1, hacé clic en **Paso anterior**.)
+**Información adicional** (opcional):
+
+- **Fecha primera atención:** si ya sabés cuándo fue o va a ser la primera atención de este paciente, cargala acá (tenés tabs para completar solo Día, Mes o Año si no sabés la fecha completa).
+
+Cuando termines, hacé clic en el botón negro **Agregar paciente** abajo a la derecha. (Si necesitás corregir algo del paso 1, hacé clic en **Paso anterior**.)
 
 ## Resultado esperado
 
@@ -112,13 +134,14 @@ El paciente también aparece en el listado general de Pacientes. Si dejaste alg�
 ## Tips y variaciones
 
 - **Si el paciente no llegó todavía y necesitás reservarle el turno:** cargalo con los datos mínimos que tengas y completalo después. Va a aparecer en el filtro Incompletos hasta tener todo.
-- **Para cargar pacientes en lote:** usá la opción **Importar** del listado de Pacientes (botón al lado de Agregar paciente). El sistema tiene dos importaciones independientes, cada una con su propio archivo Excel: una para pacientes y otra para evoluciones de pacientes ya cargados.
-- **Para que el paciente se cargue solo:** hacé clic en **Link para registro** arriba a la derecha del formulario. Te genera un link que podés enviarle por WhatsApp o pegar en un QR. El paciente completa sus datos desde el celular.
+- **Para invitar a un paciente puntual sin tipear nada:** usá **Agregar paciente → Compartir link** en modo **Único** y mandale el link o el QR por WhatsApp.
+- **Para tener un link fijo de registro** (por ejemplo en redes sociales): usá el modo **Permanente** del mismo modal.
+- **Para cargar pacientes en lote:** usá **Importar / Exportar → Importar pacientes** del listado de Pacientes. El sistema tiene importaciones independientes: una para pacientes y otra para evoluciones de pacientes ya cargados.
 - **Foto del paciente:** la imagen que subas aparece en su ficha y en el calendario al lado del nombre. Útil para reconocerlo visualmente, sobre todo en clínicas grandes.
 
 ## Tiempo estimado
 
-2 a 3 minutos por paciente con todos los datos a mano.
+2 a 3 minutos por paciente cargándolo manualmente con todos los datos a mano. Unos segundos si usás el link de autorregistro.
 
 ## Preguntas frecuentes
 
@@ -131,6 +154,8 @@ El paciente también aparece en el listado general de Pacientes. Si dejaste alg�
 **¿Y si el paciente no tiene domicilio fijo o no quiere darlo?** El domicilio es obligatorio. Como mínimo, ingresá país y provincia. Si no sabés la dirección exacta, podés poner "Sin dato" en el campo Dirección y completarlo más adelante.
 
 **¿Puedo subir una foto desde la cámara directamente?** El cuadro **Subir imagen** acepta archivos del dispositivo. Si estás cargando desde el celular, podés usar la cámara y la foto se carga al cuadro.
+
+**¿Qué pasa si el link de registro único vence antes de que el paciente lo use?** Tenés que generar uno nuevo desde **Agregar paciente → Compartir link**. Los links únicos vencen a los 7 días.
 
 ## Permisos
 
