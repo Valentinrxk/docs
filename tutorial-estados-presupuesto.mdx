@@ -15,18 +15,18 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 1. En la barra lateral izquierda, hacé clic en el ícono de Pacientes y entrá a la ficha del paciente.
 2. Hacé clic en la solapa **Presupuestos**.
-3. Hacé clic en el nombre del presupuesto para abrir su detalle.
-4. En la sección **Información básica del presupuesto**, mirá la fila superior derecha: ahí ves la etiqueta **Estado** con el estado actual (por ejemplo "Aprobado" en verde, "Pendiente" en amarillo, etc.).
+
+El estado de cada presupuesto ya se ve directo en el listado, como una etiqueta de color junto a "Estado".
 
 <Frame>
-  ![Image](/images/image-244.png)
+  ![Image](/images/image-443.png)
 </Frame>
 
-> Tip: clickear la etiqueta de Estado dentro del propio presupuesto te muestra el detalle de todos los estados disponibles en una pantalla, útil cuando estás aprendiendo el sistema.
+> Tip: desde el listado, clic derecho sobre un presupuesto y elegí **Cambiar estado** para pasarlo a otro estado sin entrar a su detalle.
 
 ## Los seis estados, uno por uno
 
-### 1. Borrador
+### 1. Borrador (gris)
 
 **Qué significa:** el presupuesto está recién creado pero todavía no se le envió al paciente. Es un trabajo en curso.
 
@@ -36,30 +36,30 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 **Cuándo conviene:** mientras estás armando el plan de tratamiento y todavía no hablaste con el paciente sobre los costos.
 
-### 2. Pendiente
+### 2. Pendiente (azul)
 
 **Qué significa:** el presupuesto fue enviado al paciente y estás esperando su respuesta (aprobación o rechazo).
 
 **Cómo llega a este estado:** hay dos formas:
 
-- **Automático:** desde dentro del presupuesto, cuando hacés clic en **Enviar presupuesto → Vía Mail**, el sistema cambia el estado a Pendiente automáticamente. Te muestra un cartel confirmando.
+- **Automático:** al **Enviar por Mail** o **Enviar por WhatsApp** desde el presupuesto (o desde el menú contextual del listado), el sistema cambia el estado a Pendiente automáticamente. Te muestra un cartel confirmando.
 - **Manual:** podés cambiarlo a Pendiente sin enviarlo, si por ejemplo se lo mostraste en pantalla o se lo entregaste impreso.
 
 **Qué se puede hacer:** seguir editándolo, reenviarlo, recibir pagos (lo que en la práctica suele significar que el paciente lo aprobó), o pasarlo manualmente a Aprobado, Rechazado o Eliminado.
 
 **Cuándo conviene:** después de que se lo enviaste y mientras esperás la respuesta. Te sirve para filtrar la cartera y ver todos los presupuestos en seguimiento.
 
-### 3. Aprobado
+### 3. Aprobado (verde)
 
 **Qué significa:** el paciente aceptó el presupuesto y se va a ejecutar el plan.
 
 **Cómo llega a este estado:** **siempre manual.** Vos lo cambiás a Aprobado cuando el paciente confirma, ya sea verbalmente, por mensaje, o cuando paga la primera seña.
 
-**Qué se puede hacer:** recibir pagos, agendar citas vinculadas al presupuesto, registrar evoluciones, avanzar las prestaciones (con los botones de progreso 25%, 50%, 75%, 100%) y pasarlo manualmente a Cerrado cuando termine todo.
+**Qué se puede hacer:** recibir pagos, agendar citas vinculadas al presupuesto, registrar evoluciones, avanzar las prestaciones (con los botones de progreso **0%, 50% y 100%**) y pasarlo manualmente a Cerrado cuando termine todo.
 
 **Cuándo conviene:** este es el estado "activo" de la mayoría de los presupuestos en ejecución.
 
-### 4. Rechazado
+### 4. Rechazado (amarillo)
 
 **Qué significa:** el paciente decidió no aceptar el presupuesto.
 
@@ -69,7 +69,7 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 **Cuándo conviene:** dejar claro en la cartera por qué un presupuesto no avanzó, en lugar de eliminarlo. Te ayuda a analizar después por qué se rechazan presupuestos y mejorar la presentación.
 
-### 5. Eliminado
+### 5. Eliminado (rojo)
 
 **Qué significa:** el presupuesto se marcó como inválido. Puede ser porque te equivocaste al crearlo, porque las condiciones cambiaron, o porque hay que rehacerlo desde cero.
 
@@ -79,7 +79,7 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 **Cuándo conviene:** cuando algo falló (un error en las prestaciones, un cambio de plan, un duplicado) y vas a crear un presupuesto nuevo desde cero.
 
-### 6. Cerrado
+### 6. Cerrado (gris)
 
 **Qué significa:** se completaron todas las prestaciones del presupuesto. Es el estado de "finalizado con éxito".
 
@@ -91,7 +91,7 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 ## Resumen del flujo
 
-- **Único cambio automático:** Borrador → Pendiente al enviar por email (si elegís esa opción).
+- **Único cambio automático:** Borrador → Pendiente al enviarlo por mail o por WhatsApp.
 - **Todos los demás cambios son manuales.**
 - **Eliminado** se puede aplicar desde cualquier estado, pero conviene revocar pagos y eliminar evoluciones primero.
 
@@ -99,7 +99,7 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 **No puedo cambiar el estado a Aprobado:** verificá tus permisos. Si no tenés permiso de modificar estados, el dropdown va a aparecer deshabilitado. Pediler al administrador que te habilite el permiso.
 
-**Al enviar el presupuesto por mail no cambió a Pendiente:** asegurate de que clickeaste **Enviar presupuesto → Vía Mail** desde dentro del presupuesto, no desde el listado. El cambio automático se dispara desde el envío individual.
+**Al enviar el presupuesto no cambió a Pendiente:** asegurate de haber usado **Enviar por Mail** o **Enviar por WhatsApp** (desde el presupuesto o desde el menú contextual del listado). El cambio automático se dispara desde esos dos envíos.
 
 **Necesito cambiar un presupuesto Aprobado a Borrador:** no es lo más limpio. Si las prestaciones todavía no se ejecutaron, podés editarlo directamente sin volver a Borrador. Si ya hubo pagos o avances, mejor crear un nuevo presupuesto y eliminar el anterior.
 
@@ -109,7 +109,7 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 ## Tips y variaciones
 
-- **Workflow recomendado:** Borrador → enviar por mail → Pendiente automático → cambiar manualmente a Aprobado o Rechazado según respuesta → Cerrado al finalizar todas las prestaciones.
+- **Workflow recomendado:** Borrador → enviar por mail o WhatsApp → Pendiente automático → cambiar manualmente a Aprobado o Rechazado según respuesta → Cerrado al finalizar todas las prestaciones.
 - **Para limpiar la cartera:** usá el filtro **Filtrar por estado** en el listado de presupuestos del paciente para ver solo los Aprobados (los activos en ejecución), los Pendientes (los que esperan respuesta), o los Borradores (los que están a medio armar).
 - **Auditoría comercial:** revisar periódicamente cuántos presupuestos están en Pendiente más de X días te ayuda a detectar pacientes que necesitan un seguimiento (un llamado, un nuevo envío).
 - **Cerrado vs Aprobado:** si no te molesta tener todos los presupuestos terminados como Aprobados, podés saltearte el paso de Cerrar. Pero si querés tener limpio el listado de "activos", marcalos como Cerrado al finalizar.
@@ -130,7 +130,7 @@ Cada presupuesto en OCLÜ tiene un **estado** que indica en qué etapa del flujo
 
 **¿Qué pasa si elimino un presupuesto Aprobado con pagos?** El sistema te puede pedir que primero revoques los pagos. La revocación no devuelve plata; solo invalida el registro. Después podés reasignar ese pago a otro presupuesto.
 
-**¿Hay diferencia visual entre los estados?** Sí. Cada estado tiene un color: Borrador (gris), Pendiente (amarillo), Aprobado (verde), Rechazado (rojo), Eliminado (gris tachado), Cerrado (azul oscuro). En el listado se ven como etiquetas de colores fáciles de identificar.
+**¿Hay diferencia visual entre los estados?** Sí. Cada estado tiene un color: Borrador (gris), Pendiente (azul), Aprobado (verde), Rechazado (amarillo), Eliminado (rojo), Cerrado (gris). En el listado se ven como etiquetas de colores fáciles de identificar.
 
 ## Permisos
 
