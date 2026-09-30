@@ -3,7 +3,7 @@ title: "Cómo gestionar pacientes con links de registro, actualización e histor
 description: "Aprendé a registrar pacientes nuevos enviándoles un link, actualizar antecedentes médicos a distancia, descargar la historia clínica en PDF y dar acceso al portal del paciente."
 ---
 
-OCLÜ tiene cuatro herramientas para que los pacientes interactúen con el sistema sin que vos cargues los datos manualmente: el **link de registro** (para que un paciente nuevo cargue sus datos), el **link de actualización de antecedentes** (individual o masivo), la **descarga del PDF de historia clínica** y el **acceso al portal del paciente**. Esta guía cubre las cuatro y te muestra cuál usar en cada caso.
+OCLÜ tiene cinco herramientas para que los pacientes interactúen con el sistema sin que vos cargues los datos manualmente: el **link de registro** (para que un paciente nuevo cargue sus datos), el **link de actualización de antecedentes** (individual o masivo), la **descarga del PDF de historia clínica** y el **acceso al portal del paciente**. Esta guía cubre las cinco y te muestra cuál usar en cada caso.
 
 ## Cuándo usarlo
 
@@ -13,15 +13,15 @@ OCLÜ tiene cuatro herramientas para que los pacientes interactúen con el siste
 - Cuando querés que el paciente tenga acceso continuo a sus datos, presupuestos y citas desde su celular.
 - Para reducir el tiempo de mostrador y evitar errores de tipeo en datos sensibles.
 
-## Las cuatro herramientas, en una vista rápida
+## Las cinco herramientas, en una vista rápida
 
 | Herramienta | Para qué sirve | Quién lo usa | Caduca |
 | --- | --- | --- | --- |
 | Link de registro | El paciente nuevo carga sus datos completos | Un paciente sin ficha en el sistema | Sí, 24-48 horas (un solo uso) |
 | Link de actualización individual | Un paciente actualiza sus antecedentes | Paciente ya cargado | Sí, 48 horas |
 | Envío masivo de actualización | Pedís a varios pacientes que actualicen antecedentes | Lote de pacientes con datos pendientes | Sí (cada link individual) |
-| Link paciente (portal) | Acceso permanente del paciente a sus datos | Paciente ya cargado | No (cuenta con email \+ clave) |
 | PDF de historia clínica | Documento descargable con la historia clínica | Vos lo descargás para entregar | N/A |
+| Link paciente (portal) | Acceso permanente del paciente a sus datos | Paciente ya cargado | No (cuenta con email + clave), pero cuenta contra el cupo del plan |
 
 ---
 
@@ -38,107 +38,221 @@ Es la forma más rápida de que un paciente se cargue solo antes de su primera v
 ### Pasos
 
 1. Hacé clic en **Link para registro**.
-2. OCLÜ te genera al instante **un link único y un código QR** que apuntan al mismo formulario público. Ambos están pensados para ser usados por **un solo paciente**.
+2. OCLÜ te genera al instante un link único y un código QR que apuntan al mismo formulario público. Ambos están pensados para ser usados por **un solo paciente**.
 3. Compartí el link o el QR por el medio que prefieras:
    - **Copiar el link:** lo pegás en WhatsApp, mail, SMS o donde lo necesites.
-     - **Compartir el QR:** lo mostrás en pantalla para que el paciente lo escanee desde el celular en el momento, o lo descargás para imprimir y entregar como tarjeta.
-     4. El paciente abre el link (o escanea el QR), completa el formulario (los mismos campos que el wizard manual: datos personales, contacto, domicilio, seguro médico) y envía.
-     5. La ficha del paciente queda cargada automáticamente en tu listado de Pacientes, lista para asignarle citas.
-     <Frame>
-       ![Image](/images/image-241.png)
-     </Frame>
-     > **Importante:** el link y el QR son de **un solo uso** y tienen **caducidad limitada (24 a 48 horas)**. Sirven para un único paciente. Para cada paciente nuevo tenés que volver a este flujo y generar un link nuevo. Si el link caduca antes de que el paciente lo use, generalo otra vez.
-     ---
-     ## Herramienta 2: Link de actualización individual
-     Cuando un paciente ya está cargado pero le faltan antecedentes médicos (o están desactualizados) y querés que él mismo los complete a distancia.
-     ### Cómo llegar
-     1. En el listado de Pacientes, hacé clic en el nombre del paciente para entrar a su ficha.
-     2. En la solapa **Datos Personales → Información**, mirá la barra superior de la sección de campos: vas a ver dos botones, **Descargar HC** y **Actualizar datos**.
-     ### Pasos
-     1. Hacé clic en **Actualizar datos**. Se abre un popover que dice **"Genera un link para que el paciente pueda actualizar sus antecedentes médicos"** y un botón **Generar Link**.
-     2. Hacé clic en **Generar Link**.
-     3. OCLÜ crea un link único para ese paciente. Te muestra el link, un botón **Copiar** y un botón azul **Enviar por email**.
-     4. Tenés dos formas de enviarlo:
-        - **Copiá el link** y pegalo donde quieras (WhatsApp, SMS).
-          - **Hacé clic en Enviar por email** para que OCLÜ se lo mande automáticamente al email cargado en su ficha.
-          5. Cuando el paciente abre el link, completa los antecedentes (Historia Médica, Medicamentos, Antecedentes Odontológicos, Hábitos) y los datos quedan actualizados directamente en su ficha.
-          > **Importante:** este link **vence a las 48 horas** de generado. Si el paciente no entra en ese plazo, vas a tener que volver a generarlo.
-          <Frame>
-            ![Image](/images/image-242.png)
-          </Frame>
-          ---
-          ## Herramienta 3: Envío masivo de actualización de antecedentes
-          Útil para campañas: pedirle a todos los pacientes que tengan antecedentes pendientes que los actualicen.
-          ### Cómo llegar
-          1. En la barra lateral izquierda, hacé clic en el ícono de Pacientes.
-          2. En el listado, mirá la barra superior: hay un botón **Actualización de datos** (con un ícono de sobre).
-          ### Pasos
-          1. Hacé clic en **Actualización de datos**. Se abre el modal **Solicitar antecedentes** con dos contadores arriba: cuántos pacientes tienen email y cuántos no.
-          2. Tenés tres formas de seleccionar destinatarios:
-             - **Buscar pacientes específicos** con el buscador y tildarlos uno por uno.
-               - **Tildar el checkbox "X de Y seleccionados"** para seleccionar todos los pendientes con email.
-                 - **Expandir la sección "X pacientes sin email registrado"** para ver cuáles no podés contactar por mail (les vas a tener que pedir el dato por otro medio).
-                 3. Una vez seleccionados, el botón **Enviar (X)** abajo a la derecha muestra cuántos vas a contactar. Hacé clic para enviar.
-                 4. OCLÜ manda un email a cada paciente seleccionado con su link individual de actualización.
-                 > Cada link generado por este envío masivo también vence a las 48 horas. Si el paciente no responde en ese plazo, vas a tener que volver a incluirlo en otro envío o generar un link individual.
-                 ---
-                 ## Herramienta 4: Descargar el PDF de historia clínica
-                 Para entregar la HC al paciente, a otro profesional o como respaldo.
-                 ### Cómo llegar
-                 1. En el listado de Pacientes, hacé clic en el nombre del paciente.
-                 2. En la ficha, en la solapa **Datos Personales → Información** (también disponible en **Historia Clínica**), mirá la barra superior de la sección.
-                 3. El primer botón es **Descargar HC**.
-                 ### Pasos
-                 1. Hacé clic en **Descargar HC**.
-                 2. OCLÜ genera el PDF y lo descarga en tu navegador.
-                 3. El PDF incluye la información actualizada del paciente al momento de la descarga: identificación, datos personales, antecedentes (Historia Médica, Medicamentos, Antecedentes Odontológicos, Hábitos), evoluciones registradas, diagnósticos del odontograma y planificaciones.
-                 > Si la clínica tiene contratado el módulo de Periodontograma o Estética Facial, esos datos también pueden aparecer en el PDF. La inclusión exacta depende de la versión del sistema y el módulo activo.
-                 ---
-                 ## Herramienta 5: Link paciente (portal del paciente)
-                 Crea una cuenta de usuario para el paciente con acceso permanente al portal. Permite que el paciente vea sus citas, presupuestos, recetas y consentimientos desde su celular o computadora cuando quiera.
-                 ### Cómo llegar
-                 1. Entrá a la ficha del paciente.
-                 2. Arriba a la derecha, vas a ver el botón **Link paciente** (con un ícono de cadena y una flecha).
-                 ### Pasos
-                 1. Hacé clic en **Link paciente**. Se abre el modal **Crear Usuario** con el mensaje: _"¿Desea crear un usuario para el paciente \[nombre\]? Se enviará un email con las credenciales de acceso."_
-                 2. Hacé clic en **Crear Usuario**.
-                 3. OCLÜ genera el usuario y le envía al paciente un email con sus credenciales de acceso (usuario y clave) al portal.
-                 4. El paciente puede iniciar sesión cuando quiera desde el navegador y mantener acceso continuo.
-                 > A diferencia del link de actualización (que es de un solo uso y caduca a las 48 horas), el portal del paciente es una cuenta permanente. Conviene activarlo solo cuando el paciente realmente lo va a usar para no saturar su email.
-                 <Frame>
-                   ![Image](/images/image-243.png)
-                 </Frame>
-                 ---
-                 ## Resultado esperado
-                 Según la herramienta:
-                 - **Link de registro:** ficha nueva en el listado de Pacientes, cargada por el propio paciente.
-                 - **Link de actualización (individual o masivo):** datos médicos actualizados directamente en la ficha del paciente, sin trabajo manual de tu parte.
-                 - **PDF de HC:** archivo descargado en tu computadora, listo para enviar o imprimir.
-                 - **Link paciente:** cuenta del paciente activa con acceso al portal.
-                 ## Errores comunes
-                 **El link de actualización venció antes de que el paciente lo usara:** los links individuales caducan a las 48 horas. Volvé a generar uno nuevo desde la ficha y reenvialo.
-                 **El paciente no recibió el email del envío masivo:** verificá que el email cargado en su ficha esté correctamente escrito. Pediler que mire la carpeta de spam.
-                 **Cargué a un paciente con el link de registro pero los datos quedaron incompletos:** el formulario público pide los mismos campos obligatorios que el wizard manual. Si quedaron incompletos, revisá la ficha y completá lo que falte (o reenviá el link de actualización para que él mismo termine).
-                 **Generé el portal del paciente pero no le llegó el email con las credenciales:** verificá el email de la ficha. Si está bien, pediler que revise spam. Si sigue sin llegar, podés reenviarlo desde el mismo botón **Link paciente** (genera un nuevo email).
-                 **El PDF de HC sale incompleto:** la información del PDF refleja lo cargado en el sistema. Si falta algo, completalo en la ficha y volvé a descargarlo.
-                 ## Tips y variaciones
-                 - **QR cara a cara con el paciente:** si el paciente está en la recepción, mostrale el QR en pantalla para que lo escanee desde el celular y empiece a cargar sus datos en el momento. Recordá que es de un solo uso, así que generá un link nuevo por cada paciente.
-                 - **Combiná envío masivo con cita programada:** si vas a recibir 20 controles anuales el mes próximo, mandá una semana antes el envío masivo de antecedentes. Los pacientes llegan con todo cargado.
-                 - **Antes de descargar HC para una derivación:** verificá que las evoluciones, antecedentes y odontograma estén actualizados. El PDF refleja el estado actual del sistema.
-                 - **El link paciente versus el link de actualización:** usá el de actualización para una tarea puntual (campaña, control); usá el portal cuando el paciente realmente vaya a usarlo de forma continua.
-                 ## Tiempo estimado
-                 - Generar y enviar un link de registro: 30 segundos.
-                 - Generar un link de actualización individual y enviarlo por email: 30 segundos.
-                 - Envío masivo de actualización: 1 a 2 minutos para configurarlo, según la cantidad de pacientes.
-                 - Descargar PDF de HC: 5 a 10 segundos.
-                 - Crear acceso al portal del paciente: 30 segundos.
-                 ## Preguntas frecuentes
-                 **¿El link de registro se puede reutilizar para varios pacientes?** No. El link y el QR son de un solo uso: cada link sirve para que un único paciente cargue sus datos. Para cada paciente nuevo hay que volver a generar uno desde **Agregar paciente → Link para registro**.
-                 **¿Cuánto dura el link de registro antes de caducar?** Tiene una duración limitada (entre 24 y 48 horas). Si el paciente no entra en ese plazo, el link expira y tenés que generar uno nuevo desde la misma pantalla.
-                 **¿El link de actualización se puede reusar después de las 48 horas?** No. Cada vez que el paciente lo necesite hay que generar uno nuevo desde su ficha (o volver a incluirlo en un envío masivo).
-                 **¿Qué pasa si el paciente carga sus datos a través del link y ya existía con esos datos?** Si el sistema detecta coincidencia (por documento, email o teléfono), te avisa. Verificá manualmente si es el mismo paciente o uno nuevo.
-                 **¿El paciente puede ver las evoluciones desde el portal?** Depende de la configuración del portal y de los permisos de visualización que la clínica tenga habilitados. Consultalo con tu administrador.
-                 **¿Qué información ve el paciente en el portal?** Por defecto: sus datos personales, sus citas próximas y pasadas, sus presupuestos, recetas digitales y consentimientos. La clínica puede restringir qué se muestra.
-                 **¿Puedo desactivar la cuenta del portal de un paciente?** Sí. Desde la ficha del paciente, en la sección de acceso al portal, podés revocar o regenerar las credenciales.
-                 ## Permisos
-                 El acceso a estas herramientas (generar links, enviar actualizaciones masivas, crear usuarios del portal) depende de los permisos asignados al miembro del staff desde Administrador → Staff → Permisos. Si no ves alguno de los botones descritos acá, consultá con el administrador.
+   - **Compartir el QR:** lo mostrás en pantalla para que el paciente lo escanee desde el celular en el momento, o lo descargás para imprimir y entregar como tarjeta.
+4. El paciente abre el link (o escanea el QR), completa el formulario (los mismos campos que el wizard manual: datos personales, contacto, domicilio, seguro médico) y envía.
+5. La ficha del paciente queda cargada automáticamente en tu listado de Pacientes, lista para asignarle citas.
+
+<Frame>
+  ![Image](/images/image-241.png)
+</Frame>
+
+> **Importante:** el link y el QR son de **un solo uso** y tienen **caducidad limitada (24 a 48 horas)**. Sirven para un único paciente. Para cada paciente nuevo tenés que volver a este flujo y generar un link nuevo. Si el link caduca antes de que el paciente lo use, generalo otra vez.
+
+---
+
+## Herramienta 2: Link de actualización individual
+
+Cuando un paciente ya está cargado pero le faltan antecedentes médicos (o están desactualizados) y querés que él mismo los complete a distancia.
+
+### Cómo llegar
+
+1. En el listado de Pacientes, hacé clic en el nombre del paciente para entrar a su ficha.
+2. En la solapa **Datos Personales → Información**, mirá la barra superior de la sección de campos: vas a ver dos botones, **Descargar HC** y **Actualizar datos**.
+
+### Pasos
+
+1. Hacé clic en **Actualizar datos**. Se abre un popover que dice **"Genera un link para que el paciente pueda actualizar sus antecedentes médicos"** y un botón **Generar Link**.
+2. Hacé clic en **Generar Link**.
+3. OCLÜ crea un link único para ese paciente. Te muestra el link, un botón **Copiar** y un botón **Enviar por email**.
+4. Tenés dos formas de enviarlo:
+   - **Copiá el link** y pegalo donde quieras (WhatsApp, SMS).
+   - **Hacé clic en Enviar por email** para que OCLÜ se lo mande automáticamente al email cargado en su ficha.
+5. Cuando el paciente abre el link, completa los antecedentes (Historia Médica, Medicamentos, Antecedentes Odontológicos, Hábitos) y los datos quedan actualizados directamente en su ficha.
+
+> **Importante:** este link **vence a las 48 horas** de generado. Si el paciente no entra en ese plazo, vas a tener que volver a generarlo.
+
+<Frame>
+  ![Image](/images/image-242.png)
+</Frame>
+
+---
+
+## Herramienta 3: Envío masivo de actualización de antecedentes
+
+Útil para campañas: pedirle a todos los pacientes que tengan antecedentes pendientes que los actualicen.
+
+### Cómo llegar
+
+1. En la barra lateral izquierda, hacé clic en el ícono de Pacientes.
+2. En el listado, mirá la barra superior: hay un botón **Actualización de datos** (con un ícono de sobre).
+
+### Pasos
+
+1. Hacé clic en **Actualización de datos**. Se abre el modal **Solicitar antecedentes** con dos contadores arriba: cuántos pacientes tienen email y cuántos no.
+2. Tenés tres formas de seleccionar destinatarios:
+   - **Buscar pacientes específicos** con el buscador y tildarlos uno por uno.
+   - **Tildar el checkbox "X de Y seleccionados"** para seleccionar todos los pendientes con email.
+   - **Expandir la sección "X pacientes sin email registrado"** para ver cuáles no podés contactar por mail (les vas a tener que pedir el dato por otro medio).
+3. Una vez seleccionados, el botón **Enviar (X)** abajo a la derecha muestra cuántos vas a contactar. Hacé clic para enviar.
+4. OCLÜ manda un email a cada paciente seleccionado con su link individual de actualización.
+
+> Cada link generado por este envío masivo también vence a las 48 horas. Si el paciente no responde en ese plazo, vas a tener que volver a incluirlo en otro envío o generar un link individual.
+
+---
+
+## Herramienta 4: Descargar el PDF de historia clínica
+
+Para entregar la HC al paciente, a otro profesional o como respaldo.
+
+### Cómo llegar
+
+1. En el listado de Pacientes, hacé clic en el nombre del paciente.
+2. En la ficha, en la solapa **Datos Personales → Información** (también disponible en **Historia Clínica**), mirá la barra superior de la sección.
+3. El primer botón es **Descargar HC**.
+
+### Pasos
+
+1. Hacé clic en **Descargar HC**.
+2. OCLÜ genera el PDF y lo descarga en tu navegador.
+3. El PDF incluye, organizado en secciones: encabezado con los datos de la clínica, identificación del paciente y del profesional tratante, antecedentes, motivo de consulta y examen clínico inicial, evoluciones y registros cronológicos (fecha, profesional, procedimiento y observaciones), diagnósticos y tratamientos realizados, medicación prescripta (nombre, dosis, vía, frecuencia, duración, fecha y profesional), estudios complementarios solicitados, y una epicrisis o resumen del caso.
+
+> Si la clínica tiene contratado el módulo de Periodontograma o Estética Facial, esos datos también pueden aparecer en el PDF. La inclusión exacta depende de la versión del sistema y el módulo activo.
+
+---
+
+## Herramienta 5: Link paciente (portal del paciente)
+
+Crea una cuenta de usuario para el paciente con acceso permanente al portal. Permite que el paciente vea sus citas, presupuestos, recetas y mucho más desde su celular o computadora cuando quiera.
+
+### Cómo llegar
+
+1. Entrá a la ficha del paciente.
+2. En el encabezado de la ficha vas a ver el botón **Link paciente** (con un ícono de cadena).
+
+### Pasos
+
+1. Hacé clic en **Link paciente**. Se abre una ventana **"Crear usuario"** que pide confirmación.
+2. Hacé clic en **Crear Usuario**.
+3. OCLÜ genera el usuario y le envía al paciente un email con sus credenciales de acceso (usuario y clave) al portal. Avisale al paciente que revise spam si no lo ve enseguida.
+
+<Frame>
+  ![Image](/images/image-144.png)
+</Frame>
+
+### Después de crear el acceso: "Gestionar acceso"
+
+Una vez creado el usuario, el botón que antes decía **Link paciente** pasa a llamarse **Gestionar acceso**. Desde ahí podés:
+
+- **Habilitar o deshabilitar** el acceso del paciente al portal.
+- **Reenviar las credenciales** por email si el paciente no las recuerda.
+
+Cada vez que habilitás o deshabilitás el acceso hay que guardar los cambios para que el sistema los aplique.
+
+> **Los accesos al portal cuentan contra un cupo del plan contratado.** Desde **Mi suscripción** (menú de tu nombre, en el encabezado) podés ver cuántos accesos ya diste y cuántos te quedan disponibles. Si se agota el cupo, podés deshabilitar el acceso de un paciente que no viene hace tiempo para habilitárselo a uno nuevo.
+
+<Frame>
+  ![Image](/images/image-145.png)
+</Frame>
+
+### Qué ve el paciente en el portal
+
+El portal tiene un menú lateral con estas secciones:
+
+- **Dashboard** — dos islas (próximas citas y estado de cuenta) más un historial de actividad reciente.
+
+<Frame>
+  ![Image](/images/image-146.png)
+</Frame>
+
+- **Mis citas** — tres islas (citas pendientes, citas completadas, próximo turno), el listado de próximas citas y un historial de citas pasadas.
+
+<Frame>
+  ![Image](/images/image-147.png)
+</Frame>
+
+- **Recetas digitales** — todas sus recetas y solicitudes de estudios, descargables en PDF.
+
+<Frame>
+  ![Image](/images/image-148.png)
+</Frame>
+
+- **Multimedia** — los archivos de su ficha: imágenes, videos, modelos 3D y documentos.
+
+<Frame>
+  ![Image](/images/image-149.png)
+</Frame>
+
+- **Facturación** — su estado de cuenta (total de cargos, total de pagos, saldo), con filtro por moneda (ARS/USD) y el historial completo de transacciones.
+
+<Frame>
+  ![Image](/images/image-150.png)
+</Frame>
+
+- **Grupo familiar** — si tiene un grupo familiar configurado, ve a los demás integrantes, el estado de cuenta de cada uno y el balance familiar consolidado. Si no tiene grupo, la sección aparece vacía.
+
+<Frame>
+  ![Image](/images/image-151.png)
+</Frame>
+
+> A diferencia del link de actualización (que es de un solo uso y caduca a las 48 horas), el portal del paciente es una cuenta permanente. Activalo cuando el paciente realmente lo vaya a usar, tanto para no saturarlo de mails como por el cupo del plan.
+
+## Resultado esperado
+
+Según la herramienta:
+
+- **Link de registro:** ficha nueva en el listado de Pacientes, cargada por el propio paciente.
+- **Link de actualización (individual o masivo):** datos médicos actualizados directamente en la ficha del paciente, sin trabajo manual de tu parte.
+- **PDF de HC:** archivo descargado en tu computadora, listo para enviar o imprimir.
+- **Link paciente:** cuenta del paciente activa con acceso al portal, consumiendo un cupo de tu plan.
+
+## Errores comunes
+
+**El link de actualización venció antes de que el paciente lo usara:** los links individuales caducan a las 48 horas. Volvé a generar uno nuevo desde la ficha y reenvialo.
+
+**El paciente no recibió el email del envío masivo:** verificá que el email cargado en su ficha esté correctamente escrito. Pediler que mire la carpeta de spam.
+
+**Cargué a un paciente con el link de registro pero los datos quedaron incompletos:** el formulario público pide los mismos campos obligatorios que el wizard manual. Si quedaron incompletos, revisá la ficha y completá lo que falte (o reenviá el link de actualización para que él mismo termine).
+
+**Generé el portal del paciente pero no le llegó el email con las credenciales:** verificá el email de la ficha. Si está bien, pediler que revise spam. Si sigue sin llegar, podés reenviar las credenciales desde **Gestionar acceso**.
+
+**No puedo darle acceso al portal a un paciente nuevo:** revisá el cupo de accesos de tu plan desde **Mi suscripción**. Si está agotado, deshabilitá el acceso de algún paciente inactivo o contratá más cupo.
+
+**El PDF de HC sale incompleto:** la información del PDF refleja lo cargado en el sistema. Si falta algo, completalo en la ficha y volvé a descargarlo.
+
+## Tips y variaciones
+
+- **QR cara a cara con el paciente:** si el paciente está en la recepción, mostrale el QR en pantalla para que lo escanee desde el celular y empiece a cargar sus datos en el momento. Recordá que es de un solo uso, así que generá un link nuevo por cada paciente.
+- **Combiná envío masivo con cita programada:** si vas a recibir 20 controles anuales el mes próximo, mandá una semana antes el envío masivo de antecedentes. Los pacientes llegan con todo cargado.
+- **Antes de descargar HC para una derivación:** verificá que las evoluciones, antecedentes y odontograma estén actualizados. El PDF refleja el estado actual del sistema.
+- **Gestioná el cupo del portal con criterio:** activá el acceso a pacientes que realmente lo van a usar de forma continua (tratamientos largos, seguimiento a distancia). Para una tarea puntual alcanza con el link de actualización.
+
+## Tiempo estimado
+
+- Generar y enviar un link de registro: 30 segundos.
+- Generar un link de actualización individual y enviarlo por email: 30 segundos.
+- Envío masivo de actualización: 1 a 2 minutos para configurarlo, según la cantidad de pacientes.
+- Descargar PDF de HC: 5 a 10 segundos.
+- Crear acceso al portal del paciente: 30 segundos.
+
+## Preguntas frecuentes
+
+**¿El link de registro se puede reutilizar para varios pacientes?** No. El link y el QR son de un solo uso: cada link sirve para que un único paciente cargue sus datos. Para cada paciente nuevo hay que volver a generar uno desde **Agregar paciente → Link para registro**.
+
+**¿Cuánto dura el link de registro antes de caducar?** Tiene una duración limitada (entre 24 y 48 horas). Si el paciente no entra en ese plazo, el link expira y tenés que generar uno nuevo desde la misma pantalla.
+
+**¿El link de actualización se puede reusar después de las 48 horas?** No. Cada vez que el paciente lo necesite hay que generar uno nuevo desde su ficha (o volver a incluirlo en un envío masivo).
+
+**¿Qué pasa si el paciente carga sus datos a través del link y ya existía con esos datos?** Si el sistema detecta coincidencia (por documento, email o teléfono), te avisa. Verificá manualmente si es el mismo paciente o uno nuevo.
+
+**¿Cuántos pacientes pueden tener acceso al portal al mismo tiempo?** Depende del plan contratado. Consultá el cupo disponible desde **Mi suscripción**.
+
+**¿Qué información ve el paciente en el portal?** Dashboard, sus citas (pendientes, completadas y próximo turno), recetas digitales, multimedia, facturación (estado de cuenta por moneda) y, si aplica, su grupo familiar.
+
+**¿Puedo desactivar la cuenta del portal de un paciente?** Sí. Desde **Gestionar acceso** en la ficha del paciente podés deshabilitar el acceso (y volver a habilitarlo después) o reenviar las credenciales.
+
+## Permisos
+
+El acceso a estas herramientas (generar links, enviar actualizaciones masivas, crear usuarios del portal) depende de los permisos asignados al miembro del staff desde Administrador → Staff → Permisos. Si no ves alguno de los botones descritos acá, consultá con el administrador.
