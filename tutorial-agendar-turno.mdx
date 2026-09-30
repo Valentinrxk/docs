@@ -42,12 +42,12 @@ El calendario abre en el día actual. Para moverte:
 
 Tenés tres formas de iniciar la creación:
 
-**Opción A — Click en una celda libre (la más rápida):** Hacé clic en una celda vacía de la grilla, en la columna del profesional y a la altura del horario en el que querés agendar. Se abre un modal pequeño con dos opciones: **Nueva Cita** y **Bloqueo de Agenda**. Hacé clic en **Nueva Cita**.
+**Opción A — Click en una celda libre (la más rápida):** Hacé clic en una celda vacía de la grilla, en la columna del profesional y a la altura del horario en el que querés agendar. Se abre la ventana **¿Qué querés agendar?**, con dos opciones: **Nueva cita** ("Un turno con paciente y profesional") y **Bloqueo de agenda** ("Reserva el horario sin asignar paciente"). Hacé clic en **Nueva cita**.
 
 > Esta opción ya deja preasignados el profesional de esa columna y el horario que cliqueaste. Te ahorra elegirlos a mano.
 
 <Frame>
-  ![Image](/images/image-234.png)
+  ![Image](/images/image-421.png)
 </Frame>
 
 **Opción B — Botón `+` general:** Arriba a la derecha de la grilla, al lado del botón **Hoy**, hay un botón con un ícono `+`. Hacé clic ahí. Se abre el formulario completamente vacío (paciente, doctor, box, horario y descripción todos en blanco). Útil cuando la cita no responde a un horario fijo o querés cargarla sin moverte por la grilla.
@@ -70,29 +70,29 @@ Una vez abierto el formulario **Agregar cita diaria**, completá los siguientes 
 
 **Estado de la cita** (obligatorio): Por defecto viene en **Pendiente**. El sistema trae tres estados predeterminados: **Pendiente**, **Confirmado** y **Cancelado**. Cualquier otro estado que veas (por ejemplo Reagendado, En curso, etc.) es personalizado y se crea desde Administrador → Estados de calendario. Lo más habitual al crear una cita nueva es dejarlo en Pendiente.
 
-**Modalidad** (obligatorio): Elegí **Presencial** o **Virtual**. Por defecto viene Presencial.
+**Modalidad** (obligatorio): Elegí **Presencial** o **Virtual**. Por defecto viene Presencial. La opción **Virtual** solo se habilita si el doctor asignado tiene su Google Calendar conectado — si no hay doctor elegido todavía, el tooltip dice "Seleccioná un doctor para habilitar las citas virtuales"; si el doctor elegido no lo tiene conectado, dice "El Dr. [nombre] no tiene Google Calendar conectado. Debe conectarlo desde su perfil." Si cambiás de doctor y el nuevo no soporta Virtual, la modalidad vuelve sola a Presencial.
 
 **Rango horario** (obligatorio): Hora de inicio y hora de fin. Si abriste el formulario clickeando una celda o arrastrando, viene preseleccionado. Lo podés ajustar tipeando el horario directamente o usando el reloj.
 
 **Descripción** (opcional pero recomendado): Una nota breve sobre el motivo de la cita: "Control de tratamiento periodontal", "Conducto pieza 4.6", "Primera consulta", etc. Le ayuda al profesional a saber qué esperar antes de la atención.
 
 <Frame>
-  ![Image](/images/image-235.png)
+  ![Image](/images/image-422.png)
 </Frame>
 
 ### 4. Decidí si querés notificar al paciente en el momento
 
-Al final del formulario hay un checkbox: **Notificar de inmediato vía email**. Si lo tildás, OCLÜ envía un email al paciente con la confirmación apenas guardes la cita. Si no lo tildás, podés enviarle el aviso después manualmente desde el detalle de la cita.
+Al final del formulario hay dos checkboxes: **Notificar de inmediato vía email** y **Notificar de inmediato vía WhatsApp**. Podés tildar uno, los dos, o ninguno. Si tildás alguno, OCLÜ le manda al paciente la confirmación por ese canal apenas guardes la cita. Si no tildás ninguno, podés avisarle después manualmente desde el detalle de la cita.
 
-> Si el paciente no tiene email cargado, este checkbox no va a poder enviar la notificación. Cargalo previamente en su ficha.
+> Si el paciente no tiene email o teléfono cargado, el checkbox correspondiente no va a poder enviar la notificación. Cargalo previamente en su ficha.
 
 ### 5. Guardá la cita
 
-Hacé clic en el botón azul **Agregar**, abajo a la derecha del formulario. La ventana se cierra y la cita aparece en la grilla del calendario en la columna del profesional y el horario indicados, con el color que corresponde al estado.
+Hacé clic en el botón **Agregar**, abajo a la derecha del formulario. La ventana se cierra y la cita aparece en la grilla del calendario en la columna del profesional y el horario indicados, con el color que corresponde al estado.
 
 ## Resultado esperado
 
-La nueva cita aparece como un bloque de color en la grilla del calendario, mostrando el nombre del paciente y el horario. Si tildaste **Notificar de inmediato vía email**, el paciente recibe un mail con los datos de la cita en los segundos siguientes.
+La nueva cita aparece como un bloque de color en la grilla del calendario, mostrando el nombre del paciente y el horario. Si tildaste alguno de los checkboxes de notificación, el paciente recibe el aviso por ese canal en los segundos siguientes.
 
 ## Errores comunes
 
@@ -102,14 +102,14 @@ La nueva cita aparece como un bloque de color en la grilla del calendario, mostr
 
 **El sistema rechaza la cita por superposición:** ya hay otro turno en ese horario para el mismo profesional o box. O lo movés a otro horario, o habilitás el solapamiento de citas (sobreturnos) desde Administrador → Staff (por profesional) o Administrador → Clínicas → Configuración de boxes (por box).
 
-**Tildé "Notificar" pero el paciente no recibió el mail:** revisá que el email cargado en la ficha del paciente esté escrito correctamente y pedile que mire también la carpeta de spam o promociones.
+**Tildé "Notificar" pero el paciente no recibió el aviso:** por mail, revisá que el email de la ficha esté bien escrito y pedile que mire spam o promociones. Por WhatsApp, revisá que el teléfono tenga el prefijo de país correcto y que la clínica tenga la integración contratada — sin add-on, el checkbox de WhatsApp no envía nada.
 
 ## Tips y variaciones
 
-- **Para ver los datos del paciente sin salir de la cita:** una vez creada, abrila clickeando el bloque y vas a ver accesos directos a Datos Personales, Multimedia, Evoluciones y Presupuestos del paciente.
+- **Para ver los datos del paciente sin salir de la cita:** una vez creada, abrila clickeando el bloque y vas a ver accesos directos configurables a distintas secciones de su ficha (por defecto Datos Personales, Multimedia, Evoluciones y Presupuestos — ver guía relacionada **Cómo ver y editar el detalle de una cita**).
 - **Para reagendar una cita existente arrastrándola:** ver guía relacionada **Cómo reagendar una cita arrastrándola**.
 - **Para extender o acortar la duración de una cita ya creada:** ver guía relacionada **Cómo estirar la duración de una cita**.
-- **Para crear un bloqueo en lugar de una cita:** desde el mismo modal del paso 2, elegí **Bloqueo de Agenda** en vez de Nueva Cita.
+- **Para crear un bloqueo en lugar de una cita:** desde la misma ventana del paso 2, elegí **Bloqueo de agenda** en vez de Nueva cita.
 
 ## Tiempo estimado
 
@@ -121,7 +121,7 @@ La nueva cita aparece como un bloque de color en la grilla del calendario, mostr
 
 **¿Qué pasa si me equivoco al guardar?** Hacé clic en el bloque de la cita en la grilla y se abre el panel de detalle. Desde ahí podés editar todos los campos, cambiar el estado, o eliminar la cita.
 
-**¿La modalidad Virtual genera un link de videollamada automático?** Esto depende de la integración configurada en tu clínica. Consultá con el administrador del sistema o la documentación del módulo de telemedicina.
+**¿La modalidad Virtual genera un link de videollamada automático?** Sí, vía Google Meet — pero solo está disponible si el doctor asignado tiene su Google Calendar conectado desde su perfil. Si no lo tiene, la opción Virtual queda deshabilitada en el formulario.
 
 **¿Puedo crear citas recurrentes (todas las semanas a la misma hora)?** Por ahora hay que crearlas una por una. Para agilizar repeticiones podés copiar la información manualmente.
 
