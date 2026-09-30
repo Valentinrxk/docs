@@ -1,17 +1,21 @@
 ---
 title: "Cómo registrar un pago"
-description: "Aprendé a recibir un pago de un paciente desde uno o varios presupuestos, en una o varias cajas, combinando métodos de pago y monedas."
+description: "Aprendé a cobrar un presupuesto en uno o varios pasos, con cuotas, descuentos, saldo a favor y combinando métodos de pago."
 ---
 
-Esta guía te muestra cómo registrar un pago en OCLÜ deseda y con qué método de pago. Soporta múltiples métodos combinados, doble moneda con cotización editable y vincula automáticamente el pago al historial financiero del paciente.
+Esta guía te muestra cómo registrar un pago en OCLÜ: a qué presupuestos imputarlo, con qué método de pago, y cómo generar el comprobante. El asistente de cobro soporta múltiples métodos combinados, doble moneda con cotización editable, descuentos o incrementos, uso de saldo a favor del paciente, y planes de cuotas.
 
 ## Cuándo usarlo
 
 - Cuando un paciente abona la totalidad o parte de un tratamiento ya presupuestado.
 - Cuando un paciente da una seña al aprobar el presupuesto.
-- Cuando recibís un pago en cuotas (registrás cada cuota como un pago separado).
+- Cuando el presupuesto tiene un plan de cuotas y el paciente viene a pagar una o más.
 - Cuando combinás métodos de pago (por ejemplo parte en efectivo y parte por transferencia).
-- Cuando registrreado. Si no, creá primero el presupuesto desde **Pacientes → ficha → Presupuestos → Agregar presupuesto** (mirá la guía **Cómo crear un presupuesto**).
+- Cuando querés registrar un cobro que el paciente todavía no asignó a ningún presupuesto (saldo a favor).
+
+## Requisitos previos
+
+- El paciente tiene que tener al menos un presupuesto creado. Si no, creá primero el presupuesto desde **Pacientes → ficha → Presupuestos → Agregar presupuesto** (mirá la guía **Cómo crear un presupuesto**).
 - Las cajas y bancos donde vas a depositar el pago tienen que estar configuradas en tu clínica desde **Administrador → Cajas y bancos**. Cada caja tiene asociados los métodos de pago que acepta (por ejemplo, una caja de efectivo solo acepta efectivo; una caja bancaria, transferencia).
 
 ## Cómo llegar a esta sección
@@ -20,122 +24,181 @@ Esta guía te muestra cómo registrar un pago en OCLÜ deseda y con qué método
 2. En la barra lateral izquierda, hacé clic en el ícono de Pacientes.
 3. Buscá al paciente y hacé clic en su nombre para entrar a la ficha.
 4. En la ficha, hacé clic en la solapa **Presupuestos**.
-5. Arriba a la derecha vas a ver tres botones: **Agregar presupuesto**, **Recibir pago** y **Gestionar presupuestos**. Hacé clic en **Recibir pago**.
+5. Arriba a la derecha hacé clic en el botón **Cobrar** y elegí una de las dos opciones del menú:
 
-> En el breadcrumb superior vas a leer **Home → Pacientes → Presupuestos → Pagos**.
+- **Cobrar tratamientos:** aplica el pago a uno o más presupuestos con deuda. Es el flujo principal de esta guía.
+- **Saldo a favor:** registra el dinero como crédito del paciente, sin asignarlo a ningún presupuesto. Lo ves más abajo, en la sección **Flujo alternativo: Saldo a favor**.
 
 <Frame>
-  ![Image](/images/image-236.png)
+  ![Image](/images/image-448.png)
 </Frame>
 
-## Pasos para registrar el pago
+## Pasos para cobrar tratamientos
 
-El wizard tiene tres pasos: **Presupuestos**, **Prestaciones** y **Pago**. Un indicador arriba muestra en cuál estás.
+El asistente tiene entre 3 y 4 pasos, según si alguno de los presupuestos elegidos tiene un plan de cuotas: **Presupuestos**, **Cuotas** (solo si aplica), **Prestaciones** y **Pago**. Un indicador arriba muestra en cuál estás.
 
 ### Paso 1: Seleccionar a qué presupuestos imputar el pago
 
-OCLÜ te muestra la lista de los presupuestos del paciente con cuatro columnas: Nombre del presupuesto, Doctor a cargo, Abonado y Por abonar.
+OCLÜ te muestra la lista de los presupuestos del paciente con cuatro columnas: Nombre del presupuesto, Doctor a cargo, Abonado y Por abonar. Los presupuestos con un plan de cuotas llevan una etiqueta **Cuotas** al lado del nombre.
 
 1. Tildá el checkbox del o los presupuestos que querés cancelar con este pago. Podés marcar más de uno si el paciente abona varios a la vez.
-2. Hacé clic en el botón azul **Siguiente** abajo a la derecha.
-
-> Si los presupuestos están en monedas distintas (uno en ARS y otro en USD), tenelo en cuenta porque el paso 2 te pide elegir la moneda con la que vas a registrar el pago.
+2. Hacé clic en el botón **Siguiente** abajo a la derecha.
 
 <Frame>
-  ![Image](/images/image-237.png)
+  ![Image](/images/image-449.png)
 </Frame>
 
-### Paso 2: Seleccionar prestaciones y moneda
+> Si los presupuestos están en monedas distintas (uno en ARS y otro en USD), tenelo en cuenta porque el paso de Prestaciones te pide elegir la moneda con la que vas a registrar el pago.
 
-Esta pantalla te muestra el detalle de las prestaciones de los presupuestos elegidos. Arriba tenés tres campos clave:
+### Paso 2: Cuotas (solo si el presupuesto tiene un plan)
 
-**Moneda:** la moneda con la que vas a registrar el pago (Pesos ARS o Dólares USD). Por defecto viene Pesos ARS.
+Este paso solo aparece cuando alguno de los presupuestos que elegiste tiene un plan de cuotas asociado. Ves la tabla completa del **Plan de cuotas**: número de cuota, monto, vencimiento y estado (pagada, con deuda generada o pendiente).
 
-**Cotización:** si la moneda del pago difiere de la moneda del presupuesto, OCLÜ aplica esta cotización para convertir. El valor viene precargado pero lo podés editar para usar el tipo de cambio que corresponda al día (oficial, blue, MEP, lo que use tu clínica).
+1. Tildá la o las cuotas que el paciente viene a pagar en la columna **Cobrar**.
+2. Abajo se actualizan **Cuotas con deuda generada** y **Total a cobrar**.
+3. Hacé clic en **Siguiente**.
 
-**Monto a pagar:** el total del pago que estás registrando. Si tildás prestaciones puntuales, el monto se completa solo. También lo podés tipear directamente.
+<Frame>
+  ![Image](/images/image-450.png)
+</Frame>
 
-Debajo está la lista de prestaciones de cada presupuesto con su precio, lo abonado, lo que falta y un indicador de progreso.
+> Tildar una cuota acá genera la deuda correspondiente sobre el presupuesto; recién en el paso de Prestaciones vas a imputarle el pago.
 
-1. Tildá las prestaciones que se cubren con este pago. OCLÜ calcula el **Monto a abonar** por cada prestación según la cotización aplicada.
+### Paso 3: Seleccionar prestaciones y moneda
+
+Esta pantalla te muestra el detalle de las prestaciones de los presupuestos elegidos (o de la cuota que generaste en el paso anterior). Arriba tenés tres campos clave:
+
+- **Moneda:** la moneda con la que vas a registrar el pago (Pesos ARS o Dólares USD). Por defecto viene Pesos ARS.
+- **Cotización:** si la moneda del pago difiere de la moneda del presupuesto, OCLÜ aplica esta cotización para convertir. El valor viene precargado pero lo podés editar para usar el tipo de cambio que corresponda al día.
+- **Monto a pagar:** el total del pago que estás registrando. Se completa solo al tildar prestaciones, pero también lo podés tipear directamente.
+
+Debajo está la tabla de prestaciones, con columnas **Pieza** (si la prestación es dental y está asociada a una pieza), **Precio**, **Abonado**, **Por abonar**, un indicador de **Progreso** (punto rojo/naranja/verde) y **Monto a abonar**, editable por fila.
+
+1. Tildá las prestaciones que se cubren con este pago. OCLÜ completa el **Monto a abonar** de cada una según la cotización aplicada, y podés editarlo a mano si el paciente paga un monto parcial.
 2. Verificá que el **Total** abajo a la derecha coincida con lo que efectivamente vas a recibir.
 3. Hacé clic en **Siguiente**.
 
+<Frame>
+  ![Image](/images/image-451.png)
+</Frame>
+
 > Si el paciente paga "a cuenta" sin imputar a una prestación específica, podés ingresar el monto manualmente sin tildar prestaciones. El saldo queda como adelanto a aplicar después.
 
-### Paso 3: Caja, método de pago y confirmación
+### Paso 4: Caja, método de pago y confirmación
 
-Esta es la pantalla final. Acá definís dónde se registra el dinero y cómo se recibe.
+Esta es la pantalla final. Acá definís dónde se registra el dinero, cómo se recibe, y podés aplicar saldo a favor, descuentos o incrementos.
 
-**Caja a usar:** elegí del dropdown la caja donde se imputa el pago. La lista de cajas la configura tu clínica (ejemplos típicos: Caja efectivo ARS, Banco ARS, Mercado pago, Banco USD).
+**Caja y método de pago:**
 
-**Método de Pago:** las opciones cambian según la caja elegida. Por ejemplo:
+- **Caja a usar:** elegí del dropdown la caja donde se imputa el pago (ejemplos típicos: Caja efectivo ARS, Banco ARS, Mercado pago).
+- **Método de Pago:** las opciones cambian según la caja elegida (por ejemplo, Caja efectivo ARS solo ofrece Efectivo; Banco ARS ofrece Transferencia bancaria).
+- **Total a Pagar:** se completa con el monto del paso anterior.
+- **Combinar métodos de pago:** si el paciente paga con más de un medio, hacé clic en **Agregar Método de Pago** y se suma una nueva fila con su propia caja, método y monto.
 
-- Si elegís **Caja efectivo ARS**, el método disponible es **Efectivo**.
-- Si elegís **Banco ARS**, el método es **Transferencia bancaria**.
-- Si elegís una caja de Mercado Pago o procesador, los métodos son los habilitados en esa caja (débito, crédito, MP).
+**Usar saldo a favor:** si el paciente tiene crédito disponible, ves acá cuánto tiene en cada moneda (pills **ARS** / **USD**) y el monto **Disponible**. Escribí cuánto querés aplicar o hacé clic en **Usar máximo**.
 
-**Total a Pagar:** se completa con el monto del paso 2.
+**Dejar saldo a favor:** un switch que, activado, te deja cobrar de más a propósito y dejar el excedente como saldo a favor del paciente para un pago futuro.
 
-**Combinar métodos de pago:** si el paciente paga con más de un medio (por ejemplo, parte en efectivo y parte por transferencia), hacé clic en el botón **Agregar Método de Pago** y se suma una nueva fila. Cada fila tiene su propia caja, método y monto. OCLÜ muestra abajo dos tarjetas comparativas: **Total a pagar** y **Total pagando**. Tienen que coincidir antes de poder finalizar.
+**Descuento / Incremento:** dos tarjetas con selector **Porcentaje** o **Monto fijo** y un campo numérico, para ajustar el total antes de confirmar.
 
 **Fecha del pago:** por defecto viene la fecha de hoy. Si registrás un pago retroactivo, cambiala desde el calendario.
 
+Abajo, dos tarjetas comparativas **Total a pagar** y **Total pagando** tienen que mostrar el mismo monto antes de poder finalizar.
+
 <Frame>
-  ![Image](/images/image-238.png)
+  ![Image](/images/image-452.png)
 </Frame>
 
-Una vez que las dos tarjetas (**Total a pagar** y **Total pagando**) muestran el mismo monto, hacé clic en el botón azul **Finalizar** abajo a la derecha.
+Una vez que coinciden, hacé clic en el botón **Finalizar** abajo a la derecha.
+
+### Paso 5: Confirmar el pago
+
+Se abre un panel lateral **Confirmar Pago** con un resumen de todo antes de registrar nada:
+
+- **Acciones a Pagar:** las prestaciones que vas a cancelar con este pago.
+- **Métodos de Pago:** cuenta, método y monto de cada fila que armaste en el paso anterior.
+- **Resumen del Pago:** el total a abonar.
+
+Revisá que todo esté correcto y hacé clic en **Confirmar Pago**. Si algo está mal, usá **Cancelar** y volvé atrás a corregirlo.
+
+<Frame>
+  ![Image](/images/image-453.png)
+</Frame>
 
 ## Resultado esperado
 
-OCLÜ confirma el pago y vuelve a la solapa Presupuestos del paciente. Vas a ver:
+Al confirmar, OCLÜ te redirige automáticamente a un **Comprobante de pago**: número de recibo, fecha, datos de la clínica, la tabla de **Pagos realizados** (caja, forma de pago, monto, cotización) y las **Prestaciones abonadas** con su plan de tratamiento. Desde ahí podés **Exportar PDF** o **Enviar** el comprobante al paciente.
+
+<Frame>
+  ![Image](/images/image-454.png)
+</Frame>
+
+Además:
 
 - El presupuesto al que imputaste el pago muestra el nuevo saldo restante actualizado.
 - En la solapa **Balance** del paciente aparece un nuevo movimiento "Pago recibido" con el monto, la moneda y la caja donde se imputó.
 - El pago figura en el módulo Finanzas → Ingresos del día y se suma al cierre de caja.
 
+## Flujo alternativo: Saldo a favor
+
+Si el paciente te da dinero que todavía no vas a asignar a un presupuesto puntual (por ejemplo, paga por adelantado antes de tener el plan de tratamiento definido), usá la opción **Saldo a favor** del menú **Cobrar**. Es un formulario simple, sin pasos:
+
+- **Caja** y **Método de pago**.
+- **Monto** y **Fecha**.
+- **Comentario** (opcional).
+
+Al registrarlo, ese monto queda como crédito del paciente (lo vas a ver en Balance y en el paso "Usar saldo a favor" de un cobro futuro) y se abre el recibo para imprimirlo o enviarlo.
+
+<Frame>
+  ![Image](/images/image-455.png)
+</Frame>
+
 ## Errores comunes
 
 **El botón Siguiente no se activa en el paso 1:** no tildaste ningún presupuesto. Marcá al menos uno.
 
-**El botón Finalizar está deshabilitado:** las tarjetas **Total a pagar** y **Total pagando** no coinciden. Ajustá los montos o agregá otro método de pago para cubrir la diferencia.
+**Me aparece un paso de Cuotas que no esperaba:** el presupuesto que elegiste tiene un plan de cuotas configurado. Tildá al menos una cuota para poder avanzar.
+
+**El botón Finalizar está deshabilitado o me avisa "Cada fila de pago necesita una cuenta y un método":** completá la caja y el método de pago en todas las filas antes de finalizar, y verificá que **Total a pagar** y **Total pagando** coincidan.
 
 **No encuentro la caja correcta en el dropdown:** la lista la configura tu clínica desde Administrador → Cajas y bancos. Si falta una caja, agregala desde ahí o pedísela al administrador.
 
 **El método de pago que necesito no aparece:** los métodos están filtrados por caja. Verificá que la caja elegida tenga ese método habilitado en su configuración.
 
-**La cotización viene desactualizada:** el valor de cotización es editable. Modificalo manualmente al tipo de cambio del día antes de seleccionar las prestaciones.
+**La cotización viene desactualizada:** el valor de cotización es editable en el paso de Prestaciones. Modificalo manualmente al tipo de cambio del día antes de seleccionar las prestaciones.
+
+**No veo saldo a favor para usar aunque el paciente tiene crédito:** el saldo a favor es por moneda. Verificá que estés viendo la pill (ARS o USD) correcta.
 
 **Registré un pago en la caja equivocada o con el método equivocado:** no podés "editar" un pago directamente. Tenés que revocarlo y volver a registrarlo correctamente. Mirá la guía **Cómo revocar un pago**.
 
 ## Tips y variaciones
 
-- **Pago de varios presupuestos a la vez:** tildá los presupuestos en el paso 1 y elegí prestaciones de cada uno en el paso 2. El sistema imputa el pago proporcional o explícito según lo que tildes.
-- **Pago a cuenta sin imputar:** ingresá un monto en el paso 2 sin tildar prestaciones. Queda como saldo a favor del paciente que vas a poder aplicar después.
+- **Pago de varios presupuestos a la vez:** tildá los presupuestos en el paso 1 y elegí prestaciones de cada uno en el paso de Prestaciones.
+- **Pago a cuenta sin imputar:** ingresá un monto en el paso de Prestaciones sin tildar prestaciones, o usá directamente **Saldo a favor** desde el menú Cobrar.
 - **Doble moneda:** si el presupuesto está en USD pero el paciente paga en ARS, elegí ARS como moneda y verificá la cotización. Si paga directamente en USD, elegí USD y aseguráte de seleccionar una caja en USD.
-- **Pago combinado en partes:** efectivo \+ transferencia es el caso más común. Usá **Agregar Método de Pago** para sumar tantos métodos como necesites.
-- **Pago retroactivo:** si el paciente pagó ayer pero recién lo cargás hoy, cambiá la fecha en el paso 3 al día real del pago. El movimiento queda registrado en la fecha correcta para los reportes financieros.
-- **Recibo:** una vez registrado, podés generar el comprobante desde la solapa Balance del paciente (ícono "Ver comprobante" en la fila del pago).
+- **Pago combinado en partes:** efectivo + transferencia es el caso más común. Usá **Agregar Método de Pago** para sumar tantos métodos como necesites.
+- **Cobrar de más a propósito:** activá **Dejar saldo a favor** cuando el paciente te da un monto redondo mayor al que debe, y el excedente queda disponible para su próximo pago.
+- **Pago retroactivo:** si el paciente pagó ayer pero recién lo cargás hoy, cambiá la **Fecha del pago** al día real. El movimiento queda registrado en la fecha correcta para los reportes financieros.
+- **Comprobante:** se genera automáticamente al confirmar. Si necesitás volver a descargarlo después, andá a la solapa Balance del paciente y usá el ícono de comprobante en la fila del pago.
 
 ## Tiempo estimado
 
-1 a 2 minutos por pago, una vez familiarizado con el wizard.
+1 a 2 minutos por pago, una vez familiarizado con el asistente. Menos de 30 segundos para un Saldo a favor.
 
 ## Preguntas frecuentes
 
-**¿Puedo registrar un pago sin asociarlo a ningún presupuesto?** No directamente. El pago se registra desde el contexto de los presupuestos del paciente. Si querés un pago "general", podés crear un presupuesto vacío o usar el saldo a cuenta.
+**¿Puedo registrar un pago sin asociarlo a ningún presupuesto?** Sí, usando **Cobrar → Saldo a favor**. Queda como crédito del paciente para aplicar después.
 
-**¿Puedo cambiar la cotización después de registrar el pago?** No. Una vez finalizado, la cotización queda fija en ese movimiento. Si te equivocaste, revocá el pago y volvé a registrarlo con la cotización correcta.
+**¿Puedo cambiar la cotización después de registrar el pago?** No. Una vez confirmado, la cotización queda fija en ese movimiento. Si te equivocaste, revocá el pago y volvé a registrarlo con la cotización correcta.
 
-**¿Cuándo se ven reflejados los pagos en el panel de Finanzas?** Inmediatamente. Apenas finalizás el wizard, el movimiento queda disponible en Finanzas → Ingresos.
+**¿Cuándo se ven reflejados los pagos en el panel de Finanzas?** Inmediatamente. Apenas confirmás el pago, el movimiento queda disponible en Finanzas → Ingresos.
 
 **¿Los pagos en USD impactan en el balance ARS de la clínica?** Cada caja tiene su propia moneda. Un pago en USD se acumula en la caja USD; uno en ARS en la caja ARS. El reporte consolidado en Finanzas te permite ver totales por moneda.
 
-**¿Puedo dividir un pago entre dos pacientes?** No. Cada pago corresponde a un único paciente y se registra desde su ficha. Si hay un caso especial, registralo a uno y dejá una nota en observaciones.
+**¿Puedo dividir un pago entre dos pacientes?** No. Cada pago corresponde a un único paciente y se registra desde su ficha.
 
-**¿Cómo entrego el comprobante al paciente?** Después de registrar el pago, andá a la solapa Balance del paciente. En la fila del pago hacé clic en el ícono "Ver comprobante" para descargar o imprimir.
+**¿Adónde voy después de confirmar el pago?** OCLÜ te lleva directo al Comprobante de pago, con opción de exportarlo a PDF o enviarlo. Desde ahí podés volver a la ficha del paciente por el breadcrumb (Home → Balance).
 
 ## Permisos
 
-La capacidad de registrar pagos, cambiar cotización, elegir cualquier caja o revocar pagos depende de los permisos del miembro del staff. Configuralos desde Administrador → Staff → Permisos. Si no ves el botón **Recibir pago** o algún campo del wizard, consultá con el administrador.
+La capacidad de registrar pagos, cambiar cotización, elegir cualquier caja, aplicar descuentos/incrementos, usar saldo a favor o revocar pagos depende de los permisos del miembro del staff. Configuralos desde Administrador → Staff → Permisos. Si no ves el botón **Cobrar** o algún campo del asistente, consultá con el administrador.
