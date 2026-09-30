@@ -3,7 +3,7 @@ title: 'Introducción a la API'
 description: 'Integrá OCLÜ con n8n, Make, Zapier o tu propio sistema.'
 ---
 
-La **API pública de OCLÜ** te permite conectar tu clínica con sistemas externos: automatizá turnos, sincronizá pacientes y leé tu agenda desde n8n, Make, Zapier o tu propio software.
+La **API pública de OCLÜ** te permite conectar tu clínica con sistemas externos: automatizá turnos, sincronizá pacientes, registrá gastos y leé tu agenda desde n8n, Make, Zapier o tu propio software.
 
 ## Autenticación
 
@@ -17,7 +17,7 @@ Cada key tiene un permiso: **solo lectura** o **lectura y escritura**.
 
 ## Sede (Current-Org-Id)
 
-Los endpoints de turnos y pacientes requieren el header `Current-Org-Id` con el ID de la sede. Consultá tus sedes en [`GET /me`](/api-reference/endpoint/get).
+Los endpoints de turnos, pacientes y gastos requieren el header `Current-Org-Id` con el ID de la sede. Consultá tus sedes en [`GET /me`](/api-reference/endpoint/get).
 
 ```
 Current-Org-Id: 1
@@ -27,7 +27,7 @@ Current-Org-Id: 1
 
 - **Hora local de la clínica:** las fechas/horas no son UTC. En turnos, fecha `DD-MM-YYYY` y hora `HH:MM`.
 - **Sin datos clínicos:** la API expone agenda, turnos y datos de contacto. Nunca historia clínica.
-- **Sin pagos:** la facturación no está disponible en esta versión.
+- **Sin cobros:** la facturación y los cobros a pacientes no están disponibles en esta versión. Sí se pueden registrar gastos.
 - **Rate limit:** 90 solicitudes por minuto por API key.
 - **Auditoría:** toda actividad queda registrada.
 
