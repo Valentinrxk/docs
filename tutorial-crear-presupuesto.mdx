@@ -1,9 +1,9 @@
 ---
 title: Cómo crear un presupuesto
-description: Aprendé a armar un presupuesto para un paciente con datos básicos, prestaciones del odontograma y comentarios, en un wizard de tres pasos.
+description: Aprendé a armar un presupuesto para un paciente con datos básicos, prestaciones del odontograma, descuentos y cuotas, en una sola pantalla.
 ---
 
-Esta guía te muestra cómo crear un presupuesto desde la ficha del paciente. OCLÜ te lleva por un wizard de tres pasos: datos básicos, selección de tratamientos sobre el odontograma, y comentarios. Una vez creado, el presupuesto queda en estado Borrador y podés enviárselo al paciente, recibir pagos contra él y avanzar las prestaciones a medida que se ejecutan.
+Esta guía te muestra cómo crear un presupuesto desde la ficha del paciente. A diferencia de otras pantallas del sistema, no es un wizard de varios pasos: es **una sola pantalla** con secciones que vas completando de arriba hacia abajo. Una vez creado, el presupuesto queda en estado Borrador y podés enviárselo al paciente, recibir pagos contra él y avanzar las prestaciones a medida que se ejecutan.
 
 ## Cuándo usarlo
 
@@ -11,6 +11,17 @@ Esta guía te muestra cómo crear un presupuesto desde la ficha del paciente. OC
 - Cuando vas a iniciar un plan de tratamiento (ortodoncia, rehabilitación) que se va a ejecutar en varias sesiones.
 - Cuando un paciente nuevo viene a la primera consulta y dejás armado el plan que vas a hacer.
 - Cuando el plan de tratamiento del odontograma ya está definido y necesitás darle valor económico.
+
+## Presupuesto completo vs. presupuesto exprés
+
+Antes de entrar al formulario, OCLÜ te pregunta qué tipo de presupuesto querés armar:
+
+- **Presupuesto completo** — "Odontograma, cuotas, plantillas y multimedia". Es el que cubre esta guía: la pantalla completa, con el odontograma, pago en cuotas, plantillas de comentarios y archivos adjuntos.
+- **Presupuesto exprés** — "Búsqueda rápida y guardado en un clic". Un modal liviano para cargar y cobrar rápido sin pasar por el odontograma. Tiene su propio flujo, más corto, pensado para prestaciones sueltas que no necesitan planificación visual.
+
+<Frame>
+  ![Image](/images/image-434.png)
+</Frame>
 
 ## Requisitos previos
 
@@ -24,129 +35,177 @@ Esta guía te muestra cómo crear un presupuesto desde la ficha del paciente. OC
 2. En la barra lateral izquierda, hacé clic en el ícono de Pacientes.
 3. Buscá al paciente y hacé clic en su nombre para entrar a su ficha.
 4. En la ficha del paciente, hacé clic en la solapa **Presupuestos**.
-5. Arriba a la derecha, hacé clic en el botón azul **Agregar presupuesto**.
+5. Arriba a la derecha, hacé clic en **Agregar presupuesto** y elegí **Presupuesto completo**.
 
 > En el breadcrumb superior vas a leer **Home → Pacientes → Presupuestos → Nuevo presupuesto**.
 
-[CAPTURA 1 — Solapa Presupuestos del paciente con flecha al botón "Agregar presupuesto" arriba a la derecha. Borronear nombre del paciente.]
+## Secciones de la pantalla
 
-## Pasos para crear el presupuesto
+### Datos del presupuesto
 
-El wizard tiene tres pasos: **Información**, **Tratamientos** y **Comentarios**. Un indicador arriba muestra en cuál estás y el botón **Paso siguiente** te avanza.
+Es la primera card. Solo el doctor es obligatorio.
 
-### Paso 1: Información (Datos básicos)
-
-Completá los campos básicos del presupuesto:
-
-**Nombre del presupuesto** (obligatorio): un nombre corto y descriptivo. Por ejemplo "Plan integral", "Arreglos zona inferior", "Ortodoncia fase 1", "MP" para Módulo Preventivo. Le ayuda al paciente y al equipo a identificar de qué se trata el presupuesto entre todos los que pueda tener.
+**Nombre del presupuesto** (opcional): un nombre corto y descriptivo. Por ejemplo "Plan integral", "Arreglos zona inferior", "Ortodoncia fase 1". Si lo dejás vacío, se guarda como "Presupuesto".
 
 **Doctor asignado al presupuesto** (obligatorio): elegí del dropdown el profesional responsable del plan. Las cobranzas y pagos a doctores se pueden filtrar después por este campo.
 
-**Fecha de expiración** (obligatorio): por defecto viene **7 días desde hoy**. Es la fecha hasta la que el presupuesto es válido. Lo podés ajustar tipeando una nueva fecha o usando el calendario. Si el paciente se demora en aceptar y la fecha pasa, vas a tener que regenerar el presupuesto o extender la fecha desde la edición.
+**Fecha de expiración** (opcional): viene precargada con el default que configuró tu clínica (por ejemplo 7 días desde hoy). Es la fecha hasta la que el presupuesto es válido. La podés ajustar tipeando una nueva fecha o usando el calendario.
 
-[CAPTURA 2 — Paso 1 del wizard "Nuevo presupuesto" con los tres campos visibles. Marcar con círculo el indicador "Información — Datos básicos" arriba.]
+### Tratamientos
 
-Cuando termines, hacé clic en **Paso siguiente** abajo a la derecha.
-
-### Paso 2: Tratamientos (Seleccionar prestaciones)
-
-Esta es la pantalla más importante del wizard. Tiene dos partes principales:
+Es la card más importante. Tiene el odontograma arriba y, abajo, la tabla de prestaciones que vas sumando.
 
 **El odontograma:**
-Arriba ves el odontograma del paciente con los dientes numerados, organizado en tabs **Odontograma temporario** y **Odontograma permanente** (este último viene seleccionado por defecto). Más abajo aparecen sextantes (S1 a S6), arcos (AS, AI) y boca completa (AA), que sirven para tratamientos generales no específicos a una pieza.
+Los dientes están organizados en tabs **Odontograma temporario** y **Odontograma permanente** (este último viene seleccionado por defecto). Más abajo aparecen sextantes (S1 a S6), arcos (AS, AI) y boca completa (AA), que sirven para tratamientos generales no específicos a una pieza.
 
 La leyenda superior te muestra los códigos de color del odontograma:
-- **Diagnóstico:** Patología (rojo) y Salud (verde).
+- **Diagnóstico:** Patología (violeta) y Salud (rojo).
 - **Tratamiento:** Proceso (amarillo) y Tratado (verde).
 
-**El botón Agregar Prestación:**
-Para cargar prestaciones al presupuesto, hacé clic en **Agregar Prestacion** arriba a la derecha. Se abre el modal **Seleccionar acción** con tres dropdowns en cascada:
+<Frame>
+  ![Image](/images/image-435.png)
+</Frame>
 
-1. **Seleccionar lista:** elegí la lista de prestaciones que aplica (por ejemplo "Lista General", "Ortodoncia", "Estética"). Las listas las configura tu clínica desde Administrador → Prestaciones → Listas.
-2. **Seleccionar categoría:** se habilita después de elegir la lista. Filtra las acciones por categoría (Operatoria, Endodoncia, Implantes, etc.).
-3. **Seleccionar acción:** la prestación específica (ej: "Composite Nanohíbrido Anterior", "Tratamiento de Conducto Unirradicular").
+**Agregar una prestación:**
+Hacé clic en **Agregar prestación**, arriba a la derecha de la card. Se abre la ventana **Agregar prestación**, con dos formas de buscar:
 
-Después de elegir, hacé clic en **Confirmar selección**. La prestación queda agregada a la tabla inferior con sus columnas: Categoría, Acción, Caras, Unidad, Símbolo y Precio Paciente.
+- **Búsqueda rápida** — un buscador único por código o nombre. A medida que tipeás, te muestra resultados agrupados por lista, con precio y un botón **+** para sumarlos directo.
+- **Selector clásico** — tres dropdowns en cascada: **Seleccionar lista** → **Seleccionar categoría** → **Seleccionar acción**. Las listas las configura tu clínica desde Administrador → Prestaciones → Listas.
+
+<Frame>
+  ![Image](/images/image-436.png)
+</Frame>
+
+Elegida la prestación (por cualquiera de las dos formas), hacé clic en **Confirmar selección**. Podés repetir el proceso para sumar todas las que necesites antes de cerrar la ventana.
 
 > **Asociar la prestación a una pieza específica:** algunas prestaciones requieren que indiques la pieza dental. Después de agregarla, clickeás la pieza en el odontograma para vincularla. Otras (como un módulo preventivo o un blanqueamiento general) son boca completa y no necesitan pieza.
 
-**Configurar descuentos:**
-Arriba a la derecha tenés también el botón **Configurar descuentos**. Te permite aplicar un descuento porcentual al total del presupuesto antes de enviarlo. Útil para promociones, descuentos por pago contado o por paquete.
+Cada prestación agregada queda en la tabla, con columnas: Categoría, Acción, Caras, Unidad, Símbolo, Precio Paciente (y Precio OS si alguna prestación tiene seguro médico asociado) y Acciones (editar, duplicar, eliminar esa fila).
 
-[CAPTURA 3 — Paso 2 del wizard mostrando el odontograma, los sextantes/arcos abajo, y la tabla de Acciones con al menos una prestación cargada. Marcar con flecha el botón "Agregar Prestacion".]
+<Frame>
+  ![Image](/images/image-437.png)
+</Frame>
 
-> **Importante:** no se puede avanzar al paso 3 si no hay al menos una prestación cargada. Si cliqueás Paso siguiente sin agregar nada, OCLÜ te muestra el aviso "Debe agregar al menos una prestación".
+> **Importante:** no se puede crear el presupuesto si no hay al menos una prestación cargada. El botón **Crear presupuesto** queda deshabilitado hasta que sumes la primera.
 
-Cuando tengas todas las prestaciones cargadas, hacé clic en **Paso siguiente**.
+**Descuentos:**
+Con al menos una prestación cargada, aparece el botón **Descuentos** junto al total. Abre una ventana donde podés:
 
-### Paso 3: Comentarios (Agregar comentarios)
+- **Aplicar a todas** — un descuento en % o en $ que se aplica de una sola vez a todas las prestaciones (botón **Aplicar**), o **Quitar todos** los descuentos cargados.
+- **Ajustar cada prestación por separado** — cada fila de la tabla tiene su propio campo de descuento en % o $, con la columna **Final** mostrando el precio ya con el descuento aplicado.
 
-Acá agregás texto libre que va a quedar visible junto al presupuesto, tanto para el paciente cuando lo recibe como para el equipo cuando lo consulta.
+<Frame>
+  ![Image](/images/image-438.png)
+</Frame>
 
-Usalo para:
+Confirmá con **Guardar cambios**.
+
+### Pago en cuotas
+
+Card opcional, con un switch para activarla. Solo está disponible si **todas** las prestaciones del presupuesto están en la misma divisa.
+
+Al activarla, definís:
+
+- **Cantidad de cuotas** — con un stepper (+/−).
+- **Con anticipos** — switch opcional, para separar un pago inicial más grande del resto de las cuotas.
+- **Fecha primera cuota** — de ahí en adelante, OCLÜ arma el resto del calendario de vencimientos.
+- **Reparto manual** — switch para editar vos mismo el monto de cada cuota en vez de dejar que el sistema las reparta en partes iguales.
+
+La suma de todas las cuotas del **Plan de pago** tiene que coincidir con el total del presupuesto.
+
+<Frame>
+  ![Image](/images/image-439.png)
+</Frame>
+
+### Adicionales
+
+Última card, con dos bloques opcionales:
+
+- **Multimedia** — **Vincular de la galería** (elegís archivos ya subidos al paciente) o **Subir archivo** (subís uno nuevo directamente acá).
+- **Comentarios** — texto libre con el mismo editor enriquecido del resto del sistema, con un selector **Usar una plantilla…** si tu clínica tiene plantillas de comentarios guardadas en Administrador → Plantillas.
+
+<Frame>
+  ![Image](/images/image-440.png)
+</Frame>
+
+Usá los comentarios para:
 - Explicar al paciente qué incluye el plan ("Este presupuesto cubre las restauraciones del sector anterior superior...").
-- Aclarar condiciones de pago ("Acepta pago en cuotas con interés según método").
+- Aclarar condiciones de pago.
 - Notar especificaciones técnicas para el doctor que ejecutará el tratamiento.
 
-Cuando termines, hacé clic en el botón final del wizard (típicamente **Crear presupuesto** o **Guardar**).
+### Guardar
+
+Al final de la pantalla, hacé clic en **Crear presupuesto**.
 
 ## Resultado esperado
 
-OCLÜ guarda el presupuesto y te lleva a la solapa Presupuestos del paciente. Vas a ver el nuevo presupuesto en la lista, identificado por su número (asignado automáticamente, por ejemplo #80) y nombre. El estado inicial es **Borrador**.
+OCLÜ guarda el presupuesto y te lleva a la solapa Presupuestos del paciente. Vas a ver el nuevo presupuesto en la lista, identificado por su número (asignado automáticamente, por ejemplo #314) y nombre. El estado inicial es **Borrador**.
 
-Desde ahí podés:
+Desde el listado, cada presupuesto tiene tres íconos rápidos (editar, duplicar, cambiar estado) y, haciendo **clic derecho** sobre la card, un menú con más opciones: **Ver presupuesto**, **Abrir en pestaña nueva**, **Enviar por Mail**, **Enviar por WhatsApp**, **Exportar PDF**, **Historial**, **Editar**, **Duplicar** y **Cambiar estado**.
 
-- **Enviar el presupuesto al paciente** por email o WhatsApp (mirá la guía **Cómo enviar un presupuesto al paciente**).
-- **Recibir un pago** contra el presupuesto cuando el paciente lo apruebe (mirá **Cómo registrar un pago**).
-- **Editar el presupuesto** para corregir prestaciones, cambiar el estado, o agregar comentarios.
-- **Vincular citas, evoluciones y solicitudes de laboratorio** al presupuesto a medida que avanza el tratamiento.
+<Frame>
+  ![Image](/images/image-441.png)
+</Frame>
+
+Para cobrar, usá el botón **Cobrar** arriba del listado: **Cobrar tratamientos** (aplica el pago a presupuestos con deuda) o **Registrar saldo a favor** (un crédito del paciente sin asignar todavía a un presupuesto puntual).
+
+<Frame>
+  ![Image](/images/image-442.png)
+</Frame>
 
 ## Errores comunes
 
-**"Debe agregar al menos una prestación":** estás en el paso 2 y trataste de avanzar sin haber cargado nada en la tabla. Hacé clic en **Agregar Prestacion** y agregá al menos una.
+**El botón "Crear presupuesto" está deshabilitado:** estás intentando guardar sin ninguna prestación cargada. Hacé clic en **Agregar prestación** y sumá al menos una.
 
-**No encuentro la prestación que necesito en el dropdown:** la lista que elegiste no la incluye. Cambiá a otra lista o pediler al administrador que agregue la prestación a la lista correspondiente desde Administrador → Prestaciones.
+**No encuentro la prestación que necesito:** probá primero con la Búsqueda rápida (busca por código o nombre en todas las listas a la vez). Si tampoco aparece ahí, puede que falte agregarla a la lista correspondiente desde Administrador → Prestaciones.
 
 **El paciente no aparece para asignar:** estás creando el presupuesto desde el lugar correcto (ya estás en su ficha). Si el campo Doctor asignado no muestra los doctores, verificá que estén cargados y habilitados en Administrador → Staff.
 
-**La fecha de expiración me llegó:** podés editar el presupuesto desde su detalle y cambiar la fecha. Si el paciente lo recibió y la fecha pasó antes de aceptaumna "Precio Paciente" de cada prestación. Los precios los configura cada lista desde Administrador → Prestaciones.
+**No puedo activar Pago en cuotas:** revisá que todas las prestaciones del presupuesto estén en la misma divisa — el switch se deshabilita si hay una mezcla de ARS y USD.
+
+**La suma de las cuotas no coincide con el total:** si usaste Reparto manual, revisá los montos fila por fila. Si no, desactivá y volvé a activar Pago en cuotas para que el sistema los reparta de nuevo automáticamente.
 
 ## Tips y variaciones
 
-- **Doble moneda:** los presupuestos se pueden armar en ARS o USD según la lista de prestaciones que uses. La caja de pago se configura después al recibir el pago. Si trabajás con ambos, conviene mantener listas separadas (Lista ARS, Lista USD) para evitar confusiones.
+- **Doble moneda:** los presupuestos se arman en ARS o USD según la lista de prestaciones que uses. Si trabajás con ambos, conviene mantener listas separadas (Lista ARS, Lista USD) para evitar confusiones — y tené en cuenta que Pago en cuotas solo funciona si todo el presupuesto queda en una sola divisa.
 
 - **Presupuestos múltiples por paciente:** un mismo paciente puede tener varios presupuestos abiertos al mismo tiempo (por ejemplo uno de ortodoncia y otro de estética). Cada uno se cobra y avanza por separado.
 
-- **Plantilla de comentarios:** si siempre escribís el mismo texto en el paso 3 (condiciones de pago, garantías, etc.), guardalo como plantilla en Administrador → Plantillas y reusalo.
+- **Plantilla de comentarios:** si siempre escribís el mismo texto en Comentarios (condiciones de pago, garantías, etc.), guardalo como plantilla en Administrador → Plantillas y elegila después desde **Usar una plantilla…**.
 
-- **Fecha de expiración corta vs larga:** los 7 días por defecto fuerzan al paciente a decidir rápido y mantienen el precio actualizado. Para tratamientos grandes (ortodoncia completa) podés extenderla a 30 o 60 días.
+- **Fecha de expiración corta vs larga:** el default de tu clínica fuerza al paciente a decidir rápido y mantiene el precio actualizado. Para tratamientos grandes (ortodoncia completa) podés extenderla manualmente.
 
-- **Aplicar descuentos antes de enviar:** si vas a hacer una promo "20% off pagando contado", configurala desde **Configurar descuentos** en el paso 2 antes de enviarlo. Después es engorroso retrocederlo.
+- **Aplicar descuentos antes de enviar:** si vas a hacer una promo "20% off pagando contado", configurala desde **Descuentos** antes de enviarlo. Después es más trabajoso corregirlo prestación por prestación.
+
+- **Cuándo usar el Exprés en cambio:** si solo necesitás cargar una o dos prestaciones sueltas y cobrar rápido, sin odontograma ni cuotas, el Presupuesto exprés te ahorra pasos.
 
 ## Tiempo estimado
 
-3 a 5 minutos para un presupuesto chico (1-3 prestaciones). 10 a 15 minutos para un plan integral con muchas prestaciones y comentarios detallados.
+2 a 4 minutos para un presupuesto chico (1-3 prestaciones). 8 a 12 minutos para un plan integral con muchas prestaciones, descuentos y cuotas.
 
 ## Preguntas frecuentes
 
 **¿Puedo modificar las prestaciones después de crearlo?**
-Sí. Desde la solapa Presupuestos del paciente, hacé clic en el ícono de editar del presupuesto. Tené en cuenta que si el presupuesto ya tiene pagos recibidos, puede haber limitaciones.
+Sí. Desde la solapa Presupuestos del paciente, hacé clic en el ícono de editar (o "Editar" desde el menú contextual). Tené en cuenta que si el presupuesto ya tiene pagos recibidos, puede haber limitaciones.
 
 **¿El paciente ve los precios individuales de cada prestación o solo el total?**
-Por defecto ve el detalle completo (lista de prestaciones con precios y total). Esto se configura globalmente en la clínica.
+Por defecto ve el detalle completo (lista de prestaciones con precios y total).
 
 **¿Puedo crear un presupuesto sin pasar por el odontograma?**
-El paso 2 es obligatorio y sí o sí pide al menos una prestación. Pero las prestaciones de boca completa (módulo preventivo, blanqueamiento) no necesitan asociarse a una pieza específica.
+La sección Tratamientos sí o sí pide al menos una prestación. Pero las prestaciones de boca completa (módulo preventivo, blanqueamiento) no necesitan asociarse a una pieza específica. Si ni siquiera querés ver el odontograma, usá el Presupuesto exprés en su lugar.
 
 **¿Cómo aplico una seña o pago anticipado?**
-Una vez creado el presupuesto, usá el botón **Recibir pago** desde la solapa Presupuestos para cargar la seña. El estado del presupuesto cambia y el saldo restante se actualiza.
+Una vez creado el presupuesto, usá el botón **Cobrar → Cobrar tratamientos** desde la solapa Presupuestos para cargar el pago contra él.
 
 **¿Puedo duplicar un presupuesto existente para no rearmarlo?**
-Sí, desde el listado de presupuestos del paciente cada presupuesto tiene un ícono de duplicar (copia las prestaciones a un nuevo presupuesto que después editás).
+Sí, desde el ícono de duplicar en el listado, o desde **Duplicar** en el menú contextual (clic derecho).
 
 **¿El presupuesto se puede imprimir o descargar?**
-Sí, desde el detalle del presupuesto hay un botón de PDF (ícono rojo) que genera el documento listo para imprimir o adjuntar.
+Sí, desde **Exportar PDF** en el menú contextual del listado (clic derecho sobre el presupuesto).
+
+**¿Puedo mandarle el presupuesto al paciente directamente por WhatsApp?**
+Sí, desde **Enviar por WhatsApp** en el mismo menú contextual — además de la opción de **Enviar por Mail**.
 
 ## Permisos
 
-La capacidad de crear presupuestos, editarlos, aplicar descuentos o cambiar precios depende de los permisos asignados al miembro del staff desde Administrador → Staff → Permisos. Si no ves el botón **Agregar presupuesto** o algún campo del wizard, consultá con el administrador.
+La capacidad de crear presupuestos, editarlos, aplicar descuentos o cambiar precios depende de los permisos asignados al miembro del staff desde Administrador → Staff → Permisos. Si no ves el botón **Agregar presupuesto** o algún campo de la pantalla, consultá con el administrador.
