@@ -2,52 +2,63 @@
 title: "Cómo entender el inventario de Stock"
 ---
 
-El módulo **Stock** te permite llevar el control de insumos, medicamentos, indumentaria y cualquier producto que tu clínica use o venda. La pantalla principal del módulo es el **Inventario**, donde ves todos los productos cargados con su stock actual, fechas de vencimiento y categoría. OCLÜ además te avisa automáticamente cuando algún producto cayó al stock mínimo. Esta guía te muestra cómo leer la pantalla y aprovechar todas las funciones.
+El módulo **Stock** te permite llevar el control de insumos, medicamentos, indumentaria y cualquier producto que tu clínica use o venda. La pantalla principal del módulo es el **Inventario**, donde ves todos los productos cargados con su stock actual, vencimientos y categoría. El stock de cada producto se maneja por **lotes**: cada vez que entra mercadería, esa entrada queda como un lote propio con su fecha de vencimiento y número de lote, así podés convivir con varias fechas distintas del mismo producto. Esta guía te muestra cómo leer la pantalla y aprovechar todas las funciones.
 
 ## Cuándo usarlo
 
 - Cada vez que necesitás verificar cuánto stock tenés de un producto antes de pedirlo o usarlo.
-- Cuando recibís la alerta de stock mínimo y querés ver qué productos están en rojo.
+- Cuando querés ver qué productos están en stock mínimo o por vencer.
 - Cuando vas a generar una orden de compra y necesitás un listado en PDF o Excel.
-- Cuando estás auditando los productos vencidos o próximos a vencer.
+- Cuando estás auditando los lotes vencidos o próximos a vencer de un producto puntual.
 
 ## Cómo llegar a esta sección
 
 1. Iniciá sesión en OCLÜ.
-2. En la barra lateral izquierda, hacé clic en el ícono de Stock (cuarto ícono desde arriba, con forma de caja).
-
-> Si entrás al módulo y hay algún producto que alcanzó el stock mínimo, OCLÜ te muestra una **advertencia emergente** apenas cargás la pantalla. Por ejemplo: "Hay 1 producto que alcanzaron el stock mínimo." Hacé clic en **Entendido** para cerrar y seguir trabajando.
-
-<Frame>
-  ![Image](/images/image-272.png)
-</Frame>
+2. En la barra lateral izquierda, hacé clic en el ícono de Stock (con forma de caja/archivo).
 
 ## Las tres tabs del módulo
 
 Arriba de la pantalla de Stock hay tres tabs:
 
 - **Inventario** (la activa por defecto): listado de todos los productos.
-- **Movimientos:** historial de entradas y salidas de stock (qué se compró, qué se usó, quién lo registró).
+- **Movimientos:** historial de entradas y salidas de stock (qué se compró, qué se usó, quién lo registró), y desde acá registrás entradas y salidas nuevas.
 - **Proveedores:** listado de los proveedores con los que trabajás.
 
-Esta guía se concentra en la tab **Inventario**.
+Esta guía se concentra en la tab **Inventario**, con una sección aparte para **Movimientos** por su relación directa con los lotes.
 
 ## Qué muestra el Inventario
 
-### Filtros y búsqueda (arriba)
+<Frame>
+  ![Image](/images/image-456.png)
+</Frame>
 
-- **Buscar por nombre:** campo para encontrar un producto específico tipeando parte del nombre.
-- **Filtrar inventario:** dropdown con criterios de filtrado (por categoría, vencimiento, stock crítico, etc.).
+### Avisos fijos arriba de la tabla
+
+- **Información:** "Los productos agregados no afectan los balances de caja."
+- **Advertencia:** "Cuando se crea un producto, se registra el movimiento correspondiente al ingreso en la siguiente sección" (es decir, en Movimientos).
+- **Alerta de atención** (solo si aplica): "Hay productos que necesitan atención. Tocá para verlos filtrados." con chips como **"N en stock mínimo"** y **"N por vencer"** — hacé clic en cualquiera para aplicar ese filtro al instante.
+
+### Filtros y búsqueda
+
+- **Buscar por nombre...:** campo para encontrar un producto específico tipeando parte del nombre.
+- **Filtrar:** dropdown con **Todas las categorías** o una categoría puntual, y más abajo los toggles **Solo bajo stock** y **Solo por vencer**.
+
+<Frame>
+  ![Image](/images/image-457.png)
+</Frame>
 
 ### Botones (arriba a la derecha)
 
-- **Agregar producto** (azul): abre el formulario para cargar un producto nuevo al inventario.
-- **Más opciones:** dropdown con acciones avanzadas sobre el inventario.
-- **PDF** (ícono rojo): exporta el listado actual a PDF.
-- **Excel** (ícono verde): exporta el listado actual a Excel.
+- **Agregar producto:** botón negro con un dropdown de dos modos: **Individual** (un solo producto) o **En lista** (cargar varios de una).
 
 <Frame>
-  ![Image](/images/image-273.png)
+  ![Image](/images/image-458.png)
+</Frame>
+
+- **Más opciones:** dropdown con **Importar productos** (desde Excel), **Gestionar categorías**, **Agregar categoría**, y más abajo **Exportar a Excel** y **Exportar a PDF**.
+
+<Frame>
+  ![Image](/images/image-459.png)
 </Frame>
 
 ### Tabla de productos
@@ -55,67 +66,93 @@ Esta guía se concentra en la tab **Inventario**.
 Las columnas son:
 
 - **Nombre:** del producto (por ejemplo "Cepillo de dientes", "Hilo Dental", "Bata", "Ibuprofeno").
-- **Stock de seguridad:** la cantidad mínima que tu clínica definió para ese producto. Si el stock cae a este número, el sistema dispara la alerta. Lo configurás al crear o editar el producto.
-- **Stock:** la cantidad actual disponible. Si está en 0 o por debajo del Stock de seguridad, aparece resaltado en rojo con un ícono de alerta.
-- **Vencimiento:** la fecha de vencimiento del producto. Si no aplica (por ejemplo, indumentaria), aparece "Sin fecha de vencimiento".
 - **Categoría:** clasificación del producto (Insumos, Medicamentos, Indumentaria, etc.). Las categorías las configura cada clínica.
-- **Acciones:** tres íconos por producto.
+- **Stock:** la cantidad actual disponible, calculada automáticamente sumando todos los lotes activos del producto. Si está en 0 o por debajo del Mínimo, aparece resaltado en rojo con un punto de alerta.
+- **Mínimo:** la cantidad mínima que tu clínica definió para ese producto (tiene un ícono de información con un tooltip: *"Cantidad mínima que querés tener disponible. Cuando el stock del producto queda igual o por debajo, aparece en el aviso 'Necesitan atención' para que sepas que hay que reponer."*).
+- **Vencimiento:** la fecha del lote activo más próximo a vencer. Si el producto no tiene vencimientos cargados, dice "Sin vencimiento". Si tiene más de un lote activo, aparece un chip **"N lotes"** al lado. Se muestra en rojo si alguno de los lotes está vencido.
+- **Estado:** un switch para activar o desactivar el producto sin eliminarlo.
+- **Acciones:** editar (lápiz) y eliminar (tacho, en rojo).
 
-### Acciones por producto
+## Cómo funcionan los lotes
 
-En la columna **Acciones** del lado derecho de cada fila vas a ver:
+Hacé clic en la flechita a la izquierda del nombre de un producto para expandir el panel **Lotes activos**, con la cantidad de lotes con stock. Cada lote muestra: N° de lote, vencimiento (con chip "Vencido" tachado en rojo si ya pasó, o "Por vencer" si está próximo), cantidad, proveedor y fecha en que se cargó. Desde ahí podés editar o eliminar un lote puntual.
 
-- **Editar** (ícono naranja): abre el formulario de edición para modificar nombre, stock de seguridad, vencimiento, categoría, etc.
-- **Toggle activar/desactivar** (verde si activo): permite desactivar un producto sin eliminarlo. Útil cuando dejás de comprarlo pero querés conservar el historial.
-- **Eliminar** (ícono rojo): borra el producto del inventario. Pide confirmación. Si tiene movimientos asociados, puede haber restricciones.
+<Frame>
+  ![Image](/images/image-460.png)
+</Frame>
+
+> Eliminar un lote también elimina el movimiento de ingreso asociado a él y reduce el stock disponible del producto. No se puede deshacer.
+
+**El vencimiento y el número de lote ya no se cargan una sola vez en el producto**: cada entrada de stock (ver sección Movimientos más abajo) genera su propio lote con su propia fecha de vencimiento y número. Por eso, al editar un producto ya no vas a encontrar esos dos campos — el formulario te lo aclara directamente.
+
+<Frame>
+  ![Image](/images/image-461.png)
+</Frame>
+
+## Movimientos: registrar entradas y salidas
+
+Desde la tab **Movimientos** vas a ver el historial completo (Operación, Fecha, Producto, Cantidad, Precio unitario, Proveedor, Usuario, Acciones) y dos botones arriba a la derecha:
+
+### Registrar entrada
+
+Suma unidades al stock del producto. Además de Producto, Cantidad, Precio de costo y Comentarios, tiene dos campos propios del lote que se crea con esa entrada: **Vencimiento de este lote** y **N° de lote** (ambos opcionales). El formulario te lo explica: *"Cada entrada se registra como un lote independiente del producto — así podés convivir varias fechas de vencimiento."*
+
+<Frame>
+  ![Image](/images/image-462.png)
+</Frame>
+
+### Registrar salida
+
+Descuenta unidades del stock. Si el producto tiene lotes activos, aparece el campo **Lote**, con **Automático (FIFO)** seleccionado por defecto — consume del lote que vence primero y sigue por antigüedad. Si elegís un lote específico en vez de Automático, el descuento se hace de ese lote puntual; si no alcanza, tenés que elegir otro o volver a Automático.
+
+<Frame>
+  ![Image](/images/image-463.png)
+</Frame>
 
 ## Cómo identificar productos con stock crítico
 
 OCLÜ te ayuda visualmente:
 
-- **Productos con stock 0:** la columna Stock muestra el número en rojo con un ícono de advertencia.
-- **Productos por debajo del Stock de seguridad:** mismo tratamiento visual (rojo con alerta).
-- **Advertencia al entrar al módulo:** si hay productos en stock crítico, te aparece un modal apenas entrás. Te dice cuántos son.
-
-<Frame>
-  ![Image](/images/image-274.png)
-</Frame>
+- **Productos con stock 0 o por debajo del Mínimo:** la columna Stock muestra el número en rojo con un punto de alerta.
+- **Lotes vencidos o por vencer:** se marcan con un chip de color en el panel de lotes, y colorean en rojo la columna Vencimiento de la fila del producto.
+- **Alerta arriba de la tabla:** si hay productos en cualquiera de estas dos situaciones, el banner "Hay productos que necesitan atención" te lo resume con chips clickeables que filtran la tabla al instante.
 
 ## Cómo exportar el inventario
 
-Si necesitás un listado para imprimir, compartir con el contador o pasar a un proveedor:
-
 1. Aplicá los filtros que querés exportar (por ejemplo, solo medicamentos, o solo productos en stock crítico).
-2. Hacé clic en el botón rojo **PDF** o el verde **Excel** arriba a la derecha.
+2. Abrí **Más opciones** y elegí **Exportar a Excel** o **Exportar a PDF**.
 3. El archivo se descarga automáticamente en tu navegador.
 
 > El archivo exportado refleja los filtros aplicados al momento de exportar. Si querés todo el inventario, asegurate de no tener filtros activos.
 
 ## Resultado esperado
 
-Vas a poder ver en un golpe de vista qué productos están bien, cuáles están en stock crítico, qué está por vencer y qué categorías hay. Las acciones rápidas te permiten editar, desactivar o eliminar productos sin salir de la pantalla.
+Vas a poder ver en un golpe de vista qué productos están bien, cuáles están en stock crítico, qué lotes están por vencer y qué categorías hay. Las acciones rápidas te permiten editar, desactivar o eliminar productos, y el detalle de lotes sin salir de la pantalla.
 
 ## Errores comunes
 
-**No me aparece la advertencia de stock mínimo cuando entro:** significa que ningún producto está por debajo de su stock de seguridad. Buena señal.
+**No me aparece ninguna alerta de atención:** significa que ningún producto está por debajo de su Mínimo ni tiene lotes por vencer. Buena señal.
 
-**Veo un producto con stock alto pero igual aparece en rojo:** verificá el Stock de seguridad. Si está mal configurado (por ejemplo en 100 cuando debería ser 5), el sistema considera que el stock real está bajo. Editá el producto y ajustá el stock de seguridad.
+**Veo un producto con stock alto pero igual aparece en rojo:** verificá el Mínimo configurado. Si está mal cargado (por ejemplo en 100 cuando debería ser 5), el sistema considera que el stock real está bajo. Editá el producto y ajustá el Stock de seguridad.
 
-**El filtro de inventario no filtra como esperaba:** verificá los criterios. Algunos filtros se combinan (ejemplo: categoría \+ stock crítico) y otros se aplican individualmente. Quitá los filtros y volvé a aplicarlos uno por uno.
+**El filtro no filtra como esperaba:** los filtros de categoría y "Solo bajo stock"/"Solo por vencer" se combinan. Quitá los filtros y volvé a aplicarlos uno por uno.
 
-**Quiero ver productos vencidos:** usá el filtro **Filtrar inventario** y elegí el criterio de vencimiento. Si tu sistema lo permite, podés filtrar por "Vencidos" o "Próximos a vencer".
+**No encuentro dónde cargar el vencimiento de un producto:** ya no se carga desde el formulario de edición del producto. Se carga por cada entrada de stock (botón **Entrada** en la tab Movimientos), o editando un lote puntual desde el panel **Lotes activos**.
+
+**Una salida no descontó del lote que esperaba:** revisá si dejaste el selector de Lote en **Automático (FIFO)** — en ese modo, siempre descuenta primero del lote que vence antes, no necesariamente del más viejo en fecha de carga.
 
 ## Tips y variaciones
 
-- **Stock de seguridad realista:** definí el stock de seguridad pensando en cuánto tardás en reponer. Si tu proveedor entrega en 3 días y usás 2 unidades por día, tu stock de seguridad debería ser al menos 6.
+- **Mínimo realista:** definilo pensando en cuánto tardás en reponer. Si tu proveedor entrega en 3 días y usás 2 unidades por día, tu Mínimo debería ser al menos 6.
 - **Categorías ordenadas:** mantené las categorías organizadas (Insumos, Medicamentos, Indumentaria, etc.). Te ayuda al filtrar y al hacer reportes.
-- **Auditoría mensual:** una vez al mes, exportá el inventario completo a Excel y revisalo con calma. Detectá productos que llevás meses sin usar y considerá darlos de baja.
-- **Productos con vencimiento:** cargá siempre la fecha de vencimiento de medicamentos e insumos perecederos. El filtro por vencimiento te avisa antes de que se venza.
+- **Carga masiva:** si tenés que dar de alta muchos productos de una vez, usá **Agregar producto → En lista** en vez de cargarlos uno por uno, o **Más opciones → Importar productos** si ya los tenés en un Excel.
+- **Auditoría de vencimientos:** cargá siempre el vencimiento al registrar una entrada de medicamentos e insumos perecederos. El filtro "Solo por vencer" te avisa antes de que se venza.
+- **Lector de código de barras:** si tu clínica usa uno, podés escanear directo desde Inventario o Movimientos — si el código ya existe, te lleva al producto; si es nuevo, te abre el formulario de alta con el código precargado.
 
 ## Tiempo estimado
 
-5 a 10 segundos para encontrar un producto. 30 segundos para exportar el inventario. 1 minuto para revisar productos en stock crítico.
+5 a 10 segundos para encontrar un producto. 30 segundos para exportar el inventario. 1 minuto para revisar productos en stock crítico o registrar una entrada/salida.
 
 ## Permisos
 
-Ver el inventario, agregar, editar y eliminar productos requiere permisos específicos. Configuralos desde Administrador → Staff → Permisos. Si algún botón aparece deshabilitado, consultá con el administrador.
+Ver el inventario, agregar, editar y eliminar productos, y registrar movimientos, requiere permisos específicos. Configuralos desde Administrador → Staff → Permisos. Si algún botón aparece deshabilitado, consultá con el administrador.
