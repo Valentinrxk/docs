@@ -34,17 +34,23 @@ Soltá el botón del mouse cuando estés en el destino correcto.
 
 > Si la grilla tiene muchos profesionales y no entran en pantalla, es probable que tengas que hacer scroll horizontal para llegar a la columna deseada. Hacé el scroll antes de empezar a arrastrar, no durante.
 
-### 3. Confirmá el cambio si el sistema te lo pide
+### 3. Confirmá el cambio
 
-Dependiendo de la configuración de tu clínica, OCLÜ puede:
+Al soltar, se abre una ventana **Mover esta cita** ("Revisá el cambio antes de confirmarlo") con un checkbox **Notificar al paciente del cambio de horario**. Tildalo si querés avisarle, y hacé clic en **Sí, mover** para confirmar (o **No, cancelar** para dejar la cita como estaba).
 
-- Mover la cita en el momento, sin pedirte confirmación.
-- Pedirte que confirmes el nuevo horario en un mensaje emergente. En ese caso, hacé clic en el botón de confirmación.
-- Mostrarte una advertencia si el destino tiene un conflicto (otra cita en el mismo horario sin solapamiento habilitado, o un bloqueo). En ese caso, la cita vuelve a su posición original y tenés que elegir un horario válido.
+<Frame>
+  ![Image](/images/image-426.png)
+</Frame>
+
+Si el paciente no tiene mail cargado, con el checkbox tildado vas a ver una advertencia de que no va a recibir el aviso. Si la cita es virtual, se suma una nota de que el paciente recibe dos avisos (el de la clínica y el de Google Meet).
+
+Si el destino tiene un conflicto (otra cita en el mismo horario sin solapamiento habilitado, o un bloqueo), OCLÜ te muestra una advertencia y la cita vuelve a su posición original.
+
+> El checkbox de notificar viene tildado o destildado según cómo lo hayas dejado la última vez — se puede fijar un valor por defecto desde la pantalla de **Preferencias** del calendario (ver guía **Cómo cambiar la vista del calendario y filtrar por profesional**).
 
 ## Resultado esperado
 
-La cita queda en el nuevo horario o columna. Si tiene notificaciones automáticas de reagendamiento configuradas, el paciente puede recibir un email o WhatsApp avisándole del cambio (esto depende de la configuración de la clínica).
+La cita queda en el nuevo horario o columna. Si tildaste **Notificar al paciente del cambio de horario**, el paciente recibe el aviso por WhatsApp (si la clínica tiene la integración contratada) o por mail.
 
 ## Notas y variaciones
 
