@@ -18,11 +18,11 @@ OCLÜ separa el control financiero de la clínica en dos vistas: **Ingresos** (l
 - Para verificar que un pago revocado quedó correctamente anulado.
 - Para exportar la información en PDF o Excel y compartirla con el contador o con socios.
 
-## Antes de empezar: el botón Mostrar / Ocultar montos
+## Antes de empezar: el botón Ocultar / Mostrar montos
 
-En el panel principal de Finanzas (la primera pantalla del módulo) hay un botón arriba a la derecha que alterna entre **Mostrar montos** y **Ocultar**. Cuando está oculto, los valores aparecen como puntos negros (ej: `$ ●●●●●●`). Esto es útil cuando estás revisando cifras con un cliente o paciente al lado y no querés que vea los números.
+En el panel principal de Finanzas (la primera pantalla del módulo) hay un botón arriba a la derecha que alterna entre **Ocultar montos** y **Mostrar montos**. Cuando están ocultos, los valores aparecen como puntos (ej: `●●●●●●`). Esto es útil cuando estás revisando cifras con un cliente o paciente al lado y no querés que vea los números.
 
-> El botón es global del panel. Si lo dejás en **Ocultar**, los montos de las cards quedan tapados pero los podés volver a mostrar en cualquier momento. Las sub-vistas detalladas (Ingresos, Egresos) muestran los montos siempre.
+> El botón es global del panel. Si lo dejás en **Ocultar montos**, los valores de las cards quedan tapados pero los podés volver a mostrar en cualquier momento. Las sub-vistas detalladas (Ingresos, Egresos) muestran los montos siempre.
 
 ## Cómo llegar a las sub-vistas
 
@@ -30,15 +30,15 @@ En el panel principal de Finanzas (la primera pantalla del módulo) hay un botó
 2. En la barra lateral izquierda, hacé clic en el ícono de la columna (Finanzas). Te lleva al panel principal.
 3. En el bloque **Accesos directos** del centro vas a ver tres botones: **Ingresos**, **Egresos** y **Balance**. Hacé clic en el que necesites.
 
-> Cada uno de estos accesos abre un reporte específico. La diferencia es:
->
-> - **Ingresos:** consulta de los pagos recibidos en un período.
-> - **Egresos:** consulta y carga de los gastos del período.
-> - **Balance:** vista consolidada por caja (mirá la guía aparte **Cómo consultar el balance por caja**).
-
 <Frame>
-  ![Image](/images/image-239.png)
+  ![Image](/images/image-445.png)
 </Frame>
+
+Cada uno de estos accesos abre un reporte específico. La diferencia es:
+
+- **Ingresos:** consulta de los pagos recibidos en un período.
+- **Egresos:** consulta y carga de los gastos del período.
+- **Balance:** vista consolidada por caja (mirá la guía aparte **Cómo consultar el balance por caja**).
 
 ---
 
@@ -52,67 +52,107 @@ URL: `Finanzas → Ingresos`. Muestra el reporte de los pagos recibidos en el pe
 - **Caja:** filtro multi-selección. Por defecto viene **Todas las cajas**. Para enfocar en una caja específica, eliminá la etiqueta "Todas las cajas" con la X y agregá las que necesites.
 - **Modo de visualización:** dropdown con dos opciones:
   - **Por pagos:** una fila por cada pago recibido. Útil para reconciliar caja.
-    - **Por prestación:** una fila por cada prestación cobrada. Útil para análisis clínico (qué tratamientos te facturan más).
-    Una vez configurado, hacé clic en **Generar** para mostrar el reporte. Los botones rojo (PDF) y verde (Excel) abajo te exportan el resultado.
-    ### Tabla de resultados
-    Las columnas son: **Fecha**, **Paciente**, **Presupuesto**, **Total pagado**, **Usuario** (quién registró el pago) y **Acciones**.
-    ### Pagos revocados
-    Arriba a la derecha de la tabla hay un botón **Pagos revocados**. Te lleva a un sub-reporte con todos los pagos que se anularon en el período. La tabla muestra: Fecha, Paciente, Monto, Motivo de la revocación, quién la realizó (Revocado por) y las prestaciones afectadas.
-    > Recordá que revocar un pago no mueve plata: solo lo invalida en el sistema. Para entender el flujo de revocación, mirá la guía **Cómo revocar un pago**.
-    ---
-    ## Vista 2: Egresos
-    URL: `Finanzas → Egresos`. Combina consulta de gastos registrados con carga de gastos nuevos.
-    ### Filtros disponibles (panel izquierdo)
-    - **Fecha desde / Fecha hasta:** rango del reporte.
-    - **Caja:** multi-selección, igual que en Ingresos.
-    - **Mostrar anulados:** checkbox. Si lo tildás, el reporte incluye los egresos que fueron anulados; si no, solo muestra los activos.
-    - **Generar:** muestra el reporte con los filtros aplicados.
-    - **Exportar:** PDF y Excel, igual que en Ingresos.
-    ### Filtros adicionales sobre la tabla
-    - **Categoría:** dropdown arriba de la tabla para filtrar por categoría de egreso (Sueldos, Insumos, Laboratorio, etc.). Las categorías las configura cada clínica desde el botón **Categorías** arriba a la derecha (mirá más abajo).
-    - **Botones arriba a la derecha:**
-      - **Agregar egreso** (azul): para cargar un gasto nuevo.
-        - **Categorías** (dropdown): para crear, editar o eliminar las categorías de egreso de tu clínica.
-          - **Egresos revocados:** sub-reporte de los egresos anulados en el período.
-          ### Tabla de resultados
-          Las columnas son: **Fecha**, **Categoría**, **Caja**, **Monto**, **Comentario**, **Usuario** y **Acciones**.
-          ---
-          ## Cómo agregar un egreso nuevo
-          1. Entrá a **Finanzas → Egresos**.
-          2. Arriba a la derecha, hacé clic en el botón azul **Agregar egreso**.
-          3. Se abre un formulario donde tenés que completar:
-             - **Categoría:** elegí del dropdown (Sueldos, Insumos, Laboratorio, lo que sea aplicable). Si falta la categoría que necesitás, agregala primero desde el botón **Categorías**.
-               - **Caja:** elegí de qué caja sale el dinero. La lista la configura tu clínica desde Administrador → Cajas y bancos.
-                 - **Monto:** el valor del egreso, en la moneda de la caja seleccionada.
-                   - **Fecha:** por defecto viene la fecha de hoy. Cambiala si registrás un egreso retroactivo.
-                     - **Comentario:** opcional pero recomendado. Una nota breve para identificar el gasto (ej: "Compra de guantes de látex - 100 unidades").
-                     4. Confirmá con el botón **Guardar** o **Agregar**.
-                     El egreso aparece automáticamente en la tabla de la sub-vista, descuenta el saldo de la caja correspondiente e impacta en el balance de la clínica.
-                     ## Resultado esperado
-                     - En **Ingresos**: ves el listado de todos los pagos recibidos en el período según los filtros aplicados, con totales y opción de exportar.
-                     - En **Egresos**: ves el listado de todos los gastos registrados, con totales y opción de exportar. Si agregaste un egreso, aparece de inmediato en la lista.
-                     ## Errores comunes
-                     **"Para generar un reporte, primero debe seleccionar una caja o banco, fecha de inicio y fecha de fin del reporte":** te falta completar uno de los filtros básicos. Verificá que las fechas y al menos una caja estén seleccionadas antes de Generar.
-                     **El reporte sale vacío y no debería:** revisá el rango de fechas (por defecto es solo el mes en curso), revisá si la caja seleccionada es la correcta, y verificá si tildaste un filtro adicional como "Mostrar anulados" o el filtro de Categoría que esté limitando el resultado.
-                     **Cargué un egreso pero no aparece:** lo más común es que la fecha del egreso esté fuera del rango del filtro. Ajustá el rango y volvé a Generar.
-                     **No encuentro la categoría que necesito al cargar un egreso:** las categorías son configurables. Hacé clic en el botón **Categorías** arriba a la derecha, agregá la nueva categoría y volvé a abrir el formulario de **Agregar egreso**.
-                     **El monto no coincide con la caja real:** verificá si hay egresos anulados que no están contemplados (tildá el checkbox "Mostrar anulados" para ver), y si hay pagos revocados (entrá a Pagos revocados desde Ingresos) que pueden estar afectando el cálculo manual.
-                     ## Tips y variaciones
-                     - **Para el cierre diario:** filtrá por la caja del día y el rango de hoy, generá Ingresos y Egresos por separado, y exportá ambos a PDF para archivar.
-                     - **Para el contador mensual:** rango del primer al último día del mes, todas las cajas, exportá Excel de Ingresos (Por pagos) y de Egresos. Sumá Pagos revocados aparte si los necesitás.
-                     - **Análisis clínico:** usá Ingresos en modo **Por prestación** para ver qué tratamientos te facturan más. Útil para decisiones comerciales y de equipamiento.
-                     - **Para auditoría interna:** filtrá Egresos por Categoría = Sueldos para ver el gasto en personal del período.
-                     - **Reportes avanzados:** si necesitás cruces más complejos, gráficos o KPIs, andá a **Reportes avanzados** desde el panel principal de Finanzas (botón **Ir a Reportes** arriba a la derecha del panel). Esa vista incluye OCLÜ IA para interpretar tus datos.
-                     ## Tiempo estimado
-                     - Ver Ingresos o Egresos del mes: 30 segundos a 1 minuto.
-                     - Cargar un egreso nuevo: 1 minuto.
-                     - Exportar a PDF o Excel: 10 segundos.
-                     ## Preguntas frecuentes
-                     **¿Por qué no puedo agregar ingresos manualmente?** Los ingresos se generan automáticamente desde los pagos recibidos en el módulo de pacientes (con el flujo **Recibir pago** desde la solapa Presupuestos). No hay carga manual de ingresos para evitar inconsistencias entre pagos y reporte.
-                     **¿Cuál es la diferencia entre Ingresos en modo "Por pagos" y "Por prestación"?** **Por pagos** muestra una fila por cada pago recibido (útil para conciliar caja). **Por prestación** desagrega el pago en las prestaciones cubiertas (útil para análisis clínico de qué tratamientos te generan más facturación).
-                     **¿Las categorías de egreso vienen predefinidas?** No. Cada clínica configura las suyas desde el botón **Categorías** dentro de Egresos. Lo más habitual es tener Sueldos, Insumos, Laboratorio, Alquiler, Servicios y Otros, pero es totalmente customizable.
-                     **¿Puedo eliminar un egreso ya cargado?** Podés anularlo, no eliminarlo. Anular deja el registro visible (con el filtro "Mostrar anulados" tildado) y mantiene la trazabilidad. Para anular, usá la columna **Acciones** en la fila del egreso.
-                     **¿Por qué hay reportes en Finanzas y también en Reportes avanzados?** Las sub-vistas de Finanzas (Ingresos / Egresos / Balance) son listados operativos del día a día. **Reportes avanzados** (`Administrador → Reportes` o el atajo "Ir a Reportes") es una vista analítica con KPIs, gráficos de tendencia, comparativas por doctor o paciente y OCLÜ IA. Usá las sub-vistas para operación y los reportes avanzados para análisis estratégico.
-                     **¿Puedo programar el envío automático del reporte por email?** No directamente desde estas sub-vistas. Para automatizaciones de reportes consultá Administrador → Automatizaciones.
-                     ## Permisos
-                     La capacidad de ver Ingresos, ver Egresos, agregar egresos, anular egresos, ver pagos revocados y exportar reportes depende de los permisos asignados a cada miembro del staff. Configuralos desde Administrador → Staff → Permisos. Si no ves alguna sub-vista o algún botón, consultá con el administrador.
+  - **Por prestación:** una fila por cada prestación cobrada. Útil para análisis clínico (qué tratamientos te facturan más).
+
+Una vez configurado, hacé clic en **Generar** para mostrar el reporte. Los botones rojo (PDF) y verde (Excel) abajo te exportan el resultado.
+
+### Tabla de resultados
+
+Las columnas son: **Fecha**, **Paciente**, **Presupuesto**, **Caja**, **Total pagado**, **Usuario** (quién registró el pago) y **Acciones**.
+
+### Pagos revocados
+
+Arriba a la derecha de la tabla hay un botón **Pagos revocados**. Te lleva a un sub-reporte con todos los pagos que se anularon en el período. La tabla muestra: Fecha, Paciente, Monto, Motivo de la revocación, quién la realizó (Revocado por) y las prestaciones afectadas.
+
+> Recordá que revocar un pago no mueve plata: solo lo invalida en el sistema. Para entender el flujo de revocación, mirá la guía **Cómo revocar un pago**.
+
+---
+
+## Vista 2: Egresos
+
+URL: `Finanzas → Egresos`. Combina consulta de gastos registrados con carga de gastos nuevos.
+
+### Filtros disponibles (panel izquierdo)
+
+- **Fecha desde / Fecha hasta:** rango del reporte.
+- **Caja:** multi-selección, igual que en Ingresos.
+- **Mostrar anulados:** checkbox. Si lo tildás, el reporte incluye los egresos que fueron anulados y la tabla suma una columna **Estado** (Activo / Anulado); si no, solo muestra los activos y esa columna no aparece.
+- **Generar:** muestra el reporte con los filtros aplicados.
+- **Exportar:** PDF y Excel, igual que en Ingresos.
+
+### Filtros adicionales sobre la tabla
+
+- **Categoría:** dropdown arriba de la tabla para filtrar por categoría de egreso (Sueldos, Insumos, Laboratorio, etc.). Las categorías las configura cada clínica desde el botón **Categorías** arriba a la derecha (mirá más abajo).
+- **Botones arriba a la derecha:**
+  - **Agregar egreso:** para cargar un gasto nuevo.
+  - **Categorías** (dropdown): para crear, editar o eliminar las categorías de egreso de tu clínica.
+  - **Egresos revocados:** sub-reporte de los egresos anulados en el período.
+
+### Tabla de resultados
+
+Las columnas son: **Fecha**, **Categoría**, **Caja**, **Monto**, **Comentario**, **Usuario**, **Estado** (solo si tildaste "Mostrar anulados") y **Acciones**. Si el egreso tiene un comentario cargado, la columna Comentario muestra un botón **Ver** para leerlo sin ocupar espacio en la fila.
+
+---
+
+## Cómo agregar un egreso nuevo
+
+1. Entrá a **Finanzas → Egresos**.
+2. Arriba a la derecha, hacé clic en el botón **Agregar egreso**.
+3. Se abre un formulario donde tenés que completar:
+   - **Categoría:** elegí del dropdown (Sueldos, Insumos, Laboratorio, lo que sea aplicable). Si falta la categoría que necesitás, agregala primero desde el botón **Categorías**.
+   - **Caja:** elegí de qué caja sale el dinero. La lista la configura tu clínica desde Administrador → Cajas y bancos.
+   - **Monto:** el valor del egreso, en la moneda de la caja seleccionada.
+   - **Fecha:** por defecto viene la fecha de hoy. Cambiala si registrás un egreso retroactivo.
+   - **Comentario:** opcional pero recomendado. Una nota breve para identificar el gasto (ej: "Compra de guantes de látex - 100 unidades").
+4. Confirmá con el botón **Guardar** o **Agregar**.
+
+El egreso aparece automáticamente en la tabla de la sub-vista, descuenta el saldo de la caja correspondiente e impacta en el balance de la clínica.
+
+## Resultado esperado
+
+- En **Ingresos**: ves el listado de todos los pagos recibidos en el período según los filtros aplicados, con totales y opción de exportar.
+- En **Egresos**: ves el listado de todos los gastos registrados, con totales y opción de exportar. Si agregaste un egreso, aparece de inmediato en la lista.
+
+## Errores comunes
+
+**"Para generar un reporte, primero debe seleccionar una caja o banco, fecha de inicio y fecha de fin del reporte":** te falta completar uno de los filtros básicos. Verificá que las fechas y al menos una caja estén seleccionadas antes de Generar.
+
+**El reporte sale vacío y no debería:** revisá el rango de fechas (por defecto es solo el mes en curso), revisá si la caja seleccionada es la correcta, y verificá si tildaste un filtro adicional como "Mostrar anulados" o el filtro de Categoría que esté limitando el resultado.
+
+**Cargué un egreso pero no aparece:** lo más común es que la fecha del egreso esté fuera del rango del filtro. Ajustá el rango y volvé a Generar.
+
+**No encuentro la categoría que necesito al cargar un egreso:** las categorías son configurables. Hacé clic en el botón **Categorías** arriba a la derecha, agregá la nueva categoría y volvé a abrir el formulario de **Agregar egreso**.
+
+**El monto no coincide con la caja real:** verificá si hay egresos anulados que no están contemplados (tildá el checkbox "Mostrar anulados" para ver), y si hay pagos revocados (entrá a Pagos revocados desde Ingresos) que pueden estar afectando el cálculo manual.
+
+## Tips y variaciones
+
+- **Para el cierre diario:** filtrá por la caja del día y el rango de hoy, generá Ingresos y Egresos por separado, y exportá ambos a PDF para archivar.
+- **Para el contador mensual:** rango del primer al último día del mes, todas las cajas, exportá Excel de Ingresos (Por pagos) y de Egresos. Sumá Pagos revocados aparte si los necesitás.
+- **Análisis clínico:** usá Ingresos en modo **Por prestación** para ver qué tratamientos te facturan más. Útil para decisiones comerciales y de equipamiento.
+- **Para auditoría interna:** filtrá Egresos por Categoría = Sueldos para ver el gasto en personal del período.
+- **Reportes avanzados:** si necesitás cruces más complejos, gráficos o KPIs, andá a **Reportes avanzados** desde el panel principal de Finanzas (botón **Ir a reportes** arriba a la derecha del panel). Esa vista incluye Oclü IA para interpretar tus datos.
+
+## Tiempo estimado
+
+- Ver Ingresos o Egresos del mes: 30 segundos a 1 minuto.
+- Cargar un egreso nuevo: 1 minuto.
+- Exportar a PDF o Excel: 10 segundos.
+
+## Preguntas frecuentes
+
+**¿Por qué no puedo agregar ingresos manualmente?** Los ingresos se generan automáticamente desde los pagos recibidos en el módulo de pacientes (con el flujo de cobro desde la solapa Presupuestos). No hay carga manual de ingresos para evitar inconsistencias entre pagos y reporte.
+
+**¿Cuál es la diferencia entre Ingresos en modo "Por pagos" y "Por prestación"?** **Por pagos** muestra una fila por cada pago recibido (útil para conciliar caja). **Por prestación** desagrega el pago en las prestaciones cubiertas (útil para análisis clínico de qué tratamientos te generan más facturación).
+
+**¿Las categorías de egreso vienen predefinidas?** No. Cada clínica configura las suyas desde el botón **Categorías** dentro de Egresos. Lo más habitual es tener Sueldos, Insumos, Laboratorio, Alquiler, Servicios y Otros, pero es totalmente customizable.
+
+**¿Puedo eliminar un egreso ya cargado?** Podés anularlo, no eliminarlo. Anular deja el registro visible (con el filtro "Mostrar anulados" tildado) y mantiene la trazabilidad. Para anular, usá la columna **Acciones** en la fila del egreso.
+
+**¿Por qué hay reportes en Finanzas y también en Reportes avanzados?** Las sub-vistas de Finanzas (Ingresos / Egresos / Balance) son listados operativos del día a día. **Reportes avanzados** (`Administrador → Reportes` o el atajo "Ir a reportes") es una vista analítica con KPIs, gráficos de tendencia, comparativas por doctor o paciente y Oclü IA. Usá las sub-vistas para operación y los reportes avanzados para análisis estratégico.
+
+**¿Puedo programar el envío automático del reporte por email?** No directamente desde estas sub-vistas. Para automatizaciones de reportes consultá Administrador → Automatizaciones.
+
+## Permisos
+
+La capacidad de ver Ingresos, ver Egresos, agregar egresos, anular egresos, ver pagos revocados y exportar reportes depende de los permisos asignados a cada miembro del staff. Configuralos desde Administrador → Staff → Permisos. Si no ves alguna sub-vista o algún botón, consultá con el administrador.
