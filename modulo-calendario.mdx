@@ -12,7 +12,7 @@ El módulo **Calendario** es el centro de gestión de turnos de la clínica. Des
 
 ## Acceso y vista general
 
-Al ingresar al módulo Calendario, lo primero que ves es el calendario completo de la clínica. En la parte superior de la pantalla encontrás tres islas que controlan cómo se visualiza la información:
+Al ingresar al módulo Calendario, lo primero que ves es el calendario completo de la clínica. En la parte superior de la pantalla encontrás cuatro islas que controlan cómo se visualiza la información:
 
 ### Isla de fecha y modo de vista
 
@@ -130,6 +130,18 @@ Ahí podés elegir el tono desplazándote por el recuadro grande, ajustar la ton
 
 Funciona igual que la solapa de estados, pero define el color con el que se ven los **bloqueos de agenda** en el calendario, en vez de las citas. Podés agregar, editar y eliminar categorías de la misma forma.
 
+### Isla de reservas online
+
+Solo aparece si tu clínica tiene contratado el add-on **Autoagenda pública** (mirá la guía de Add-ons). Te resume los turnos que los pacientes piden solos desde tus links de reserva:
+
+<Frame>
+  ![Image](/images/image-468.png)
+</Frame>
+
+- **Sin solicitudes pendientes** (o el número de solicitudes esperando tu respuesta) — si tenés la aprobación manual activada, hacé clic acá para ver el listado y aceptar o rechazar cada pedido.
+- **Link de reservas** — dropdown con acceso directo a copiar cualquiera de tus links activos (por ejemplo, Link de Instagram o Link de Whatsapp), sin tener que ir hasta Administrador.
+- El ícono de configuración te lleva a **Administrador → Automatizaciones → Autoagenda**, donde se configuran los links, los profesionales habilitados y las reglas de aprobación.
+
 ---
 
 ### Crear una cita
@@ -223,7 +235,7 @@ El calendario se organiza de la siguiente manera:
 - **Columnas** — Nombres de los profesionales o boxes según el filtro seleccionado.
 - **Eje vertical (izquierda)** — Horarios, divididos según el intervalo configurado en la clínica (15, 30, 45 minutos, 1 hora o 1.5 horas).
 
-Cada cita aparece en la franja horaria y columna correspondiente, mostrando el nombre del paciente. Si la cita tiene descripción cargada, aparece un ícono de nota junto al nombre — al pasar el cursor por encima, aparece un cartelito con el texto de esa descripción.
+Cada cita aparece en la franja horaria y columna correspondiente, mostrando el nombre del paciente. Si la cita tiene descripción cargada, aparece un ícono de nota junto al nombre — al pasar el cursor por encima, aparece un cartelito con el texto de esa descripción. Si la cita la reservó el propio paciente desde la Autoagenda pública, en su lugar (o además) aparece un ícono de globo 🌐; si todavía espera tu aprobación, el ícono es un reloj de arena.
 
 <Frame>
   ![Image](/images/image-292.png)
@@ -251,6 +263,16 @@ Las citas también se pueden mover y redimensionar directamente desde el calenda
 ### Detalle de la cita
 
 Al hacer clic en cualquier cita, se despliega un panel hacia la derecha de la pantalla con tres tarjetas:
+
+#### Reservada por el paciente
+
+Si la cita se originó en la Autoagenda pública, esta tarjeta aparece primero, antes que las demás. Muestra desde qué link se pidió y cuándo, si el paciente es nuevo o ya tenía ficha, y cómo verificó su identidad (el código que le llegó por mail o WhatsApp). Debajo, en "Lo que escribió · sin verificar", ves los datos que tipeó el paciente (nombre, documento, teléfono, email), cada uno con un botón para copiarlo.
+
+<Frame>
+  ![Image](/images/image-469.png)
+</Frame>
+
+Si el documento coincide con una ficha que ya existía pero el paciente verificó el código desde un contacto que no figura en ella, la tarjeta te pide **Revisar identidad** antes de darle acceso al portal al paciente. Y si la ficha la creó la autoagenda de cero (paciente nuevo), te pide confirmar el documento con el botón **Marcar identidad verificada**. Ninguna de las dos revisiones bloquea la cita — son para que confirmes que la persona es quien dice ser antes de operar con su ficha.
 
 #### Información de la Cita
 
