@@ -215,6 +215,53 @@
         "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" }, { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } } ],
         "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Patient" } } } } } }, "404": { "$ref": "#/components/responses/NotFound" } }
       }
+    },
+    "/cashboxes": {
+      "get": {
+        "summary": "Listar cajas y bancos",
+        "description": "Cajas y bancos de la sede desde los que se puede registrar un gasto, con su divisa y los métodos de pago habilitados.",
+        "tags": ["Gastos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" } ],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Cashbox" } } } } } } },
+          "400": { "$ref": "#/components/responses/OrgRequired" },
+          "403": { "$ref": "#/components/responses/Forbidden" }
+        }
+      }
+    },
+    "/expense-categories": {
+      "get": {
+        "summary": "Listar categorías de gasto",
+        "description": "Categorías de gasto de la sede (Alquiler, Insumos, Sueldos...), con su divisa.",
+        "tags": ["Gastos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" } ],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/ExpenseCategory" } } } } } } },
+          "400": { "$ref": "#/components/responses/OrgRequired" },
+          "403": { "$ref": "#/components/responses/Forbidden" }
+        }
+      }
+    },
+    "/expenses": {
+      "post": {
+        "summary": "Registrar gasto",
+        "description": "Requiere permiso write. Registra un egreso que sale de una caja o banco y se imputa a una categoría de gasto, igual que en Tesorería → Gastos. La caja y la categoría tienen que ser de la misma divisa. Para adjuntar el comprobante, mandá el pedido como multipart/form-data.",
+        "tags": ["Gastos"],
+        "parameters": [ { "$ref": "#/components/parameters/CurrentOrgId" } ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ExpenseInput" } },
+            "multipart/form-data": { "schema": { "allOf": [ { "$ref": "#/components/schemas/ExpenseInput" }, { "type": "object", "properties": { "receipt": { "type": "string", "format": "binary", "description": "Comprobante: jpg, jpeg, png, webp, heic o pdf, hasta 20 MB" } } } ] } }
+          }
+        },
+        "responses": {
+          "201": { "description": "Creado", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Expense" } } } } } },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "403": { "$ref": "#/components/responses/Forbidden" },
+          "422": { "description": "Regla de negocio: CASHBOX_NOT_FOUND, EXPENSE_CATEGORY_NOT_FOUND, CURRENCY_MISMATCH, PAYMENT_METHOD_REQUIRED o PAYMENT_METHOD_INVALID", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
     }
   },
   "components": {
@@ -252,7 +299,11 @@
       "PaginatedDoctors": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Doctor" } }, "meta": { "$ref": "#/components/schemas/PageMeta" } } },
       "PaginatedAppointments": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Appointment" } }, "meta": { "$ref": "#/components/schemas/PageMeta" } } },
       "PaginatedPatients": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Patient" } }, "meta": { "$ref": "#/components/schemas/PageMeta" } } },
-      "PageMeta": { "type": "object", "properties": { "current_page": { "type": "integer" }, "per_page": { "type": "integer" }, "total": { "type": "integer" }, "last_page": { "type": "integer" } } }
+      "PageMeta": { "type": "object", "properties": { "current_page": { "type": "integer" }, "per_page": { "type": "integer" }, "total": { "type": "integer" }, "last_page": { "type": "integer" } } },
+      "Cashbox": { "type": "object", "properties": { "id": { "type": "integer", "example": 1 }, "name": { "type": "string", "example": "Banco ARS" }, "type": { "type": "string", "example": "Cajas y Bancos" }, "currency_id": { "type": "integer", "example": 1 }, "currency_code": { "type": "string", "example": "ARS" }, "payment_methods": { "type": "array", "items": { "type": "object", "properties": { "id": { "type": "integer", "example": 4 }, "name": { "type": "string", "example": "Transferencia bancaria" } } } } } },
+      "ExpenseCategory": { "type": "object", "properties": { "id": { "type": "integer", "example": 6 }, "name": { "type": "string", "example": "Servicios" }, "currency_id": { "type": "integer", "example": 1 }, "currency_code": { "type": "string", "example": "ARS" } } },
+      "ExpenseInput": { "type": "object", "required": ["cashbox_id", "expense_category_id", "amount", "date"], "properties": { "cashbox_id": { "type": "integer", "description": "ID de la caja o banco (GET /cashboxes)", "example": 1 }, "expense_category_id": { "type": "integer", "description": "ID de la categoría de gasto (GET /expense-categories). Misma divisa que la caja.", "example": 6 }, "amount": { "type": "number", "description": "Importe, mayor a 0, en la divisa de la caja", "example": 1500.5 }, "date": { "type": "string", "format": "date", "description": "Fecha del gasto (YYYY-MM-DD)", "example": "2026-09-30" }, "payment_method_id": { "type": "integer", "description": "Obligatorio si la caja tiene métodos de pago habilitados; tiene que ser uno de ellos", "example": 4 }, "comment": { "type": "string", "maxLength": 1000, "example": "Luz de septiembre" }, "cotization": { "type": "number", "description": "Opcional. Si no se manda, se usa la cotización del día de OCLÜ", "example": 1452.25 } } },
+      "Expense": { "type": "object", "properties": { "id": { "type": "integer", "example": 21 }, "date": { "type": "string", "format": "date", "example": "2026-09-30" }, "amount": { "type": "number", "example": 1500.5 }, "currency_code": { "type": "string", "example": "ARS" }, "cotization": { "type": "number", "example": 1452.25 }, "comment": { "type": "string", "nullable": true, "example": "Luz de septiembre" }, "has_receipt": { "type": "boolean", "example": false }, "expense_category": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" } } }, "cashbox": { "type": "object", "properties": { "id": { "type": "integer" }, "name": { "type": "string" } } }, "payment_method_id": { "type": "integer", "nullable": true, "example": 4 }, "created_at": { "type": "string", "example": "2026-09-30 16:02:18" } } }
     }
   }
 }
