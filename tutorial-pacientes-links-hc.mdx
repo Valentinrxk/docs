@@ -32,24 +32,28 @@ Es la forma más rápida de que un paciente se cargue solo antes de su primera v
 ### Cómo llegar
 
 1. En la barra lateral izquierda, hacé clic en el ícono de Pacientes.
-2. Hacé clic en **Agregar paciente** arriba a la derecha.
-3. En la pantalla de **Agregar paciente**, mirá arriba a la derecha: hay un botón **Link para registro**.
+2. Hacé clic en el botón negro **Agregar paciente** arriba a la derecha.
+3. En el dropdown que se abre, elegí **Compartir link**.
+
+<Frame>
+  ![Image](/images/image-470.png)
+</Frame>
 
 ### Pasos
 
-1. Hacé clic en **Link para registro**.
-2. OCLÜ te genera al instante un link único y un código QR que apuntan al mismo formulario público. Ambos están pensados para ser usados por **un solo paciente**.
+1. Se abre el modal **Compartir link de registro**, con dos modos: **Único** (de un solo uso, para un paciente puntual) o **Permanente** (reutilizable, para dejarlo publicado en redes o en el WhatsApp de la clínica).
+2. OCLÜ te muestra al instante el link y un código QR que apuntan al mismo formulario público.
 3. Compartí el link o el QR por el medio que prefieras:
    - **Copiar el link:** lo pegás en WhatsApp, mail, SMS o donde lo necesites.
-   - **Compartir el QR:** lo mostrás en pantalla para que el paciente lo escanee desde el celular en el momento, o lo descargás para imprimir y entregar como tarjeta.
+   - **Compartir el QR:** lo mostrás en pantalla para que el paciente lo escanee desde el celular en el momento.
 4. El paciente abre el link (o escanea el QR), completa el formulario (los mismos campos que el wizard manual: datos personales, contacto, domicilio, seguro médico) y envía.
 5. La ficha del paciente queda cargada automáticamente en tu listado de Pacientes, lista para asignarle citas.
 
 <Frame>
-  ![Image](/images/image-241.png)
+  ![Image](/images/image-471.png)
 </Frame>
 
-> **Importante:** el link y el QR son de **un solo uso** y tienen **caducidad limitada (24 a 48 horas)**. Sirven para un único paciente. Para cada paciente nuevo tenés que volver a este flujo y generar un link nuevo. Si el link caduca antes de que el paciente lo use, generalo otra vez.
+> **Importante:** en modo **Único**, el link vence a los **7 días** de generado si el paciente no lo usa. En modo **Permanente** no vence.
 
 ---
 
@@ -64,18 +68,18 @@ Cuando un paciente ya está cargado pero le faltan antecedentes médicos (o est�
 
 ### Pasos
 
-1. Hacé clic en **Actualizar datos**. Se abre un popover que dice **"Genera un link para que el paciente pueda actualizar sus antecedentes médicos"** y un botón **Generar Link**.
-2. Hacé clic en **Generar Link**.
+1. Hacé clic en **Actualizar datos**. Se abre la ventana **Pedirle los datos al paciente**, que dice "Generá un link para que el paciente revise sus datos personales y complete sus antecedentes desde su celular. Lo que cargue se guarda directo en su ficha", con el botón **Generar link**.
+2. Hacé clic en **Generar link**.
 3. OCLÜ crea un link único para ese paciente. Te muestra el link, un botón **Copiar** y un botón **Enviar por email**.
 4. Tenés dos formas de enviarlo:
    - **Copiá el link** y pegalo donde quieras (WhatsApp, SMS).
    - **Hacé clic en Enviar por email** para que OCLÜ se lo mande automáticamente al email cargado en su ficha.
-5. Cuando el paciente abre el link, completa los antecedentes (Historia Médica, Medicamentos, Antecedentes Odontológicos, Hábitos) y los datos quedan actualizados directamente en su ficha.
+5. Cuando el paciente abre el link, completa sus datos personales y los antecedentes (Historia Médica, Medicamentos, Antecedentes Odontológicos, Hábitos) y los datos quedan actualizados directamente en su ficha.
 
-> **Importante:** este link **vence a las 48 horas** de generado. Si el paciente no entra en ese plazo, vas a tener que volver a generarlo.
+> **Importante:** este link vence a las 48 horas de generado. Si el paciente no entra en ese plazo, vas a tener que volver a generarlo.
 
 <Frame>
-  ![Image](/images/image-242.png)
+  ![Image](/images/image-333.png)
 </Frame>
 
 ---
@@ -134,28 +138,22 @@ Crea una cuenta de usuario para el paciente con acceso permanente al portal. Per
 
 ### Pasos
 
-1. Hacé clic en **Link paciente**. Se abre una ventana **"Crear usuario"** que pide confirmación.
-2. Hacé clic en **Crear Usuario**.
-3. OCLÜ genera el usuario y le envía al paciente un email con sus credenciales de acceso (usuario y clave) al portal. Avisale al paciente que revise spam si no lo ve enseguida.
+1. Hacé clic en **Link paciente**. Se abre la ventana **Acceso del paciente**.
+2. Si el paciente todavía no tiene acceso, confirmá para crear el usuario. OCLÜ lo genera y le envía al paciente un email con sus credenciales de acceso (usuario y clave) al portal. Avisale al paciente que revise spam si no lo ve enseguida.
+3. Si el paciente ya tiene acceso, la misma ventana muestra un switch **Acceso al portal** (para habilitarlo o deshabilitarlo) y el botón **Reenviar** para volver a mandarle las credenciales.
 
 <Frame>
-  ![Image](/images/image-144.png)
+  ![Image](/images/image-504.png)
 </Frame>
 
 ### Después de crear el acceso: "Gestionar acceso"
 
-Una vez creado el usuario, el botón que antes decía **Link paciente** pasa a llamarse **Gestionar acceso**. Desde ahí podés:
+Una vez creado el usuario, el mismo botón **Link paciente** sigue siendo la puerta de entrada: al tocarlo de nuevo, la ventana **Acceso del paciente** ahora muestra el switch y las credenciales en lugar del pedido de confirmación. Desde ahí podés:
 
 - **Habilitar o deshabilitar** el acceso del paciente al portal.
 - **Reenviar las credenciales** por email si el paciente no las recuerda.
 
-Cada vez que habilitás o deshabilitás el acceso hay que guardar los cambios para que el sistema los aplique.
-
 > **Los accesos al portal cuentan contra un cupo del plan contratado.** Desde **Mi suscripción** (menú de tu nombre, en el encabezado) podés ver cuántos accesos ya diste y cuántos te quedan disponibles. Si se agota el cupo, podés deshabilitar el acceso de un paciente que no viene hace tiempo para habilitárselo a uno nuevo.
-
-<Frame>
-  ![Image](/images/image-145.png)
-</Frame>
 
 ### Qué ve el paciente en el portal
 
