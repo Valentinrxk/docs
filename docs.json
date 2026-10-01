@@ -77,16 +77,7 @@
               "index",
               "quickstart"
             ]
-          },
-          {
-            "group": "Guías Prácticas",
-            "pages": [
-              "essentials/markdown",
-              "essentials/navigation",
-              "essentials/settings"
-            ]
-          },
-          "untitled-page"
+          }
         ]
       },
       {
