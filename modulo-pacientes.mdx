@@ -8,92 +8,89 @@ El módulo Pacientes es un eje central de **OCLÜ**. Concentra toda la informaci
 
 ## Listado de pacientes
 
-Al ingresar al módulo, lo primero que ves es el listado completo de todos los pacientes registrados en la clínica. El listado muestra las siguientes columnas: ID, nombre completo, email, teléfono, número de historia clínica y un indicador de paciente incompleto.
+Al ingresar al módulo, lo primero que ves es el listado completo de todos los pacientes registrados en la clínica. Las columnas son: ID, Nombre (con foto), DNI, Contacto (email y teléfono), HC, Etiquetas y Acciones.
+
+<Frame>
+  ![Image](/images/image-474.png)
+</Frame>
 
 ### Buscador de Pacientes
 
-Permite buscar pacientes por nombre, email, teléfono, documento o número de historia clínica. El buscador filtra en tiempo real mientras escribís. Es el buscador más rápido y específico del sistema para encontrar pacientes — más ágil que el buscador general del encabezado.
+El campo **Buscar pacientes** filtra en tiempo real. Al lado tiene un dropdown **Todos los campos** que permite restringir la búsqueda a un campo puntual (Nombre, Teléfono, Email, Documento, Seguro médico, Historia clínica) en vez de buscar en todos a la vez.
 
 ### Filtro de pacientes incompletos
 
-Junto al buscador hay un botón que permite filtrar únicamente los pacientes que tienen información obligatoria sin completar. Un paciente aparece como incompleto cuando le faltan campos obligatorios en alguna de las siguientes secciones:
+Junto al buscador hay una pastilla **Incompletos** con un número — cuántos pacientes tienen al menos un dato obligatorio sin completar. Al tocarla, el listado se filtra para mostrar solo esos pacientes.
 
-En la solapa **Datos personales**:
+Es importante tener en cuenta que un paciente cargado desde la carga rápida del Calendario va a aparecer como incompleto, ya que en ese flujo solo se registran nombre, apellido y teléfono.
 
-- Isla de información personal: nombre, apellido, documento, fecha de nacimiento, género
-- Isla de contacto: prefijo y teléfono
-- Isla de domicilio: dirección, localidad, provincia y país
-- Isla de seguro médico: si se seleccionó una obra social o prepaga, el número de afiliado es obligatorio
+### Filtro de Etiquetas
 
-<Frame>
-  ![Image](/images/image-139.png)
-</Frame>
-
-Es importante tener en cuenta que un paciente cargado desde la carga rápida del Calendario va a aparecer como incompleto, ya que en ese flujo solo se registran nombre, apellido y teléfono. Para completar su información, se le puede enviar el **link de actualización de datos**.
+Un dropdown que lista todas las etiquetas configuradas por la clínica (por ejemplo "OMINT", "Armonización facial"). Elegí una o varias para ver solo los pacientes que las tienen asignadas.
 
 <Frame>
-  ![Image](/images/image-140.png)
+  ![Image](/images/image-475.png)
 </Frame>
 
 ### Agregar paciente manualmente
 
-Desde el botón correspondiente se abre el formulario completo de alta de paciente, donde se cargan todos los datos personales, de contacto y de domicilio. La historia clínica se completa posteriormente desde la ficha del paciente.
+El botón negro **Agregar paciente** abre un dropdown con dos opciones: **Manualmente** (el formulario de dos pasos que cargás vos) o **Compartir link** (un link y un código QR para que el paciente se registre solo desde su celular).
 
 <Frame>
-  ![Image](/images/image-141.png)
+  ![Image](/images/image-470.png)
 </Frame>
 
-### Importación masiva
-
-Permite importar información de forma masiva desde archivos Excel. El sistema cuenta con dos importaciones independientes: una para importar múltiples pacientes y otra para importar evoluciones de pacientes. Cada una tiene su propio archivo Excel con el formato correspondiente.
+El formulario manual tiene dos pasos — **Datos básicos** y **Datos adicionales** — con un indicador arriba que muestra en cuál estás parado.
 
 <Frame>
-  ![Image](/images/image-142.png)
+  ![Image](/images/image-472.png)
 </Frame>
 
-### **Envío masivo de link de actualización de datos**
+<Frame>
+  ![Image](/images/image-473.png)
+</Frame>
 
-Al hacer clic en esta opción se abre una ventana con un listado de todos los pacientes que tienen email cargado en el sistema. Cada uno tiene un checklist que permite seleccionarlos individualmente o seleccionar todos. Una vez elegidos los destinatarios, se envía el link para que cada paciente complete o actualice su información desde su propio dispositivo. Por debajo del listado aparece un resumen indicando cuántos pacientes no tienen email cargado y por lo tanto no pueden recibir el envío masivo. Esto permite tomar decisiones sobre cómo contactarlos para obtener ese dato.
+### Importar / Exportar
+
+Agrupa las acciones de carga y descarga masiva: **Importar pacientes** (sube varios pacientes de una vez desde Excel), **Importar evoluciones** (carga masiva de evoluciones para pacientes ya existentes) y **Exportar pacientes** (descarga el listado, con los filtros aplicados, a un archivo).
 
 <Frame>
-  ![Image](/images/image-143.png)
+  ![Image](/images/image-476.png)
+</Frame>
+
+### **Más acciones → Actualización de datos (envío masivo)**
+
+Abre el modal **Solicitar antecedentes**, con contadores de cuántos pacientes tienen email cargado y cuántos no. Podés seleccionar destinatarios buscándolos uno por uno, tildar "todos los pendientes con email" de una vez, o revisar la sección de pacientes sin email para contactarlos por otro medio. El botón **Enviar** manda un link individual de actualización a cada seleccionado — vence a las 48 horas.
+
+### Menú de atajos con click derecho
+
+Hacer clic derecho sobre cualquier fila abre un menú con accesos directos sin entrar a la ficha: abrir perfil, ver odontograma, ver multimedia, recibir pago, ver presupuestos, presupuesto exprés y gestionar etiquetas.
+
+<Frame>
+  ![Image](/images/image-478.png)
 </Frame>
 
 ---
 
 ### Encabezado de la ficha del paciente
 
-Al ingresar a la ficha de un paciente, el encabezado muestra la información más relevante de un vistazo:
+Al ingresar a la ficha de un paciente, el encabezado muestra la información más relevante de un vistazo: foto, nombre completo, edad, acceso directo a WhatsApp, un indicador si tiene deudas y el botón **Link paciente** para gestionar su acceso al portal.
 
-- **Foto** del paciente — al tocarla se abre un menú para ampliarla o cambiarla
-- **Nombre completo**
-- **Edad**
-- **Acceso directo a WhatsApp**
-- **Indicador de deuda** — muestra si el paciente tiene saldo pendiente
-- **Link paciente** — botón con ícono de enlace para gestionar el acceso del paciente al portal
+<Frame>
+  ![Image](/images/image-503.png)
+</Frame>
 
 ### Portal del paciente — gestión de acceso
 
-El botón de **link paciente** permite otorgarle al paciente acceso a su propio panel dentro de OCLÜ. Al hacer clic cuando el paciente todavía no tiene acceso, aparece una ventana que dice "Crear usuario" y solicita confirmación. Al confirmar, el sistema envía automáticamente un email al paciente con sus credenciales de acceso. \
+El botón **Link paciente** abre la ventana **Acceso del paciente**. Si el paciente todavía no tiene acceso, pide confirmación para crear el usuario; al confirmar, el sistema le envía un email con sus credenciales. Si ya tiene acceso, la misma ventana muestra un switch **Acceso al portal** (para habilitarlo o deshabilitarlo) y el botón **Reenviar** para volver a mandarle las credenciales por email.
+
 _Es importante avisarle al paciente que revise su correo, ya que las credenciales pueden llegar a la carpeta de_ **_spam_**_._
 
 <Frame>
-  ![Image](/images/image-144.png)
+  ![Image](/images/image-504.png)
 </Frame>
-
-Una vez creado el usuario, el botón pasa a llamarse **Gestionar acceso**. \
-Desde ahí podés:
-
-- **Habilitar o deshabilitar** el acceso del paciente al portal
-- **Reenviar las credenciales** por email si el paciente no las recuerda
-
-_Cada vez que habilitás o deshabilitás el acceso es necesario guardar los cambios para que el sistema los aplique._
 
 La cantidad de accesos de pacientes disponibles depende del plan contratado. Desde **Mi suscripción** en el encabezado del sistema podés ver cuántos accesos ya fueron otorgados y cuántos quedan disponibles. Si se agota el cupo, podés deshabilitar el acceso de un paciente que no viene hace tiempo para habilitárselo a uno nuevo.
-
-<Frame>
-  ![Image](/images/image-145.png)
-</Frame>
 
 ---
 
@@ -243,7 +240,7 @@ Las cuatro islas son:
 **Comentarios** Campo de texto libre para registrar información que no encaje en ninguno de los campos anteriores. Es opcional.
 
 <Frame>
-  ![Image](/images/image-153.png)
+  ![Image](/images/image-505.png)
 </Frame>
 
 **Alerta y comentarios** Además de las cuatro islas de antecedentes, esta tarjeta permite dejar una **alerta** — un aviso corto como una alergia o una condición médica a tener en cuenta — y **comentarios** generales sobre el paciente.
@@ -295,7 +292,7 @@ En ambos casos, el título de la planificación es obligatorio. Las planificacio
 **Es importante aclarar que el recorrido diagnóstico → planificación → presupuesto es una opción, no un requisito**. Se puede crear un presupuesto directamente sin haber generado diagnósticos ni planificaciones previas. El sistema es **flexible** y **se adapta** al flujo de trabajo de cada clínica y de cada caso clínico.
 
 <Frame>
-  ![Image](/images/image-154.png)
+  ![Image](/images/image-506.png)
 </Frame>
 
 **Enviarle la planificación al paciente** Cada planificación se puede enviar por mail al paciente, al titular de su grupo familiar o a otro email, para que pueda corroborar cómo va a ser su tratamiento antes de avanzar. El paciente recibe un PDF con los tratamientos propuestos, sin precios.
@@ -322,7 +319,7 @@ La visualización muestra cuatro vistas del maxilar:
 En cada vista y por cada pieza dental se pueden registrar: profundidad del surco, margen, nivel de inserción clínica, furca, supuración, sangrado y movilidad.
 
 <Frame>
-  ![Image](/images/image-155.png)
+  ![Image](/images/image-510.png)
 </Frame>
 
 **Índices periodontales** Con las mediciones cargadas, el sistema calcula automáticamente un resumen: cuántos sitios tienen bolsas de 5 mm o más, cuál es el mayor nivel de inserción clínica (NIC) registrado, y qué porcentaje de sitios sangra al sondaje.
@@ -342,10 +339,6 @@ Las evoluciones registran lo realizado en cada consulta. Se pueden cargar de tre
 - **Mejora con OCLÜ IA** — el texto de la evolución puede ser mejorado y enriquecido con asistencia de inteligencia artificial
 
 Las evoluciones se pueden exportar en formato PDF.
-
-<Frame>
-  ![Image](/images/image-156.png)
-</Frame>
 
 Al agregar una evolución se abre un formulario con fecha de la consulta, presupuesto asociado, la nota de la consulta con su editor de texto, adjuntar archivos — donde ahora se puede elegir la categoría al subirlos —, firma del profesional y del paciente, y la opción de programar un recordatorio de seguimiento para volver a citar al paciente.
 
@@ -367,7 +360,7 @@ Permite cargar y organizar archivos del paciente en los siguientes formatos:
 El espacio de almacenamiento de Multimedia es **ilimitado** para todos los usuarios.
 
 <Frame>
-  ![Image](/images/image-157.png)
+  ![Image](/images/image-480.png)
 </Frame>
 
 Subir archivos y subir un estudio DICOM son dos acciones separadas, cada una con su propia caja: una para las imágenes, videos, PDFs y modelos 3D de siempre, y otra pensada específicamente para el .zip o la carpeta que exporta el tomógrafo.
@@ -418,7 +411,7 @@ Desde el menú de acciones de cada receta podés:
 También hay un buscador para encontrar recetas por código.
 
 <Frame>
-  ![Image](/images/image-158.png)
+  ![Image](/images/image-507.png)
 </Frame>
 
 ### **Crear una receta de medicamentos** 
@@ -426,10 +419,6 @@ También hay un buscador para encontrar recetas por código.
 El proceso se divide en tres pasos:
 
 **Paso 1 — Seleccionar odontólogo** Se selecciona el profesional que va a firmar la receta. Es obligatorio y el odontólogo debe tener su perfil completo en el módulo Administrador — incluyendo matrícula nacional, matrícula provincial y especialidad — para poder ser seleccionado. Si le falta información, el sistema no va a permitir avanzar.
-
-<Frame>
-  ![Image](/images/image-159.png)
-</Frame>
 
 **Paso 2 — Agregar medicamentos** Desde un buscador de medicamentos se ingresan las primeras tres letras del nombre para obtener sugerencias del listado. Una vez seleccionado el medicamento, se completan los siguientes campos:
 
@@ -440,17 +429,9 @@ El proceso se divide en tres pasos:
 
 Una vez completados los campos, se hace clic en **Agregar medicamento**. El medicamento se suma a un listado y se puede continuar agregando más. La receta puede incluir varios medicamentos al mismo tiempo.
 
-<Frame>
-  ![Image](/images/image-160.png)
-</Frame>
-
 **Paso 3 — Datos de obra social** El sistema trae automáticamente la información de cobertura médica del paciente: obra social, prepaga o seguro médico, plan y número de afiliado. También se puede seleccionar **sin obra social** si el paciente es particular. El campo de diagnóstico general es opcional — si no se completa, el sistema usa un diagnóstico predeterminado legal. También se puede ingresar un código de diagnóstico en formato texto libre.
 
 Al crear la receta, el sistema abre automáticamente una ventana con tres opciones: **enviar por WhatsApp**, **enviar por email** o **no enviar**. Al mismo tiempo, abre el PDF en una nueva pestaña para su descarga. La ventana está pensada para que no se olvide de enviarle la receta al paciente antes de cerrar. Si no se quiere enviar en ese momento, se puede cerrar la ventana con la cruz.
-
-<Frame>
-  ![Image](/images/image-161.png)
-</Frame>
 
 **Formato del PDF** El PDF generado tiene el formato oficial válido en Argentina y no puede modificarse estéticamente. Incluye código de barras, encabezado con los datos de la clínica y del profesional, fecha de generación, información del paciente, medicamentos recetados con su posología, firma del profesional precargada desde su perfil, código QR y duplicado. Todo lo necesario para su validez legal.
 
@@ -467,17 +448,9 @@ Desde el menú de acciones de cada solicitud podés:
 - **Clonar** — duplica la solicitud para reutilizarla
 - **Eliminar**
 
-<Frame>
-  ![Image](/images/image-162.png)
-</Frame>
-
 **Crear una solicitud de estudios** El proceso también se divide en tres pasos:
 
 **Paso 1 — Seleccionar odontólogo** Igual que en recetas de medicamentos, el profesional debe tener su perfil completo para poder ser seleccionado.
-
-<Frame>
-  ![Image](/images/image-163.png)
-</Frame>
 
 **Paso 2 — Agregar estudios** Para cada estudio se completan los siguientes campos:
 
@@ -488,15 +461,7 @@ Desde el menú de acciones de cada solicitud podés:
 
 Al hacer clic en **Agregar estudio**, el estudio se suma al listado con un contador. Se pueden agregar múltiples estudios en una misma solicitud. Al finalizar la carga individual, hay un apartado de **datos generales** — diagnóstico, observaciones e indicaciones — que aplica de forma global a toda la solicitud. Es útil cuando no se quiere completar diagnóstico y observaciones estudio por estudio, sino dejar una indicación general para todos.
 
-<Frame>
-  ![Image](/images/image-164.png)
-</Frame>
-
 **Paso 3 — Datos de obra social** Igual que en recetas de medicamentos: el sistema trae la información de cobertura del paciente y se puede seleccionar sin obra social si corresponde.
-
-<Frame>
-  ![Image](/images/image-165.png)
-</Frame>
 
 Al crear la solicitud, el sistema abre la misma ventana de envío con las tres opciones: WhatsApp, email o no enviar, y abre el PDF en una nueva pestaña.
 
@@ -518,18 +483,16 @@ El estado de las firmas se indica de la siguiente forma:
 - Si ambas firmas están completas: **Ver documento**
 
 <Frame>
-  ![Image](/images/image-166.png)
+  ![Image](/images/image-508.png)
 </Frame>
+
+Además de **Crear consentimiento**, la solapa tiene un botón **Crear parte quirúrgico** para los procedimientos que requieren ese documento aparte.
 
 **Crear un consentimiento** Al hacer clic en el botón de agregar, se abre el formulario de creación con los siguientes campos:
 
 - **Template** — se selecciona la plantilla a utilizar. Al seleccionarla, se muestra el contenido completo del consentimiento, que se puede revisar y editar libremente antes de crearlo. Los campos dinámicos — como nombre del paciente, fecha u otros datos que se completan automáticamente — se configuran desde las plantillas en el módulo Administrador y no se pueden agregar desde acá, pero el texto libre sí se puede modificar.
 - **Doctor** — profesional responsable del consentimiento
 - **Presupuesto** — presupuesto asociado al tratamiento para el cual se solicita el consentimiento
-
-<Frame>
-  ![Image](/images/image-167.png)
-</Frame>
 
 **Firma del paciente** Al hacer clic en **Clic para firmar** en la columna de firma del paciente, se abre una ventana con un recuadro en blanco donde el paciente realiza su firma. Esta firma se realiza en la clínica, en el momento — no se envía el consentimiento para firmar de forma remota. Lo ideal es hacerlo desde una tablet, aunque también se puede firmar con el mouse desde una computadora. Si la firma no quedó bien, se puede limpiar y volver a hacer. Una vez conforme, se confirma con el botón **Firmar** y la firma queda registrada como completada.
 
@@ -538,10 +501,6 @@ El estado de las firmas se indica de la siguiente forma:
 Cuando ambas firmas están completas, el sistema genera automáticamente el PDF del consentimiento.
 
 **Formato del PDF** El documento incluye el encabezado de la clínica, el título "Consentimiento Informado", el nombre del profesional, la fecha de generación y el contenido completo del consentimiento. Al pie del documento aparecen la firma del paciente y la firma del doctor, y en el pie de página los datos de la clínica: domicilio, email y teléfono.
-
-<Frame>
-  ![Image](/images/image-168.png)
-</Frame>
 
 **Vista previa sin firmas** Desde el módulo **Administrador → Plantillas → Consentimientos**, en el menú de acciones de cada plantilla hay un botón para **Generar PDF**. Esto permite obtener una versión del consentimiento sin firmas y sin validez legal, pensada para compartírsela al paciente con anticipación para que lo lea antes de la consulta.
 
@@ -712,13 +671,13 @@ Desde ahí podés verlo, abrirlo en una pestaña nueva, enviarlo por mail o por 
 
 #### 4. Balance
 
-Muestra el estado financiero completo del paciente: deuda actual, pagos realizados y saldo a favor o pendiente.
-
-**Registro de pagos** Se pueden registrar pagos totales o parciales sobre un presupuesto aprobado. Los pagos parciales permiten que el paciente vaya abonando en cuotas o anticipos a medida que avanza el tratamiento.
+Muestra el estado financiero completo del paciente: tarjetas con lo que resta pagar y el saldo a favor (separado por moneda si el paciente opera en más de una), y un listado de **Movimientos** filtrable por **Todos**, **Cobros** o **Deudas**.
 
 <Frame>
-  ![Image](/images/image-170.png)
+  ![Image](/images/image-509.png)
 </Frame>
+
+**Registro de pagos** Se pueden registrar pagos totales o parciales sobre un presupuesto aprobado, con el botón **Cobrar**. Los pagos parciales permiten que el paciente vaya abonando en cuotas o anticipos a medida que avanza el tratamiento.
 
 Si el paciente tiene saldo a favor en más de una moneda, al momento de cobrar aparecen pastillas para elegir con cuál de los dos saldos se quiere cubrir el pago. Viene marcada por defecto la moneda que coincide con la del pago.
 
@@ -766,10 +725,6 @@ Al descargarlo, el PDF incluye la información completa del paciente organizada 
 - Pie de página con los datos de la clínica: domicilio, email y teléfono
 
 Para que el documento tenga validez legal, debe ser impreso y firmado de forma manuscrita por el profesional responsable.
-
-<Frame>
-  ![Image](/images/image-172.png)
-</Frame>
 
 ---
 
